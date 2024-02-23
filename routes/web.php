@@ -26,6 +26,8 @@ Route::post('/logout', 'Auth\LogoutController@store')->name('logout');
 Route::get('/register', 'Auth\RegisterController@index')->name('register');
 Route::post('/register', 'Auth\RegisterController@store');
 
-Route::get('personal', 'PersonalController@create')->name('personal.create');
-Route::post('personal', 'PersonalController@store')->name('personal.store');
-Route::put('/personal/{personal}', 'PersonalController@update')->name('personal.update');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('personal', 'PersonalController@create')->name('personal.create');
+    Route::post('personal', 'PersonalController@store')->name('personal.store');
+    Route::put('/personal/{personal}', 'PersonalController@update')->name('personal.update');
+});

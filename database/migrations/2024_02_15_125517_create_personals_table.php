@@ -28,10 +28,23 @@ class CreatePersonalsTable extends Migration
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->string('zip')->nullable();
+            $table->tinyInteger('address_changed')->default('0')->nullable();
             $table->tinyInteger('parent_claim')->default('0')->nullable();
             $table->tinyInteger('campaign_contribution')->default('0')->nullable();
             $table->tinyInteger('blind')->default('0')->nullable();
             $table->tinyInteger('passed_away')->default('0')->nullable();
+            $table->tinyInteger('filing_status')->default('0')->nullable();
+            $table->string('spouse_first_name')->nullable();
+            $table->string('spouse_last_name')->nullable();
+            $table->string('spouse_occupation')->nullable();
+            $table->date('spouse_dob')->nullable();
+            $table->string('spouse_middle_initial')->nullable();
+            $table->string('spouse_suffix')->nullable();
+            $table->string('spouse_ssn')->nullable();
+            $table->tinyInteger('spouse_parent_claim')->default('0')->nullable();
+            $table->tinyInteger('spouse_campaign_contribution')->default('0')->nullable();
+            $table->tinyInteger('spouse_blind')->default('0')->nullable();
+            $table->tinyInteger('spouse_passed_away')->default('0')->nullable();
             $table->timestamps();
         });
     }

@@ -158,12 +158,14 @@
                                 <div class="row px-3">
                                     <div class="col-xl-6">
                                         <a class="dropdown-item" href="#"><b>Common Income</b></a>
-                                        <a class="dropdown-item" href="{{ route('personal.create') }}"><i class="fa fa-check text-success"
+                                        <a class="dropdown-item" href="{{ route('personal.create', ['info' => 'basic']) }}"><i class="fa fa-check text-success"
                                                 aria-hidden="true"></i>&nbsp;&nbsp;Taxpayer Information</a>
-                                        <a class="dropdown-item" href="#"><i class="fa fa-check text-success"
-                                                aria-hidden="true"></i>&nbsp;&nbsp;Another action</a>
-                                        <a class="dropdown-item" href="#"><i class="fa fa-check text-success"
-                                                aria-hidden="true"></i>&nbsp;&nbsp;Something else here</a>
+                                        <a class="dropdown-item" href="{{ route('personal.create', ['info' => 'filing-status']) }}"><i class="fa fa-check text-success"
+                                                aria-hidden="true"></i>&nbsp;&nbsp;Filing Status</a>
+                                        @if (auth()->user()->personals()->first() && in_array(auth()->user()->personals()->first()->filing_status, [2, 3]))
+                                            <a class="dropdown-item" href="{{ route('personal.create', ['info' => 'spouse']) }}"><i class="fa fa-check text-success"
+                                                    aria-hidden="true"></i>&nbsp;&nbsp;Spouse Information</a>
+                                        @endif
                                     </div>
                                     <div class="col-xl-6">
                                         <a class="dropdown-item" href="#"><i class="fa fa-check text-success"
