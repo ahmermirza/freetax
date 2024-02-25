@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Personal | ' . env('APP_NAME'))
+@section('title', 'Personal')
 
 @section('content')
     <div class="d-flex justify-content-center p-4">

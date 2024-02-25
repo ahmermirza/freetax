@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Personal | ' . env('APP_NAME'))
+@section('title', 'Personal')
 
 @section('content')
     <div class="d-flex justify-content-center p-4">
@@ -43,7 +43,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- <div class="row d-lg-flex justify-content-center">
+                            <div class="row d-lg-flex justify-content-center">
                                 <div class="col-lg-8">
                                     <div class="has-danger form-check form-check-inline mb-3">
                                         <input class="form-check-input me-4 h4" name="filing_status" type="radio"
@@ -52,7 +52,7 @@
                                         <label class="h6 pt-2">Married Filing Separately</label>
                                     </div>
                                 </div>
-                            </div> --}}
+                            </div>
                             <div class="row d-lg-flex justify-content-center">
                                 <div class="col-lg-8">
                                     @error('filing_status')
@@ -60,6 +60,7 @@
                                     @enderror
                                 </div>
                             </div>
+                            <br>
                         </div>
                         <div class="tile-footer d-flex justify-content-between px-lg-5 mx-lg-5 mb-lg-4">
                             <a class="btn btn-white border border-primary rounded-0" href="#"><i

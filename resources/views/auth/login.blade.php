@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
-@push('title')
-    Login | Live Notes
-@endpush
+@section('title', 'Login')
 
 @section('content')
     <div class="pt-5 d-flex justify-content-center w-100">

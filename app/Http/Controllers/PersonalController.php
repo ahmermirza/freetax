@@ -8,16 +8,6 @@ use Illuminate\Http\Request;
 class PersonalController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -135,17 +125,6 @@ class PersonalController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Personal  $personal
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Personal $personal)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -238,16 +217,5 @@ class PersonalController extends Controller
             ]);
             return redirect()->route('personal.create', ['info' => 'spouse']);
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Personal  $personal
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Personal $personal)
-    {
-        //
     }
 }

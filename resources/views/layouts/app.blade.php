@@ -23,6 +23,10 @@
             background-image: none;
         }
 
+        .custom-index-card {
+            border: 1px solid #e2e5e9;
+            box-shadow: 1px 2px 3px -2px rgba(33,47,69,.25);
+        }
         @media (max-width: 1200px) {
             .bg-light-custom {
                 background-color: rgba(248, 249, 250, 1)
@@ -81,11 +85,7 @@
     </style>
     {{-- @stack('custom-styling') --}}
     <title>
-        @if (Route::currentRouteName() == 'personal.create')
-            @yield('title')
-        @elseif (Route::currentRouteName() == 'user.posts')
-            @stack('title')
-        @endif
+        @yield('title') | {{ env('APP_NAME') }}
     </title>
 </head>
 
@@ -162,10 +162,12 @@
                                                 aria-hidden="true"></i>&nbsp;&nbsp;Taxpayer Information</a>
                                         <a class="dropdown-item" href="{{ route('personal.create', ['info' => 'filing-status']) }}"><i class="fa fa-check text-success"
                                                 aria-hidden="true"></i>&nbsp;&nbsp;Filing Status</a>
-                                        @if (auth()->user()->personals()->first() && in_array(auth()->user()->personals()->first()->filing_status, [2, 3]))
+                                        @if (auth()->user() && (auth()->user()->personals->count()) && in_array(auth()->user()->personals()->first()->filing_status, [2, 3]))
                                             <a class="dropdown-item" href="{{ route('personal.create', ['info' => 'spouse']) }}"><i class="fa fa-check text-success"
                                                     aria-hidden="true"></i>&nbsp;&nbsp;Spouse Information</a>
                                         @endif
+                                        <a class="dropdown-item" href="{{ route('dependents.index') }}"><i class="fa fa-check text-success"
+                                            aria-hidden="true"></i>&nbsp;&nbsp;Dependents</a>
                                     </div>
                                     <div class="col-xl-6">
                                         <a class="dropdown-item" href="#"><i class="fa fa-check text-success"

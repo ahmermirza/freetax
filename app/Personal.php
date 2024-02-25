@@ -12,4 +12,9 @@ class Personal extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function dependents()
+    {
+        return $this->hasMany(Dependent::class);
+    }
 }
