@@ -93,32 +93,31 @@ class PersonalController extends Controller
 
         elseif ($request->has('info') && $request->info == 'spouse') {
             $this->validate($request, [
-                'spouse_first_name' => 'required',
-                'spouse_last_name' => 'required',
-                'spouse_occupation' => 'required',
-                'spouse_dob' => 'required',
-                'spouse_middle_initial' => 'required',
-                'spouse_suffix' => 'required',
-                'spouse_ssn' => 'required',
-                'spouse_parent_claim' => 'required',
-                'spouse_campaign_contribution' => 'required',
-                'spouse_blind' => 'required',
-                'spouse_passed_away' => 'required',
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'occupation' => 'required',
+                'dob' => 'required',
+                'middle_initial' => 'required',
+                'suffix' => 'required',
+                'ssn' => 'required',
+                'parent_claim' => 'required',
+                'campaign_contribution' => 'required',
+                'blind' => 'required',
+                'passed_away' => 'required',
             ]);
 
-
-            auth()->user()->personals()->create([
-                'spouse_first_name' => $request->spouse_first_name,
-                'spouse_last_name' => $request->spouse_last_name,
-                'spouse_occupation' => $request->spouse_occupation,
-                'spouse_dob' => $request->spouse_dob,
-                'spouse_middle_initial' => $request->spouse_middle_initial,
-                'spouse_suffix' => $request->spouse_suffix,
-                'spouse_ssn' => $request->spouse_ssn,
-                'spouse_parent_claim' => $request->spouse_parent_claim,
-                'spouse_campaign_contribution' => $request->spouse_campaign_contribution,
-                'spouse_blind' => $request->spouse_blind,
-                'spouse_passed_away' => $request->spouse_passed_away,
+            auth()->user()->personals()->first()->spouse()->create([
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'occupation' => $request->occupation,
+                'dob' => $request->dob,
+                'middle_initial' => $request->middle_initial,
+                'suffix' => $request->suffix,
+                'ssn' => $request->ssn,
+                'parent_claim' => $request->parent_claim,
+                'campaign_contribution' => $request->campaign_contribution,
+                'blind' => $request->blind,
+                'passed_away' => $request->passed_away,
             ]);
             return redirect()->route('personal.create', ['info' => 'spouse']);
         }
@@ -189,31 +188,31 @@ class PersonalController extends Controller
         elseif ($request->has('info') && $request->info == 'spouse') {
             
             $this->validate($request, [
-                'spouse_first_name' => 'required',
-                'spouse_last_name' => 'required',
-                'spouse_occupation' => 'required',
-                'spouse_dob' => 'required',
-                'spouse_middle_initial' => 'required',
-                'spouse_suffix' => 'required',
-                'spouse_ssn' => 'required',
-                'spouse_parent_claim' => 'required',
-                'spouse_campaign_contribution' => 'required',
-                'spouse_blind' => 'required',
-                'spouse_passed_away' => 'required',
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'occupation' => 'required',
+                'dob' => 'required',
+                'middle_initial' => 'required',
+                'suffix' => 'required',
+                'ssn' => 'required',
+                'parent_claim' => 'required',
+                'campaign_contribution' => 'required',
+                'blind' => 'required',
+                'passed_away' => 'required',
             ]);
 
-            $personal->update([
-                'spouse_first_name' => $request->spouse_first_name,
-                'spouse_last_name' => $request->spouse_last_name,
-                'spouse_occupation' => $request->spouse_occupation,
-                'spouse_dob' => $request->spouse_dob,
-                'spouse_middle_initial' => $request->spouse_middle_initial,
-                'spouse_suffix' => $request->spouse_suffix,
-                'spouse_ssn' => $request->spouse_ssn,
-                'spouse_parent_claim' => $request->spouse_parent_claim,
-                'spouse_campaign_contribution' => $request->spouse_campaign_contribution,
-                'spouse_blind' => $request->spouse_blind,
-                'spouse_passed_away' => $request->spouse_passed_away,
+            $personal->spouse()->update([
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'occupation' => $request->occupation,
+                'dob' => $request->dob,
+                'middle_initial' => $request->middle_initial,
+                'suffix' => $request->suffix,
+                'ssn' => $request->ssn,
+                'parent_claim' => $request->parent_claim,
+                'campaign_contribution' => $request->campaign_contribution,
+                'blind' => $request->blind,
+                'passed_away' => $request->passed_away,
             ]);
             return redirect()->route('personal.create', ['info' => 'spouse']);
         }

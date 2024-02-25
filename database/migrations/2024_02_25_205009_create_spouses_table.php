@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePersonalsTable extends Migration
+class CreateSpousesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreatePersonalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('personals', function (Blueprint $table) {
+        Schema::create('spouses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('personal_id')->constrained()->onDelete('cascade');
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('occupation')->nullable();
@@ -23,17 +23,10 @@ class CreatePersonalsTable extends Migration
             $table->string('middle_initial')->nullable();
             $table->string('suffix')->nullable();
             $table->string('ssn')->nullable();
-            $table->string('street_address')->nullable();
-            $table->string('apt_no')->nullable();
-            $table->string('city')->nullable();
-            $table->string('state')->nullable();
-            $table->string('zip')->nullable();
-            $table->tinyInteger('address_changed')->default('0')->nullable();
             $table->tinyInteger('parent_claim')->default('0')->nullable();
             $table->tinyInteger('campaign_contribution')->default('0')->nullable();
             $table->tinyInteger('blind')->default('0')->nullable();
             $table->tinyInteger('passed_away')->default('0')->nullable();
-            $table->tinyInteger('filing_status')->default('0')->nullable();
             $table->timestamps();
         });
     }
@@ -45,6 +38,6 @@ class CreatePersonalsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('personals');
+        Schema::dropIfExists('spouses');
     }
 }

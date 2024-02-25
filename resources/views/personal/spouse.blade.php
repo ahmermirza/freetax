@@ -14,7 +14,7 @@
                 <div class="col-lg-12">
                     <div class="tile">
                         <h2 class="tile-title d-lg-flex justify-content-center h2"><b>Tell us about your spouse</b></h2>
-                        @if (isset($personal))
+                        @if (isset($personal->spouse))
                             <form action="{{ route('personal.update', $personal) }}" method="post">
                                 @method('PUT')
                             @else
@@ -40,107 +40,107 @@
                             </div> --}}
                             <div class="row d-lg-flex justify-content-center">
                                 <div class="col-lg-5">
-                                    <label class="form-form-label h6" for="spouse_first_name">First Name: <i
+                                    <label class="form-form-label h6" for="first_name">First Name: <i
                                             class="fa-regular fa-circle-question text-primary"></i></label>
                                     <div class="has-danger input-group mb-3">
                                         <input
-                                            class="form-control @error('spouse_first_name') is-invalid @enderror border-end-0"
-                                            name="spouse_first_name" type="text"
-                                            value="{{ old('spouse_first_name', $personal ? $personal->spouse_first_name : '') }}"
-                                            aria-label="spouse_first_name" aria-describedby="basic-addon2"><span
-                                            class="input-group-text bg-transparent text-secondary @error('spouse_first_name') is-invalid border border-danger text-danger @enderror border-start-0"
+                                            class="form-control @error('first_name') is-invalid @enderror border-end-0"
+                                            name="first_name" type="text"
+                                            value="{{ old('first_name', ($personal && $personal->spouse) ? $personal->spouse->first_name : '') }}"
+                                            aria-label="first_name" aria-describedby="basic-addon2"><span
+                                            class="input-group-text bg-transparent text-secondary @error('first_name') is-invalid border border-danger text-danger @enderror border-start-0"
                                             id="basic-addon2"><i class="fa-solid fa-address-card"></i></span>
                                     </div>
-                                    @error('spouse_first_name')
+                                    @error('first_name')
                                         <div class="form-control-feedback text-danger pb-2">{{ $message }}</div>
                                     @enderror
-                                    <label class="form-form-label h6" for="spouse_last_name">Last Name: <i
+                                    <label class="form-form-label h6" for="last_name">Last Name: <i
                                             class="fa-regular fa-circle-question text-primary"></i></label>
                                     <div class="has-danger input-group mb-3">
-                                        <input class="form-control @error('spouse_last_name') is-invalid @enderror"
-                                            name="spouse_last_name" type="text"
-                                            value="{{ old('spouse_last_name', $personal ? $personal->spouse_last_name : '') }}"
-                                            aria-label="spouse_last_name" aria-describedby="basic-addon2">
+                                        <input class="form-control @error('last_name') is-invalid @enderror"
+                                            name="last_name" type="text"
+                                            value="{{ old('last_name', ($personal && $personal->spouse) ? $personal->spouse->last_name : '') }}"
+                                            aria-label="last_name" aria-describedby="basic-addon2">
                                     </div>
-                                    @error('spouse_last_name')
+                                    @error('last_name')
                                         <div class="form-control-feedback text-danger pb-2">{{ $message }}</div>
                                     @enderror
-                                    <label class="form-form-label h6" for="spouse_occupation">Occupation: <i
+                                    <label class="form-form-label h6" for="occupation">Occupation: <i
                                             class="fa-regular fa-circle-question text-primary"></i></label>
                                     <div class="has-danger input-group mb-3">
-                                        <input class="form-control @error('spouse_occupation') is-invalid @enderror"
-                                            name="spouse_occupation" type="text"
-                                            value="{{ old('spouse_occupation', $personal ? $personal->spouse_occupation : '') }}"
-                                            aria-label="spouse_occupation" aria-describedby="basic-addon2">
+                                        <input class="form-control @error('occupation') is-invalid @enderror"
+                                            name="occupation" type="text"
+                                            value="{{ old('occupation', ($personal && $personal->spouse) ? $personal->spouse->occupation : '') }}"
+                                            aria-label="occupation" aria-describedby="basic-addon2">
                                     </div>
-                                    @error('spouse_occupation')
+                                    @error('occupation')
                                         <div class="form-control-feedback text-danger pb-2">{{ $message }}</div>
                                     @enderror
-                                    <label class="form-form-label h6" for="spouse_dob">Date of Birth: <i
+                                    <label class="form-form-label h6" for="dob">Date of Birth: <i
                                             class="fa-regular fa-circle-question text-primary"></i></label>
                                     <div class="has-danger input-group mb-3">
-                                        <input class="form-control @error('spouse_dob') is-invalid @enderror"
-                                            name="spouse_dob" type="date"
-                                            value="{{ old('spouse_dob', $personal ? $personal->spouse_dob : '') }}"
-                                            aria-label="spouse_dob" aria-describedby="basic-addon2">
+                                        <input class="form-control @error('dob') is-invalid @enderror"
+                                            name="dob" type="date"
+                                            value="{{ old('dob', ($personal && $personal->spouse) ? $personal->spouse->dob : '') }}"
+                                            aria-label="dob" aria-describedby="basic-addon2">
                                     </div>
-                                    @error('spouse_dob')
+                                    @error('dob')
                                         <div class="form-control-feedback text-danger pb-2">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col-lg-4">
-                                    <label class="form-form-label h6" for="spouse_middle_initial">Middle Initial:</label>
+                                    <label class="form-form-label h6" for="middle_initial">Middle Initial:</label>
                                     <div class="has-danger input-group mb-3">
-                                        <input class="form-control @error('spouse_middle_initial') is-invalid @enderror"
-                                            name="spouse_middle_initial" type="text"
-                                            value="{{ old('spouse_middle_initial', $personal ? $personal->spouse_middle_initial : '') }}"
-                                            aria-label="spouse_middle_initial" aria-describedby="basic-addon2">
+                                        <input class="form-control @error('middle_initial') is-invalid @enderror"
+                                            name="middle_initial" type="text"
+                                            value="{{ old('middle_initial', ($personal && $personal->spouse) ? $personal->spouse->middle_initial : '') }}"
+                                            aria-label="middle_initial" aria-describedby="basic-addon2">
                                     </div>
-                                    @error('spouse_middle_initial')
+                                    @error('middle_initial')
                                         <div class="form-control-feedback text-danger pb-2">{{ $message }}</div>
                                     @enderror
-                                    <label class="form-form-label h6" for="spouse_suffix">Jr., Sr., III:</label>
+                                    <label class="form-form-label h6" for="suffix">Jr., Sr., III:</label>
                                     <div class="has-danger input-group mb-3">
-                                        <select class="form-select @error('spouse_suffix') is-invalid @enderror"
-                                            name="spouse_suffix" aria-label="spouse_suffix" aria-describedby="basic-addon2">
+                                        <select class="form-select @error('suffix') is-invalid @enderror"
+                                            name="suffix" aria-label="suffix" aria-describedby="basic-addon2">
                                             <option value=""
-                                                {{ $personal && $personal->spouse_suffix == null ? 'selected' : '' }}>
+                                                {{ ($personal->spouse && $personal->spouse->suffix == null) ? 'selected' : '' }}>
                                             </option>
                                             <option value="jr"
-                                                {{ $personal && $personal->spouse_suffix == 'jr' ? 'selected' : '' }}>Jr.
+                                                {{ ($personal->spouse && $personal->spouse->suffix == 'jr') ? 'selected' : '' }}>Jr.
                                             </option>
                                             <option value="sr"
-                                                {{ $personal && $personal->spouse_suffix == 'sr' ? 'selected' : '' }}>Sr.
+                                                {{ ($personal->spouse && $personal->spouse->suffix == 'sr') ? 'selected' : '' }}>Sr.
                                             </option>
                                             <option value="ii"
-                                                {{ $personal && $personal->spouse_suffix == 'ii' ? 'selected' : '' }}>II
+                                                {{ ($personal->spouse && $personal->spouse->suffix == 'ii') ? 'selected' : '' }}>II
                                             </option>
                                             <option value="iii"
-                                                {{ $personal && $personal->spouse_suffix == 'iii' ? 'selected' : '' }}>III
+                                                {{ ($personal->spouse && $personal->spouse->suffix == 'iii') ? 'selected' : '' }}>III
                                             </option>
                                             <option value="iv"
-                                                {{ $personal && $personal->spouse_suffix == 'iv' ? 'selected' : '' }}>IV
+                                                {{ ($personal->spouse && $personal->spouse->suffix == 'iv') ? 'selected' : '' }}>IV
                                             </option>
                                             <option value="v"
-                                                {{ $personal && $personal->spouse_suffix == 'v' ? 'selected' : '' }}>V
+                                                {{ ($personal->spouse && $personal->spouse->suffix == 'v') ? 'selected' : '' }}>V
                                             </option>
                                             <option value="vi"
-                                                {{ $personal && $personal->spouse_suffix == 'vi' ? 'selected' : '' }}>VI
+                                                {{ ($personal->spouse && $personal->spouse->suffix == 'vi') ? 'selected' : '' }}>VI
                                             </option>
                                         </select>
                                     </div>
-                                    @error('spouse_suffix')
+                                    @error('suffix')
                                         <div class="form-control-feedback text-danger pb-2">{{ $message }}</div>
                                     @enderror
-                                    <label class="form-form-label h6" for="spouse_ssn">Social Security Number: <i
+                                    <label class="form-form-label h6" for="ssn">Social Security Number: <i
                                             class="fa-regular fa-circle-question text-primary"></i></label>
                                     <div class="has-danger input-group mb-3">
-                                        <input class="form-control @error('spouse_ssn') is-invalid @enderror"
-                                            name="spouse_ssn" type="text"
-                                            value="{{ old('spouse_ssn', $personal ? $personal->spouse_ssn : '') }}"
-                                            aria-label="spouse_ssn" aria-describedby="basic-addon2">
+                                        <input class="form-control @error('ssn') is-invalid @enderror"
+                                            name="ssn" type="text"
+                                            value="{{ old('ssn', ($personal && $personal->spouse) ? $personal->spouse->ssn : '') }}"
+                                            aria-label="ssn" aria-describedby="basic-addon2">
                                     </div>
-                                    @error('spouse_ssn')
+                                    @error('ssn')
                                         <div class="form-control-feedback text-danger pb-2">{{ $message }}</div>
                                     @enderror
                                 </div>
@@ -153,20 +153,20 @@
                                 </div>
                                 <div class="col-lg-10">
                                     <div class="has-danger form-check form-check-inline mb-3">
-                                        <input class="form-check-input me-3 h4" name="spouse_parent_claim" type="radio"
-                                            value="1" aria-label="spouse_parent_claim"
+                                        <input class="form-check-input me-3 h4" name="parent_claim" type="radio"
+                                            value="1" aria-label="parent_claim"
                                             aria-describedby="basic-addon2"
-                                            {{ $personal && $personal->spouse_parent_claim == 1 ? 'checked' : '' }}>
+                                            {{ ($personal->spouse && $personal->spouse->parent_claim == 1) ? 'checked' : '' }}>
                                         <label class="form-check-label h6 pt-2"
-                                            for="spouse_parent_claim"><b>Yes</b></label>
+                                            for="parent_claim"><b>Yes</b></label>
                                     </div>
                                     <div class="has-danger form-check form-check-inline mb-3">
-                                        <input class="form-check-input me-3 h4" name="spouse_parent_claim" type="radio"
-                                            value="0" aria-label="spouse_parent_claim"
+                                        <input class="form-check-input me-3 h4" name="parent_claim" type="radio"
+                                            value="0" aria-label="parent_claim"
                                             aria-describedby="basic-addon2"
-                                            {{ $personal && $personal->spouse_parent_claim == 0 ? 'checked' : '' }}>
+                                            {{ ($personal->spouse && $personal->spouse->parent_claim == 0) ? 'checked' : '' }}>
                                         <label class="form-check-label h6 pt-2"
-                                            for="spouse_parent_claim"><b>No</b></label>&nbsp;&nbsp;&nbsp;
+                                            for="parent_claim"><b>No</b></label>&nbsp;&nbsp;&nbsp;
                                         <label class="h6 pt-2">Can a parent (or somebody else) claim your spouse as a
                                             dependent on their return?</label>
                                     </div>
@@ -180,20 +180,20 @@
                                 </div>
                                 <div class="col-lg-10">
                                     <div class="has-danger form-check form-check-inline mb-3">
-                                        <input class="form-check-input me-3 h4" name="spouse_campaign_contribution"
-                                            type="radio" value="1" aria-label="spouse_campaign_contribution"
+                                        <input class="form-check-input me-3 h4" name="campaign_contribution"
+                                            type="radio" value="1" aria-label="campaign_contribution"
                                             aria-describedby="basic-addon2"
-                                            {{ $personal && $personal->spouse_campaign_contribution == 1 ? 'checked' : '' }}>
+                                            {{ ($personal->spouse && $personal->spouse->campaign_contribution == 1) ? 'checked' : '' }}>
                                         <label class="form-check-label h6 pt-2"
-                                            for="spouse_campaign_contribution"><b>Yes</b></label>
+                                            for="campaign_contribution"><b>Yes</b></label>
                                     </div>
                                     <div class="has-danger form-check form-check-inline mb-3">
-                                        <input class="form-check-input me-3 h4" name="spouse_campaign_contribution"
-                                            type="radio" value="0" aria-label="spouse_campaign_contribution"
+                                        <input class="form-check-input me-3 h4" name="campaign_contribution"
+                                            type="radio" value="0" aria-label="campaign_contribution"
                                             aria-describedby="basic-addon2"
-                                            {{ $personal && $personal->spouse_campaign_contribution == 0 ? 'checked' : '' }}>
+                                            {{ ($personal->spouse && $personal->spouse->campaign_contribution == 0) ? 'checked' : '' }}>
                                         <label class="form-check-label h6 pt-2"
-                                            for="spouse_campaign_contribution"><b>No</b></label>&nbsp;&nbsp;&nbsp;
+                                            for="campaign_contribution"><b>No</b></label>&nbsp;&nbsp;&nbsp;
                                         <label class="h6 pt-2">Does your spouse want to contribute $3 to the
                                             Presidential Eelection Campaign Fund? <i
                                                 class="fa-regular fa-circle-question text-primary"></i></label>
@@ -206,17 +206,17 @@
                             <div class="row d-lg-flex justify-content-center">
                                 <div class="col-lg-8">
                                     <div class="has-danger form-check form-check-inline mb-3">
-                                        <input class="form-check-input me-3 h4" name="spouse_blind" type="radio"
-                                            value="1" aria-label="spouse_blind" aria-describedby="basic-addon2"
-                                            {{ $personal && $personal->spouse_blind == 1 ? 'checked' : '' }}>
-                                        <label class="form-check-label h6 pt-2" for="spouse_blind"><b>Yes</b></label>
+                                        <input class="form-check-input me-3 h4" name="blind" type="radio"
+                                            value="1" aria-label="blind" aria-describedby="basic-addon2"
+                                            {{ ($personal->spouse && $personal->spouse->blind == 1) ? 'checked' : '' }}>
+                                        <label class="form-check-label h6 pt-2" for="blind"><b>Yes</b></label>
                                     </div>
                                     <div class="has-danger form-check form-check-inline mb-3">
-                                        <input class="form-check-input me-3 h4" name="spouse_blind" type="radio"
-                                            value="0" aria-label="spouse_blind" aria-describedby="basic-addon2"
-                                            {{ $personal && $personal->spouse_blind == 0 ? 'checked' : '' }}>
+                                        <input class="form-check-input me-3 h4" name="blind" type="radio"
+                                            value="0" aria-label="blind" aria-describedby="basic-addon2"
+                                            {{ ($personal->spouse && $personal->spouse->blind == 0) ? 'checked' : '' }}>
                                         <label class="form-check-label h6 pt-2"
-                                            for="spouse_blind"><b>No</b></label>&nbsp;&nbsp;&nbsp;
+                                            for="blind"><b>No</b></label>&nbsp;&nbsp;&nbsp;
                                         <label class="h6 pt-2">Is your spouse legally blind? <i
                                                 class="fa-regular fa-circle-question text-primary"></i></label>
                                     </div>
@@ -230,20 +230,20 @@
                             <div class="row d-lg-flex justify-content-center">
                                 <div class="col-lg-8">
                                     <div class="has-danger form-check form-check-inline mb-3">
-                                        <input class="form-check-input me-3 h4" name="spouse_passed_away" type="radio"
-                                            value="1" aria-label="spouse_passed_away"
+                                        <input class="form-check-input me-3 h4" name="passed_away" type="radio"
+                                            value="1" aria-label="passed_away"
                                             aria-describedby="basic-addon2"
-                                            {{ $personal && $personal->spouse_passed_away == 1 ? 'checked' : '' }}>
+                                            {{ ($personal->spouse && $personal->spouse->passed_away == 1) ? 'checked' : '' }}>
                                         <label class="form-check-label h6 pt-2"
-                                            for="spouse_passed_away"><b>Yes</b></label>
+                                            for="passed_away"><b>Yes</b></label>
                                     </div>
                                     <div class="has-danger form-check form-check-inline mb-3">
-                                        <input class="form-check-input me-3 h4" name="spouse_passed_away" type="radio"
-                                            value="0" aria-label="spouse_passed_away"
+                                        <input class="form-check-input me-3 h4" name="passed_away" type="radio"
+                                            value="0" aria-label="passed_away"
                                             aria-describedby="basic-addon2"
-                                            {{ $personal && $personal->spouse_passed_away == 0 ? 'checked' : '' }}>
+                                            {{ ($personal->spouse && $personal->spouse->passed_away == 0) ? 'checked' : '' }}>
                                         <label class="form-check-label h6 pt-2"
-                                            for="spouse_passed_away"><b>No</b></label>&nbsp;&nbsp;&nbsp;
+                                            for="passed_away"><b>No</b></label>&nbsp;&nbsp;&nbsp;
                                         <label class="h6 pt-2">Has your spouse passed away before the
                                             filing of this tax return? <i
                                                 class="fa-regular fa-circle-question text-primary"></i></label>

@@ -32,4 +32,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/personal/{personal}', 'PersonalController@update')->name('personal.update');
 
     Route::resource('/personal/dependents', 'DependentController');
+
+    Route::get('income', 'IncomeController@create')->name('income.create');
+    Route::post('income', 'IncomeController@store')->name('income.store');
+    Route::put('/income/{income}', 'IncomeController@update')->name('income.update');
 });
