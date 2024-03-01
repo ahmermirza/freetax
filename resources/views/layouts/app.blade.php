@@ -181,12 +181,14 @@
                             <ul class="dropdown-menu dropdown-menu-white dropdown-menu-custom-width round-3 mt-3 shadow bg-white"
                                 aria-labelledby="navbarDarkDropdownMenuLink">
                                 <li><a class="dropdown-item" href="#"><b>Common Income</b></a></li>
-                                <li><a class="dropdown-item" href="{{ route('income.create', ['info' => 'w-2']) }}"><i class="fa fa-check text-success"
+                                <li><a class="dropdown-item" href="{{ route('w-2.index') }}"><i class="fa fa-check text-success"
                                             aria-hidden="true"></i>&nbsp;&nbsp;Wages (W-2)</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-check text-success"
-                                            aria-hidden="true"></i>&nbsp;&nbsp;Another action</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-check text-success"
-                                            aria-hidden="true"></i>&nbsp;&nbsp;Something else here</a></li>
+                                <li><a class="dropdown-item" href="{{ route('1099-g.index') }}"><i class="fa fa-check text-success"
+                                            aria-hidden="true"></i>&nbsp;&nbsp;Unemployment Compensation (1099-G)</a></li>
+                                <li><a class="dropdown-item" href="{{ route('income.ssb') }}"><i class="fa fa-check text-success"
+                                            aria-hidden="true"></i>&nbsp;&nbsp;Social Security Benefits (SSA-1099)</a></li>
+                                <li><a class="dropdown-item" href="{{ route('income.crypto') }}"><i class="fa fa-check text-success"
+                                    aria-hidden="true"></i>&nbsp;&nbsp;Cryptocurrency</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown nav-custom-item px-lg-1 px-xl-1" role="button">
@@ -280,11 +282,11 @@
     <main class="app-content">
         @yield('content')
         <!-- Modal -->
-        <div class="modal fade modal-dialog-scrollable" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+        <div class="modal fade" id="privacy_modal" tabindex="-1" aria-labelledby="privacy_modal_label" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Privacy</h5>
+                        <h5 class="modal-title" id="privacy_modal_label">Privacy</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -545,13 +547,12 @@
         <div class="box flex-fill page-footer">
             <div class="box d-flex flex-column justify-content-center align-items-center">
                 <div id="privacy" class="mb-3" style="font-size: 12px;">
-                    <a class="mx-4" href="#" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal3"><b>Privacy</b></a>
-                    <a class="mx-4" href="#"><b>Security</b></a>
-                    <a class="mx-4" href="#"
+                    <a class="mx-4" href="#" style="text-decoration: none;" data-bs-toggle="modal" data-bs-target="#privacy_modal"><b>Privacy</b></a>
+                    <a class="mx-4" href="#" style="text-decoration: none;"><b>Security</b></a>
+                    <a class="mx-4" href="#" style="text-decoration: none;"
                         aria-label="Click here to open accessibility options"><b>Accessibility</b></a>
                 </div>
-                <div id="copywrite" class="">© 2002-2024 FreeTax - All Rights Reserved
+                <div id="copywrite" style="font-size: small;">© 2002-2024 FreeTax - All Rights Reserved
                 </div>
             </div>
         </div>
