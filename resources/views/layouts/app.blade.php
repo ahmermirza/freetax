@@ -183,7 +183,7 @@
                                 <li><a class="dropdown-item" href="#"><b>Common Income</b></a></li>
                                 <li><a class="dropdown-item" href="{{ route('w-2.index') }}"><i class="fa fa-check text-success"
                                             aria-hidden="true"></i>&nbsp;&nbsp;Wages (W-2)</a></li>
-                                <li><a class="dropdown-item" href="{{ route('1099-g.index') }}"><i class="fa fa-check text-success"
+                                <li><a class="dropdown-item" href="{{ route('form1099-g.index') }}"><i class="fa fa-check text-success"
                                             aria-hidden="true"></i>&nbsp;&nbsp;Unemployment Compensation (1099-G)</a></li>
                                 <li><a class="dropdown-item" href="{{ route('income.ssb') }}"><i class="fa fa-check text-success"
                                             aria-hidden="true"></i>&nbsp;&nbsp;Social Security Benefits (SSA-1099)</a></li>

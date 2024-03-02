@@ -81,4 +81,9 @@ class MortgageInterestController extends Controller
     {
         //
     }
+
+    public function estateTaxes ()
+    {
+        return view('deductions_credits.mortgage_interest.estate-taxes');
+    }
 }

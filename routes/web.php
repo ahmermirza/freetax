@@ -31,7 +31,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/personal', 'PersonalController@create')->name('personal.create');
     Route::post('/personal', 'PersonalController@store')->name('personal.store');
     Route::put('/personal/{personal}', 'PersonalController@update')->name('personal.update');
-
     Route::resource('/personal/dependents', 'DependentController');
 
     Route::get('/income', 'IncomeController@create')->name('income.create');
@@ -42,9 +41,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/income/social-security-benefits', 'IncomeController@socialSecurityBenefits')->name('income.ssb');
     Route::get('/income/crypto', 'IncomeController@crypto')->name('income.crypto');
 
-    Route::get('/income/w-2/minister-clergy-wages', 'W2Controller@ministerClergyWages')->name('w-2.mcw');
     Route::resource('/income/w-2', 'W2Controller');
-    Route::resource('/deductions-credits/mortgage-interest', 'MortgageInterestController');
+    Route::get('/income/w-2/minister-clergy-wages', 'W2Controller@ministerClergyWages')->name('w-2.mcw');
+    Route::resource('/income/form1099-g', 'Form1099GController');
 
-    Route::resource('/income/1099-g', 'Form1099GController');
+    Route::resource('/deductions-credits/mortgage-interest', 'MortgageInterestController');
+    Route::get('/deductions-credits/estate-taxes', 'MortgageInterestController@estateTaxes');
+    Route::get('/deductions-credits/charities-donations', 'DeductionsCreditsController@charitiesDonations');
+    Route::get('/deductions-credits/medical-expenses', 'DeductionsCreditsController@medicalExpenses');
+    Route::get('/deductions-credits/taxes', 'DeductionsCreditsController@taxes');
 });
