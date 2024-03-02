@@ -44,6 +44,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/income/w-2/minister-clergy-wages', 'W2Controller@ministerClergyWages')->name('w-2.mcw');
     Route::resource('/income/w-2', 'W2Controller');
+    Route::resource('/deductions-credits/mortgage-interest', 'MortgageInterestController');
 
     Route::resource('/income/1099-g', 'Form1099GController');
 });
