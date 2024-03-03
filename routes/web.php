@@ -42,6 +42,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/income/crypto', 'IncomeController@crypto')->name('income.crypto');
 
     Route::resource('/income/w-2', 'W2Controller');
+    Route::get('/income/w-2/create/spouse', 'W2Controller@create')->name('spouse.w-2.create');
     Route::get('/income/w-2/minister-clergy-wages', 'W2Controller@ministerClergyWages')->name('w-2.mcw');
     Route::resource('/income/form1099-g', 'Form1099GController');
 

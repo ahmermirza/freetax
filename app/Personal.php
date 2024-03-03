@@ -22,4 +22,9 @@ class Personal extends Model
     {
         return $this->hasOne(Spouse::class);
     }
+
+    public function w2()
+    {
+        return $this->hasMany(W2::class);
+    }
 }

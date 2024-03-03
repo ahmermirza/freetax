@@ -166,7 +166,7 @@ class PersonalController extends Controller
                 'apt_no' => $request->apt_no,
                 'city' => $request->city,
                 'state' => $request->state,
-                'zip' => $request->zip,
+                'zip' => json_encode(['zip1' => $request->zip1, 'zip2' => $request->zip2]),
                 'address_changed' => $request->address_changed,
                 'parent_claim' => $request->parent_claim,
                 'campaign_contribution' => $request->campaign_contribution,

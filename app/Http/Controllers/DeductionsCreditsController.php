@@ -18,6 +18,6 @@ class DeductionsCreditsController extends Controller
 
     public function taxes ()
     {
-        return view('deductions_credits.estgfgfate-taxes');
+        return view('deductions_credits.taxes');
     }
 }

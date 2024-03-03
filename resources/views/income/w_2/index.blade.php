@@ -34,11 +34,10 @@
                                         </div>
                                         <div class="pt-2">
                                             <a href="{{ route('w-2.create') }}" class="btn btn-primary rounded-0 btn-sm"><b
-                                                    class="text-white"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add a
+                                                    class="text-white"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add
                                                     W-2 for yourself</b></a>&nbsp;
-                                            <a href="{{ route('w-2.create') }}" class="btn btn-primary rounded-0 btn-sm"><b
-                                                    class="text-white"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add a
-                                                    your spouse</b></a>
+                                            <a href="{{ route('spouse.w-2.create') }}" class="btn btn-primary rounded-0 btn-sm"><b
+                                                    class="text-white"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add W-2 for your spouse</b></a>
                                         </div>
                                     </div>
                                 </div>
@@ -85,7 +84,7 @@
                             <a class="btn btn-white border border-primary rounded-0" href="#"><i
                                     class="me-2 mb-5"></i><b class="text-primary">Previous Page</b></a>&nbsp;&nbsp;&nbsp;
                             <button class="btn btn-primary rounded-0" type="submit"><i class="me-2"></i><b
-                                    class="text-light">No, Continue</b></button>
+                                    class="text-light">Continue</b></button>
                         </div>
                     </div>
                 </div>

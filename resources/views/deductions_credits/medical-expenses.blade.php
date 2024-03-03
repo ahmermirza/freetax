@@ -43,7 +43,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <div class="row ps-5">
+                            <div class="row ps-5 pb-3">
                                 <div class="col-lg-11 ps-0 h6">
                                     You can only deduct medical expenses for you, your spouse, and any dependents on Schedule A if those expenses are greater than 7.5% of your adjusted gross income.
                                 </div>
@@ -52,32 +52,15 @@
                                 <div class="col-lg-11 ps-0 h6">
                                     <b>Enter all of your medical expenses that you directly paid</b> and we'll calculate the amount you can deduct. The IRS definition of a medical expense is very broad and includes expenses to diagnose, cure, mitigate, treat or prevent disease.
                                 </div>
-                            </div><br><br>
+                            </div><br>
                             <div class="row ps-5">
                                 <div class="col-lg-12 ps-0">
-                                    <b>Cash Donations</b>
-                                </div>
-                            </div>
-                            <div class="row ps-5">
-                                <div class="col-lg-11">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input h4" type="radio" name="refinanced" id="foreign-yes"
-                                            value="yes">
-                                        <label class="form-check-label h6 pt-2" for="foreign-yes"><b>Yes</b></label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input h4" type="radio" name="refinanced" id="foreign-no"
-                                            value="no" checked>
-                                        <label class="form-check-label h6 pt-2" for="foreign-no"><b>No</b></label>
-                                    </div>
-                                    <label class="form-form-label h6 form-check-inline" for="employer-address">Would you
-                                        like to enter your total amount of cash donations?</label>
+                                    <b>Health Insurance Premiums</b>
                                 </div>
                             </div>
                             <div class="row ps-5">
                                 <div class="col-lg-8 ps-0">
-                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter any charitable
-                                        donations you made by cash or check during 2023:</label>
+                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter any health insurance premiums you paid out of pocket during 2023:</label>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="has-danger input-group mb-3">
@@ -91,34 +74,17 @@
                                 </div>
                             </div>
                             <br>
-                            <span class="d-flex justify-content-center ps-4 pe-5 mx-2 me-5">
+                            <span class="d-flex justify-content-center ps-4 pe-5 mx-2 me-4">
                                 <hr class="mb-3 mt-0 w-100">
                             </span>
                             <div class="row ps-5">
                                 <div class="col-lg-12 ps-0">
-                                    <b>Noncash Donations</b>
-                                </div>
-                            </div>
-                            <div class="row ps-5">
-                                <div class="col-lg-11">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input h4" type="radio" name="refinanced" id="foreign-yes"
-                                            value="yes">
-                                        <label class="form-check-label h6 pt-2" for="foreign-yes"><b>Yes</b></label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input h4" type="radio" name="refinanced" id="foreign-no"
-                                            value="no" checked>
-                                        <label class="form-check-label h6 pt-2" for="foreign-no"><b>No</b></label>
-                                    </div>
-                                    <label class="form-form-label h6 form-check-inline" for="employer-address">Did you
-                                        contribute more than $500 worth of noncash donations?</label>
+                                    <b>Long-Term Care Insurance Premiums</b>
                                 </div>
                             </div>
                             <div class="row ps-5">
                                 <div class="col-lg-8 ps-0">
-                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter the amount of
-                                        any noncash donations you made during 2023:</label>
+                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter the allowable amount of any long-term care insurance premiums you paid during 2023:</label>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="has-danger input-group mb-3">
@@ -132,92 +98,162 @@
                                 </div>
                             </div>
                             <br>
-                            <span class="d-flex justify-content-center ps-4 pe-5 mx-2 me-5">
+                            <span class="d-flex justify-content-center ps-4 pe-5 mx-2 me-4">
                                 <hr class="mb-3 mt-0 w-100">
                             </span>
                             <div class="row ps-5">
                                 <div class="col-lg-12 ps-0">
-                                    <b>Donation Carryover from Prior Years</b>
-                                </div>
-                            </div>
-                            <div class="row ps-5 pb-3">
-                                <div class="col-lg-11">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input h4" type="radio" name="refinanced"
-                                            id="foreign-yes" value="yes">
-                                        <label class="form-check-label h6 pt-2" for="foreign-yes"><b>Yes</b></label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input h4" type="radio" name="refinanced"
-                                            id="foreign-no" value="no" checked>
-                                        <label class="form-check-label h6 pt-2" for="foreign-no"><b>No</b></label>
-                                    </div>
-                                    <label class="form-form-label h6 form-check-inline" for="employer-address">Do you have
-                                        any donation carryovers from prior years?</label>
-                                </div>
-                            </div>
-                            <span class="d-flex justify-content-center ps-4 pe-5 mx-2 me-5">
-                                <hr class="mb-3 mt-0 w-100">
-                            </span>
-                            <div class="row ps-5">
-                                <div class="col-lg-12 ps-0">
-                                    <b>Mileage for Volunteer Work</b>
-                                </div>
-                            </div>
-                            <div class="row ps-5">
-                                <div class="col-lg-11">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input h4" type="radio" name="refinanced"
-                                            id="foreign-yes" value="yes">
-                                        <label class="form-check-label h6 pt-2" for="foreign-yes"><b>Yes</b></label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input h4" type="radio" name="refinanced"
-                                            id="foreign-no" value="no" checked>
-                                        <label class="form-check-label h6 pt-2" for="foreign-no"><b>No</b></label>
-                                    </div>
-                                    <label class="form-form-label h6 form-check-inline" for="employer-address">Do you want
-                                        to use the standard mileage rate to deduct your vehicle expenses related to
-                                        volunteer work?</label>
+                                    <b>Doctor Expenses</b>
                                 </div>
                             </div>
                             <div class="row ps-5">
                                 <div class="col-lg-8 ps-0">
-                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter the amount
-                                        of miles you drove during 2023 while volunteering for a charity:</label>
+                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter the amount of medical expenses you paid to doctors, dentists, chiropractors, psychiatrists, and other medical professionals:</label>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="has-danger input-group mb-3">
-                                        <input class="form-control @error('first_name') is-invalid @enderror"
-                                            name="first_name" type="text" value="" aria-label="first_name"
+                                        <span
+                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                            id="basic-addon2"><b>$</b></span><input
+                                            class="form-control @error('first_name') is-invalid @enderror" name="first_name"
+                                            type="text" value="" aria-label="first_name"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
                             </div>
                             <br>
-                            <span class="d-flex justify-content-center ps-4 pe-5 mx-2 me-5">
+                            <span class="d-flex justify-content-center ps-4 pe-5 mx-2 me-4">
                                 <hr class="mb-3 mt-0 w-100">
                             </span>
                             <div class="row ps-5">
                                 <div class="col-lg-12 ps-0">
-                                    <b>Out-Of-Pocket Expenses</b>
+                                    <b>Hospital Expenses</b>
                                 </div>
                             </div>
                             <div class="row ps-5">
-                                <div class="col-lg-11">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input h4" type="radio" name="refinanced"
-                                            id="foreign-yes" value="yes">
-                                        <label class="form-check-label h6 pt-2" for="foreign-yes"><b>Yes</b></label>
+                                <div class="col-lg-8 ps-0">
+                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter the amount of medical expenses you paid directly to a hospital:</label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="has-danger input-group mb-3">
+                                        <span
+                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                            id="basic-addon2"><b>$</b></span><input
+                                            class="form-control @error('first_name') is-invalid @enderror" name="first_name"
+                                            type="text" value="" aria-label="first_name"
+                                            aria-describedby="basic-addon2">
                                     </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input h4" type="radio" name="refinanced"
-                                            id="foreign-no" value="no" checked>
-                                        <label class="form-check-label h6 pt-2" for="foreign-no"><b>No</b></label>
+                                </div>
+                            </div>
+                            <br>
+                            <span class="d-flex justify-content-center ps-4 pe-5 mx-2 me-4">
+                                <hr class="mb-3 mt-0 w-100">
+                            </span>
+                            <div class="row ps-5">
+                                <div class="col-lg-12 ps-0">
+                                    <b>Prescriptions</b>
+                                </div>
+                            </div>
+                            <div class="row ps-5">
+                                <div class="col-lg-8 ps-0">
+                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter the total amount you spent during 2023 for prescription medications:</label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="has-danger input-group mb-3">
+                                        <span
+                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                            id="basic-addon2"><b>$</b></span><input
+                                            class="form-control @error('first_name') is-invalid @enderror" name="first_name"
+                                            type="text" value="" aria-label="first_name"
+                                            aria-describedby="basic-addon2">
                                     </div>
-                                    <label class="form-form-label h6 form-check-inline" for="employer-address">Did you pay
-                                        any out-of-pocket expenses while giving service to a charitable
-                                        organization?</label>
+                                </div>
+                            </div>
+                            <br>
+                            <span class="d-flex justify-content-center ps-4 pe-5 mx-2 me-4">
+                                <hr class="mb-3 mt-0 w-100">
+                            </span>
+                            <div class="row ps-5">
+                                <div class="col-lg-12 ps-0">
+                                    <b>Medical Equipment / Supplies</b>
+                                </div>
+                            </div>
+                            <div class="row ps-5">
+                                <div class="col-lg-8 ps-0">
+                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter the amount you paid for medical equipment and supplies:</label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="has-danger input-group mb-3">
+                                        <span
+                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                            id="basic-addon2"><b>$</b></span><input
+                                            class="form-control @error('first_name') is-invalid @enderror" name="first_name"
+                                            type="text" value="" aria-label="first_name"
+                                            aria-describedby="basic-addon2">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row ps-5">
+                                <div class="col-lg-8 ps-0">
+                                    <label class="form-input-label text-secondary small" for="campaign_contribution">This would include money spent for eyeglasses, contact lenses, wheelchair, etc.</label>
+                                </div>
+                            </div>
+                            <br>
+                            <span class="d-flex justify-content-center ps-4 pe-5 mx-2 me-4">
+                                <hr class="mb-3 mt-0 w-100">
+                            </span>
+                            <div class="row ps-5">
+                                <div class="col-lg-12 ps-0">
+                                    <b>Travel Expenses</b>
+                                </div>
+                            </div>
+                            <div class="row ps-5">
+                                <div class="col-lg-8 ps-0">
+                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter the total amount of any travel expenses you paid receiving or undergoing medical procedures:</label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="has-danger input-group mb-3">
+                                        <span
+                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                            id="basic-addon2"><b>$</b></span><input
+                                            class="form-control @error('first_name') is-invalid @enderror" name="first_name"
+                                            type="text" value="" aria-label="first_name"
+                                            aria-describedby="basic-addon2">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row ps-5">
+                                <div class="col-lg-8 ps-0">
+                                    <label class="form-input-label text-secondary small" for="campaign_contribution">There's a limit of $50 per night for lodging. For automobile expenses, you can either deduct 22.0 cents per mile or deduct your actual automobile expenses for medical travel.</label>
+                                </div>
+                            </div>
+                            <br>
+                            <span class="d-flex justify-content-center ps-4 pe-5 mx-2 me-4">
+                                <hr class="mb-3 mt-0 w-100">
+                            </span>
+                            <div class="row ps-5">
+                                <div class="col-lg-12 ps-0">
+                                    <b>Other Medical Expenses</b>
+                                </div>
+                            </div>
+                            <div class="row ps-5">
+                                <div class="col-lg-8 ps-0">
+                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter the amount of any other medical expenses you paid during 2023:</label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="has-danger input-group mb-3">
+                                        <span
+                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                            id="basic-addon2"><b>$</b></span><input
+                                            class="form-control @error('first_name') is-invalid @enderror" name="first_name"
+                                            type="text" value="" aria-label="first_name"
+                                            aria-describedby="basic-addon2">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row ps-5">
+                                <div class="col-lg-8 ps-0">
+                                    <label class="form-input-label text-secondary small" for="campaign_contribution">The definition of deductible medical expenses is very broad. Examples of miscellaneous deductible medical expenses include: acupuncture, alcoholism treatment, ambulance costs, birth control pills, child birth classes, dentures, drug addiction treatment, dyslexia reading programs and tutors, guide dogs, insulin, laboratory fees, nursing home if for medical treatment, and physical therapy. This is just a sample; there are many other medical deductions available.</label>
                                 </div>
                             </div>
                             <br><br>
