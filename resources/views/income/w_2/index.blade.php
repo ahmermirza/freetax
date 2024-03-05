@@ -15,14 +15,6 @@
                     <div class="tile">
                         <h2 class="tile-title d-lg-flex justify-content-center h2"><b>Your Wages (Form W-2)</b></h2>
                         <div class="tile-body">
-                            {{-- <div class="row ps-5">
-                                <div class="col-lg-1">
-                                </div>
-                                <div class="col-lg-9">
-                                    <div class="py-4 h6">Listed below are dependents or qualifying children you've already
-                                        entered.</div>
-                                </div>
-                            </div> --}}
                             <br><br>
                             <div class="row d-flex justify-content-center">
                                 <div class="col-lg-10">
@@ -47,17 +39,17 @@
                                     <div class="px-4 pe-5 custom-index-card">
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                {{-- @foreach ($dependents as $dependent) --}}
+                                                @foreach ($w_2s as $w_2)
                                                 <div class="d-flex justify-content-between m-4 mx-2 ms-0">
                                                     <div class="d-flex justify-content-between w-50">
-                                                        <span class="h6">{{ 'emp' . ' ' . 'name' }}</span>
-                                                        <span class="h6">{{ 'you first name' }}</span>
-                                                        <span class="h6">{{ '$23' }}</span>
+                                                        <span class="h6">{{ $w_2->emp_name }}</span>
+                                                        <span class="h6">{{ $w_2->personal_id ? $w_2->personal->first_name : $w_2->spouse->first_name }}</span>
+                                                        <span class="h6">${{ $w_2->federal_wages }}</span>
                                                     </div>
                                                     <div>
-                                                        <a href="{{ route('w-2.edit', '1') }}"
+                                                        <a href="{{ route('w-2.edit', $w_2) }}"
                                                             class="h6 pe-5">Edit</a>&nbsp;&nbsp;
-                                                        <form action="{{ route('w-2.destroy', '1') }}" method="POST"
+                                                        <form action="{{ route('w-2.destroy', $w_2) }}" method="POST"
                                                             class="d-inline">
                                                             @csrf
                                                             @method('DELETE')
@@ -67,7 +59,7 @@
                                                     </div>
                                                     </form>
                                                 </div>
-                                                {{-- @endforeach --}}
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>
