@@ -27,4 +27,14 @@ class Personal extends Model
     {
         return $this->hasMany(W2::class);
     }
+
+    public function mortgage_interest()
+    {
+        return $this->hasMany(MortgageInterest::class);
+    }
+
+    public function deductions_credit()
+    {
+        return $this->hasOne(DeductionsCredits::class);
+    }
 }

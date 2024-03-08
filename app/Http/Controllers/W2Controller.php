@@ -14,7 +14,7 @@ class W2Controller extends Controller
      */
     public function index()
     {
-        $w_2s = W2::with('spouse', 'personal')->get();
+        $w_2s = auth()->user()->personals()->first()->W2()->with('spouse', 'personal')->get();
         return view('income.w_2.index', compact('w_2s'));
     }
 
@@ -95,7 +95,7 @@ class W2Controller extends Controller
                 ]);
             }
         } else {
-            auth()->user()->personals()->first()->w2()->create([
+            $w_2 = auth()->user()->personals()->first()->w2()->create([
                 'ein' => $request->ein,
                 'emp_name' => $request->emp_name,
                 'emp_foreign_address' => $request->emp_foreign_address,
@@ -135,7 +135,7 @@ class W2Controller extends Controller
             ]);
         }
 
-        return redirect()->route('w-2.index');
+        return redirect()->route('w-2.mcw.edit', $w_2);
     }
 
     /**
@@ -218,7 +218,7 @@ class W2Controller extends Controller
                 'w2_corrected' => $request->w2_corrected,
         ]);
 
-        return redirect()->route('w-2.index');
+        return redirect()->route('w-2.mcw.edit', $w_2);
     }
 
     /**
@@ -233,8 +233,22 @@ class W2Controller extends Controller
         return back();
     }
 
-    public function ministerClergyWages()
+    public function ministerClergyWages(W2 $w_2)
     {
-        return view('income.w_2.mcw');
+        if(auth()->user()->personals()->first()->id == $w_2->personal_id || (auth()->user()->personals()->first()->spouse && auth()->user()->personals()->first()->spouse->id == $w_2->spouse_id)) {
+            return view('income.w_2.mcw', compact('w_2'));
+        }
+        else {
+            abort(404);
+        }
+    }
+
+    public function ministerClergyWagesUpdate(Request $request, W2 $w_2)
+    {
+        $w_2->update([
+            'clergy_member' => $request->clergy_member,
+            'contribute' => $request->contribute,
+        ]);
+        return redirect()->route('w-2.index');
     }
 }

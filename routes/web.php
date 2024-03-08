@@ -41,14 +41,26 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/income/social-security-benefits', 'IncomeController@socialSecurityBenefits')->name('income.ssb');
     Route::get('/income/crypto', 'IncomeController@crypto')->name('income.crypto');
 
+    Route::get('/income/w-2/{w_2}/clergy-wages', 'W2Controller@ministerClergyWages')->name('w-2.mcw.edit');
+    Route::put('/income/w-2/{w_2}/clergy-wages', 'W2Controller@ministerClergyWagesUpdate')->name('w-2.mcw.update');
     Route::resource('/income/w-2', 'W2Controller');
     Route::get('/income/w-2/create/spouse', 'W2Controller@create')->name('spouse.w-2.create');
-    Route::get('/income/w-2/minister-clergy-wages', 'W2Controller@ministerClergyWages')->name('w-2.mcw');
     Route::resource('/income/form1099-g', 'Form1099GController');
 
+
+    Route::get('/deductions-credits/mortgage-interest/{mortgage_interest}/estate-taxes', 'MortgageInterestController@estateTaxes')->name('mortgage-interest.estate.edit');
+    Route::put('/deductions-credits/mortgage-interest/{mortgage_interest}/estate-taxes', 'MortgageInterestController@estateTaxesUpdate')->name('mortgage-interest.estate.update');
     Route::resource('/deductions-credits/mortgage-interest', 'MortgageInterestController');
-    Route::get('/deductions-credits/estate-taxes', 'MortgageInterestController@estateTaxes');
-    Route::get('/deductions-credits/charities-donations', 'DeductionsCreditsController@charitiesDonations');
-    Route::get('/deductions-credits/medical-expenses', 'DeductionsCreditsController@medicalExpenses');
-    Route::get('/deductions-credits/taxes', 'DeductionsCreditsController@taxes');
+
+    Route::get('/deductions-credits/charities-donations', 'DeductionsCreditsController@charitiesDonationsCreate')->name('charities-donations.create');
+    Route::post('/deductions-credits/charities-donations', 'DeductionsCreditsController@charitiesDonationsStore')->name('charities-donations.store');
+    Route::put('/deductions-credits/{deductions_credit}/charities-donations', 'DeductionsCreditsController@charitiesDonationsUpdate')->name('charities-donations.update');
+
+    Route::get('/deductions-credits/medical-expenses', 'DeductionsCreditsController@medicalExpensesCreate')->name('medical-expenses.create');
+    Route::post('/deductions-credits/medical-expenses', 'DeductionsCreditsController@medicalExpensesStore')->name('medical-expenses.store');
+    Route::put('/deductions-credits/{deductions_credit}/medical-expenses', 'DeductionsCreditsController@medicalExpensesUpdate')->name('medical-expenses.update');
+
+    Route::get('/deductions-credits/taxes', 'DeductionsCreditsController@taxesCreate')->name('taxes.create');
+    Route::post('/deductions-credits/taxes', 'DeductionsCreditsController@taxesStore')->name('taxes.store');
+    Route::put('/deductions-credits/{deductions_credit}/taxes', 'DeductionsCreditsController@taxesUpdate')->name('taxes.update');
 });

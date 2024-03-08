@@ -14,8 +14,9 @@
                 <div class="col-lg-12">
                     <div class="tile">
                         <h2 class="tile-title d-lg-flex justify-content-center h2"><b>How much did you pay in real estate taxes?</b></h2>
-                        <form action="{{ route('w-2.store') }}" method="post">
+                        <form action="{{ route('mortgage-interest.estate.update', $mortgage_interest) }}" method="post">
                             <div class="tile-body">
+                                @method('PUT')
                                 @csrf
                                 <div class="container">
                                     <br>
@@ -26,10 +27,10 @@
                                         <div class="col-lg-3">
                                             <div class="has-danger input-group mb-3">
                                                 <span
-                                                    class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                                    class="input-group-text bg-disabled text-dark @error('estate_tax') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                     id="basic-addon2"><b>$</b></span><input
-                                                    class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-                                                    type="text" value="" aria-label="first_name"
+                                                    class="form-control @error('estate_tax') is-invalid @enderror" name="estate_tax"
+                                                    type="text" value="" aria-label="estate_tax"
                                                     aria-describedby="basic-addon2">
                                             </div>
                                         </div>

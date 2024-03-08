@@ -45,6 +45,8 @@ class W2 extends Model
         'employer_locality',
         'w2_standard',
         'w2_corrected',
+        'clergy_member',
+        'contribute',
     ];
 
     public function personal()

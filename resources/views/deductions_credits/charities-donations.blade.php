@@ -15,11 +15,11 @@
                     <div class="tile">
                         <h2 class="tile-title d-lg-flex justify-content-center h2"><b>Tell us about your donations to
                                 charities</b></h2>
-                        @if (isset($income))
-                        <form action="{{ route('income.update', $income) }}" method="post">
-                                @method('PUT')
+                        @if (isset($deductions_credit))
+                        <form action="{{ route('charities-donations.update', $deductions_credit) }}" method="post">
+                            @method('PUT')
                         @else
-                        <form action="{{ route('income.store') }}" method="post">
+                        <form action="{{ route('charities-donations.store') }}" method="post">
                         @endif
                             <div class="tile-body">
                                 @csrf
@@ -40,13 +40,13 @@
                                 <div class="row ps-5">
                                     <div class="col-lg-11">
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input h4" type="radio" name="refinanced" id="foreign-yes"
-                                                value="yes">
+                                            <input class="form-check-input h4" type="radio" name="cash_donations" id="foreign-yes"
+                                                value="yes" {{ isset($deductions_credit) ? ((isset($deductions_credit) && $deductions_credit->cash_donations == 'yes') ? 'checked' : '') : 'checked' }}>
                                             <label class="form-check-label h6 pt-2" for="foreign-yes"><b>Yes</b></label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input h4" type="radio" name="refinanced" id="foreign-no"
-                                                value="no" checked>
+                                            <input class="form-check-input h4" type="radio" name="cash_donations" id="foreign-no"
+                                                value="no" {{ $deductions_credit && $deductions_credit->cash_donations == 'no' ? 'checked' : '' }}>
                                             <label class="form-check-label h6 pt-2" for="foreign-no"><b>No</b></label>
                                         </div>
                                         <label class="form-form-label h6 form-check-inline" for="employer-address">Would you
@@ -55,16 +55,16 @@
                                 </div>
                                 <div class="row ps-5">
                                     <div class="col-lg-8 ps-0">
-                                        <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter any charitable
+                                        <label class="form-input-label h6 pt-2" for="cash_donations_amount">Enter any charitable
                                             donations you made by cash or check during 2023:</label>
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="has-danger input-group mb-3">
                                             <span
-                                                class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                                class="input-group-text bg-disabled text-dark @error('cash_donations_amount') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                 id="basic-addon2"><b>$</b></span><input
-                                                class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-                                                type="text" value="" aria-label="first_name"
+                                                class="form-control @error('cash_donations_amount') is-invalid @enderror" name="cash_donations_amount"
+                                                type="text" value="{{ old('cash_donations_amount', $deductions_credit ? $deductions_credit->cash_donations_amount : '') }}" aria-label="cash_donations_amount"
                                                 aria-describedby="basic-addon2">
                                         </div>
                                     </div>
@@ -81,13 +81,13 @@
                                 <div class="row ps-5">
                                     <div class="col-lg-11">
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input h4" type="radio" name="refinanced" id="foreign-yes"
-                                                value="yes">
+                                            <input class="form-check-input h4" type="radio" name="non_cash_donations" id="foreign-yes"
+                                                value="yes" {{ $deductions_credit && $deductions_credit->non_cash_donations == 'yes' ? 'checked' : '' }}>
                                             <label class="form-check-label h6 pt-2" for="foreign-yes"><b>Yes</b></label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input h4" type="radio" name="refinanced" id="foreign-no"
-                                                value="no" checked>
+                                            <input class="form-check-input h4" type="radio" name="non_cash_donations" id="foreign-no"
+                                                value="no" {{ isset($deductions_credit) ? ((isset($deductions_credit) && $deductions_credit->non_cash_donations == 'no') ? 'checked' : '') : 'checked' }}>
                                             <label class="form-check-label h6 pt-2" for="foreign-no"><b>No</b></label>
                                         </div>
                                         <label class="form-form-label h6 form-check-inline" for="employer-address">Did you
@@ -96,16 +96,16 @@
                                 </div>
                                 <div class="row ps-5">
                                     <div class="col-lg-8 ps-0">
-                                        <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter the amount of
+                                        <label class="form-input-label h6 pt-2" for="non_cash_donations_amount">Enter the amount of
                                             any noncash donations you made during 2023:</label>
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="has-danger input-group mb-3">
                                             <span
-                                                class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                                class="input-group-text bg-disabled text-dark @error('non_cash_donations_amount') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                 id="basic-addon2"><b>$</b></span><input
-                                                class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-                                                type="text" value="" aria-label="first_name"
+                                                class="form-control @error('non_cash_donations_amount') is-invalid @enderror" name="non_cash_donations_amount"
+                                                type="text" value="{{ old('non_cash_donations_amount', $deductions_credit ? $deductions_credit->non_cash_donations_amount : '') }}" aria-label="non_cash_donations_amount"
                                                 aria-describedby="basic-addon2">
                                         </div>
                                     </div>
@@ -122,13 +122,13 @@
                                 <div class="row ps-5 pb-3">
                                     <div class="col-lg-11">
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input h4" type="radio" name="refinanced"
-                                                id="foreign-yes" value="yes">
+                                            <input class="form-check-input h4" type="radio" name="donation_carryover"
+                                                id="foreign-yes" value="yes" {{ $deductions_credit && $deductions_credit->donation_carryover == 'yes' ? 'checked' : '' }}>
                                             <label class="form-check-label h6 pt-2" for="foreign-yes"><b>Yes</b></label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input h4" type="radio" name="refinanced"
-                                                id="foreign-no" value="no" checked>
+                                            <input class="form-check-input h4" type="radio" name="donation_carryover"
+                                                id="foreign-no" value="no" {{ isset($deductions_credit) ? ((isset($deductions_credit) && $deductions_credit->donation_carryover == 'no') ? 'checked' : '') : 'checked' }}>
                                             <label class="form-check-label h6 pt-2" for="foreign-no"><b>No</b></label>
                                         </div>
                                         <label class="form-form-label h6 form-check-inline" for="employer-address">Do you have
@@ -146,13 +146,13 @@
                                 <div class="row ps-5">
                                     <div class="col-lg-11">
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input h4" type="radio" name="refinanced"
-                                                id="foreign-yes" value="yes">
+                                            <input class="form-check-input h4" type="radio" name="standard_mileage"
+                                                id="foreign-yes" value="yes" {{ isset($deductions_credit) ? ((isset($deductions_credit) && $deductions_credit->standard_mileage == 'yes') ? 'checked' : '') : 'checked' }}>
                                             <label class="form-check-label h6 pt-2" for="foreign-yes"><b>Yes</b></label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input h4" type="radio" name="refinanced"
-                                                id="foreign-no" value="no" checked>
+                                            <input class="form-check-input h4" type="radio" name="standard_mileage"
+                                                id="foreign-no" value="no" {{ $deductions_credit && $deductions_credit->standard_mileage == 'no' ? 'checked' : '' }}>
                                             <label class="form-check-label h6 pt-2" for="foreign-no"><b>No</b></label>
                                         </div>
                                         <label class="form-form-label h6 form-check-inline" for="employer-address">Do you want
@@ -162,13 +162,13 @@
                                 </div>
                                 <div class="row ps-5">
                                     <div class="col-lg-8 ps-0">
-                                        <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter the amount
+                                        <label class="form-input-label h6 pt-2" for="standard_mileage_amount">Enter the amount
                                             of miles you drove during 2023 while volunteering for a charity:</label>
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="has-danger input-group mb-3">
-                                            <input class="form-control @error('first_name') is-invalid @enderror"
-                                                name="first_name" type="text" value="" aria-label="first_name"
+                                            <input class="form-control @error('standard_mileage_amount') is-invalid @enderror"
+                                                name="standard_mileage_amount" type="text" value="{{ old('standard_mileage_amount', $deductions_credit ? $deductions_credit->standard_mileage_amount : '') }}" aria-label="standard_mileage_amount"
                                                 aria-describedby="basic-addon2">
                                         </div>
                                     </div>
@@ -185,13 +185,13 @@
                                 <div class="row ps-5">
                                     <div class="col-lg-11">
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input h4" type="radio" name="refinanced"
-                                                id="foreign-yes" value="yes">
+                                            <input class="form-check-input h4" type="radio" name="non_pocket"
+                                                id="foreign-yes" value="yes" {{ $deductions_credit && $deductions_credit->non_pocket == 'yes' ? 'checked' : '' }}>
                                             <label class="form-check-label h6 pt-2" for="foreign-yes"><b>Yes</b></label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input h4" type="radio" name="refinanced"
-                                                id="foreign-no" value="no" checked>
+                                            <input class="form-check-input h4" type="radio" name="non_pocket"
+                                                id="foreign-no" value="no" {{ isset($deductions_credit) ? ((isset($deductions_credit) && $deductions_credit->non_pocket == 'no') ? 'checked' : '') : 'checked' }}>
                                             <label class="form-check-label h6 pt-2" for="foreign-no"><b>No</b></label>
                                         </div>
                                         <label class="form-form-label h6 form-check-inline" for="employer-address">Did you pay

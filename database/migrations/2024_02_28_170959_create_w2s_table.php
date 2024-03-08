@@ -53,6 +53,8 @@ class CreateW2sTable extends Migration
             $table->string('employer_locality')->nullable();
             $table->string('w2_standard')->nullable();
             $table->string('w2_corrected')->nullable();
+            $table->string('clergy_member')->nullable();
+            $table->string('contribute')->nullable();
             $table->timestamps();
         });
     }

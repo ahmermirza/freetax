@@ -13,13 +13,12 @@
             <div class="row p-4 pt-0 mx-lg-5 px-lg-5">
                 <div class="col-lg-12">
                     <div class="tile">
-                        <h2 class="tile-title d-lg-flex justify-content-center h2"><b>Tell us about your donations to
-                                charities</b></h2>
-                        @if (isset($income))
-                            <form action="{{ route('income.update', $income) }}" method="post">
+                        <h2 class="tile-title d-lg-flex justify-content-center h2"><b>Tell us about your medical expenses</b></h2>
+                        @if (isset($deductions_credit))
+                            <form action="{{ route('medical-expenses.update', $deductions_credit) }}" method="post">
                                 @method('PUT')
                             @else
-                                <form action="{{ route('income.store') }}" method="post">
+                                <form action="{{ route('medical-expenses.store') }}" method="post">
                         @endif
                         <div class="tile-body">
                             @csrf
@@ -60,15 +59,15 @@
                             </div>
                             <div class="row ps-5">
                                 <div class="col-lg-8 ps-0">
-                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter any health insurance premiums you paid out of pocket during 2023:</label>
+                                    <label class="form-input-label h6 pt-2" for="health">Enter any health insurance premiums you paid out of pocket during 2023:</label>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="has-danger input-group mb-3">
                                         <span
-                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                            class="input-group-text bg-disabled text-dark @error('health') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
-                                            class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-                                            type="text" value="" aria-label="first_name"
+                                            class="form-control @error('health') is-invalid @enderror" name="health"
+                                            type="text" value="{{ old('health', $deductions_credit ? $deductions_credit->health : '') }}" aria-label="health"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -84,15 +83,15 @@
                             </div>
                             <div class="row ps-5">
                                 <div class="col-lg-8 ps-0">
-                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter the allowable amount of any long-term care insurance premiums you paid during 2023:</label>
+                                    <label class="form-input-label h6 pt-2" for="long_term">Enter the allowable amount of any long-term care insurance premiums you paid during 2023:</label>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="has-danger input-group mb-3">
                                         <span
-                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                            class="input-group-text bg-disabled text-dark @error('long_term') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
-                                            class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-                                            type="text" value="" aria-label="first_name"
+                                            class="form-control @error('long_term') is-invalid @enderror" name="long_term"
+                                            type="text" value="{{ old('long_term', $deductions_credit ? $deductions_credit->long_term : '') }}" aria-label="long_term"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -108,15 +107,15 @@
                             </div>
                             <div class="row ps-5">
                                 <div class="col-lg-8 ps-0">
-                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter the amount of medical expenses you paid to doctors, dentists, chiropractors, psychiatrists, and other medical professionals:</label>
+                                    <label class="form-input-label h6 pt-2" for="doctor">Enter the amount of medical expenses you paid to doctors, dentists, chiropractors, psychiatrists, and other medical professionals:</label>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="has-danger input-group mb-3">
                                         <span
-                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                            class="input-group-text bg-disabled text-dark @error('doctor') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
-                                            class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-                                            type="text" value="" aria-label="first_name"
+                                            class="form-control @error('doctor') is-invalid @enderror" name="doctor"
+                                            type="text" value="{{ old('doctor', $deductions_credit ? $deductions_credit->doctor : '') }}" aria-label="doctor"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -132,15 +131,15 @@
                             </div>
                             <div class="row ps-5">
                                 <div class="col-lg-8 ps-0">
-                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter the amount of medical expenses you paid directly to a hospital:</label>
+                                    <label class="form-input-label h6 pt-2" for="hospital">Enter the amount of medical expenses you paid directly to a hospital:</label>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="has-danger input-group mb-3">
                                         <span
-                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                            class="input-group-text bg-disabled text-dark @error('hospital') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
-                                            class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-                                            type="text" value="" aria-label="first_name"
+                                            class="form-control @error('hospital') is-invalid @enderror" name="hospital"
+                                            type="text" value="{{ old('hospital', $deductions_credit ? $deductions_credit->hospital : '') }}" aria-label="hospital"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -156,15 +155,15 @@
                             </div>
                             <div class="row ps-5">
                                 <div class="col-lg-8 ps-0">
-                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter the total amount you spent during 2023 for prescription medications:</label>
+                                    <label class="form-input-label h6 pt-2" for="prescriptions">Enter the total amount you spent during 2023 for prescription medications:</label>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="has-danger input-group mb-3">
                                         <span
-                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                            class="input-group-text bg-disabled text-dark @error('prescriptions') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
-                                            class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-                                            type="text" value="" aria-label="first_name"
+                                            class="form-control @error('prescriptions') is-invalid @enderror" name="prescriptions"
+                                            type="text" value="{{ old('prescriptions', $deductions_credit ? $deductions_credit->prescriptions : '') }}" aria-label="prescriptions"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -180,22 +179,22 @@
                             </div>
                             <div class="row ps-5">
                                 <div class="col-lg-8 ps-0">
-                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter the amount you paid for medical equipment and supplies:</label>
+                                    <label class="form-input-label h6 pt-2" for="equipment">Enter the amount you paid for medical equipment and supplies:</label>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="has-danger input-group mb-3">
                                         <span
-                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                            class="input-group-text bg-disabled text-dark @error('equipment') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
-                                            class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-                                            type="text" value="" aria-label="first_name"
+                                            class="form-control @error('equipment') is-invalid @enderror" name="equipment"
+                                            type="text" value="{{ old('equipment', $deductions_credit ? $deductions_credit->equipment : '') }}" aria-label="equipment"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
                             </div>
                             <div class="row ps-5">
                                 <div class="col-lg-8 ps-0">
-                                    <label class="form-input-label text-secondary small" for="campaign_contribution">This would include money spent for eyeglasses, contact lenses, wheelchair, etc.</label>
+                                    <label class="form-input-label text-secondary small" for="travel">This would include money spent for eyeglasses, contact lenses, wheelchair, etc.</label>
                                 </div>
                             </div>
                             <br>
@@ -209,15 +208,15 @@
                             </div>
                             <div class="row ps-5">
                                 <div class="col-lg-8 ps-0">
-                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter the total amount of any travel expenses you paid receiving or undergoing medical procedures:</label>
+                                    <label class="form-input-label h6 pt-2" for="travel">Enter the total amount of any travel expenses you paid receiving or undergoing medical procedures:</label>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="has-danger input-group mb-3">
                                         <span
-                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                            class="input-group-text bg-disabled text-dark @error('travel') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
-                                            class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-                                            type="text" value="" aria-label="first_name"
+                                            class="form-control @error('travel') is-invalid @enderror" name="travel"
+                                            type="text" value="{{ old('travel', $deductions_credit ? $deductions_credit->travel : '') }}" aria-label="travel"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -238,15 +237,15 @@
                             </div>
                             <div class="row ps-5">
                                 <div class="col-lg-8 ps-0">
-                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter the amount of any other medical expenses you paid during 2023:</label>
+                                    <label class="form-input-label h6 pt-2" for="other">Enter the amount of any other medical expenses you paid during 2023:</label>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="has-danger input-group mb-3">
                                         <span
-                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                            class="input-group-text bg-disabled text-dark @error('other') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
-                                            class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-                                            type="text" value="" aria-label="first_name"
+                                            class="form-control @error('other') is-invalid @enderror" name="other"
+                                            type="text" value="{{ old('other', $deductions_credit ? $deductions_credit->other : '') }}" aria-label="other"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>

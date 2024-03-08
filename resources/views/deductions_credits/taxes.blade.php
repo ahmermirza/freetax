@@ -15,11 +15,11 @@
                     <div class="tile">
                         <h2 class="tile-title d-lg-flex justify-content-center h2"><b>Tell us about the taxes you paid in
                                 2023</b></h2>
-                        @if (isset($income))
-                            <form action="{{ route('income.update', $income) }}" method="post">
+                        @if (isset($deductions_credit))
+                            <form action="{{ route('taxes.update', $deductions_credit) }}" method="post">
                                 @method('PUT')
                             @else
-                                <form action="{{ route('income.store') }}" method="post">
+                                <form action="{{ route('taxes.store') }}" method="post">
                         @endif
                         <div class="tile-body">
                             @csrf
@@ -31,15 +31,15 @@
                             </div>
                             <div class="row ps-5">
                                 <div class="col-lg-8 ps-0">
-                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Your 2023 state income tax withholdings from your W-2s and 1099s:</label>
+                                    <label class="form-input-label h6 pt-2" for="state_withholdings">Your 2023 state income tax withholdings from your W-2s and 1099s:</label>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="has-danger input-group mb-3">
                                         <span
-                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                            class="input-group-text bg-disabled text-dark @error('state_withholdings') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
-                                            class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-                                            type="text" value="0" aria-label="first_name" disabled
+                                            class="form-control @error('state_withholdings') is-invalid @enderror" name="state_withholdings"
+                                            type="text" value="0" aria-label="state_withholdings" disabled
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -55,15 +55,15 @@
                             </div>
                             <div class="row ps-5">
                                 <div class="col-lg-8 ps-0">
-                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Your 2023 local income tax withholdings from your W-2s and 1099s:</label>
+                                    <label class="form-input-label h6 pt-2" for="local_withholdings">Your 2023 local income tax withholdings from your W-2s and 1099s:</label>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="has-danger input-group mb-3">
                                         <span
-                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                            class="input-group-text bg-disabled text-dark @error('local_withholdings') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
-                                            class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-                                            type="text" value="0" aria-label="first_name" disabled
+                                            class="form-control @error('local_withholdings') is-invalid @enderror" name="local_withholdings"
+                                            type="text" value="0" aria-label="local_withholdings" disabled
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -79,15 +79,15 @@
                             </div>
                             <div class="row ps-5">
                                 <div class="col-lg-8 ps-0">
-                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter the total amount of sales tax you paid during 2023:</label>
+                                    <label class="form-input-label h6 pt-2" for="sales_tax">Enter the total amount of sales tax you paid during 2023:</label>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="has-danger input-group mb-3">
                                         <span
-                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                            class="input-group-text bg-disabled text-dark @error('sales_tax') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
-                                            class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-                                            type="text" value="" aria-label="first_name"
+                                            class="form-control @error('sales_tax') is-invalid @enderror" name="sales_tax"
+                                            type="text" value="{{ old('sales_tax', $deductions_credit ? $deductions_credit->sales_tax : '') }}" aria-label="sales_tax"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -107,18 +107,18 @@
                                 </div>
                             </div>
                             <div class="row ps-5">
-                                <label class="form-input-label h6 pt-2 ps-0" for="campaign_contribution">We'll now gather any state or local taxes you paid in 2023 (other than the state and local taxes shown above).</label>
+                                <label class="form-input-label h6 pt-2 ps-0" for="own_money">We'll now gather any state or local taxes you paid in 2023 (other than the state and local taxes shown above).</label>
                                 <div class="col-lg-12 py-3">
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input h4" type="radio"
-                                            name="own_money" id="foreign-yes" value="yes">
+                                            name="own_money" id="foreign-yes" value="yes" {{ $deductions_credit && $deductions_credit->own_money == 'yes' ? 'checked' : '' }}>
                                         <label class="form-check-label h6 pt-2"
                                             for="foreign-yes"><b>Yes</b></label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input h4" type="radio"
                                             name="own_money" id="foreign-no" value="no"
-                                            checked>
+                                            {{ isset($deductions_credit) ? ((isset($deductions_credit) && $deductions_credit->own_money == 'no') ? 'checked' : '') : 'checked' }}>
                                         <label class="form-check-label h6 pt-2"
                                             for="foreign-no"><b>No</b></label>
                                     </div>
@@ -128,14 +128,14 @@
                                 <div class="col-lg-12 py-3">
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input h4" type="radio"
-                                            name="pay_tax" id="foreign-yes" value="yes">
+                                            name="pay_tax" id="foreign-yes" value="yes" {{ $deductions_credit && $deductions_credit->pay_tax == 'yes' ? 'checked' : '' }}>
                                         <label class="form-check-label h6 pt-2"
                                             for="foreign-yes"><b>Yes</b></label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input h4" type="radio"
                                             name="pay_tax" id="foreign-no" value="no"
-                                            checked>
+                                            {{ isset($deductions_credit) ? ((isset($deductions_credit) && $deductions_credit->pay_tax == 'no') ? 'checked' : '') : 'checked' }}>
                                         <label class="form-check-label h6 pt-2"
                                             for="foreign-no"><b>No</b></label>
                                     </div>
@@ -145,14 +145,14 @@
                                 <div class="col-lg-12 py-3">
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input h4" type="radio"
-                                            name="other_tax" id="foreign-yes" value="yes">
+                                            name="other_tax" id="foreign-yes" value="yes" {{ $deductions_credit && $deductions_credit->other_tax == 'yes' ? 'checked' : '' }}>
                                         <label class="form-check-label h6 pt-2"
                                             for="foreign-yes"><b>Yes</b></label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input h4" type="radio"
                                             name="other_tax" id="foreign-no" value="no"
-                                            checked>
+                                            {{ isset($deductions_credit) ? ((isset($deductions_credit) && $deductions_credit->other_tax == 'no') ? 'checked' : '') : 'checked' }}>
                                         <label class="form-check-label h6 pt-2"
                                             for="foreign-no"><b>No</b></label>
                                     </div>
@@ -162,14 +162,14 @@
                                 <div class="col-lg-12 py-3">
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input h4" type="radio"
-                                            name="applied_refund" id="foreign-yes" value="yes">
+                                            name="applied_refund" id="foreign-yes" value="yes" {{ $deductions_credit && $deductions_credit->applied_refund == 'yes' ? 'checked' : '' }}>
                                         <label class="form-check-label h6 pt-2"
                                             for="foreign-yes"><b>Yes</b></label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input h4" type="radio"
                                             name="applied_refund" id="foreign-no" value="no"
-                                            checked>
+                                            {{ isset($deductions_credit) ? ((isset($deductions_credit) && $deductions_credit->applied_refund == 'no') ? 'checked' : '') : 'checked' }}>
                                         <label class="form-check-label h6 pt-2"
                                             for="foreign-no"><b>No</b></label>
                                     </div>
@@ -179,14 +179,14 @@
                                 <div class="col-lg-12 py-3">
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input h4" type="radio"
-                                            name="file_extension" id="foreign-yes" value="yes">
+                                            name="file_extension" id="foreign-yes" value="yes" {{ $deductions_credit && $deductions_credit->file_extension == 'yes' ? 'checked' : '' }}>
                                         <label class="form-check-label h6 pt-2"
                                             for="foreign-yes"><b>Yes</b></label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input h4" type="radio"
                                             name="file_extension" id="foreign-no" value="no"
-                                            checked>
+                                            {{ isset($deductions_credit) ? ((isset($deductions_credit) && $deductions_credit->file_extension == 'no') ? 'checked' : '') : 'checked' }}>
                                         <label class="form-check-label h6 pt-2"
                                             for="foreign-no"><b>No</b></label>
                                     </div>
@@ -205,15 +205,15 @@
                             </div>
                             <div class="row ps-5">
                                 <div class="col-lg-8 ps-0">
-                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter any personal property taxes you paid during 2023:</label>
+                                    <label class="form-input-label h6 pt-2" for="personal_tax">Enter any personal property taxes you paid during 2023:</label>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="has-danger input-group mb-3">
                                         <span
-                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                            class="input-group-text bg-disabled text-dark @error('personal_tax') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
-                                            class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-                                            type="text" value="" aria-label="first_name"
+                                            class="form-control @error('personal_tax') is-invalid @enderror" name="personal_tax"
+                                            type="text" value="{{ old('personal_tax', $deductions_credit ? $deductions_credit->personal_tax : '') }}" aria-label="personal_tax"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -229,24 +229,24 @@
                             </div>
                             <div class="row ps-5">
                                 <div class="col-lg-8 ps-0">
-                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter the amount of any other deductible tax you paid during 2023:</label>
+                                    <label class="form-input-label h6 pt-2" for="other_deductible_tax">Enter the amount of any other deductible tax you paid during 2023:</label>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="has-danger input-group mb-3">
                                         <span
-                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                            class="input-group-text bg-disabled text-dark @error('other_deductible_tax') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
-                                            class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-                                            type="text" value="" aria-label="first_name"
+                                            class="form-control @error('other_deductible_tax') is-invalid @enderror" name="other_deductible_tax"
+                                            type="text" value="{{ old('other_deductible_tax', $deductions_credit ? $deductions_credit->other_deductible_tax : '') }}" aria-label="other_deductible_tax"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
-                                <label class="form-input-label ps-0 h6 pt-2" for="campaign_contribution">Other Deductible Tax Description:</label>
+                                <label class="form-input-label ps-0 h6 pt-2" for="other_deductible_tax_desc">Other Deductible Tax Description:</label>
                                 <div class="col-lg-11 ps-0">
                                     <div class="has-danger input-group mb-3">
                                         <input
-                                            class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-                                            type="text" value="" aria-label="first_name"
+                                            class="form-control @error('other_deductible_tax_desc') is-invalid @enderror" name="other_deductible_tax_desc"
+                                            type="text" value="{{ old('other_deductible_tax_desc', $deductions_credit ? $deductions_credit->other_deductible_tax_desc : '') }}" aria-label="other_deductible_tax_desc"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>

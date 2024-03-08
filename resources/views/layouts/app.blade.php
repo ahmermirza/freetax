@@ -135,149 +135,153 @@
         </div>
     </nav>
 
-    <nav class="navbar navbar-expand-xl navbar-light bg-light-custom">
-        <div class="container-fluid">
-            {{-- <a class="navbar-brand" href="#">Navbar</a> --}}
-            <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-xl-flex justify-content-center" id="navbarNavDarkDropdown">
-                <div class="col-xl-9">
-                    <ul class="navbar-nav d-xl-flex justify-content-between">
-                        <li class="nav-item dropdown nav-custom-item px-lg-1 px-xl-1" role="button">
-                            <a class="nav-link text-dark h6 py-1 my-0 ps-2" href="#"
-                                id="navbarDarkDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-check text-success"
-                                    aria-hidden="true"></i>&nbsp;&nbsp;Personal&nbsp;&nbsp;<i
-                                    class="fa-solid fa-chevron-down"></i></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-white dropdown-menu-custom-width round-3 mt-3 shadow bg-white"
-                                aria-labelledby="navbarDarkDropdownMenuLink">
-                                <div class="row px-3">
-                                    <div class="col-xl-6">
-                                        <a class="dropdown-item" href="{{ route('personal.create', ['info' => 'basic']) }}"><i class="fa fa-check text-success"
-                                                aria-hidden="true"></i>&nbsp;&nbsp;Taxpayer Information</a>
-                                        <a class="dropdown-item" href="{{ route('personal.create', ['info' => 'filing-status']) }}"><i class="fa fa-check text-success"
-                                                aria-hidden="true"></i>&nbsp;&nbsp;Filing Status</a>
-                                        @if (auth()->user() && (auth()->user()->personals->count()) && in_array(auth()->user()->personals()->first()->filing_status, [2, 3]))
-                                            <a class="dropdown-item" href="{{ route('personal.create', ['info' => 'spouse']) }}"><i class="fa fa-check text-success"
-                                                    aria-hidden="true"></i>&nbsp;&nbsp;Spouse Information</a>
-                                        @endif
-                                        <a class="dropdown-item" href="{{ route('dependents.index') }}"><i class="fa fa-check text-success"
-                                            aria-hidden="true"></i>&nbsp;&nbsp;Dependents</a>
+    @auth
+        <nav class="navbar navbar-expand-xl navbar-light bg-light-custom">
+            <div class="container-fluid">
+                {{-- <a class="navbar-brand" href="#">Navbar</a> --}}
+                <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse d-xl-flex justify-content-center" id="navbarNavDarkDropdown">
+                    <div class="col-xl-9">
+                        <ul class="navbar-nav d-xl-flex justify-content-between">
+                            <li class="nav-item dropdown nav-custom-item px-lg-1 px-xl-1" role="button">
+                                <a class="nav-link text-dark h6 py-1 my-0 ps-2" href="#"
+                                    id="navbarDarkDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-check text-success"
+                                        aria-hidden="true"></i>&nbsp;&nbsp;Personal&nbsp;&nbsp;<i
+                                        class="fa-solid fa-chevron-down"></i></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-white dropdown-menu-custom-width round-3 mt-3 shadow bg-white"
+                                    aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <div class="row px-3">
+                                        <div class="col-xl-6">
+                                            <a class="dropdown-item" href="{{ route('personal.create', ['info' => 'basic']) }}"><i class="fa fa-check text-success"
+                                                    aria-hidden="true"></i>&nbsp;&nbsp;Taxpayer Information</a>
+                                            <a class="dropdown-item" href="{{ route('personal.create', ['info' => 'filing-status']) }}"><i class="fa fa-check text-success"
+                                                    aria-hidden="true"></i>&nbsp;&nbsp;Filing Status</a>
+                                            @if (auth()->user() && (auth()->user()->personals->count()) && in_array(auth()->user()->personals()->first()->filing_status, [2, 3]))
+                                                <a class="dropdown-item" href="{{ route('personal.create', ['info' => 'spouse']) }}"><i class="fa fa-check text-success"
+                                                        aria-hidden="true"></i>&nbsp;&nbsp;Spouse Information</a>
+                                            @endif
+                                            <a class="dropdown-item" href="{{ route('dependents.index') }}"><i class="fa fa-check text-success"
+                                                aria-hidden="true"></i>&nbsp;&nbsp;Dependents</a>
+                                        </div>
                                     </div>
-                                </div>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown nav-custom-item px-lg-1 px-xl-1" role="button">
-                            <a class="nav-link text-dark h6 py-1 my-0 ps-2" href="#"
-                                id="navbarDarkDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-check text-success"
-                                    aria-hidden="true"></i>&nbsp;&nbsp;Income&nbsp;&nbsp;<i
-                                    class="fa-solid fa-chevron-down"></i></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-white dropdown-menu-custom-width round-3 mt-3 shadow bg-white"
-                                aria-labelledby="navbarDarkDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#"><b>Common Income</b></a></li>
-                                <li><a class="dropdown-item" href="{{ route('w-2.index') }}"><i class="fa fa-check text-success"
-                                            aria-hidden="true"></i>&nbsp;&nbsp;Wages (W-2)</a></li>
-                                <li><a class="dropdown-item" href="{{ route('form1099-g.index') }}"><i class="fa fa-check text-success"
-                                            aria-hidden="true"></i>&nbsp;&nbsp;Unemployment Compensation (1099-G)</a></li>
-                                <li><a class="dropdown-item" href="{{ route('income.ssb') }}"><i class="fa fa-check text-success"
-                                            aria-hidden="true"></i>&nbsp;&nbsp;Social Security Benefits (SSA-1099)</a></li>
-                                <li><a class="dropdown-item" href="{{ route('income.crypto') }}"><i class="fa fa-check text-success"
-                                    aria-hidden="true"></i>&nbsp;&nbsp;Cryptocurrency</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown nav-custom-item px-lg-1 px-xl-1" role="button">
-                            <a class="nav-link text-dark h6 py-1 my-0 ps-2" href="#"
-                                id="navbarDarkDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-check text-success" aria-hidden="true"></i>&nbsp;&nbsp;Deductions /
-                                Credits&nbsp;&nbsp;<i class="fa-solid fa-chevron-down"></i></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-white dropdown-menu-custom-width round-3 mt-3 shadow bg-white"
-                                aria-labelledby="navbarDarkDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-check text-success"
-                                            aria-hidden="true"></i>&nbsp;&nbsp;Action</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-check text-success"
-                                            aria-hidden="true"></i>&nbsp;&nbsp;Another action</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-check text-success"
-                                            aria-hidden="true"></i>&nbsp;&nbsp;Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown nav-custom-item px-lg-1 px-xl-1" role="button">
-                            <a class="nav-link text-dark h6 py-1 my-0 ps-2" href="#"
-                                id="navbarDarkDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-check text-success"
-                                    aria-hidden="true"></i>&nbsp;&nbsp;Misc&nbsp;&nbsp;<i
-                                    class="fa-solid fa-chevron-down"></i></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-white dropdown-menu-custom-width dropdown-menu-end round-3 mt-3 shadow bg-white"
-                                aria-labelledby="navbarDarkDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-check text-success"
-                                            aria-hidden="true"></i>&nbsp;&nbsp;Action</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-check text-success"
-                                            aria-hidden="true"></i>&nbsp;&nbsp;Another action</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-check text-success"
-                                            aria-hidden="true"></i>&nbsp;&nbsp;Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown nav-custom-item px-lg-1 px-xl-1" role="button">
-                            <a class="nav-link text-dark h6 py-1 my-0 ps-2" href="#"
-                                id="navbarDarkDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-check text-success"
-                                    aria-hidden="true"></i>&nbsp;&nbsp;Summary&nbsp;&nbsp;<i
-                                    class="fa-solid fa-chevron-down"></i></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-white dropdown-menu-custom-width dropdown-menu-end round-3 mt-3 shadow bg-white"
-                                aria-labelledby="navbarDarkDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-check text-success"
-                                            aria-hidden="true"></i>&nbsp;&nbsp;Action</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-check text-success"
-                                            aria-hidden="true"></i>&nbsp;&nbsp;Another action</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-check text-success"
-                                            aria-hidden="true"></i>&nbsp;&nbsp;Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown nav-custom-item px-lg-1 px-xl-1" role="button">
-                            <a class="nav-link text-dark h6 py-1 my-0 ps-2" href="#"
-                                id="navbarDarkDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-check text-success"
-                                    aria-hidden="true"></i>&nbsp;&nbsp;State&nbsp;&nbsp;<i
-                                    class="fa-solid fa-chevron-down"></i></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-white dropdown-menu-custom-width dropdown-menu-end round-3 mt-3 shadow bg-white"
-                                aria-labelledby="navbarDarkDropdownMenuLink">
-                                <div class="row px-3">
-                                    <div class="col-xl-6">
-                                        <a class="dropdown-item" href="#"><b>Common Income</b></a>
-                                        <a class="dropdown-item" href="#"><i class="fa fa-check text-success"
-                                                aria-hidden="true"></i>&nbsp;&nbsp;Unemployment Compensation
-                                            (1099-G)</a>
-                                        <a class="dropdown-item" href="#"><i class="fa fa-check text-success"
-                                                aria-hidden="true"></i>&nbsp;&nbsp;Another action</a>
-                                        <a class="dropdown-item" href="#"><i class="fa fa-check text-success"
-                                                aria-hidden="true"></i>&nbsp;&nbsp;Something else here</a>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown nav-custom-item px-lg-1 px-xl-1" role="button">
+                                <a class="nav-link text-dark h6 py-1 my-0 ps-2" href="#"
+                                    id="navbarDarkDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-check text-success"
+                                        aria-hidden="true"></i>&nbsp;&nbsp;Income&nbsp;&nbsp;<i
+                                        class="fa-solid fa-chevron-down"></i></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-white dropdown-menu-custom-width round-3 mt-3 shadow bg-white"
+                                    aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="#"><b>Common Income</b></a></li>
+                                    <li><a class="dropdown-item" href="{{ route('w-2.index') }}"><i class="fa fa-check text-success"
+                                                aria-hidden="true"></i>&nbsp;&nbsp;Wages (W-2)</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('form1099-g.index') }}"><i class="fa fa-check text-success"
+                                                aria-hidden="true"></i>&nbsp;&nbsp;Unemployment Compensation (1099-G)</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('income.ssb') }}"><i class="fa fa-check text-success"
+                                                aria-hidden="true"></i>&nbsp;&nbsp;Social Security Benefits (SSA-1099)</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('income.crypto') }}"><i class="fa fa-check text-success"
+                                        aria-hidden="true"></i>&nbsp;&nbsp;Cryptocurrency</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown nav-custom-item px-lg-1 px-xl-1" role="button">
+                                <a class="nav-link text-dark h6 py-1 my-0 ps-2" href="#"
+                                    id="navbarDarkDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-check text-success" aria-hidden="true"></i>&nbsp;&nbsp;Deductions /
+                                    Credits&nbsp;&nbsp;<i class="fa-solid fa-chevron-down"></i></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-white dropdown-menu-custom-width round-3 mt-3 shadow bg-white"
+                                    aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="{{ route('mortgage-interest.index') }}"><i class="fa fa-check text-success"
+                                                aria-hidden="true"></i>&nbsp;&nbsp;Homeowner Expenses (1098)</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('charities-donations.create') }}"><i class="fa fa-check text-success"
+                                                aria-hidden="true"></i>&nbsp;&nbsp;Donations</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('medical-expenses.create') }}"><i class="fa fa-check text-success"
+                                                aria-hidden="true"></i>&nbsp;&nbsp;Medical Expenses</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('taxes.create') }}"><i class="fa fa-check text-success"
+                                        aria-hidden="true"></i>&nbsp;&nbsp;Taxes Paid</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown nav-custom-item px-lg-1 px-xl-1" role="button">
+                                <a class="nav-link text-dark h6 py-1 my-0 ps-2" href="#"
+                                    id="navbarDarkDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-check text-success"
+                                        aria-hidden="true"></i>&nbsp;&nbsp;Misc&nbsp;&nbsp;<i
+                                        class="fa-solid fa-chevron-down"></i></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-white dropdown-menu-custom-width dropdown-menu-end round-3 mt-3 shadow bg-white"
+                                    aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="#"><i class="fa fa-check text-success"
+                                                aria-hidden="true"></i>&nbsp;&nbsp;Action</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fa fa-check text-success"
+                                                aria-hidden="true"></i>&nbsp;&nbsp;Another action</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fa fa-check text-success"
+                                                aria-hidden="true"></i>&nbsp;&nbsp;Something else here</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown nav-custom-item px-lg-1 px-xl-1" role="button">
+                                <a class="nav-link text-dark h6 py-1 my-0 ps-2" href="#"
+                                    id="navbarDarkDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-check text-success"
+                                        aria-hidden="true"></i>&nbsp;&nbsp;Summary&nbsp;&nbsp;<i
+                                        class="fa-solid fa-chevron-down"></i></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-white dropdown-menu-custom-width dropdown-menu-end round-3 mt-3 shadow bg-white"
+                                    aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="#"><i class="fa fa-check text-success"
+                                                aria-hidden="true"></i>&nbsp;&nbsp;Action</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fa fa-check text-success"
+                                                aria-hidden="true"></i>&nbsp;&nbsp;Another action</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fa fa-check text-success"
+                                                aria-hidden="true"></i>&nbsp;&nbsp;Something else here</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown nav-custom-item px-lg-1 px-xl-1" role="button">
+                                <a class="nav-link text-dark h6 py-1 my-0 ps-2" href="#"
+                                    id="navbarDarkDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-check text-success"
+                                        aria-hidden="true"></i>&nbsp;&nbsp;State&nbsp;&nbsp;<i
+                                        class="fa-solid fa-chevron-down"></i></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-white dropdown-menu-custom-width dropdown-menu-end round-3 mt-3 shadow bg-white"
+                                    aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <div class="row px-3">
+                                        <div class="col-xl-6">
+                                            <a class="dropdown-item" href="#"><b>Common Income</b></a>
+                                            <a class="dropdown-item" href="#"><i class="fa fa-check text-success"
+                                                    aria-hidden="true"></i>&nbsp;&nbsp;Unemployment Compensation
+                                                (1099-G)</a>
+                                            <a class="dropdown-item" href="#"><i class="fa fa-check text-success"
+                                                    aria-hidden="true"></i>&nbsp;&nbsp;Another action</a>
+                                            <a class="dropdown-item" href="#"><i class="fa fa-check text-success"
+                                                    aria-hidden="true"></i>&nbsp;&nbsp;Something else here</a>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <a class="dropdown-item" href="#"><i class="fa fa-check text-success"
+                                                    aria-hidden="true"></i>&nbsp;&nbsp;Action</a>
+                                            <a class="dropdown-item" href="#"><i class="fa fa-check text-success"
+                                                    aria-hidden="true"></i>&nbsp;&nbsp;Undistributed Capital Gains (Form
+                                                2439)</a>
+                                            <a class="dropdown-item" href="#"><i class="fa fa-check text-success"
+                                                    aria-hidden="true"></i>&nbsp;&nbsp;Something else here</a>
+                                        </div>
                                     </div>
-                                    <div class="col-xl-6">
-                                        <a class="dropdown-item" href="#"><i class="fa fa-check text-success"
-                                                aria-hidden="true"></i>&nbsp;&nbsp;Action</a>
-                                        <a class="dropdown-item" href="#"><i class="fa fa-check text-success"
-                                                aria-hidden="true"></i>&nbsp;&nbsp;Undistributed Capital Gains (Form
-                                            2439)</a>
-                                        <a class="dropdown-item" href="#"><i class="fa fa-check text-success"
-                                                aria-hidden="true"></i>&nbsp;&nbsp;Something else here</a>
-                                    </div>
-                                </div>
-                            </ul>
-                        </li>
-                    </ul>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    @endauth
 
     <main class="app-content">
         @yield('content')

@@ -42,16 +42,17 @@
                                     <div class="px-4 pe-5 custom-index-card">
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                {{-- @foreach ($dependents as $dependent) --}}
+                                                @if ($mortgage_interests->count())
+                                                    @foreach ($mortgage_interests as $mortgage_interest)
                                                 <div class="d-flex justify-content-between m-4 mx-2 ms-0">
                                                     <div class="d-flex justify-content-between w-50">
-                                                        <span class="h6">{{ 'emp' . ' ' . 'name' }}</span>
-                                                        <span class="h6">{{ '$23' }}</span>
+                                                        <span class="h6">{{ $mortgage_interest->lender_name }}</span>
+                                                        <span class="h6">${{ ($mortgage_interest->deductible_mortgage) ? $mortgage_interest->deductible_mortgage : '0' }}</span>
                                                     </div>
                                                     <div>
-                                                        <a href="{{ route('mortgage-interest.edit', '1') }}"
+                                                        <a href="{{ route('mortgage-interest.edit', $mortgage_interest) }}"
                                                             class="h6 pe-5">Edit</a>&nbsp;&nbsp;
-                                                        <form action="{{ route('mortgage-interest.destroy', '1') }}" method="POST"
+                                                        <form action="{{ route('mortgage-interest.destroy', $mortgage_interest) }}" method="POST"
                                                             class="d-inline">
                                                             @csrf
                                                             @method('DELETE')
@@ -61,7 +62,12 @@
                                                     </div>
                                                     </form>
                                                 </div>
-                                                {{-- @endforeach --}}
+                                                @endforeach
+                                                @else
+                                                <div class="d-flex justify-content-center m-4 mx-2 ms-0">
+                                                    <p class="h6 small">No Form 1098 found.</p>
+                                                </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>

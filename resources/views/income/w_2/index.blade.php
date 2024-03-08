@@ -39,27 +39,33 @@
                                     <div class="px-4 pe-5 custom-index-card">
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                @foreach ($w_2s as $w_2)
-                                                <div class="d-flex justify-content-between m-4 mx-2 ms-0">
-                                                    <div class="d-flex justify-content-between w-50">
-                                                        <span class="h6">{{ $w_2->emp_name }}</span>
-                                                        <span class="h6">{{ $w_2->personal_id ? $w_2->personal->first_name : $w_2->spouse->first_name }}</span>
-                                                        <span class="h6">${{ $w_2->federal_wages }}</span>
+                                                @if ($w_2s->count())
+                                                    @foreach ($w_2s as $w_2)
+                                                    <div class="d-flex justify-content-between m-4 mx-2 ms-0">
+                                                        <div class="d-flex justify-content-between w-50">
+                                                            <span class="h6">{{ $w_2->emp_name }}</span>
+                                                            <span class="h6">{{ $w_2->personal_id ? $w_2->personal->first_name : $w_2->spouse->first_name }}</span>
+                                                            <span class="h6">${{ $w_2->federal_wages }}</span>
+                                                        </div>
+                                                        <div>
+                                                            <a href="{{ route('w-2.edit', $w_2) }}"
+                                                                class="h6 pe-5">Edit</a>&nbsp;&nbsp;
+                                                            <form action="{{ route('w-2.destroy', $w_2) }}" method="POST"
+                                                                class="d-inline">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button class="btn btn-link text-dark pe-4"><i
+                                                                        class="fa fa-trash" aria-hidden="true"
+                                                                        onclick="return confirm('Are you sure you want to delete this?')"></i></button>
+                                                        </div>
+                                                        </form>
                                                     </div>
-                                                    <div>
-                                                        <a href="{{ route('w-2.edit', $w_2) }}"
-                                                            class="h6 pe-5">Edit</a>&nbsp;&nbsp;
-                                                        <form action="{{ route('w-2.destroy', $w_2) }}" method="POST"
-                                                            class="d-inline">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="btn btn-link text-dark pe-4"><i
-                                                                    class="fa fa-trash" aria-hidden="true"
-                                                                    onclick="return confirm('Are you sure you want to delete this?')"></i></button>
-                                                    </div>
-                                                    </form>
+                                                    @endforeach
+                                                @else
+                                                <div class="d-flex justify-content-center m-4 mx-2 ms-0">
+                                                    <p class="h6 small">No W-2 found.</p>
                                                 </div>
-                                                @endforeach
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
