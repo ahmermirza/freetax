@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Form1099G;
 use Illuminate\Http\Request;
 
 class Form1099GController extends Controller
@@ -13,7 +14,8 @@ class Form1099GController extends Controller
      */
     public function index()
     {
-        return view('income.1099g.index');
+        $form_1099gs = auth()->user()->personals()->first()->form_1099g()->get();
+        return view('income.1099g.index', compact('form_1099gs'));
     }
 
     /**
@@ -23,7 +25,8 @@ class Form1099GController extends Controller
      */
     public function create()
     {
-        return view('income.1099g.create');
+        $personal = auth()->user()->personals()->first();
+        return view('income.1099g.create', compact('personal'));
     }
 
     /**
@@ -34,7 +37,18 @@ class Form1099GController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $personal = auth()->user()->personals()->first();
+
+            // Check if the user has a personal
+            if ($personal) {
+                $personal->form_1099g()->create([
+                    'belongs_to' => $request->belongs_to,
+                    'payer_name' => $request->payer_name,
+                    'unemployment_compensation' => $request->unemployment_compensation,
+                    'federal_income_tax' => $request->federal_income_tax,
+                ]);
+            }
+        return redirect()->route('form1099-g.index');
     }
 
     /**
@@ -54,9 +68,10 @@ class Form1099GController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Form1099G $form1099_g)
     {
-        //
+        $personal = auth()->user()->personals()->first();
+        return view('income.1099g.edit', compact('form1099_g', 'personal'));
     }
 
     /**
@@ -66,9 +81,15 @@ class Form1099GController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Form1099G $form1099_g)
     {
-        //
+        $form1099_g->update([
+            'belongs_to' => $request->belongs_to,
+            'payer_name' => $request->payer_name,
+            'unemployment_compensation' => $request->unemployment_compensation,
+            'federal_income_tax' => $request->federal_income_tax,
+        ]);
+        return redirect()->route('form1099-g.index');
     }
 
     /**
@@ -77,8 +98,9 @@ class Form1099GController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Form1099G $form1099_g)
     {
-        //
+        $form1099_g->delete();
+        return back();
     }
 }

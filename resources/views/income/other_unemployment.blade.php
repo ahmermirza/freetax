@@ -15,11 +15,11 @@
                     <div class="tile">
                         <h2 class="tile-title d-lg-flex justify-content-center h2"><b>Other Unemployment Compensation
                                 Income</b></h2>
-                        @if (isset($income))
-                            <form action="{{ route('income.update', $income) }}" method="post">
+                        @if (isset($unemployment))
+                            <form action="{{ route('income.other.unemployment.update', $unemployment) }}" method="post">
                                 @method('PUT')
                             @else
-                                <form action="{{ route('income.store') }}" method="post">
+                                <form action="{{ route('income.other.unemployment.store') }}" method="post">
                         @endif
                         <div class="tile-body">
                             @csrf
@@ -31,46 +31,46 @@
                             </div><br>
                             <div class="row ps-5">
                                 <div class="col-lg-8 ps-0">
-                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter any union
+                                    <label class="form-input-label h6 pt-2" for="union_unemployment">Enter any union
                                         unemployment benefits you received:</label>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="has-danger input-group mb-3">
                                         <span
-                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                            class="input-group-text bg-disabled text-dark @error('union_unemployment') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
-                                            class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-                                            type="text" value="" aria-label="first_name"
+                                            class="form-control @error('union_unemployment') is-invalid @enderror" name="union_unemployment"
+                                            type="text" value="{{ old('union_unemployment', $unemployment ? $unemployment->union_unemployment : '') }}" aria-label="union_unemployment"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
                             </div>
                             <div class="row ps-5">
                                 <div class="col-lg-8 ps-0">
-                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter any private fund unemployment benefits you received:</label>
+                                    <label class="form-input-label h6 pt-2" for="private_fund_unemployment">Enter any private fund unemployment benefits you received:</label>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="has-danger input-group mb-3">
                                         <span
-                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                            class="input-group-text bg-disabled text-dark @error('private_fund_unemployment') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
-                                            class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-                                            type="text" value="" aria-label="first_name"
+                                            class="form-control @error('private_fund_unemployment') is-invalid @enderror" name="private_fund_unemployment"
+                                            type="text" value="{{ old('private_fund_unemployment', $unemployment ? $unemployment->private_fund_unemployment : '') }}" aria-label="private_fund_unemployment"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
                             </div>
                             <div class="row ps-5">
                                 <div class="col-lg-8 ps-0">
-                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter any unemployment benefits that you received as a state employee when not covered by regular state unemployment benefits:</label>
+                                    <label class="form-input-label h6 pt-2" for="state_unemployment_benefit">Enter any unemployment benefits that you received as a state employee when not covered by regular state unemployment benefits:</label>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="has-danger input-group mb-3">
                                         <span
-                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                            class="input-group-text bg-disabled text-dark @error('state_unemployment_benefit') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
-                                            class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-                                            type="text" value="" aria-label="first_name"
+                                            class="form-control @error('state_unemployment_benefit') is-invalid @enderror" name="state_unemployment_benefit"
+                                            type="text" value="{{ old('state_unemployment_benefit', $unemployment ? $unemployment->state_unemployment_benefit : '') }}" aria-label="state_unemployment_benefit"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -86,46 +86,46 @@
                             </div><br>
                             <div class="row ps-5">
                                 <div class="col-lg-8 ps-0">
-                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter any union
+                                    <label class="form-input-label h6 pt-2" for="spouse_union_unemployment">Enter any union
                                         unemployment benefits you received:</label>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="has-danger input-group mb-3">
                                         <span
-                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                            class="input-group-text bg-disabled text-dark @error('spouse_union_unemployment') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
-                                            class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-                                            type="text" value="" aria-label="first_name"
+                                            class="form-control @error('spouse_union_unemployment') is-invalid @enderror" name="spouse_union_unemployment"
+                                            type="text" value="{{ old('spouse_union_unemployment', $unemployment ? $unemployment->spouse_union_unemployment : '') }}" aria-label="spouse_union_unemployment"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
                             </div>
                             <div class="row ps-5">
                                 <div class="col-lg-8 ps-0">
-                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter any private fund unemployment benefits you received:</label>
+                                    <label class="form-input-label h6 pt-2" for="spouse_private_fund_unemployment">Enter any private fund unemployment benefits you received:</label>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="has-danger input-group mb-3">
                                         <span
-                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                            class="input-group-text bg-disabled text-dark @error('spouse_private_fund_unemployment') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
-                                            class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-                                            type="text" value="" aria-label="first_name"
+                                            class="form-control @error('spouse_private_fund_unemployment') is-invalid @enderror" name="spouse_private_fund_unemployment"
+                                            type="text" value="{{ old('spouse_private_fund_unemployment', $unemployment ? $unemployment->spouse_private_fund_unemployment : '') }}" aria-label="spouse_private_fund_unemployment"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
                             </div>
                             <div class="row ps-5">
                                 <div class="col-lg-8 ps-0">
-                                    <label class="form-input-label h6 pt-2" for="campaign_contribution">Enter any unemployment benefits that your spouse received as a state employee when not covered by regular state unemployment benefits:</label>
+                                    <label class="form-input-label h6 pt-2" for="spouse_state_unemployment_benefit">Enter any unemployment benefits that your spouse received as a state employee when not covered by regular state unemployment benefits:</label>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="has-danger input-group mb-3">
                                         <span
-                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                            class="input-group-text bg-disabled text-dark @error('spouse_state_unemployment_benefit') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
-                                            class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-                                            type="text" value="" aria-label="first_name"
+                                            class="form-control @error('spouse_state_unemployment_benefit') is-invalid @enderror" name="spouse_state_unemployment_benefit"
+                                            type="text" value="{{ old('spouse_state_unemployment_benefit', $unemployment ? $unemployment->spouse_state_unemployment_benefit : '') }}" aria-label="spouse_state_unemployment_benefit"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>

@@ -15,7 +15,8 @@
                     <div class="tile">
                         <h2 class="tile-title d-lg-flex justify-content-center h2"><b>Enter the unemployment info from your
                                 1099-G</b></h2>
-                        <form action="{{ route('form1099-g.store') }}" method="post">
+                        <form action="{{ route('form1099-g.update', $form1099_g) }}" method="post">
+                            @method('PUT')
                             <div class="tile-body">
                                 @csrf
                                 <div class="container">
@@ -27,7 +28,8 @@
                                                 compensation belong to?</label><br>
                                             <div class="ms-3 has-danger form-check form-check-inline mb-3">
                                                 <input class="form-check-input me-3 h4" name="belongs_to" type="radio"
-                                                    value="you" aria-label="belongs_to" aria-describedby="basic-addon2">
+                                                    value="you" aria-label="belongs_to" aria-describedby="basic-addon2"
+                                                    {{ $form1099_g && $form1099_g->belongs_to == 'you' ? 'checked' : '' }}>
                                                 <label class="form-check-label h6 pt-2" for="belongs_to">{{ $personal ? $personal->first_name : '' }}</label>
                                             </div>
                                         </div>
@@ -36,7 +38,8 @@
                                         <div class="col-lg-10">
                                             <div class="ms-3 has-danger form-check form-check-inline mb-3">
                                                 <input class="form-check-input me-3 h4" name="belongs_to" type="radio"
-                                                    value="spouse" aria-label="belongs_to" aria-describedby="basic-addon2">
+                                                    value="spouse" aria-label="belongs_to" aria-describedby="basic-addon2"
+                                                    {{ $form1099_g && $form1099_g->belongs_to == 'spouse' ? 'checked' : '' }}>
                                                 <label class="form-check-label h6 pt-2" for="belongs_to">{{ $personal && $personal->spouse ? $personal->spouse->first_name : '' }}</label>
                                             </div>
                                         </div>
@@ -46,7 +49,8 @@
                                             <label class="form-form-label h6 pb-2" for="payer_name">Payer's Name:</label>
                                             <div class="has-danger input-group mb-3">
                                                 <input class="form-control @error('payer_name') is-invalid @enderror"
-                                                    name="payer_name" type="text" value="{{ old('payer_name') }}"
+                                                    name="payer_name" type="text"
+                                                    value="{{ old('payer_name', $form1099_g ? $form1099_g->payer_name : '') }}"
                                                     aria-label="payer_name" aria-describedby="basic-addon2" required>
                                             </div>
                                         </div>
@@ -61,7 +65,7 @@
                                                     id="basic-addon2"><b>$</b></span><input
                                                     class="form-control @error('unemployment_compensation') is-invalid @enderror"
                                                     name="unemployment_compensation" type="text"
-                                                    value="{{ old('unemployment_compensation') }}"
+                                                    value="{{ old('unemployment_compensation', $form1099_g ? $form1099_g->unemployment_compensation : '') }}"
                                                     aria-label="unemployment_compensation" aria-describedby="basic-addon2">
                                             </div>
                                         </div>
@@ -74,8 +78,8 @@
                                                     id="basic-addon2"><b>$</b></span><input
                                                     class="form-control @error('federal_income_tax') is-invalid @enderror"
                                                     name="federal_income_tax" type="text"
-                                                    value="{{ old('federal_income_tax') }}" aria-label="federal_income_tax"
-                                                    aria-describedby="basic-addon2">
+                                                    value="{{ old('federal_income_tax', $form1099_g ? $form1099_g->federal_income_tax : '') }}"
+                                                    aria-label="federal_income_tax" aria-describedby="basic-addon2">
                                             </div>
                                         </div>
                                     </div><br><br>

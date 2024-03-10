@@ -33,18 +33,29 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/personal/{personal}', 'PersonalController@update')->name('personal.update');
     Route::resource('/personal/dependents', 'DependentController');
 
-    Route::get('/income', 'IncomeController@create')->name('income.create');
-    Route::post('/income', 'IncomeController@store')->name('income.store');
-    Route::put('/income/{income}', 'IncomeController@update')->name('income.update');
-    Route::get('/income/unemployment-compensation', 'IncomeController@unemploymentCompensation')->name('income.unemployment');
-    Route::get('/income/other-unemployment-compensation', 'IncomeController@otherUnemploymentCompensation')->name('income.other.unemployment');
-    Route::get('/income/social-security-benefits', 'IncomeController@socialSecurityBenefits')->name('income.ssb');
-    Route::get('/income/crypto', 'IncomeController@crypto')->name('income.crypto');
+
+    Route::get('/income/unemployment-compensation', 'UnemploymentController@unemploymentCompensationCreate')->name('income.unemployment.create');
+    Route::post('/income/unemployment-compensation', 'UnemploymentController@unemploymentCompensationStore')->name('income.unemployment.store');
+    Route::put('/income/{unemployment_compensation}/unemployment-compensation', 'UnemploymentController@unemploymentCompensationUpdate')->name('income.unemployment.update');
+
+    Route::get('/income/other-unemployment-compensation', 'UnemploymentController@otherUnemploymentCompensationCreate')->name('income.other.unemployment.create');
+    Route::post('/income/other-unemployment-compensation', 'UnemploymentController@otherUnemploymentCompensationStore')->name('income.other.unemployment.store');
+    Route::put('/income/{unemployment_compensation}/other-unemployment-compensation', 'UnemploymentController@otherUnemploymentCompensationUpdate')->name('income.other.unemployment.update');
+
+    Route::get('/income/social-security-benefits', 'UnemploymentController@socialSecurityBenefitsCreate')->name('income.ssb.create');
+    Route::post('/income/social-security-benefits', 'UnemploymentController@socialSecurityBenefitsStore')->name('income.ssb.store');
+    Route::put('/income/{ssb}/social-security-benefits', 'UnemploymentController@socialSecurityBenefitsUpdate')->name('income.ssb.update');
+
+    Route::get('/income/crypto', 'UnemploymentController@crypto')->name('income.crypto.create');
+    Route::post('/income/crypto', 'UnemploymentController@crypto')->name('income.crypto.store');
+    Route::put('/income/{crypto}/crypto', 'UnemploymentController@crypto')->name('income.crypto.update');
+
 
     Route::get('/income/w-2/{w_2}/clergy-wages', 'W2Controller@ministerClergyWages')->name('w-2.mcw.edit');
     Route::put('/income/w-2/{w_2}/clergy-wages', 'W2Controller@ministerClergyWagesUpdate')->name('w-2.mcw.update');
     Route::resource('/income/w-2', 'W2Controller');
     Route::get('/income/w-2/create/spouse', 'W2Controller@create')->name('spouse.w-2.create');
+
     Route::resource('/income/form1099-g', 'Form1099GController');
 
 

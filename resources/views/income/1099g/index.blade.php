@@ -32,7 +32,7 @@
                                             <b class="pt-3">Income</b>
                                         </div>
                                         <div class="pt-2">
-                                            <a href="{{ route('1099-g.create') }}" class="btn btn-primary rounded-0"><b
+                                            <a href="{{ route('form1099-g.create') }}" class="btn btn-primary rounded-0"><b
                                                     class="text-white"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add an Unemployment 1099-G</b></a>
                                         </div>
                                     </div>
@@ -43,17 +43,18 @@
                                     <div class="px-4 pe-5 custom-index-card">
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                {{-- @foreach ($dependents as $dependent) --}}
+                                                @if ($form_1099gs->count())
+                                                    @foreach ($form_1099gs as $form_1099g)
                                                 <div class="d-flex justify-content-between m-4 mx-2 ms-0">
                                                     <div class="d-flex justify-content-between w-50">
-                                                        <span class="h6 w-25">{{ 'GOVERNMENT OF THE DISTRICT OF COLUMBIA' }}</span>
-                                                        <span class="h6">{{ 'you first name' }}</span>
-                                                        <span class="h6">{{ '$23' }}</span>
+                                                        <span class="h6 w-25">{{ $form_1099g->payer_name }}</span>
+                                                        <span class="h6">{{ $form_1099g->belongs_to == 'you' ? $form_1099g->personal->first_name : $form_1099g->personal->spouse->first_name }}</span>
+                                                        <span class="h6">${{ $form_1099g->unemployment_compensation }}</span>
                                                     </div>
                                                     <div>
-                                                        <a href="{{ route('1099-g.edit', '1') }}"
+                                                        <a href="{{ route('form1099-g.edit', $form_1099g) }}"
                                                             class="h6 pe-5">Edit</a>&nbsp;&nbsp;
-                                                        <form action="{{ route('1099-g.destroy', '1') }}" method="POST"
+                                                        <form action="{{ route('form1099-g.destroy', $form_1099g) }}" method="POST"
                                                             class="d-inline">
                                                             @csrf
                                                             @method('DELETE')
@@ -63,7 +64,12 @@
                                                     </div>
                                                     </form>
                                                 </div>
-                                                {{-- @endforeach --}}
+                                                @endforeach
+                                                @else
+                                                <div class="d-flex justify-content-center m-4 mx-2 ms-0">
+                                                    <p class="h6 small">No Form 1099 found.</p>
+                                                </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>

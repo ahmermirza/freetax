@@ -75,12 +75,12 @@
                 text-decoration: none;
                 display: inline-block;
                 border-radius: 10px;
-                font-weight: 600;
+                /* font-weight: 600; */
             }
 
-            ul .dropdown-menu-custom-width {
+            /* ul .dropdown-menu-custom-width {
                 width: 740px;
-            }
+            } */
         }
     </style>
     {{-- @stack('custom-styling') --}}
@@ -156,8 +156,6 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-white dropdown-menu-custom-width round-3 mt-3 shadow bg-white"
                                     aria-labelledby="navbarDarkDropdownMenuLink">
-                                    <div class="row px-3">
-                                        <div class="col-xl-6">
                                             <a class="dropdown-item" href="{{ route('personal.create', ['info' => 'basic']) }}"><i class="fa fa-check text-success"
                                                     aria-hidden="true"></i>&nbsp;&nbsp;Taxpayer Information</a>
                                             <a class="dropdown-item" href="{{ route('personal.create', ['info' => 'filing-status']) }}"><i class="fa fa-check text-success"
@@ -168,8 +166,6 @@
                                             @endif
                                             <a class="dropdown-item" href="{{ route('dependents.index') }}"><i class="fa fa-check text-success"
                                                 aria-hidden="true"></i>&nbsp;&nbsp;Dependents</a>
-                                        </div>
-                                    </div>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown nav-custom-item px-lg-1 px-xl-1" role="button">
@@ -184,11 +180,11 @@
                                     <li><a class="dropdown-item" href="#"><b>Common Income</b></a></li>
                                     <li><a class="dropdown-item" href="{{ route('w-2.index') }}"><i class="fa fa-check text-success"
                                                 aria-hidden="true"></i>&nbsp;&nbsp;Wages (W-2)</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('form1099-g.index') }}"><i class="fa fa-check text-success"
+                                    <li><a class="dropdown-item" href="{{ route('income.unemployment.create') }}"><i class="fa fa-check text-success"
                                                 aria-hidden="true"></i>&nbsp;&nbsp;Unemployment Compensation (1099-G)</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('income.ssb') }}"><i class="fa fa-check text-success"
+                                    <li><a class="dropdown-item" href="{{ route('income.ssb.create') }}"><i class="fa fa-check text-success"
                                                 aria-hidden="true"></i>&nbsp;&nbsp;Social Security Benefits (SSA-1099)</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('income.crypto') }}"><i class="fa fa-check text-success"
+                                    <li><a class="dropdown-item" href="{{ route('income.crypto.create') }}"><i class="fa fa-check text-success"
                                         aria-hidden="true"></i>&nbsp;&nbsp;Cryptocurrency</a></li>
                                 </ul>
                             </li>
@@ -253,27 +249,14 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-white dropdown-menu-custom-width dropdown-menu-end round-3 mt-3 shadow bg-white"
                                     aria-labelledby="navbarDarkDropdownMenuLink">
-                                    <div class="row px-3">
-                                        <div class="col-xl-6">
-                                            <a class="dropdown-item" href="#"><b>Common Income</b></a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-check text-success"
-                                                    aria-hidden="true"></i>&nbsp;&nbsp;Unemployment Compensation
-                                                (1099-G)</a>
                                             <a class="dropdown-item" href="#"><i class="fa fa-check text-success"
                                                     aria-hidden="true"></i>&nbsp;&nbsp;Another action</a>
                                             <a class="dropdown-item" href="#"><i class="fa fa-check text-success"
                                                     aria-hidden="true"></i>&nbsp;&nbsp;Something else here</a>
-                                        </div>
-                                        <div class="col-xl-6">
                                             <a class="dropdown-item" href="#"><i class="fa fa-check text-success"
                                                     aria-hidden="true"></i>&nbsp;&nbsp;Action</a>
                                             <a class="dropdown-item" href="#"><i class="fa fa-check text-success"
-                                                    aria-hidden="true"></i>&nbsp;&nbsp;Undistributed Capital Gains (Form
-                                                2439)</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-check text-success"
                                                     aria-hidden="true"></i>&nbsp;&nbsp;Something else here</a>
-                                        </div>
-                                    </div>
                                 </ul>
                             </li>
                         </ul>

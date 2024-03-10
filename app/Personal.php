@@ -37,4 +37,19 @@ class Personal extends Model
     {
         return $this->hasOne(DeductionsCredits::class);
     }
+
+    public function form_1099g()
+    {
+        return $this->hasMany(Form1099G::class);
+    }
+
+    public function unemployment()
+    {
+        return $this->hasOne(Unemployment::class);
+    }
+
+    public function ssb()
+    {
+        return $this->hasOne(SocialSecurityBenefits::class);
+    }
 }

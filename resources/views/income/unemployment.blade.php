@@ -14,11 +14,11 @@
                 <div class="col-lg-12">
                     <div class="tile">
                         <h2 class="tile-title d-lg-flex justify-content-center h2"><b>Did you receive unemployment?</b></h2>
-                        @if (isset($income))
-                            <form action="{{ route('income.update', $income) }}" method="post">
+                        @if (isset($unemployment))
+                            <form action="{{ route('income.unemployment.update', $unemployment) }}" method="post">
                                 @method('PUT')
                             @else
-                                <form action="{{ route('income.store') }}" method="post">
+                                <form action="{{ route('income.unemployment.store') }}" method="post">
                         @endif
                         <div class="tile-body">
                             @csrf
@@ -37,17 +37,17 @@
                             <div class="row ps-5">
                                 <div class="col-lg-11">
                                     <div class="has-danger form-check form-check-inline mb-3">
-                                        <input class="form-check-input me-3 h4" name="parent_claim" type="radio"
-                                            value="1" aria-label="parent_claim" aria-describedby="basic-addon2"
-                                            {{ 1 == 0 ? 'checked' : '' }}>
-                                        <label class="form-check-label h6 pt-2" for="parent_claim"><b>Yes</b></label>
+                                        <input class="form-check-input me-3 h4" name="received_unemployment" type="radio"
+                                            value="yes" aria-label="received_unemployment" aria-describedby="basic-addon2"
+                                            {{ isset($unemployment) ? ((isset($unemployment) && $unemployment->received_unemployment == 'yes') ? 'checked' : '') : 'checked' }}>
+                                        <label class="form-check-label h6 pt-2" for="received_unemployment"><b>Yes</b></label>
                                     </div>
                                     <div class="has-danger form-check form-check-inline mb-3">
-                                        <input class="form-check-input me-3 h4" name="parent_claim" type="radio"
-                                            value="0" aria-label="parent_claim" aria-describedby="basic-addon2"
-                                            {{ 1 == 1 ? 'checked' : '' }}>
+                                        <input class="form-check-input me-3 h4" name="received_unemployment" type="radio"
+                                            value="no" aria-label="received_unemployment" aria-describedby="basic-addon2"
+                                            {{ $unemployment && $unemployment->received_unemployment == 'no' ? 'checked' : '' }}>
                                         <label class="form-check-label h6 pt-2"
-                                            for="parent_claim"><b>No</b></label>&nbsp;&nbsp;&nbsp;
+                                            for="received_unemployment"><b>No</b></label>&nbsp;&nbsp;&nbsp;
                                         <label class="h6 pt-2">Did you receive unemployment compensation reported on a Form
                                             1099-G?
                                         </label>
@@ -57,18 +57,18 @@
                             <div class="row ps-5">
                                 <div class="col-lg-11">
                                     <div class="has-danger form-check form-check-inline mb-3">
-                                        <input class="form-check-input me-3 h4" name="campaign_contribution" type="radio"
-                                            value="1" aria-label="campaign_contribution"
-                                            aria-describedby="basic-addon2" {{ 1 == 0 ? 'checked' : '' }}>
+                                        <input class="form-check-input me-3 h4" name="received_other_unemployment" type="radio"
+                                            value="yes" aria-label="received_other_unemployment"
+                                            aria-describedby="basic-addon2" {{ isset($unemployment) ? ((isset($unemployment) && $unemployment->received_other_unemployment == 'yes') ? 'checked' : '') : 'checked' }}>
                                         <label class="form-check-label h6 pt-2"
-                                            for="campaign_contribution"><b>Yes</b></label>
+                                            for="received_other_unemployment"><b>Yes</b></label>
                                     </div>
                                     <div class="has-danger form-check form-check-inline mb-3">
-                                        <input class="form-check-input me-3 h4" name="campaign_contribution" type="radio"
-                                            value="0" aria-label="campaign_contribution"
-                                            aria-describedby="basic-addon2" {{ 1 == 1 ? 'checked' : '' }}>
+                                        <input class="form-check-input me-3 h4" name="received_other_unemployment" type="radio"
+                                            value="no" aria-label="received_other_unemployment"
+                                            aria-describedby="basic-addon2" {{ $unemployment && $unemployment->received_other_unemployment == 'no' ? 'checked' : '' }}>
                                         <label class="form-check-label h6 pt-2"
-                                            for="campaign_contribution"><b>No</b></label>&nbsp;&nbsp;&nbsp;
+                                            for="received_other_unemployment"><b>No</b></label>&nbsp;&nbsp;&nbsp;
                                         <label class="h6 pt-2">Did you receive other unemployment compensation?</label>
                                     </div>
                                     <span class="d-flex justify-content-center">
@@ -85,17 +85,17 @@
                             <div class="row ps-5">
                                 <div class="col-lg-11">
                                     <div class="has-danger form-check form-check-inline mb-3">
-                                        <input class="form-check-input me-3 h4" name="spouse_unemp_comp" type="radio"
-                                            value="1" aria-label="spouse_unemp_comp" aria-describedby="basic-addon2"
-                                            {{ 1 == 0 ? 'checked' : '' }}>
-                                        <label class="form-check-label h6 pt-2" for="spouse_unemp_comp"><b>Yes</b></label>
+                                        <input class="form-check-input me-3 h4" name="spouse_received_unemployment" type="radio"
+                                            value="yes" aria-label="spouse_received_unemployment" aria-describedby="basic-addon2"
+                                            {{ isset($unemployment) ? ((isset($unemployment) && $unemployment->spouse_received_unemployment == 'yes') ? 'checked' : '') : 'checked' }}>
+                                        <label class="form-check-label h6 pt-2" for="spouse_received_unemployment"><b>Yes</b></label>
                                     </div>
                                     <div class="has-danger form-check form-check-inline mb-3">
-                                        <input class="form-check-input me-3 h4" name="spouse_unemp_comp" type="radio"
-                                            value="0" aria-label="spouse_unemp_comp" aria-describedby="basic-addon2"
-                                            {{ 1 == 1 ? 'checked' : '' }}>
+                                        <input class="form-check-input me-3 h4" name="spouse_received_unemployment" type="radio"
+                                            value="no" aria-label="spouse_received_unemployment" aria-describedby="basic-addon2"
+                                            {{ $unemployment && $unemployment->spouse_received_unemployment == 'no' ? 'checked' : '' }}>
                                         <label class="form-check-label h6 pt-2"
-                                            for="spouse_unemp_comp"><b>No</b></label>&nbsp;&nbsp;&nbsp;
+                                            for="spouse_received_unemployment"><b>No</b></label>&nbsp;&nbsp;&nbsp;
                                         <label class="h6 pt-2">Did your spouse receive unemployment compensation reported on a Form
                                             1099-G?
                                         </label>
@@ -105,18 +105,18 @@
                             <div class="row ps-5">
                                 <div class="col-lg-11">
                                     <div class="has-danger form-check form-check-inline mb-3">
-                                        <input class="form-check-input me-3 h4" name="spouse_other_comp" type="radio"
-                                            value="1" aria-label="spouse_other_comp"
-                                            aria-describedby="basic-addon2" {{ 1 == 0 ? 'checked' : '' }}>
+                                        <input class="form-check-input me-3 h4" name="spouse_received_other_unemployment" type="radio"
+                                            value="yes" aria-label="spouse_received_other_unemployment"
+                                            aria-describedby="basic-addon2" {{ isset($unemployment) ? ((isset($unemployment) && $unemployment->spouse_received_other_unemployment == 'yes') ? 'checked' : '') : 'checked' }}>
                                         <label class="form-check-label h6 pt-2"
-                                            for="spouse_other_comp"><b>Yes</b></label>
+                                            for="spouse_received_other_unemployment"><b>Yes</b></label>
                                     </div>
                                     <div class="has-danger form-check form-check-inline mb-3">
-                                        <input class="form-check-input me-3 h4" name="spouse_other_comp" type="radio"
-                                            value="0" aria-label="spouse_other_comp"
-                                            aria-describedby="basic-addon2" {{ 1 == 1 ? 'checked' : '' }}>
+                                        <input class="form-check-input me-3 h4" name="spouse_received_other_unemployment" type="radio"
+                                            value="no" aria-label="spouse_received_other_unemployment"
+                                            aria-describedby="basic-addon2" {{ $unemployment && $unemployment->spouse_received_other_unemployment == 'no' ? 'checked' : '' }}>
                                         <label class="form-check-label h6 pt-2"
-                                            for="spouse_other_comp"><b>No</b></label>&nbsp;&nbsp;&nbsp;
+                                            for="spouse_received_other_unemployment"><b>No</b></label>&nbsp;&nbsp;&nbsp;
                                         <label class="h6 pt-2">Did your spouse receive other unemployment compensation?</label>
                                     </div>
                                 </div>
