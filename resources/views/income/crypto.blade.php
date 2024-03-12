@@ -14,7 +14,12 @@
                 <div class="col-lg-12">
                     <div class="tile">
                         <h2 class="tile-title d-lg-flex justify-content-center h2"><b>Cryptocurrency</b></h2>
-                        <form action="{{ route('w-2.store') }}" method="post">
+                        @if (isset($unemployment))
+                            <form action="{{ route('income.crypto.update', $unemployment) }}" method="post">
+                                @method('PUT')
+                        @else
+                            <form action="{{ route('income.crypto.store') }}" method="post">
+                        @endif
                             <div class="tile-body">
                                 @csrf
                                 <div class="container">
@@ -22,16 +27,17 @@
                                     <div class="row">
                                         <div class="col-lg-12 ms-3">
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input h4" type="radio" name="foreign-address"
-                                                    id="foreign-yes" value="yes">
-                                                <label class="form-check-label h6 pt-2" for="foreign-yes"><b>Yes</b></label>
+                                                <input class="form-check-input h4" type="radio" name="crypto"
+                                                    id="crypto_yes" value="yes" {{ $unemployment && $unemployment->crypto == 'yes' ? 'checked' : '' }}>
+                                                <label class="form-check-label h6 pt-2" for="crypto_yes"><b>Yes</b></label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input h4" type="radio" name="foreign-address"
-                                                    id="foreign-no" value="no" checked>
-                                                <label class="form-check-label h6 pt-2" for="foreign-no"><b>No</b></label>
+                                                <input class="form-check-input h4" type="radio" name="crypto"
+                                                    id="crypto_no" value="no"
+                                                    {{ isset($unemployment) ? ((isset($unemployment) && $unemployment->crypto == 'no') ? 'checked' : '') : 'checked' }}>
+                                                <label class="form-check-label h6 pt-2" for="crypto_no"><b>No</b></label>
                                             </div>
-                                            <label class="form-form-label h6 form-check-inline" for="employer-address">Did you receive, sell, exchange, or otherwise dispose of any cryptocurrency during 2023?</label>
+                                            <label class="form-form-label h6 form-check-inline" for="crypto">Did you receive, sell, exchange, or otherwise dispose of any cryptocurrency during 2023?</label>
                                             <p class="h6 text-secondary" for="employer-address">Such as Bitcoin, Dogecoin, Ethereum, etc.</p>
                                         </div>
                                     </div>

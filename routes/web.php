@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return redirect()->route('login');
 })->name('home');
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard')->middleware('auth');
 
@@ -44,11 +44,11 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/income/social-security-benefits', 'UnemploymentController@socialSecurityBenefitsCreate')->name('income.ssb.create');
     Route::post('/income/social-security-benefits', 'UnemploymentController@socialSecurityBenefitsStore')->name('income.ssb.store');
-    Route::put('/income/{ssb}/social-security-benefits', 'UnemploymentController@socialSecurityBenefitsUpdate')->name('income.ssb.update');
+    Route::put('/income/{unemployment}/social-security-benefits', 'UnemploymentController@socialSecurityBenefitsUpdate')->name('income.ssb.update');
 
-    Route::get('/income/crypto', 'UnemploymentController@crypto')->name('income.crypto.create');
-    Route::post('/income/crypto', 'UnemploymentController@crypto')->name('income.crypto.store');
-    Route::put('/income/{crypto}/crypto', 'UnemploymentController@crypto')->name('income.crypto.update');
+    Route::get('/income/crypto', 'UnemploymentController@cryptoCreate')->name('income.crypto.create');
+    Route::post('/income/crypto', 'UnemploymentController@cryptoStore')->name('income.crypto.store');
+    Route::put('/income/{unemployment}/crypto', 'UnemploymentController@cryptoUpdate')->name('income.crypto.update');
 
 
     Route::get('/income/w-2/{w_2}/clergy-wages', 'W2Controller@ministerClergyWages')->name('w-2.mcw.edit');

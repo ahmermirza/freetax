@@ -47,9 +47,4 @@ class Personal extends Model
     {
         return $this->hasOne(Unemployment::class);
     }
-
-    public function ssb()
-    {
-        return $this->hasOne(SocialSecurityBenefits::class);
-    }
 }

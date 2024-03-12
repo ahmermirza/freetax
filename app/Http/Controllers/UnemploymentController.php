@@ -69,7 +69,67 @@ class UnemploymentController extends Controller
 
     public function socialSecurityBenefitsCreate()
     {
-        $ssb = auth()->user()->personals()->first();
-        return view('income.social_security_benefits', compact('ssb'));
+        $unemployment = auth()->user()->personals()->first()->unemployment()->first();
+        return view('income.social_security_benefits', compact('unemployment'));
+    }
+
+    public function socialSecurityBenefitsStore(Request $request)
+    {
+        auth()->user()->personals()->first()->unemployment()->create([
+            'ssb' => $request->ssb,
+            'ssb_repaid' => $request->ssb_repaid,
+            'ssb_federal' => $request->ssb_federal,
+            'ssb_medi' => $request->ssb_medi,
+            'ssb_received_ss' => $request->ssb_received_ss,
+            'ssb_received_benefits' => $request->ssb_received_benefits,
+            'spouse_ssb' => $request->spouse_ssb,
+            'spouse_ssb_repaid' => $request->spouse_ssb_repaid,
+            'spouse_ssb_federal' => $request->spouse_ssb_federal,
+            'spouse_ssb_medi' => $request->spouse_ssb_medi,
+            'spouse_ssb_received_ss' => $request->spouse_ssb_received_ss,
+            'spouse_ssb_received_benefits' => $request->spouse_ssb_received_benefits,
+        ]);
+        return redirect()->route('income.ssb.create');
+    }
+
+    public function socialSecurityBenefitsUpdate(Request $request, Unemployment $unemployment)
+    {
+        $unemployment->update([
+            'ssb' => $request->ssb,
+            'ssb_repaid' => $request->ssb_repaid,
+            'ssb_federal' => $request->ssb_federal,
+            'ssb_medi' => $request->ssb_medi,
+            'ssb_received_ss' => $request->ssb_received_ss,
+            'ssb_received_benefits' => $request->ssb_received_benefits,
+            'spouse_ssb' => $request->spouse_ssb,
+            'spouse_ssb_repaid' => $request->spouse_ssb_repaid,
+            'spouse_ssb_federal' => $request->spouse_ssb_federal,
+            'spouse_ssb_medi' => $request->spouse_ssb_medi,
+            'spouse_ssb_received_ss' => $request->spouse_ssb_received_ss,
+            'spouse_ssb_received_benefits' => $request->spouse_ssb_received_benefits,
+        ]);
+        return redirect()->route('income.ssb.create');
+    }
+
+    public function cryptoCreate()
+    {
+        $unemployment = auth()->user()->personals()->first()->unemployment()->first();
+        return view('income.crypto', compact('unemployment'));
+    }
+
+    public function cryptoStore(Request $request)
+    {
+        auth()->user()->personals()->first()->unemployment()->create([
+            'crypto' => $request->crypto,
+        ]);
+        return redirect()->route('income.crypto.create');
+    }
+
+    public function cryptoUpdate(Request $request, Unemployment $unemployment)
+    {
+        $unemployment->update([
+            'crypto' => $request->crypto,
+        ]);
+        return redirect()->route('income.crypto.create');
     }
 }

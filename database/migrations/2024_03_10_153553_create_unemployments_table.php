@@ -26,6 +26,19 @@ class CreateUnemploymentsTable extends Migration
             $table->string('spouse_union_unemployment')->nullable();
             $table->string('spouse_private_fund_unemployment')->nullable();
             $table->string('spouse_state_unemployment_benefit')->nullable();
+            $table->string('ssb')->nullable();
+            $table->string('ssb_repaid')->nullable();
+            $table->string('ssb_federal')->nullable();
+            $table->string('ssb_medi')->nullable();
+            $table->string('ssb_received_ss')->nullable();
+            $table->string('ssb_received_benefits')->nullable();
+            $table->string('spouse_ssb')->nullable();
+            $table->string('spouse_ssb_repaid')->nullable();
+            $table->string('spouse_ssb_federal')->nullable();
+            $table->string('spouse_ssb_medi')->nullable();
+            $table->string('spouse_ssb_received_ss')->nullable();
+            $table->string('spouse_ssb_received_benefits')->nullable();
+            $table->string('crypto')->nullable();
             $table->timestamps();
         });
     }

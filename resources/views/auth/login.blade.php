@@ -5,7 +5,7 @@
 @section('content')
     <div class="pt-5 d-flex justify-content-center w-100">
 
-        <form action="{{ route('login') }}" method="POST" class="p-5 rounded-3">
+        <form action="{{ route('login') }}" method="POST" class="pb-5 pb-md-5 rounded-3">
             <center>
                 <h3>Sign In</h3>
             </center>
@@ -36,6 +36,9 @@
             </div>
 
             <button type="submit" class="form-control btn btn-primary"><i class="fa fa-lock"></i> Login</button>
+            <div class="form-label pt-1">
+                <label for="remember">Don't have an account? <a class="text-primary" style="text-decoration: none;" href="{{ route('register') }}">Signup!</a></label>
+            </div>
         </form>
 
     </div>

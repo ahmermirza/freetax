@@ -16,7 +16,7 @@
                         <h2 class="tile-title d-lg-flex justify-content-center h2"><b>Your Dependents and Qualifying
                                 Children</b></h2>
                         <div class="tile-body">
-                            <div class="row ps-5">
+                            <div class="row ps-xl-5">
                                 <div class="col-lg-1">
                                 </div>
                                 <div class="col-lg-9">
@@ -24,19 +24,19 @@
                                         entered.</div>
                                 </div>
                             </div>
-                            <div class="row ps-5">
+                            <div class="row ps-xl-5">
                                 <div class="col-lg-1">
                                 </div>
                                 <div class="col-lg-9 ms-2">
                                     <div class="d-flex justify-content-between px-3">
                                         <b class="pt-3">Dependent Name</b>
-                                        <a href="{{ route('dependents.create') }}" class="btn btn-primary rounded-0"><b
+                                        <a href="{{ route('dependents.create') }}" class="btn btn-primary btn-sm mb-lg-0 rounded-0"><b
                                                 class="text-white"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add a
                                                 Dependent</b></a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row ps-5 py-3 pb-5">
+                            <div class="row ps-xl-5 py-3 pb-5">
                                 <div class="col-lg-1">
                                 </div>
                                 <div class="col-lg-9 ms-2 pb-2">

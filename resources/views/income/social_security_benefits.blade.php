@@ -15,8 +15,8 @@
                     <div class="tile">
                         <h2 class="tile-title d-lg-flex justify-content-center h2"><b>Social Security Benefits (Form
                                 SSA-1099)</b></h2>
-                            @if (isset($ssb))
-                            <form action="{{ route('income.ssb.update', $ssb) }}" method="post">
+                            @if (isset($unemployment))
+                            <form action="{{ route('income.ssb.update', $unemployment) }}" method="post">
                                 @method('PUT')
                             @else
                                 <form action="{{ route('income.ssb.store') }}" method="post">
@@ -49,11 +49,11 @@
                                                     </div>
                                                     <div class="col-lg-3 d-flex justify-content-start">
                                                         <span
-                                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                                            class="input-group-text bg-disabled text-dark @error('ssb') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
-                                                            class="form-control @error('first_name') is-invalid @enderror"
-                                                            name="first_name" type="text" value="{{ old('state_unemployment_benefit', $ssb ? $ssb->state_unemployment_benefit : '') }}"
-                                                            aria-label="first_name" aria-describedby="basic-addon2">
+                                                            class="form-control @error('ssb') is-invalid @enderror"
+                                                            name="ssb" type="text" value="{{ old('ssb', $unemployment ? $unemployment->ssb : '') }}"
+                                                            aria-label="ssb" aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
                                             </div>
@@ -67,11 +67,11 @@
                                                     </div>
                                                     <div class="col-lg-3 d-flex justify-content-start">
                                                         <span
-                                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                                            class="input-group-text bg-disabled text-dark @error('ssb_repaid') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
-                                                            class="form-control @error('first_name') is-invalid @enderror"
-                                                            name="first_name" type="text" value="{{ old('state_unemployment_benefit', $ssb ? $ssb->state_unemployment_benefit : '') }}"
-                                                            aria-label="first_name" aria-describedby="basic-addon2">
+                                                            class="form-control @error('ssb_repaid') is-invalid @enderror"
+                                                            name="ssb_repaid" type="text" value="{{ old('ssb_repaid', $unemployment ? $unemployment->ssb_repaid : '') }}"
+                                                            aria-label="ssb_repaid" aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
                                             </div>
@@ -85,11 +85,11 @@
                                                     </div>
                                                     <div class="col-lg-3 d-flex justify-content-start">
                                                         <span
-                                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                                            class="input-group-text bg-disabled text-dark @error('ssb_net') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
-                                                            class="form-control @error('first_name') is-invalid @enderror"
-                                                            name="first_name" type="text" value="0"
-                                                            style="background-color: #e9ecef;" aria-label="first_name"
+                                                            class="form-control @error('ssb_net') is-invalid @enderror"
+                                                            name="ssb_net" type="text" value="0"
+                                                            style="background-color: #e9ecef;" aria-label="ssb_net"
                                                             aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
@@ -104,11 +104,11 @@
                                                     </div>
                                                     <div class="col-lg-3 d-flex justify-content-start">
                                                         <span
-                                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                                            class="input-group-text bg-disabled text-dark @error('ssb_federal') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
-                                                            class="form-control @error('first_name') is-invalid @enderror"
-                                                            name="first_name" type="text" value="{{ old('state_unemployment_benefit', $ssb ? $ssb->state_unemployment_benefit : '') }}"
-                                                            aria-label="first_name" aria-describedby="basic-addon2">
+                                                            class="form-control @error('ssb_federal') is-invalid @enderror"
+                                                            name="ssb_federal" type="text" value="{{ old('ssb_federal', $unemployment ? $unemployment->ssb_federal : '') }}"
+                                                            aria-label="ssb_federal" aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
                                             </div>
@@ -121,11 +121,11 @@
                                                     </div>
                                                     <div class="col-lg-3 d-flex justify-content-start">
                                                         <span
-                                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                                            class="input-group-text bg-disabled text-dark @error('ssb_medi') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
-                                                            class="form-control @error('first_name') is-invalid @enderror"
-                                                            name="first_name" type="text" value="{{ old('state_unemployment_benefit', $ssb ? $ssb->state_unemployment_benefit : '') }}"
-                                                            aria-label="first_name" aria-describedby="basic-addon2">
+                                                            class="form-control @error('ssb_medi') is-invalid @enderror"
+                                                            name="ssb_medi" type="text" value="{{ old('ssb_medi', $unemployment ? $unemployment->ssb_medi : '') }}"
+                                                            aria-label="ssb_medi" aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
                                             </div>
@@ -137,20 +137,20 @@
                                                 <div class="col-lg-12 ms-3">
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input h4" type="radio"
-                                                            name="foreign-address" id="foreign-yes" value="yes"
-                                                            {{ $ssb && $ssb->received_unemployment == 'yes' ? 'checked' : '' }}>
+                                                            name="ssb_received_ss" id="ssb_received_ss_yes" value="yes"
+                                                            {{ $unemployment && $unemployment->ssb_received_ss == 'yes' ? 'checked' : '' }}>
                                                         <label class="form-check-label h6 pt-2"
-                                                            for="foreign-yes"><b>Yes</b></label>
+                                                            for="ssb_received_ss_yes"><b>Yes</b></label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input h4" type="radio"
-                                                            name="foreign-address" id="foreign-no" value="no"
-                                                            {{ isset($ssb) ? ((isset($ssb) && $ssb->received_unemployment == 'no') ? 'checked' : '') : 'checked' }}>
+                                                            name="ssb_received_ss" id="ssb_received_ss_no" value="no"
+                                                            {{ isset($unemployment) ? ((isset($unemployment) && $unemployment->ssb_received_ss == 'no') ? 'checked' : '') : 'checked' }}>
                                                         <label class="form-check-label h6 pt-2"
-                                                            for="foreign-no"><b>No</b></label>
+                                                            for="ssb_received_ss_no"><b>No</b></label>
                                                     </div>
                                                     <label class="form-form-label h6 form-check-inline"
-                                                        for="employer-address">Did you
+                                                        for="label-ssb-received-ss">Did you
                                                         receive a lump-sum Social Security payment in 2023 for 2022 or prior
                                                         years?</label>
                                                 </div>
@@ -164,15 +164,15 @@
                                                 <div class="col-lg-12 ms-3">
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input h4" type="radio"
-                                                            name="foreign-address" id="foreign-yes" value="yes"
-                                                            {{ $ssb && $ssb->received_unemployment == 'yes' ? 'checked' : '' }}>
+                                                            name="ssb_received_benefits" id="foreign-yes" value="yes"
+                                                            {{ $unemployment && $unemployment->ssb_received_benefits == 'yes' ? 'checked' : '' }}>
                                                         <label class="form-check-label h6 pt-2"
                                                             for="foreign-yes"><b>Yes</b></label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input h4" type="radio"
-                                                            name="foreign-address" id="foreign-no" value="no"
-                                                            {{ isset($ssb) ? ((isset($ssb) && $ssb->received_unemployment == 'no') ? 'checked' : '') : 'checked' }}>
+                                                            name="ssb_received_benefits" id="foreign-no" value="no"
+                                                            {{ isset($unemployment) ? ((isset($unemployment) && $unemployment->ssb_received_benefits == 'no') ? 'checked' : '') : 'checked' }}>
                                                         <label class="form-check-label h6 pt-2"
                                                             for="foreign-no"><b>No</b></label>
                                                     </div>
@@ -210,11 +210,11 @@
                                                     </div>
                                                     <div class="col-lg-3 d-flex justify-content-start">
                                                         <span
-                                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                                            class="input-group-text bg-disabled text-dark @error('spouse_ssb') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
-                                                            class="form-control @error('first_name') is-invalid @enderror"
-                                                            name="first_name" type="text" value="{{ old('state_unemployment_benefit', $ssb ? $ssb->state_unemployment_benefit : '') }}"
-                                                            aria-label="first_name" aria-describedby="basic-addon2">
+                                                            class="form-control @error('spouse_ssb') is-invalid @enderror"
+                                                            name="spouse_ssb" type="text" value="{{ old('spouse_ssb', $unemployment ? $unemployment->spouse_ssb : '') }}"
+                                                            aria-label="spouse_ssb" aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
                                             </div>
@@ -228,11 +228,11 @@
                                                     </div>
                                                     <div class="col-lg-3 d-flex justify-content-start">
                                                         <span
-                                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                                            class="input-group-text bg-disabled text-dark @error('spouse_ssb_repaid') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
-                                                            class="form-control @error('first_name') is-invalid @enderror"
-                                                            name="first_name" type="text" value="{{ old('state_unemployment_benefit', $ssb ? $ssb->state_unemployment_benefit : '') }}"
-                                                            aria-label="first_name" aria-describedby="basic-addon2">
+                                                            class="form-control @error('spouse_ssb_repaid') is-invalid @enderror"
+                                                            name="spouse_ssb_repaid" type="text" value="{{ old('spouse_ssb_repaid', $unemployment ? $unemployment->spouse_ssb_repaid : '') }}"
+                                                            aria-label="spouse_ssb_repaid" aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
                                             </div>
@@ -246,11 +246,11 @@
                                                     </div>
                                                     <div class="col-lg-3 d-flex justify-content-start">
                                                         <span
-                                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                                            class="input-group-text bg-disabled text-dark @error('spouse_ssb_net') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
-                                                            class="form-control @error('first_name') is-invalid @enderror"
-                                                            name="first_name" type="text" value="0"
-                                                            style="background-color: #e9ecef;" aria-label="first_name"
+                                                            class="form-control @error('spouse_ssb_net') is-invalid @enderror"
+                                                            name="spouse_ssb_net" type="text" value="0"
+                                                            style="background-color: #e9ecef;" aria-label="spouse_ssb_net"
                                                             aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
@@ -265,11 +265,11 @@
                                                     </div>
                                                     <div class="col-lg-3 d-flex justify-content-start">
                                                         <span
-                                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                                            class="input-group-text bg-disabled text-dark @error('spouse_ssb_federal') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
-                                                            class="form-control @error('first_name') is-invalid @enderror"
-                                                            name="first_name" type="text" value="{{ old('state_unemployment_benefit', $ssb ? $ssb->state_unemployment_benefit : '') }}"
-                                                            aria-label="first_name" aria-describedby="basic-addon2">
+                                                            class="form-control @error('spouse_ssb_federal') is-invalid @enderror"
+                                                            name="spouse_ssb_federal" type="text" value="{{ old('spouse_ssb_federal', $unemployment ? $unemployment->spouse_ssb_federal : '') }}"
+                                                            aria-label="spouse_ssb_federal" aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
                                             </div>
@@ -282,11 +282,11 @@
                                                     </div>
                                                     <div class="col-lg-3 d-flex justify-content-start">
                                                         <span
-                                                            class="input-group-text bg-disabled text-dark @error('first_name') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                                            class="input-group-text bg-disabled text-dark @error('spouse_ssb_medi') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
-                                                            class="form-control @error('first_name') is-invalid @enderror"
-                                                            name="first_name" type="text" value="{{ old('state_unemployment_benefit', $ssb ? $ssb->state_unemployment_benefit : '') }}"
-                                                            aria-label="first_name" aria-describedby="basic-addon2">
+                                                            class="form-control @error('spouse_ssb_medi') is-invalid @enderror"
+                                                            name="spouse_ssb_medi" type="text" value="{{ old('spouse_ssb_medi', $unemployment ? $unemployment->spouse_ssb_medi : '') }}"
+                                                            aria-label="spouse_ssb_medi" aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
                                             </div>
@@ -298,17 +298,17 @@
                                                 <div class="col-lg-12 ms-3">
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input h4" type="radio"
-                                                            name="foreign-address" id="foreign-yes" value="yes"
-                                                            {{ $ssb && $ssb->received_unemployment == 'yes' ? 'checked' : '' }}>
+                                                            name="spouse_ssb_received_ss" id="spouse_ssb_received_ss_yes" value="yes"
+                                                            {{ $unemployment && $unemployment->spouse_ssb_received_ss == 'yes' ? 'checked' : '' }}>
                                                         <label class="form-check-label h6 pt-2"
-                                                            for="foreign-yes"><b>Yes</b></label>
+                                                            for="spouse_ssb_received_ss_yes"><b>Yes</b></label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input h4" type="radio"
-                                                            name="foreign-address" id="foreign-no" value="no"
-                                                            {{ isset($ssb) ? ((isset($ssb) && $ssb->received_unemployment == 'no') ? 'checked' : '') : 'checked' }}>
+                                                            name="spouse_ssb_received_ss" id="spouse_ssb_received_ss_no" value="no"
+                                                            {{ isset($unemployment) ? ((isset($unemployment) && $unemployment->spouse_ssb_received_ss == 'no') ? 'checked' : '') : 'checked' }}>
                                                         <label class="form-check-label h6 pt-2"
-                                                            for="foreign-no"><b>No</b></label>
+                                                            for="spouse_ssb_received_ss_no"><b>No</b></label>
                                                     </div>
                                                     <label class="form-form-label h6 form-check-inline"
                                                         for="employer-address">Did your spouse
@@ -325,17 +325,17 @@
                                                 <div class="col-lg-12 ms-3">
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input h4" type="radio"
-                                                            name="foreign-address" id="foreign-yes" value="yes"
-                                                            {{ $ssb && $ssb->received_unemployment == 'yes' ? 'checked' : '' }}>
+                                                            name="spouse_ssb_received_benefits" id="spouse_ssb_received_benefits_yes" value="yes"
+                                                            {{ $unemployment && $unemployment->spouse_ssb_received_benefits == 'yes' ? 'checked' : '' }}>
                                                         <label class="form-check-label h6 pt-2"
-                                                            for="foreign-yes"><b>Yes</b></label>
+                                                            for="spouse_ssb_received_benefits_yes"><b>Yes</b></label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input h4" type="radio"
-                                                            name="foreign-address" id="foreign-no" value="no"
-                                                            {{ isset($ssb) ? ((isset($ssb) && $ssb->received_unemployment == 'no') ? 'checked' : '') : 'checked' }}>
+                                                            name="spouse_ssb_received_benefits" id="spouse_ssb_received_benefits_no" value="no"
+                                                            {{ isset($unemployment) ? ((isset($unemployment) && $unemployment->spouse_ssb_received_benefits == 'no') ? 'checked' : '') : 'checked' }}>
                                                         <label class="form-check-label h6 pt-2"
-                                                            for="foreign-no"><b>No</b></label>
+                                                            for="spouse_ssb_received_benefits_no"><b>No</b></label>
                                                     </div>
                                                     <label class="form-form-label h6 form-check-inline"
                                                         for="employer-address">Did your spouse receive any benefits on RRB-1099
