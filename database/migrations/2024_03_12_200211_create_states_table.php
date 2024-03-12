@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCryptosTable extends Migration
+class CreateStatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateCryptosTable extends Migration
      */
     public function up()
     {
-        Schema::create('cryptos', function (Blueprint $table) {
+        Schema::create('states', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('personal_id')->constrained()->onDelete('cascade');
+            $table->string('state_name')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateCryptosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cryptos');
+        Schema::dropIfExists('states');
     }
 }

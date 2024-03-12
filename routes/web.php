@@ -74,4 +74,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/deductions-credits/taxes', 'DeductionsCreditsController@taxesCreate')->name('taxes.create');
     Route::post('/deductions-credits/taxes', 'DeductionsCreditsController@taxesStore')->name('taxes.store');
     Route::put('/deductions-credits/{deductions_credit}/taxes', 'DeductionsCreditsController@taxesUpdate')->name('taxes.update');
+
+    // State Routes
+    Route::get('/state', 'StateController@stateCreate')->name('state.name.create');
+    Route::post('/state', 'StateController@stateStore')->name('state.name.store');
+    Route::get('/state/{state}', 'StateController@stateEdit')->name('state.name.edit');
+    Route::put('/state/{state}', 'StateController@stateUpdate')->name('state.name.update');
 });

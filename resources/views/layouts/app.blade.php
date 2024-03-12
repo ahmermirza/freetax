@@ -95,7 +95,7 @@
         <div class="container-fluid">
             <a class="navbar-brand font-weight-bold text-dark h1 ps-5 pe-3" href="{{ route('home') }}">FreeTax</a>
 
-            <div class="collapse navbar-collapse d-xl-flex justify-content-end" id="navbar_main">
+            <div class="collapse show navbar-collapse d-xl-flex justify-content-end" id="navbar_main">
                 {{-- <ul class="navbar-nav">
                     <li class="nav-item active">
                         <a class="nav-link text-dark p-2" href="/">Home <span class="sr-only">(current)</span></a>
@@ -145,10 +145,10 @@
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_main"
+                {{-- <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_main"
                     aria-controls="navbar_main" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                </button>
+                </button> --}}
                 <div class="collapse navbar-collapse d-xl-flex justify-content-center" id="navbar_secondary">
                     <div class="col-xl-9">
                         <ul class="navbar-nav d-xl-flex justify-content-between">

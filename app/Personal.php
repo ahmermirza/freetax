@@ -47,4 +47,9 @@ class Personal extends Model
     {
         return $this->hasOne(Unemployment::class);
     }
+
+    public function state()
+    {
+        return $this->hasMany(State::class);
+    }
 }
