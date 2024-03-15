@@ -56,7 +56,7 @@
                                         <div class="has-danger input-group mb-3">
                                             <select class="form-select @error('relation') is-invalid @enderror"
                                                 name="relation" aria-label="relation" aria-describedby="basic-addon2">
-                                                <option value="" selected></option>
+                                                <option value="" {{ $dependent && $dependent->relation == '' ? 'selected' : '' }}></option>
                                                 <option value="son" {{ $dependent && $dependent->relation == 'son' ? 'selected' : '' }}>SON
                                                 </option>
                                                 <option value="daughter"

@@ -483,36 +483,36 @@
                                             <div class="row">
                                                 <label class="form-form-label h6 pb-2" for="first_name"><b>Box
                                                         13</b></label>
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-4 col-4">
                                                     <label class="form-form-label h6 pb-2" for="first_name">Statutory
                                                         Employee</label>
                                                 </div>
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-4 col-4">
                                                     <label class="form-form-label h6 pb-2" for="first_name">Retirement
                                                         Plan</label>
                                                 </div>
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-4 col-4">
                                                     <label class="form-form-label h6 pb-2" for="first_name">Third-Party
                                                         Sick
                                                         Pay</label>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-4 col-4">
                                                     <input
                                                         class="form-check-input @error('statutory_employee') is-invalid @enderror h4 ms-1"
                                                         name="statutory_employee" type="checkbox"
                                                         value="1"
                                                         aria-label="statutory_employee" aria-describedby="basic-addon2">
                                                 </div>
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-4 col-4">
                                                     <input
                                                         class="form-check-input @error('eetirement_plan') is-invalid @enderror h4 ms-1"
                                                         name="eetirement_plan" type="checkbox"
                                                         value="1"
                                                         aria-label="eetirement_plan" aria-describedby="basic-addon2">
                                                 </div>
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-4 col-4">
                                                     <input
                                                         class="form-check-input @error('third_party_pay') is-invalid @enderror h4 ms-1"
                                                         name="third_party_pay" type="checkbox"
@@ -697,23 +697,9 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-lg-4">
-                                                    <label class="form-form-label h6 pb-2"
+                                                    <label class="form-form-label h6 pb-3"
                                                         for="employer_local_wages"><b>Box
                                                             18</b> - Local Wages, Tips, Etc.:</label>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <label class="form-form-label h6 pb-2"
-                                                        for="employer_local_income_tax"><b>Box 19</b>
-                                                        - Local Income Tax:</label>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <label class="form-form-label h6 pb-2" for="employer_locality"><b>Box
-                                                            20</b> -
-                                                        Locality Name:</label>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-lg-4">
                                                     <div class="has-danger input-group mb-3">
                                                         <span
                                                             class="input-group-text bg-disabled text-dark @error('employer_local_wages') is-invalid border border-danger text-danger @enderror border-0 px-3"
@@ -725,6 +711,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
+                                                    <label class="form-form-label h6 pb-3"
+                                                        for="employer_local_income_tax"><b>Box 19</b>
+                                                        - Local Income Tax:</label>
                                                     <div class="has-danger input-group mb-3">
                                                         <span
                                                             class="input-group-text bg-disabled text-dark @error('employer_local_income_tax') is-invalid border border-danger text-danger @enderror border-0 px-3"
@@ -736,6 +725,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
+                                                    <label class="form-form-label h6 pb-3" for="employer_locality"><b>Box
+                                                            20</b> -
+                                                        Locality Name:</label>
                                                     <div class="has-danger input-group mb-3">
                                                         <input
                                                             class="form-control @error('employer_locality') is-invalid @enderror"

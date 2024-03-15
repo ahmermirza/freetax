@@ -108,7 +108,7 @@
                 <ul class="navbar-nav">
                     @auth
                         <li class="nav-item dropdown">
-                            <a class="dropdown-toggle nav-link text-dark font-weight-bold p-3 pe-5 text-uppercase"
+                            <a class="dropdown-toggle nav-link text-dark font-weight-bold p-xl-3 p-1 pe-xl-5 text-uppercase"
                                 type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                 {{ auth()->user()->username }}
                             </a>
@@ -137,6 +137,9 @@
     </nav>
 
     @auth
+    @php
+        $personal = auth()->user()->personals()->first();
+    @endphp
         <nav class="navbar navbar-expand-xl navbar-light bg-light-custom">
             <div class="container-fluid">
                 {{-- <a class="navbar-brand" href="#">Navbar</a> --}}
@@ -164,7 +167,7 @@
                                     <a class="dropdown-item" href="{{ route('personal.create', ['info' => 'basic']) }}"><i
                                             class="fa fa-check text-success" aria-hidden="true"></i>&nbsp;&nbsp;Taxpayer
                                         Information</a>
-                                    <a class="dropdown-item"
+                                    <a class="dropdown-item @if(!$personal) disabled @endif"
                                         href="{{ route('personal.create', ['info' => 'filing-status']) }}"><i
                                             class="fa fa-check text-success" aria-hidden="true"></i>&nbsp;&nbsp;Filing
                                         Status</a>
@@ -176,7 +179,7 @@
                                                 class="fa fa-check text-success" aria-hidden="true"></i>&nbsp;&nbsp;Spouse
                                             Information</a>
                                     @endif
-                                    <a class="dropdown-item" href="{{ route('dependents.index') }}"><i
+                                    <a class="dropdown-item @if(!$personal) disabled @endif" href="{{ route('dependents.index') }}"><i
                                             class="fa fa-check text-success"
                                             aria-hidden="true"></i>&nbsp;&nbsp;Dependents</a>
                                 </ul>
@@ -190,18 +193,18 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-white dropdown-menu-custom-width round-3 mt-3 shadow bg-white"
                                     aria-labelledby="navbarDarkDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="#"><b>Common Income</b></a></li>
-                                    <li><a class="dropdown-item" href="{{ route('w-2.index') }}"><i
+                                    <h6 class="dropdown-header">Common Income</h6>
+                                    <li><a class="dropdown-item @if(!$personal) disabled @endif" href="{{ route('w-2.index') }}"><i
                                                 class="fa fa-check text-success" aria-hidden="true"></i>&nbsp;&nbsp;Wages
                                             (W-2)</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('income.unemployment.create') }}"><i
+                                    <li><a class="dropdown-item @if(!$personal) disabled @endif" href="{{ route('income.unemployment.create') }}"><i
                                                 class="fa fa-check text-success"
                                                 aria-hidden="true"></i>&nbsp;&nbsp;Unemployment Compensation (1099-G)</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="{{ route('income.ssb.create') }}"><i
+                                    <li><a class="dropdown-item @if(!$personal) disabled @endif" href="{{ route('income.ssb.create') }}"><i
                                                 class="fa fa-check text-success" aria-hidden="true"></i>&nbsp;&nbsp;Social
                                             Security Benefits (SSA-1099)</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('income.crypto.create') }}"><i
+                                    <li><a class="dropdown-item @if(!$personal) disabled @endif" href="{{ route('income.crypto.create') }}"><i
                                                 class="fa fa-check text-success"
                                                 aria-hidden="true"></i>&nbsp;&nbsp;Cryptocurrency</a></li>
                                 </ul>
@@ -214,16 +217,20 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-white dropdown-menu-custom-width round-3 mt-3 shadow bg-white"
                                     aria-labelledby="navbarDarkDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="{{ route('mortgage-interest.index') }}"><i
+                                    <h6 class="dropdown-header">Itemized Deductions</h6>
+                                    <li><a class="dropdown-item @if(!$personal) disabled @endif" href="{{ route('itemized.deductions') }}"><i
+                                                class="fa fa-check text-success"
+                                                aria-hidden="true"></i>&nbsp;&nbsp;Itemized Deductions Selection</a></li>
+                                    <li><a class="dropdown-item @if(!$personal) disabled @endif" href="{{ route('mortgage-interest.index') }}"><i
                                                 class="fa fa-check text-success"
                                                 aria-hidden="true"></i>&nbsp;&nbsp;Homeowner Expenses (1098)</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('charities-donations.create') }}"><i
+                                    <li><a class="dropdown-item @if(!$personal) disabled @endif" href="{{ route('charities-donations.create') }}"><i
                                                 class="fa fa-check text-success"
                                                 aria-hidden="true"></i>&nbsp;&nbsp;Donations</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('medical-expenses.create') }}"><i
+                                    <li><a class="dropdown-item @if(!$personal) disabled @endif" href="{{ route('medical-expenses.create') }}"><i
                                                 class="fa fa-check text-success"
                                                 aria-hidden="true"></i>&nbsp;&nbsp;Medical Expenses</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('taxes.create') }}"><i
+                                    <li><a class="dropdown-item @if(!$personal) disabled @endif" href="{{ route('taxes.create') }}"><i
                                                 class="fa fa-check text-success" aria-hidden="true"></i>&nbsp;&nbsp;Taxes
                                             Paid</a></li>
                                 </ul>
@@ -271,12 +278,10 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-white dropdown-menu-custom-width dropdown-menu-end round-3 mt-3 shadow bg-white"
                                     aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <a class="dropdown-item" href="{{ route('state.index') }}"><i class="fa fa-check text-success"
+                                            aria-hidden="true"></i>&nbsp;&nbsp;Your State Tax Returns</a>
                                     <a class="dropdown-item" href="#"><i class="fa fa-check text-success"
                                             aria-hidden="true"></i>&nbsp;&nbsp;Another action</a>
-                                    <a class="dropdown-item" href="#"><i class="fa fa-check text-success"
-                                            aria-hidden="true"></i>&nbsp;&nbsp;Something else here</a>
-                                    <a class="dropdown-item" href="#"><i class="fa fa-check text-success"
-                                            aria-hidden="true"></i>&nbsp;&nbsp;Action</a>
                                     <a class="dropdown-item" href="#"><i class="fa fa-check text-success"
                                             aria-hidden="true"></i>&nbsp;&nbsp;Something else here</a>
                                 </ul>

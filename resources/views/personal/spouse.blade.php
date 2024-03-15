@@ -164,7 +164,7 @@
                                         <input class="form-check-input me-3 h4" name="parent_claim" type="radio"
                                             value="0" aria-label="parent_claim"
                                             aria-describedby="basic-addon2"
-                                            {{ ($personal->spouse && $personal->spouse->parent_claim == 0) ? 'checked' : '' }}>
+                                            {{ isset($personal->spouse) ? ((isset($personal->spouse) && $personal->spouse->parent_claim == 0) ? 'checked' : '') : 'checked' }}>
                                         <label class="form-check-label h6 pt-2"
                                             for="parent_claim"><b>No</b></label>&nbsp;&nbsp;&nbsp;
                                         <label class="h6 pt-2">Can a parent (or somebody else) claim your spouse as a
@@ -191,7 +191,7 @@
                                         <input class="form-check-input me-3 h4" name="campaign_contribution"
                                             type="radio" value="0" aria-label="campaign_contribution"
                                             aria-describedby="basic-addon2"
-                                            {{ ($personal->spouse && $personal->spouse->campaign_contribution == 0) ? 'checked' : '' }}>
+                                            {{ isset($personal->spouse) ? ((isset($personal->spouse) && $personal->spouse->campaign_contribution == 0) ? 'checked' : '') : 'checked' }}>
                                         <label class="form-check-label h6 pt-2"
                                             for="campaign_contribution"><b>No</b></label>&nbsp;&nbsp;&nbsp;
                                         <label class="h6 pt-2">Does your spouse want to contribute $3 to the
@@ -214,7 +214,7 @@
                                     <div class="has-danger form-check form-check-inline mb-3">
                                         <input class="form-check-input me-3 h4" name="blind" type="radio"
                                             value="0" aria-label="blind" aria-describedby="basic-addon2"
-                                            {{ ($personal->spouse && $personal->spouse->blind == 0) ? 'checked' : '' }}>
+                                            {{ isset($personal->spouse) ? ((isset($personal->spouse) && $personal->spouse->blind == 0) ? 'checked' : '') : 'checked' }}>
                                         <label class="form-check-label h6 pt-2"
                                             for="blind"><b>No</b></label>&nbsp;&nbsp;&nbsp;
                                         <label class="h6 pt-2">Is your spouse legally blind? <i
@@ -241,7 +241,7 @@
                                         <input class="form-check-input me-3 h4" name="passed_away" type="radio"
                                             value="0" aria-label="passed_away"
                                             aria-describedby="basic-addon2"
-                                            {{ ($personal->spouse && $personal->spouse->passed_away == 0) ? 'checked' : '' }}>
+                                            {{ isset($personal->spouse) ? ((isset($personal->spouse) && $personal->spouse->passed_away == 0) ? 'checked' : '') : 'checked' }}>
                                         <label class="form-check-label h6 pt-2"
                                             for="passed_away"><b>No</b></label>&nbsp;&nbsp;&nbsp;
                                         <label class="h6 pt-2">Has your spouse passed away before the

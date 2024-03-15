@@ -25,12 +25,12 @@
                                         <div class="col-lg-12 ms-4">
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input h4" type="radio" name="refinanced"
-                                                    id="foreign-yes" value="yes">
+                                                    id="foreign-yes" value="yes" {{ $mortgage_interest && $mortgage_interest->refinanced == 'yes' ? 'checked' : '' }}>
                                                 <label class="form-check-label h6 pt-2" for="foreign-yes"><b>Yes</b></label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input h4" type="radio" name="refinanced"
-                                                    id="foreign-no" value="no" checked>
+                                                    id="foreign-no" value="no" {{ isset($mortgage_interest) ? ((isset($mortgage_interest) && $mortgage_interest->refinanced == 'no') ? 'checked' : '') : 'checked' }}>
                                                 <label class="form-check-label h6 pt-2" for="foreign-no"><b>No</b></label>
                                             </div>
                                             <label class="form-form-label h6 form-check-inline" for="employer-address">Is
@@ -111,13 +111,13 @@
                                                 Insurance Premiums (PMI):</label><br>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input h4" type="radio" name="pmi"
-                                                    id="pmi-yes" value="yes">
+                                                    id="pmi-yes" value="yes" {{ $mortgage_interest && $mortgage_interest->pmi == 'yes' ? 'checked' : '' }}>
                                                 <label class="form-check-label h6 pt-2"
                                                     for="pmi-yes"><b>Yes</b></label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input h4" type="radio" name="pmi"
-                                                    id="pmi-no" value="no" checked>
+                                                    id="pmi-no" value="no" {{ isset($mortgage_interest) ? ((isset($mortgage_interest) && $mortgage_interest->pmi == 'no') ? 'checked' : '') : 'checked' }}>
                                                 <label class="form-check-label h6 pt-2" for="pmi-no"><b>No</b></label>
                                             </div>
                                             <label class="form-form-label h6 form-check-inline" for="employer-address">Did
@@ -143,12 +143,12 @@
                                         <div class="col-lg-12 ms-4">
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input h4" type="radio" name="money_used"
-                                                    id="money_used-yes" value="yes" checked>
+                                                    id="money_used-yes" value="yes" {{ isset($mortgage_interest) ? ((isset($mortgage_interest) && $mortgage_interest->money_used == 'yes') ? 'checked' : '') : 'checked' }}>
                                                 <label class="form-check-label h6 pt-2" for="money_used-yes"><b>Yes</b></label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input h4" type="radio" name="money_used"
-                                                    id="money_used-no" value="no">
+                                                    id="money_used-no" value="no" {{ $mortgage_interest && $mortgage_interest->money_used == 'no' ? 'checked' : '' }}>
                                                 <label class="form-check-label h6 pt-2" for="money_used-no"><b>No</b></label>
                                             </div>
                                             <label class="form-form-label h6 form-check-inline" for="employer-address">Did you use all of the money from this loan to buy, build, or substantially improve your home?</label>
@@ -158,12 +158,12 @@
                                         <div class="col-lg-12 ms-4">
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input h4" type="radio" name="main_home"
-                                                    id="main_home-yes" value="yes" checked>
+                                                    id="main_home-yes" value="yes" {{ isset($mortgage_interest) ? ((isset($mortgage_interest) && $mortgage_interest->main_home == 'yes') ? 'checked' : '') : 'checked' }}>
                                                 <label class="form-check-label h6 pt-2" for="main_home-yes"><b>Yes</b></label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input h4" type="radio" name="main_home"
-                                                    id="main_home-no" value="no">
+                                                    id="main_home-no" value="no" {{ $mortgage_interest && $mortgage_interest->main_home == 'no' ? 'checked' : '' }}>
                                                 <label class="form-check-label h6 pt-2" for="main_home-no"><b>No</b></label>
                                             </div>
                                             <label class="form-form-label h6 form-check-inline" for="employer-address">Was this loan for your main home?</label>

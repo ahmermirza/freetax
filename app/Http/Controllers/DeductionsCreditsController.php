@@ -137,4 +137,16 @@ class DeductionsCreditsController extends Controller
         ]);
         return redirect()->route('taxes.create');
     }
+
+    public function itemizedDeductions()
+    {
+        $deductions_credit = auth()->user()->personals()->first()->deductions_credit()->first();
+
+        return view('deductions_credits.itemized', compact('deductions_credit'));
+    } 
+
+    public function completed()
+    {
+        return view('deductions_credits.completed');
+    }
 }

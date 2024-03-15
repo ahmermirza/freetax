@@ -132,4 +132,9 @@ class UnemploymentController extends Controller
         ]);
         return redirect()->route('income.crypto.create');
     }
+
+    public function completed()
+    {
+        return view('income.completed');
+    }
 }

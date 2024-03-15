@@ -10,6 +10,14 @@ class State extends Model
     use HasFactory;
 
     protected $fillable = [
-        'state_name',
+        'name',
+        'resident_type',
+        'new_address',
+        'political_contribution',
+        'identity_theft',
+        'made_purchase',
+        'use_tax',
+        'purchase_total',
+        'purchase_sale_tax',
     ];
 }

@@ -30,7 +30,7 @@
                                                     class="input-group-text bg-disabled text-dark @error('estate_tax') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                     id="basic-addon2"><b>$</b></span><input
                                                     class="form-control @error('estate_tax') is-invalid @enderror" name="estate_tax"
-                                                    type="text" value="" aria-label="estate_tax"
+                                                    type="text" value="{{ old('estate_tax', $mortgage_interest ? $mortgage_interest->estate_tax : '') }}" aria-label="estate_tax"
                                                     aria-describedby="basic-addon2">
                                             </div>
                                         </div>

@@ -20,10 +20,18 @@ class PersonalController extends Controller
             return view('personal.create', compact('personal'));
         }
         elseif ($request->has('info') && $request->info == 'filing-status') {
-            return view('personal.filing_status', compact('personal'));
+            if($personal != null) {
+                return view('personal.filing_status', compact('personal'));
+            } else {
+                return redirect()->route('personal.create', ['info' => 'basic']);
+            }
         }
-        elseif ($request->has('info') && $request->info == 'spouse' && auth()->user()->personals()->first() && in_array(auth()->user()->personals()->first()->filing_status, [2, 3])) {
-            return view('personal.spouse', compact('personal'));
+        elseif ($request->has('info') && $request->info == 'spouse') {
+            if($personal && in_array($personal->filing_status, [2, 3])) {
+                return view('personal.spouse', compact('personal'));
+            } else {
+                return redirect()->route('personal.create', ['info' => 'basic']);
+            }
         }
     }
 
@@ -41,18 +49,11 @@ class PersonalController extends Controller
                 'last_name' => 'required',
                 'occupation' => 'required',
                 'dob' => 'required',
-                'middle_initial' => 'required',
-                'suffix' => 'required',
                 'ssn' => 'required',
                 'street_address' => 'required',
-                'apt_no' => 'required',
                 'city' => 'required',
                 'state' => 'required',
                 'zip1' => 'required',
-                'parent_claim' => 'required',
-                'campaign_contribution' => 'required',
-                'blind' => 'required',
-                'passed_away' => 'required',
             ], [
                 'zip1.required' => 'The first zip code field is required.'
             ]);
@@ -97,13 +98,11 @@ class PersonalController extends Controller
                 'last_name' => 'required',
                 'occupation' => 'required',
                 'dob' => 'required',
-                'middle_initial' => 'required',
-                'suffix' => 'required',
                 'ssn' => 'required',
-                'parent_claim' => 'required',
-                'campaign_contribution' => 'required',
-                'blind' => 'required',
-                'passed_away' => 'required',
+                'street_address' => 'required',
+                'city' => 'required',
+                'state' => 'required',
+                'zip1' => 'required',
             ]);
 
             auth()->user()->personals()->first()->spouse()->create([

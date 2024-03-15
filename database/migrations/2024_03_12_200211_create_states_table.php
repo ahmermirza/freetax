@@ -16,7 +16,15 @@ class CreateStatesTable extends Migration
         Schema::create('states', function (Blueprint $table) {
             $table->id();
             $table->foreignId('personal_id')->constrained()->onDelete('cascade');
-            $table->string('state_name')->nullable();
+            $table->string('name')->nullable();
+            $table->string('resident_type')->nullable();
+            $table->string('new_address')->nullable();
+            $table->string('political_contribution')->nullable();
+            $table->string('identity_theft')->nullable();
+            $table->string('made_purchase')->nullable();
+            $table->string('use_tax')->nullable();
+            $table->string('purchase_total')->nullable();
+            $table->string('purchase_sale_tax')->nullable();
             $table->timestamps();
         });
     }
