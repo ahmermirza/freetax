@@ -94,7 +94,7 @@
                                         <select class="form-select @error('suffix') is-invalid @enderror" name="suffix"
                                             aria-label="suffix" aria-describedby="basic-addon2">
                                             <option value=""
-                                                {{ $personal && $personal->suffix == null ? 'selected' : '' }}></option>
+                                                {{ $personal && $personal->suffix == '' ? 'selected' : '' }}></option>
                                             <option value="jr"
                                                 {{ $personal && $personal->suffix == 'jr' ? 'selected' : '' }}>Jr.
                                             </option>
@@ -190,9 +190,64 @@
                                     <label class="form-form-label h6" for="state">State: <i
                                             class="fa-regular fa-circle-question text-primary"></i></label>
                                     <div class="has-danger input-group mb-3">
-                                        <input class="form-control @error('state') is-invalid @enderror" name="state"
-                                            type="text" value="{{ old('state', $personal ? $personal->state : '') }}"
-                                            aria-label="state" aria-describedby="basic-addon2">
+                                            <select name="state" id="state"
+                                            class="form-select @error('state') is-invalid @enderror">
+                                            <option value="" {{ ($personal && $personal->state == '') ? 'selected' : '' }}></option>
+                                            <option value="AA" {{ ($personal && $personal->state == 'AA') ? 'selected' : '' }}>AA</option>
+                                            <option value="AE" {{ ($personal && $personal->state == 'AE') ? 'selected' : '' }}>AE</option>
+                                            <option value="AK" {{ ($personal && $personal->state == 'AK') ? 'selected' : '' }}>AK</option>
+                                            <option value="AL" {{ ($personal && $personal->state == 'AL') ? 'selected' : '' }}>AL</option>
+                                            <option value="AP" {{ ($personal && $personal->state == 'AP') ? 'selected' : '' }}>AP</option>
+                                            <option value="AR" {{ ($personal && $personal->state == 'AR') ? 'selected' : '' }}>AR</option>
+                                            <option value="AZ" {{ ($personal && $personal->state == 'AZ') ? 'selected' : '' }}>AZ</option>
+                                            <option value="CA" {{ ($personal && $personal->state == 'CA') ? 'selected' : '' }}>CA</option>
+                                            <option value="CO" {{ ($personal && $personal->state == 'CO') ? 'selected' : '' }}>CO</option>
+                                            <option value="CT" {{ ($personal && $personal->state == 'CT') ? 'selected' : '' }}>CT</option>
+                                            <option value="DC" {{ ($personal && $personal->state == 'DC') ? 'selected' : '' }}>DC</option>
+                                            <option value="DE" {{ ($personal && $personal->state == 'DE') ? 'selected' : '' }}>DE</option>
+                                            <option value="FL" {{ ($personal && $personal->state == 'FL') ? 'selected' : '' }}>FL</option>
+                                            <option value="GA" {{ ($personal && $personal->state == 'GA') ? 'selected' : '' }}>GA</option>
+                                            <option value="HI" {{ ($personal && $personal->state == 'HI') ? 'selected' : '' }}>HI</option>
+                                            <option value="IA" {{ ($personal && $personal->state == 'IA') ? 'selected' : '' }}>IA</option>
+                                            <option value="ID" {{ ($personal && $personal->state == 'ID') ? 'selected' : '' }}>ID</option>
+                                            <option value="IL" {{ ($personal && $personal->state == 'IL') ? 'selected' : '' }}>IL</option>
+                                            <option value="IN" {{ ($personal && $personal->state == 'IN') ? 'selected' : '' }}>IN</option>
+                                            <option value="KS" {{ ($personal && $personal->state == 'KS') ? 'selected' : '' }}>KS</option>
+                                            <option value="KY" {{ ($personal && $personal->state == 'KY') ? 'selected' : '' }}>KY</option>
+                                            <option value="LA" {{ ($personal && $personal->state == 'LA') ? 'selected' : '' }}>LA</option>
+                                            <option value="MA" {{ ($personal && $personal->state == 'MA') ? 'selected' : '' }}>MA</option>
+                                            <option value="MD" {{ ($personal && $personal->state == 'MD') ? 'selected' : '' }}>MD</option>
+                                            <option value="ME" {{ ($personal && $personal->state == 'ME') ? 'selected' : '' }}>ME</option>
+                                            <option value="MI" {{ ($personal && $personal->state == 'MI') ? 'selected' : '' }}>MI</option>
+                                            <option value="MN" {{ ($personal && $personal->state == 'MN') ? 'selected' : '' }}>MN</option>
+                                            <option value="MO" {{ ($personal && $personal->state == 'MO') ? 'selected' : '' }}>MO</option>
+                                            <option value="MS" {{ ($personal && $personal->state == 'MS') ? 'selected' : '' }}>MS</option>
+                                            <option value="MT" {{ ($personal && $personal->state == 'MT') ? 'selected' : '' }}>MT</option>
+                                            <option value="NC" {{ ($personal && $personal->state == 'NC') ? 'selected' : '' }}>NC</option>
+                                            <option value="ND" {{ ($personal && $personal->state == 'ND') ? 'selected' : '' }}>ND</option>
+                                            <option value="NE" {{ ($personal && $personal->state == 'NE') ? 'selected' : '' }}>NE</option>
+                                            <option value="NH" {{ ($personal && $personal->state == 'NH') ? 'selected' : '' }}>NH</option>
+                                            <option value="NJ" {{ ($personal && $personal->state == 'NJ') ? 'selected' : '' }}>NJ</option>
+                                            <option value="NM" {{ ($personal && $personal->state == 'NM') ? 'selected' : '' }}>NM</option>
+                                            <option value="NV" {{ ($personal && $personal->state == 'NV') ? 'selected' : '' }}>NV</option>
+                                            <option value="NY" {{ ($personal && $personal->state == 'NY') ? 'selected' : '' }}>NY</option>
+                                            <option value="OH" {{ ($personal && $personal->state == 'OH') ? 'selected' : '' }}>OH</option>
+                                            <option value="OK" {{ ($personal && $personal->state == 'OK') ? 'selected' : '' }}>OK</option>
+                                            <option value="OR" {{ ($personal && $personal->state == 'OR') ? 'selected' : '' }}>OR</option>
+                                            <option value="PA" {{ ($personal && $personal->state == 'PA') ? 'selected' : '' }}>PA</option>
+                                            <option value="RI" {{ ($personal && $personal->state == 'RI') ? 'selected' : '' }}>RI</option>
+                                            <option value="SC" {{ ($personal && $personal->state == 'SC') ? 'selected' : '' }}>SC</option>
+                                            <option value="SD" {{ ($personal && $personal->state == 'SD') ? 'selected' : '' }}>SD</option>
+                                            <option value="TN" {{ ($personal && $personal->state == 'TN') ? 'selected' : '' }}>TN</option>
+                                            <option value="TX" {{ ($personal && $personal->state == 'TX') ? 'selected' : '' }}>TX</option>
+                                            <option value="UT" {{ ($personal && $personal->state == 'UT') ? 'selected' : '' }}>UT</option>
+                                            <option value="VA" {{ ($personal && $personal->state == 'VA') ? 'selected' : '' }}>VA</option>
+                                            <option value="VT" {{ ($personal && $personal->state == 'VT') ? 'selected' : '' }}>VT</option>
+                                            <option value="WA" {{ ($personal && $personal->state == 'WA') ? 'selected' : '' }}>WA</option>
+                                            <option value="WI" {{ ($personal && $personal->state == 'WI') ? 'selected' : '' }}>WI</option>
+                                            <option value="WV" {{ ($personal && $personal->state == 'WV') ? 'selected' : '' }}>WV</option>
+                                            <option value="WY" {{ ($personal && $personal->state == 'WY') ? 'selected' : '' }}>WY</option>
+                                        </select>
                                     </div>
                                     @error('state')
                                         <div class="form-control-feedback text-danger pb-2">{{ $message }}</div>

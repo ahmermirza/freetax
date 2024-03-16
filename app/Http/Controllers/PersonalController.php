@@ -58,26 +58,28 @@ class PersonalController extends Controller
                 'zip1.required' => 'The first zip code field is required.'
             ]);
 
-            auth()->user()->personals()->create([
-                'first_name' => $request->first_name,
-                'last_name' => $request->last_name,
-                'occupation' => $request->occupation,
-                'dob' => $request->dob,
-                'middle_initial' => $request->middle_initial,
-                'suffix' => $request->suffix,
-                'ssn' => $request->ssn,
-                'street_address' => $request->street_address,
-                'apt_no' => $request->apt_no,
-                'city' => $request->city,
-                'state' => $request->state,
-                'zip' => json_encode(['zip1' => $request->zip1, 'zip2' => $request->zip2]),
-                'address_changed' => $request->address_changed,
-                'parent_claim' => $request->parent_claim,
-                'campaign_contribution' => $request->campaign_contribution,
-                'blind' => $request->blind,
-                'passed_away' => $request->passed_away,
-            ]);
-            return redirect()->route('personal.create', ['info' => 'basic']);
+            if(auth()->user()->personals()->count() == 0){
+                auth()->user()->personals()->create([
+                    'first_name' => $request->first_name,
+                    'last_name' => $request->last_name,
+                    'occupation' => $request->occupation,
+                    'dob' => $request->dob,
+                    'middle_initial' => $request->middle_initial,
+                    'suffix' => $request->suffix,
+                    'ssn' => $request->ssn,
+                    'street_address' => $request->street_address,
+                    'apt_no' => $request->apt_no,
+                    'city' => $request->city,
+                    'state' => $request->state,
+                    'zip' => json_encode(['zip1' => $request->zip1, 'zip2' => $request->zip2]),
+                    'address_changed' => $request->address_changed,
+                    'parent_claim' => $request->parent_claim,
+                    'campaign_contribution' => $request->campaign_contribution,
+                    'blind' => $request->blind,
+                    'passed_away' => $request->passed_away,
+                ]);
+            }
+            return redirect()->route('personal.create', ['info' => 'filing-status']);
         }
 
         elseif ($request->has('info') && $request->info == 'filing-status') {
@@ -86,9 +88,11 @@ class PersonalController extends Controller
             ]);
 
 
-            auth()->user()->personals()->create([
-                'filing_status' => $request->filing_status,
-            ]);
+            if(auth()->user()->personals()->count() == 0){
+                auth()->user()->personals()->create([
+                    'filing_status' => $request->filing_status,
+                ]);
+            }
             return redirect()->route('personal.create', ['info' => 'filing-status']);
         }
 
@@ -99,26 +103,24 @@ class PersonalController extends Controller
                 'occupation' => 'required',
                 'dob' => 'required',
                 'ssn' => 'required',
-                'street_address' => 'required',
-                'city' => 'required',
-                'state' => 'required',
-                'zip1' => 'required',
             ]);
 
-            auth()->user()->personals()->first()->spouse()->create([
-                'first_name' => $request->first_name,
-                'last_name' => $request->last_name,
-                'occupation' => $request->occupation,
-                'dob' => $request->dob,
-                'middle_initial' => $request->middle_initial,
-                'suffix' => $request->suffix,
-                'ssn' => $request->ssn,
-                'parent_claim' => $request->parent_claim,
-                'campaign_contribution' => $request->campaign_contribution,
-                'blind' => $request->blind,
-                'passed_away' => $request->passed_away,
-            ]);
-            return redirect()->route('personal.create', ['info' => 'spouse']);
+            if(auth()->user()->personals()->first()->spouse()->count() == 0){
+                auth()->user()->personals()->first()->spouse()->create([
+                    'first_name' => $request->first_name,
+                    'last_name' => $request->last_name,
+                    'occupation' => $request->occupation,
+                    'dob' => $request->dob,
+                    'middle_initial' => $request->middle_initial,
+                    'suffix' => $request->suffix,
+                    'ssn' => $request->ssn,
+                    'parent_claim' => $request->parent_claim,
+                    'campaign_contribution' => $request->campaign_contribution,
+                    'blind' => $request->blind,
+                    'passed_away' => $request->passed_away,
+                ]);
+            }
+            return redirect()->route('dependents.index');
         }
     }
 

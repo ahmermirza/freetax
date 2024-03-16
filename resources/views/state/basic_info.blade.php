@@ -15,10 +15,10 @@
                     <div class="tile">
                         <h2 class="tile-title d-lg-flex justify-content-center h2"><b>Let's get some basic State info</b></h2>
                         @if (isset($state))
-                            <form action="{{ route('state.name.update', $state) }}" method="post">
+                            <form action="{{ route('state.return.update', $state) }}" method="post">
                                 @method('PUT')
-                            @else
-                                <form action="{{ route('state.name.store') }}" method="post">
+                            {{-- @else
+                                <form action="{{ route('state.return.store') }}" method="post"> --}}
                         @endif
                         <div class="tile-body">
                             @csrf
@@ -31,13 +31,15 @@
                                     <div class="col-lg-12 pb-2">
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input h4" type="radio"
-                                                name="new_address" id="new_address" value="yes">
+                                                name="new_address" id="new_address" value="yes"
+                                                {{ $state && $state->new_address == 'yes' ? 'checked' : '' }}>
                                             <label class="form-check-label h6 pt-2"
                                                 for="new_address"><b>Yes</b></label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input h4" type="radio"
-                                                name="new_address" id="new_address" value="no" checked>
+                                                name="new_address" id="new_address" value="no"
+                                                {{ isset($state) && $state->new_address ? ((isset($state) && $state->new_address == 'no') ? 'checked' : '') : 'checked' }}>
                                             <label class="form-check-label h6 pt-2"
                                                 for="new_address"><b>No</b></label>
                                         </div>
@@ -45,7 +47,7 @@
                                     </div>
                                 </div>
                                 <div class="row ms-4">
-                                    <label class="form-form-label small pb-2" for="new_address">If this is your first time filing a Rhode Island return, answer Yes.</label>
+                                    <label class="form-form-label small pb-2" for="new_address">If this is your first time filing a State return, answer Yes.</label>
                                 </div>
                                 <span class="d-flex justify-content-center ps-4 pe-5 mx-2 me-4">
                                     <hr class="mb-3 mt-0 w-100">
@@ -57,13 +59,15 @@
                                     <div class="col-lg-12 pb-2">
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input h4" type="radio"
-                                                name="political_contribution" id="political_contribution" value="yes">
+                                                name="political_contribution" id="political_contribution" value="yes"
+                                                {{ $state && $state->political_contribution == 'yes' ? 'checked' : '' }}>
                                             <label class="form-check-label h6 pt-2"
                                                 for="political_contribution"><b>Yes</b></label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input h4" type="radio"
-                                                name="political_contribution" id="political_contribution" value="no" checked>
+                                                name="political_contribution" id="political_contribution" value="no"
+                                                {{ isset($state) && $state->political_contribution ? ((isset($state) && $state->political_contribution == 'no') ? 'checked' : '') : 'checked' }}>
                                             <label class="form-check-label h6 pt-2"
                                                 for="political_contribution"><b>No</b></label>
                                         </div>
@@ -83,13 +87,15 @@
                                     <div class="col-lg-12 pb-2">
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input h4" type="radio"
-                                                name="identity_theft" id="identity_theft" value="yes">
+                                                name="identity_theft" id="identity_theft" value="yes"
+                                                {{ $state && $state->identity_theft == 'yes' ? 'checked' : '' }}>
                                             <label class="form-check-label h6 pt-2"
                                                 for="identity_theft"><b>Yes</b></label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input h4" type="radio"
-                                                name="identity_theft" id="identity_theft" value="no" checked>
+                                                name="identity_theft" id="identity_theft" value="no"
+                                                {{ isset($state) && $state->identity_theft ? ((isset($state) && $state->identity_theft == 'no') ? 'checked' : '') : 'checked' }}>
                                             <label class="form-check-label h6 pt-2"
                                                 for="identity_theft"><b>No</b></label>
                                         </div>
@@ -97,7 +103,7 @@
                                     </div>
                                 </div>
                                 <div class="row ms-4">
-                                    <label class="form-form-label small pb-2" for="identity_theft">If you were a victim of identity theft in 2023, you'll need to attach a copy of your federal Form 14039, Identity Theft Affidavit  that you filed with the IRS to your Rhode Island tax return.</label>
+                                    <label class="form-form-label small pb-2" for="identity_theft">If you were a victim of identity theft in 2023, you'll need to attach a copy of your federal Form 14039, Identity Theft Affidavit  that you filed with the IRS to your State tax return.</label>
                                 </div>
                                 <span class="d-flex justify-content-center ps-4 pe-5 mx-2 me-4">
                                     <hr class="mb-3 mt-0 w-100">

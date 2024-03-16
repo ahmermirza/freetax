@@ -104,61 +104,61 @@
                                                         State:</label>
                                                     <select name="emp_state" id="employers_state"
                                                         class="form-select @error('emp_state') is-invalid @enderror">
-                                                        <option value="" selected></option>
-                                                        <option value="AA">AA</option>
-                                                        <option value="AE">AE</option>
-                                                        <option value="AK">AK</option>
-                                                        <option value="AL">AL</option>
-                                                        <option value="AP">AP</option>
-                                                        <option value="AR">AR</option>
-                                                        <option value="AZ">AZ</option>
-                                                        <option value="CA">CA</option>
-                                                        <option value="CO">CO</option>
-                                                        <option value="CT">CT</option>
-                                                        <option value="DC">DC</option>
-                                                        <option value="DE">DE</option>
-                                                        <option value="FL">FL</option>
-                                                        <option value="GA">GA</option>
-                                                        <option value="HI">HI</option>
-                                                        <option value="IA">IA</option>
-                                                        <option value="ID">ID</option>
-                                                        <option value="IL">IL</option>
-                                                        <option value="IN">IN</option>
-                                                        <option value="KS">KS</option>
-                                                        <option value="KY">KY</option>
-                                                        <option value="LA">LA</option>
-                                                        <option value="MA">MA</option>
-                                                        <option value="MD">MD</option>
-                                                        <option value="ME">ME</option>
-                                                        <option value="MI">MI</option>
-                                                        <option value="MN">MN</option>
-                                                        <option value="MO">MO</option>
-                                                        <option value="MS">MS</option>
-                                                        <option value="MT">MT</option>
-                                                        <option value="NC">NC</option>
-                                                        <option value="ND">ND</option>
-                                                        <option value="NE">NE</option>
-                                                        <option value="NH">NH</option>
-                                                        <option value="NJ">NJ</option>
-                                                        <option value="NM">NM</option>
-                                                        <option value="NV">NV</option>
-                                                        <option value="NY">NY</option>
-                                                        <option value="OH">OH</option>
-                                                        <option value="OK">OK</option>
-                                                        <option value="OR">OR</option>
-                                                        <option value="PA">PA</option>
-                                                        <option value="RI">RI</option>
-                                                        <option value="SC">SC</option>
-                                                        <option value="SD">SD</option>
-                                                        <option value="TN">TN</option>
-                                                        <option value="TX">TX</option>
-                                                        <option value="UT">UT</option>
-                                                        <option value="VA">VA</option>
-                                                        <option value="VT">VT</option>
-                                                        <option value="WA">WA</option>
-                                                        <option value="WI">WI</option>
-                                                        <option value="WV">WV</option>
-                                                        <option value="WY">WY</option>
+                                                        <option value="" {{ old('emp_state') == '' ? 'selected' : '' }}></option>
+                                                        <option value="AA" {{ old('emp_state') == 'AA' ? 'selected' : '' }}>AA</option>
+                                                        <option value="AE" {{ old('emp_state') == 'AE' ? 'selected' : '' }}>AE</option>
+                                                        <option value="AK" {{ old('emp_state') == 'AK' ? 'selected' : '' }}>AK</option>
+                                                        <option value="AL" {{ old('emp_state') == 'AL' ? 'selected' : '' }}>AL</option>
+                                                        <option value="AP" {{ old('emp_state') == 'AP' ? 'selected' : '' }}>AP</option>
+                                                        <option value="AR" {{ old('emp_state') == 'AR' ? 'selected' : '' }}>AR</option>
+                                                        <option value="AZ" {{ old('emp_state') == 'AZ' ? 'selected' : '' }}>AZ</option>
+                                                        <option value="CA" {{ old('emp_state') == 'CA' ? 'selected' : '' }}>CA</option>
+                                                        <option value="CO" {{ old('emp_state') == 'CO' ? 'selected' : '' }}>CO</option>
+                                                        <option value="CT" {{ old('emp_state') == 'CT' ? 'selected' : '' }}>CT</option>
+                                                        <option value="DC" {{ old('emp_state') == 'DC' ? 'selected' : '' }}>DC</option>
+                                                        <option value="DE" {{ old('emp_state') == 'DE' ? 'selected' : '' }}>DE</option>
+                                                        <option value="FL" {{ old('emp_state') == 'FL' ? 'selected' : '' }}>FL</option>
+                                                        <option value="GA" {{ old('emp_state') == 'GA' ? 'selected' : '' }}>GA</option>
+                                                        <option value="HI" {{ old('emp_state') == 'HI' ? 'selected' : '' }}>HI</option>
+                                                        <option value="IA" {{ old('emp_state') == 'IA' ? 'selected' : '' }}>IA</option>
+                                                        <option value="ID" {{ old('emp_state') == 'ID' ? 'selected' : '' }}>ID</option>
+                                                        <option value="IL" {{ old('emp_state') == 'IL' ? 'selected' : '' }}>IL</option>
+                                                        <option value="IN" {{ old('emp_state') == 'IN' ? 'selected' : '' }}>IN</option>
+                                                        <option value="KS" {{ old('emp_state') == 'KS' ? 'selected' : '' }}>KS</option>
+                                                        <option value="KY" {{ old('emp_state') == 'KY' ? 'selected' : '' }}>KY</option>
+                                                        <option value="LA" {{ old('emp_state') == 'LA' ? 'selected' : '' }}>LA</option>
+                                                        <option value="MA" {{ old('emp_state') == 'MA' ? 'selected' : '' }}>MA</option>
+                                                        <option value="MD" {{ old('emp_state') == 'MD' ? 'selected' : '' }}>MD</option>
+                                                        <option value="ME" {{ old('emp_state') == 'ME' ? 'selected' : '' }}>ME</option>
+                                                        <option value="MI" {{ old('emp_state') == 'MI' ? 'selected' : '' }}>MI</option>
+                                                        <option value="MN" {{ old('emp_state') == 'MN' ? 'selected' : '' }}>MN</option>
+                                                        <option value="MO" {{ old('emp_state') == 'MO' ? 'selected' : '' }}>MO</option>
+                                                        <option value="MS" {{ old('emp_state') == 'MS' ? 'selected' : '' }}>MS</option>
+                                                        <option value="MT" {{ old('emp_state') == 'MT' ? 'selected' : '' }}>MT</option>
+                                                        <option value="NC" {{ old('emp_state') == 'NC' ? 'selected' : '' }}>NC</option>
+                                                        <option value="ND" {{ old('emp_state') == 'ND' ? 'selected' : '' }}>ND</option>
+                                                        <option value="NE" {{ old('emp_state') == 'NE' ? 'selected' : '' }}>NE</option>
+                                                        <option value="NH" {{ old('emp_state') == 'NH' ? 'selected' : '' }}>NH</option>
+                                                        <option value="NJ" {{ old('emp_state') == 'NJ' ? 'selected' : '' }}>NJ</option>
+                                                        <option value="NM" {{ old('emp_state') == 'NM' ? 'selected' : '' }}>NM</option>
+                                                        <option value="NV" {{ old('emp_state') == 'NV' ? 'selected' : '' }}>NV</option>
+                                                        <option value="NY" {{ old('emp_state') == 'NY' ? 'selected' : '' }}>NY</option>
+                                                        <option value="OH" {{ old('emp_state') == 'OH' ? 'selected' : '' }}>OH</option>
+                                                        <option value="OK" {{ old('emp_state') == 'OK' ? 'selected' : '' }}>OK</option>
+                                                        <option value="OR" {{ old('emp_state') == 'OR' ? 'selected' : '' }}>OR</option>
+                                                        <option value="PA" {{ old('emp_state') == 'PA' ? 'selected' : '' }}>PA</option>
+                                                        <option value="RI" {{ old('emp_state') == 'RI' ? 'selected' : '' }}>RI</option>
+                                                        <option value="SC" {{ old('emp_state') == 'SC' ? 'selected' : '' }}>SC</option>
+                                                        <option value="SD" {{ old('emp_state') == 'SD' ? 'selected' : '' }}>SD</option>
+                                                        <option value="TN" {{ old('emp_state') == 'TN' ? 'selected' : '' }}>TN</option>
+                                                        <option value="TX" {{ old('emp_state') == 'TX' ? 'selected' : '' }}>TX</option>
+                                                        <option value="UT" {{ old('emp_state') == 'UT' ? 'selected' : '' }}>UT</option>
+                                                        <option value="VA" {{ old('emp_state') == 'VA' ? 'selected' : '' }}>VA</option>
+                                                        <option value="VT" {{ old('emp_state') == 'VT' ? 'selected' : '' }}>VT</option>
+                                                        <option value="WA" {{ old('emp_state') == 'WA' ? 'selected' : '' }}>WA</option>
+                                                        <option value="WI" {{ old('emp_state') == 'WI' ? 'selected' : '' }}>WI</option>
+                                                        <option value="WV" {{ old('emp_state') == 'WV' ? 'selected' : '' }}>WV</option>
+                                                        <option value="WY" {{ old('emp_state') == 'WY' ? 'selected' : '' }}>WY</option>
                                                     </select>
                                                     @error('emp_state')
                                                         <div class="form-control-feedback text-danger pb-2">{{ $message }}</div>
@@ -172,7 +172,7 @@
                                                             <div class="has-danger input-group">
                                                                 <input
                                                                     class="form-control @error('emp_zip1') is-invalid @enderror"
-                                                                    name="emp_zip1" type="text" value=""
+                                                                    name="emp_zip1" type="text" value="{{ old('emp_zip1') }}"
                                                                     aria-label="emp_zip1" aria-describedby="basic-addon2">
                                                                 @error('emp_zip1')
                                                                     <div class="form-control-feedback text-danger pb-2">{{ $message }}</div>
@@ -184,7 +184,7 @@
                                                             <div class="has-danger input-group">
                                                                 <input
                                                                     class="form-control @error('emp_zip2') is-invalid @enderror"
-                                                                    name="emp_zip2" type="text" value=""
+                                                                    name="emp_zip2" type="text" value="{{ old('emp_zip2') }}"
                                                                     aria-label="emp_zip2" aria-describedby="basic-addon2">
                                                             </div>
                                                         </div>
@@ -208,7 +208,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('federal_wages') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('federal_wages') is-invalid @enderror"
-                                                            name="federal_wages" type="text" value=""
+                                                            name="federal_wages" type="text" value="{{ old('federal_wages') }}"
                                                             aria-label="federal_wages" aria-describedby="basic-addon2">
                                                         @error('federal_wages')
                                                             <div class="form-control-feedback text-danger pb-2">{{ $message }}</div>
@@ -224,7 +224,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('federal_income_tax') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('federal_income_tax') is-invalid @enderror"
-                                                            name="federal_income_tax" type="text" value=""
+                                                            name="federal_income_tax" type="text" value="{{ old('federal_income_tax') }}"
                                                             aria-label="federal_income_tax"
                                                             aria-describedby="basic-addon2">
                                                     </div>
@@ -240,7 +240,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('federal_ss_wages') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('federal_ss_wages') is-invalid @enderror"
-                                                            name="federal_ss_wages" type="text" value=""
+                                                            name="federal_ss_wages" type="text" value="{{ old('federal_ss_wages') }}"
                                                             aria-label="federal_ss_wages" aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
@@ -253,7 +253,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('federal_ss_tax') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('federal_ss_tax') is-invalid @enderror"
-                                                            name="federal_ss_tax" type="text" value=""
+                                                            name="federal_ss_tax" type="text" value="{{ old('federal_ss_tax') }}"
                                                             aria-label="federal_ss_tax" aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
@@ -268,7 +268,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('federal_medicare_wages') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('federal_medicare_wages') is-invalid @enderror"
-                                                            name="federal_medicare_wages" type="text" value=""
+                                                            name="federal_medicare_wages" type="text" value="{{ old('federal_medicare_wages') }}"
                                                             aria-label="federal_medicare_wages"
                                                             aria-describedby="basic-addon2">
                                                     </div>
@@ -282,7 +282,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('federal_medicare_tax') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('federal_medicare_tax') is-invalid @enderror"
-                                                            name="federal_medicare_tax" type="text" value=""
+                                                            name="federal_medicare_tax" type="text" value="{{ old('federal_medicare_tax') }}"
                                                             aria-label="federal_medicare_tax"
                                                             aria-describedby="basic-addon2">
                                                     </div>
@@ -298,7 +298,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('federal_ss_tips') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('federal_ss_tips') is-invalid @enderror"
-                                                            name="federal_ss_tips" type="text" value=""
+                                                            name="federal_ss_tips" type="text" value="{{ old('federal_ss_tips') }}"
                                                             aria-label="federal_ss_tips" aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
@@ -311,7 +311,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('federal_allocated_tips') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('federal_allocated_tips') is-invalid @enderror"
-                                                            name="federal_allocated_tips" type="text" value=""
+                                                            name="federal_allocated_tips" type="text" value="{{ old('federal_allocated_tips') }}"
                                                             aria-label="federal_allocated_tips"
                                                             aria-describedby="basic-addon2">
                                                     </div>
@@ -338,7 +338,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('federal_dependent') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('federal_dependent') is-invalid @enderror"
-                                                            name="federal_dependent" type="text" value=""
+                                                            name="federal_dependent" type="text" value="{{ old('federal_dependent') }}"
                                                             aria-label="federal_dependent"
                                                             aria-describedby="basic-addon2">
                                                     </div>
@@ -354,7 +354,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('federal_nonqualified') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('federal_nonqualified') is-invalid @enderror"
-                                                            name="federal_nonqualified" type="text" value=""
+                                                            name="federal_nonqualified" type="text" value="{{ old('federal_nonqualified') }}"
                                                             aria-label="federal_nonqualified"
                                                             aria-describedby="basic-addon2">
                                                     </div>
@@ -369,44 +369,36 @@
                                                         <select class="form-select @error('code_1') is-invalid @enderror"
                                                             name="code_1" aria-label="code_1"
                                                             aria-describedby="basic-addon2">
-                                                            <option value="" selected=""></option>
-                                                            <option value="A">A: Uncollected SS or RRTA on tips
-                                                            </option>
-                                                            <option value="B">B: Uncollected Medicare on tips</option>
-                                                            <option value="C">C: Group term life insurance</option>
-                                                            <option value="D">D: 401(k) contributions</option>
-                                                            <option value="E">E: 403(b) contributions</option>
-                                                            <option value="F">F: 408(k)(6) contributions</option>
-                                                            <option value="G">G: 457(b) contributions</option>
-                                                            <option value="H">H: 501(c)(18)(D) contributions</option>
-                                                            <option value="J">J: Nontaxable sick pay</option>
-                                                            <option value="K">K: Golden parachute</option>
-                                                            <option value="L">L: Expense reimbursements</option>
-                                                            <option value="M">M: Uncollected SS or RRTA on insurance
-                                                            </option>
-                                                            <option value="N">N: Uncollected Medicare on insurance
-                                                            </option>
-                                                            <option value="P">P: Moving expenses</option>
-                                                            <option value="Q">Q: Nontaxable combat pay</option>
-                                                            <option value="R">R: Employer MSA contributions</option>
-                                                            <option value="S">S: Employee 408(p) contributions
-                                                            </option>
-                                                            <option value="T">T: Adoption benefits</option>
-                                                            <option value="V">V: Non-statutory stock option</option>
-                                                            <option value="W">W: Employer HSA contributions</option>
-                                                            <option value="Y">Y: 409A contributions</option>
-                                                            <option value="Z">Z: 409A income</option>
-                                                            <option value="AA">AA: Roth 401(k) contributions</option>
-                                                            <option value="BB">BB: Roth 403(b) contributions</option>
-                                                            <option value="DD">DD: Employer health coverage</option>
-                                                            <option value="EE">EE: Roth 457(b) contributions</option>
-                                                            <option value="FF">FF: Small employer health reimbursement
-                                                            </option>
-                                                            <option value="GG">GG: Section 83(i) qualified equity
-                                                                grants
-                                                                income</option>
-                                                            <option value="HH">HH: End of year Section 83(i) deferral
-                                                                elections</option>
+                                                            <option value="" {{ old('code_1') == '' ? 'selected' : '' }}></option>
+                                                            <option value="A" {{ old('code_1') == 'A' ? 'selected' : '' }}>A: Uncollected SS or RRTA on tips</option>
+                                                            <option value="B" {{ old('code_1') == 'B' ? 'selected' : '' }}>B: Uncollected Medicare on tips</option>
+                                                            <option value="C" {{ old('code_1') == 'C' ? 'selected' : '' }}>C: Group term life insurance</option>
+                                                            <option value="D" {{ old('code_1') == 'D' ? 'selected' : '' }}>D: 401(k) contributions</option>
+                                                            <option value="E" {{ old('code_1') == 'E' ? 'selected' : '' }}>E: 403(b) contributions</option>
+                                                            <option value="F" {{ old('code_1') == 'F' ? 'selected' : '' }}>F: 408(k)(6) contributions</option>
+                                                            <option value="G" {{ old('code_1') == 'G' ? 'selected' : '' }}>G: 457(b) contributions</option>
+                                                            <option value="H" {{ old('code_1') == 'H' ? 'selected' : '' }}>H: 501(c)(18)(D) contributions</option>
+                                                            <option value="J" {{ old('code_1') == 'J' ? 'selected' : '' }}>J: Nontaxable sick pay</option>
+                                                            <option value="K" {{ old('code_1') == 'K' ? 'selected' : '' }}>K: Golden parachute</option>
+                                                            <option value="L" {{ old('code_1') == 'L' ? 'selected' : '' }}>L: Expense reimbursements</option>
+                                                            <option value="M" {{ old('code_1') == 'M' ? 'selected' : '' }}>M: Uncollected SS or RRTA on insurance</option>
+                                                            <option value="N" {{ old('code_1') == 'N' ? 'selected' : '' }}>N: Uncollected Medicare on insurance</option>
+                                                            <option value="P" {{ old('code_1') == 'P' ? 'selected' : '' }}>P: Moving expenses</option>
+                                                            <option value="Q" {{ old('code_1') == 'Q' ? 'selected' : '' }}>Q: Nontaxable combat pay</option>
+                                                            <option value="R" {{ old('code_1') == 'R' ? 'selected' : '' }}>R: Employer MSA contributions</option>
+                                                            <option value="S" {{ old('code_1') == 'S' ? 'selected' : '' }}>S: Employee 408(p) contributions</option>
+                                                            <option value="T" {{ old('code_1') == 'T' ? 'selected' : '' }}>T: Adoption benefits</option>
+                                                            <option value="V" {{ old('code_1') == 'V' ? 'selected' : '' }}>V: Non-statutory stock option</option>
+                                                            <option value="W" {{ old('code_1') == 'W' ? 'selected' : '' }}>W: Employer HSA contributions</option>
+                                                            <option value="Y" {{ old('code_1') == 'Y' ? 'selected' : '' }}>Y: 409A contributions</option>
+                                                            <option value="Z" {{ old('code_1') == 'Z' ? 'selected' : '' }}>Z: 409A income</option>
+                                                            <option value="AA" {{ old('code_1') == 'AA' ? 'selected' : '' }}>AA: Roth 401(k) contributions</option>
+                                                            <option value="BB" {{ old('code_1') == 'BB' ? 'selected' : '' }}>BB: Roth 403(b) contributions</option>
+                                                            <option value="DD" {{ old('code_1') == 'DD' ? 'selected' : '' }}>DD: Employer health coverage</option>
+                                                            <option value="EE" {{ old('code_1') == 'EE' ? 'selected' : '' }}>EE: Roth 457(b) contributions</option>
+                                                            <option value="FF" {{ old('code_1') == 'FF' ? 'selected' : '' }}>FF: Small employer health reimbursement</option>
+                                                            <option value="GG" {{ old('code_1') == 'GG' ? 'selected' : '' }}>GG: Section 83(i) qualified equity grants income</option>
+                                                            <option value="HH" {{ old('code_1') == 'HH' ? 'selected' : '' }}>HH: End of year Section 83(i) deferral elections</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -417,7 +409,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('amount_1') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('amount_1') is-invalid @enderror"
-                                                            name="amount_1" type="text" value=""
+                                                            name="amount_1" type="text" value="{{ old('amount_1') }}"
                                                             aria-label="amount_1" aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
@@ -428,44 +420,36 @@
                                                         <select class="form-select @error('code_2') is-invalid @enderror"
                                                             name="code_2" aria-label="code_2"
                                                             aria-describedby="basic-addon2">
-                                                            <option value="" selected=""></option>
-                                                            <option value="A">A: Uncollected SS or RRTA on tips
-                                                            </option>
-                                                            <option value="B">B: Uncollected Medicare on tips</option>
-                                                            <option value="C">C: Group term life insurance</option>
-                                                            <option value="D">D: 401(k) contributions</option>
-                                                            <option value="E">E: 403(b) contributions</option>
-                                                            <option value="F">F: 408(k)(6) contributions</option>
-                                                            <option value="G">G: 457(b) contributions</option>
-                                                            <option value="H">H: 501(c)(18)(D) contributions</option>
-                                                            <option value="J">J: Nontaxable sick pay</option>
-                                                            <option value="K">K: Golden parachute</option>
-                                                            <option value="L">L: Expense reimbursements</option>
-                                                            <option value="M">M: Uncollected SS or RRTA on insurance
-                                                            </option>
-                                                            <option value="N">N: Uncollected Medicare on insurance
-                                                            </option>
-                                                            <option value="P">P: Moving expenses</option>
-                                                            <option value="Q">Q: Nontaxable combat pay</option>
-                                                            <option value="R">R: Employer MSA contributions</option>
-                                                            <option value="S">S: Employee 408(p) contributions
-                                                            </option>
-                                                            <option value="T">T: Adoption benefits</option>
-                                                            <option value="V">V: Non-statutory stock option</option>
-                                                            <option value="W">W: Employer HSA contributions</option>
-                                                            <option value="Y">Y: 409A contributions</option>
-                                                            <option value="Z">Z: 409A income</option>
-                                                            <option value="AA">AA: Roth 401(k) contributions</option>
-                                                            <option value="BB">BB: Roth 403(b) contributions</option>
-                                                            <option value="DD">DD: Employer health coverage</option>
-                                                            <option value="EE">EE: Roth 457(b) contributions</option>
-                                                            <option value="FF">FF: Small employer health reimbursement
-                                                            </option>
-                                                            <option value="GG">GG: Section 83(i) qualified equity
-                                                                grants
-                                                                income</option>
-                                                            <option value="HH">HH: End of year Section 83(i) deferral
-                                                                elections</option>
+                                                            <option value="" {{ old('code_2') == '' ? 'selected' : '' }}></option>
+                                                            <option value="A" {{ old('code_2') == 'A' ? 'selected' : '' }}>A: Uncollected SS or RRTA on tips</option>
+                                                            <option value="B" {{ old('code_2') == 'B' ? 'selected' : '' }}>B: Uncollected Medicare on tips</option>
+                                                            <option value="C" {{ old('code_2') == 'C' ? 'selected' : '' }}>C: Group term life insurance</option>
+                                                            <option value="D" {{ old('code_2') == 'D' ? 'selected' : '' }}>D: 401(k) contributions</option>
+                                                            <option value="E" {{ old('code_2') == 'E' ? 'selected' : '' }}>E: 403(b) contributions</option>
+                                                            <option value="F" {{ old('code_2') == 'F' ? 'selected' : '' }}>F: 408(k)(6) contributions</option>
+                                                            <option value="G" {{ old('code_2') == 'G' ? 'selected' : '' }}>G: 457(b) contributions</option>
+                                                            <option value="H" {{ old('code_2') == 'H' ? 'selected' : '' }}>H: 501(c)(18)(D) contributions</option>
+                                                            <option value="J" {{ old('code_2') == 'J' ? 'selected' : '' }}>J: Nontaxable sick pay</option>
+                                                            <option value="K" {{ old('code_2') == 'K' ? 'selected' : '' }}>K: Golden parachute</option>
+                                                            <option value="L" {{ old('code_2') == 'L' ? 'selected' : '' }}>L: Expense reimbursements</option>
+                                                            <option value="M" {{ old('code_2') == 'M' ? 'selected' : '' }}>M: Uncollected SS or RRTA on insurance</option>
+                                                            <option value="N" {{ old('code_2') == 'N' ? 'selected' : '' }}>N: Uncollected Medicare on insurance</option>
+                                                            <option value="P" {{ old('code_2') == 'P' ? 'selected' : '' }}>P: Moving expenses</option>
+                                                            <option value="Q" {{ old('code_2') == 'Q' ? 'selected' : '' }}>Q: Nontaxable combat pay</option>
+                                                            <option value="R" {{ old('code_2') == 'R' ? 'selected' : '' }}>R: Employer MSA contributions</option>
+                                                            <option value="S" {{ old('code_2') == 'S' ? 'selected' : '' }}>S: Employee 408(p) contributions</option>
+                                                            <option value="T" {{ old('code_2') == 'T' ? 'selected' : '' }}>T: Adoption benefits</option>
+                                                            <option value="V" {{ old('code_2') == 'V' ? 'selected' : '' }}>V: Non-statutory stock option</option>
+                                                            <option value="W" {{ old('code_2') == 'W' ? 'selected' : '' }}>W: Employer HSA contributions</option>
+                                                            <option value="Y" {{ old('code_2') == 'Y' ? 'selected' : '' }}>Y: 409A contributions</option>
+                                                            <option value="Z" {{ old('code_2') == 'Z' ? 'selected' : '' }}>Z: 409A income</option>
+                                                            <option value="AA" {{ old('code_2') == 'AA' ? 'selected' : '' }}>AA: Roth 401(k) contributions</option>
+                                                            <option value="BB" {{ old('code_2') == 'BB' ? 'selected' : '' }}>BB: Roth 403(b) contributions</option>
+                                                            <option value="DD" {{ old('code_2') == 'DD' ? 'selected' : '' }}>DD: Employer health coverage</option>
+                                                            <option value="EE" {{ old('code_2') == 'EE' ? 'selected' : '' }}>EE: Roth 457(b) contributions</option>
+                                                            <option value="FF" {{ old('code_2') == 'FF' ? 'selected' : '' }}>FF: Small employer health reimbursement</option>
+                                                            <option value="GG" {{ old('code_2') == 'GG' ? 'selected' : '' }}>GG: Section 83(i) qualified equity grants income</option>
+                                                            <option value="HH" {{ old('code_2') == 'HH' ? 'selected' : '' }}>HH: End of year Section 83(i) deferral elections</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -475,7 +459,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('amount_2') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('amount_2') is-invalid @enderror"
-                                                            name="amount_2" type="text" value=""
+                                                            name="amount_2" type="text" value="{{ old('amount_2') }}"
                                                             aria-label="amount_2" aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
@@ -529,7 +513,7 @@
                                                     <div class="has-danger input-group mb-3">
                                                         <input
                                                             class="form-control @error('other_desc') is-invalid @enderror"
-                                                            name="other_desc" type="text" value=""
+                                                            name="other_desc" type="text" value="{{ old('other_desc') }}"
                                                             aria-label="other_desc" aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
@@ -541,7 +525,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('other_amount') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('other_amount') is-invalid @enderror"
-                                                            name="other_amount" type="text" value=""
+                                                            name="other_amount" type="text" value="{{ old('other_amount') }}"
                                                             aria-label="other_amount" aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
@@ -559,61 +543,61 @@
                                                     <div class="has-danger input-group mb-3">
                                                         <select name="employer_state" id="employer_state"
                                                             class="form-select @error('employer_state') is-invalid @enderror">
-                                                            <option value="" selected></option>
-                                                            <option value="AA">AA</option>
-                                                            <option value="AE">AE</option>
-                                                            <option value="AK">AK</option>
-                                                            <option value="AL">AL</option>
-                                                            <option value="AP">AP</option>
-                                                            <option value="AR">AR</option>
-                                                            <option value="AZ">AZ</option>
-                                                            <option value="CA">CA</option>
-                                                            <option value="CO">CO</option>
-                                                            <option value="CT">CT</option>
-                                                            <option value="DC">DC</option>
-                                                            <option value="DE">DE</option>
-                                                            <option value="FL">FL</option>
-                                                            <option value="GA">GA</option>
-                                                            <option value="HI">HI</option>
-                                                            <option value="IA">IA</option>
-                                                            <option value="ID">ID</option>
-                                                            <option value="IL">IL</option>
-                                                            <option value="IN">IN</option>
-                                                            <option value="KS">KS</option>
-                                                            <option value="KY">KY</option>
-                                                            <option value="LA">LA</option>
-                                                            <option value="MA">MA</option>
-                                                            <option value="MD">MD</option>
-                                                            <option value="ME">ME</option>
-                                                            <option value="MI">MI</option>
-                                                            <option value="MN">MN</option>
-                                                            <option value="MO">MO</option>
-                                                            <option value="MS">MS</option>
-                                                            <option value="MT">MT</option>
-                                                            <option value="NC">NC</option>
-                                                            <option value="ND">ND</option>
-                                                            <option value="NE">NE</option>
-                                                            <option value="NH">NH</option>
-                                                            <option value="NJ">NJ</option>
-                                                            <option value="NM">NM</option>
-                                                            <option value="NV">NV</option>
-                                                            <option value="NY">NY</option>
-                                                            <option value="OH">OH</option>
-                                                            <option value="OK">OK</option>
-                                                            <option value="OR">OR</option>
-                                                            <option value="PA">PA</option>
-                                                            <option value="RI">RI</option>
-                                                            <option value="SC">SC</option>
-                                                            <option value="SD">SD</option>
-                                                            <option value="TN">TN</option>
-                                                            <option value="TX">TX</option>
-                                                            <option value="UT">UT</option>
-                                                            <option value="VA">VA</option>
-                                                            <option value="VT">VT</option>
-                                                            <option value="WA">WA</option>
-                                                            <option value="WI">WI</option>
-                                                            <option value="WV">WV</option>
-                                                            <option value="WY">WY</option>
+                                                            <option value="" {{ old('emp_state') == '' ? 'selected' : '' }}></option>
+                                                            <option value="AA" {{ old('emp_state') == 'AA' ? 'selected' : '' }}>AA</option>
+                                                            <option value="AE" {{ old('emp_state') == 'AE' ? 'selected' : '' }}>AE</option>
+                                                            <option value="AK" {{ old('emp_state') == 'AK' ? 'selected' : '' }}>AK</option>
+                                                            <option value="AL" {{ old('emp_state') == 'AL' ? 'selected' : '' }}>AL</option>
+                                                            <option value="AP" {{ old('emp_state') == 'AP' ? 'selected' : '' }}>AP</option>
+                                                            <option value="AR" {{ old('emp_state') == 'AR' ? 'selected' : '' }}>AR</option>
+                                                            <option value="AZ" {{ old('emp_state') == 'AZ' ? 'selected' : '' }}>AZ</option>
+                                                            <option value="CA" {{ old('emp_state') == 'CA' ? 'selected' : '' }}>CA</option>
+                                                            <option value="CO" {{ old('emp_state') == 'CO' ? 'selected' : '' }}>CO</option>
+                                                            <option value="CT" {{ old('emp_state') == 'CT' ? 'selected' : '' }}>CT</option>
+                                                            <option value="DC" {{ old('emp_state') == 'DC' ? 'selected' : '' }}>DC</option>
+                                                            <option value="DE" {{ old('emp_state') == 'DE' ? 'selected' : '' }}>DE</option>
+                                                            <option value="FL" {{ old('emp_state') == 'FL' ? 'selected' : '' }}>FL</option>
+                                                            <option value="GA" {{ old('emp_state') == 'GA' ? 'selected' : '' }}>GA</option>
+                                                            <option value="HI" {{ old('emp_state') == 'HI' ? 'selected' : '' }}>HI</option>
+                                                            <option value="IA" {{ old('emp_state') == 'IA' ? 'selected' : '' }}>IA</option>
+                                                            <option value="ID" {{ old('emp_state') == 'ID' ? 'selected' : '' }}>ID</option>
+                                                            <option value="IL" {{ old('emp_state') == 'IL' ? 'selected' : '' }}>IL</option>
+                                                            <option value="IN" {{ old('emp_state') == 'IN' ? 'selected' : '' }}>IN</option>
+                                                            <option value="KS" {{ old('emp_state') == 'KS' ? 'selected' : '' }}>KS</option>
+                                                            <option value="KY" {{ old('emp_state') == 'KY' ? 'selected' : '' }}>KY</option>
+                                                            <option value="LA" {{ old('emp_state') == 'LA' ? 'selected' : '' }}>LA</option>
+                                                            <option value="MA" {{ old('emp_state') == 'MA' ? 'selected' : '' }}>MA</option>
+                                                            <option value="MD" {{ old('emp_state') == 'MD' ? 'selected' : '' }}>MD</option>
+                                                            <option value="ME" {{ old('emp_state') == 'ME' ? 'selected' : '' }}>ME</option>
+                                                            <option value="MI" {{ old('emp_state') == 'MI' ? 'selected' : '' }}>MI</option>
+                                                            <option value="MN" {{ old('emp_state') == 'MN' ? 'selected' : '' }}>MN</option>
+                                                            <option value="MO" {{ old('emp_state') == 'MO' ? 'selected' : '' }}>MO</option>
+                                                            <option value="MS" {{ old('emp_state') == 'MS' ? 'selected' : '' }}>MS</option>
+                                                            <option value="MT" {{ old('emp_state') == 'MT' ? 'selected' : '' }}>MT</option>
+                                                            <option value="NC" {{ old('emp_state') == 'NC' ? 'selected' : '' }}>NC</option>
+                                                            <option value="ND" {{ old('emp_state') == 'ND' ? 'selected' : '' }}>ND</option>
+                                                            <option value="NE" {{ old('emp_state') == 'NE' ? 'selected' : '' }}>NE</option>
+                                                            <option value="NH" {{ old('emp_state') == 'NH' ? 'selected' : '' }}>NH</option>
+                                                            <option value="NJ" {{ old('emp_state') == 'NJ' ? 'selected' : '' }}>NJ</option>
+                                                            <option value="NM" {{ old('emp_state') == 'NM' ? 'selected' : '' }}>NM</option>
+                                                            <option value="NV" {{ old('emp_state') == 'NV' ? 'selected' : '' }}>NV</option>
+                                                            <option value="NY" {{ old('emp_state') == 'NY' ? 'selected' : '' }}>NY</option>
+                                                            <option value="OH" {{ old('emp_state') == 'OH' ? 'selected' : '' }}>OH</option>
+                                                            <option value="OK" {{ old('emp_state') == 'OK' ? 'selected' : '' }}>OK</option>
+                                                            <option value="OR" {{ old('emp_state') == 'OR' ? 'selected' : '' }}>OR</option>
+                                                            <option value="PA" {{ old('emp_state') == 'PA' ? 'selected' : '' }}>PA</option>
+                                                            <option value="RI" {{ old('emp_state') == 'RI' ? 'selected' : '' }}>RI</option>
+                                                            <option value="SC" {{ old('emp_state') == 'SC' ? 'selected' : '' }}>SC</option>
+                                                            <option value="SD" {{ old('emp_state') == 'SD' ? 'selected' : '' }}>SD</option>
+                                                            <option value="TN" {{ old('emp_state') == 'TN' ? 'selected' : '' }}>TN</option>
+                                                            <option value="TX" {{ old('emp_state') == 'TX' ? 'selected' : '' }}>TX</option>
+                                                            <option value="UT" {{ old('emp_state') == 'UT' ? 'selected' : '' }}>UT</option>
+                                                            <option value="VA" {{ old('emp_state') == 'VA' ? 'selected' : '' }}>VA</option>
+                                                            <option value="VT" {{ old('emp_state') == 'VT' ? 'selected' : '' }}>VT</option>
+                                                            <option value="WA" {{ old('emp_state') == 'WA' ? 'selected' : '' }}>WA</option>
+                                                            <option value="WI" {{ old('emp_state') == 'WI' ? 'selected' : '' }}>WI</option>
+                                                            <option value="WV" {{ old('emp_state') == 'WV' ? 'selected' : '' }}>WV</option>
+                                                            <option value="WY" {{ old('emp_state') == 'WY' ? 'selected' : '' }}>WY</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -626,7 +610,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('employer_sin') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('employer_sin') is-invalid @enderror"
-                                                            name="employer_sin" type="text" value=""
+                                                            name="employer_sin" type="text" value="{{ old('employer_sin') }}"
                                                             aria-label="employer_sin" aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
@@ -639,44 +623,36 @@
                                                             class="form-select @error('employer_state_wages') is-invalid @enderror"
                                                             name="employer_state_wages" aria-label="employer_state_wages"
                                                             aria-describedby="basic-addon2">
-                                                            <option value="" selected=""></option>
-                                                            <option value="A">A: Uncollected SS or RRTA on tips
-                                                            </option>
-                                                            <option value="B">B: Uncollected Medicare on tips</option>
-                                                            <option value="C">C: Group term life insurance</option>
-                                                            <option value="D">D: 401(k) contributions</option>
-                                                            <option value="E">E: 403(b) contributions</option>
-                                                            <option value="F">F: 408(k)(6) contributions</option>
-                                                            <option value="G">G: 457(b) contributions</option>
-                                                            <option value="H">H: 501(c)(18)(D) contributions</option>
-                                                            <option value="J">J: Nontaxable sick pay</option>
-                                                            <option value="K">K: Golden parachute</option>
-                                                            <option value="L">L: Expense reimbursements</option>
-                                                            <option value="M">M: Uncollected SS or RRTA on insurance
-                                                            </option>
-                                                            <option value="N">N: Uncollected Medicare on insurance
-                                                            </option>
-                                                            <option value="P">P: Moving expenses</option>
-                                                            <option value="Q">Q: Nontaxable combat pay</option>
-                                                            <option value="R">R: Employer MSA contributions</option>
-                                                            <option value="S">S: Employee 408(p) contributions
-                                                            </option>
-                                                            <option value="T">T: Adoption benefits</option>
-                                                            <option value="V">V: Non-statutory stock option</option>
-                                                            <option value="W">W: Employer HSA contributions</option>
-                                                            <option value="Y">Y: 409A contributions</option>
-                                                            <option value="Z">Z: 409A income</option>
-                                                            <option value="AA">AA: Roth 401(k) contributions</option>
-                                                            <option value="BB">BB: Roth 403(b) contributions</option>
-                                                            <option value="DD">DD: Employer health coverage</option>
-                                                            <option value="EE">EE: Roth 457(b) contributions</option>
-                                                            <option value="FF">FF: Small employer health reimbursement
-                                                            </option>
-                                                            <option value="GG">GG: Section 83(i) qualified equity
-                                                                grants
-                                                                income</option>
-                                                            <option value="HH">HH: End of year Section 83(i) deferral
-                                                                elections</option>
+                                                            <option value="" {{ old('employer_state_wages') == '' ? 'selected' : '' }}></option>
+                                                            <option value="A" {{ old('employer_state_wages') == 'A' ? 'selected' : '' }}>A: Uncollected SS or RRTA on tips</option>
+                                                            <option value="B" {{ old('employer_state_wages') == 'B' ? 'selected' : '' }}>B: Uncollected Medicare on tips</option>
+                                                            <option value="C" {{ old('employer_state_wages') == 'C' ? 'selected' : '' }}>C: Group term life insurance</option>
+                                                            <option value="D" {{ old('employer_state_wages') == 'D' ? 'selected' : '' }}>D: 401(k) contributions</option>
+                                                            <option value="E" {{ old('employer_state_wages') == 'E' ? 'selected' : '' }}>E: 403(b) contributions</option>
+                                                            <option value="F" {{ old('employer_state_wages') == 'F' ? 'selected' : '' }}>F: 408(k)(6) contributions</option>
+                                                            <option value="G" {{ old('employer_state_wages') == 'G' ? 'selected' : '' }}>G: 457(b) contributions</option>
+                                                            <option value="H" {{ old('employer_state_wages') == 'H' ? 'selected' : '' }}>H: 501(c)(18)(D) contributions</option>
+                                                            <option value="J" {{ old('employer_state_wages') == 'J' ? 'selected' : '' }}>J: Nontaxable sick pay</option>
+                                                            <option value="K" {{ old('employer_state_wages') == 'K' ? 'selected' : '' }}>K: Golden parachute</option>
+                                                            <option value="L" {{ old('employer_state_wages') == 'L' ? 'selected' : '' }}>L: Expense reimbursements</option>
+                                                            <option value="M" {{ old('employer_state_wages') == 'M' ? 'selected' : '' }}>M: Uncollected SS or RRTA on insurance</option>
+                                                            <option value="N" {{ old('employer_state_wages') == 'N' ? 'selected' : '' }}>N: Uncollected Medicare on insurance</option>
+                                                            <option value="P" {{ old('employer_state_wages') == 'P' ? 'selected' : '' }}>P: Moving expenses</option>
+                                                            <option value="Q" {{ old('employer_state_wages') == 'Q' ? 'selected' : '' }}>Q: Nontaxable combat pay</option>
+                                                            <option value="R" {{ old('employer_state_wages') == 'R' ? 'selected' : '' }}>R: Employer MSA contributions</option>
+                                                            <option value="S" {{ old('employer_state_wages') == 'S' ? 'selected' : '' }}>S: Employee 408(p) contributions</option>
+                                                            <option value="T" {{ old('employer_state_wages') == 'T' ? 'selected' : '' }}>T: Adoption benefits</option>
+                                                            <option value="V" {{ old('employer_state_wages') == 'V' ? 'selected' : '' }}>V: Non-statutory stock option</option>
+                                                            <option value="W" {{ old('employer_state_wages') == 'W' ? 'selected' : '' }}>W: Employer HSA contributions</option>
+                                                            <option value="Y" {{ old('employer_state_wages') == 'Y' ? 'selected' : '' }}>Y: 409A contributions</option>
+                                                            <option value="Z" {{ old('employer_state_wages') == 'Z' ? 'selected' : '' }}>Z: 409A income</option>
+                                                            <option value="AA" {{ old('employer_state_wages') == 'AA' ? 'selected' : '' }}>AA: Roth 401(k) contributions</option>
+                                                            <option value="BB" {{ old('employer_state_wages') == 'BB' ? 'selected' : '' }}>BB: Roth 403(b) contributions</option>
+                                                            <option value="DD" {{ old('employer_state_wages') == 'DD' ? 'selected' : '' }}>DD: Employer health coverage</option>
+                                                            <option value="EE" {{ old('employer_state_wages') == 'EE' ? 'selected' : '' }}>EE: Roth 457(b) contributions</option>
+                                                            <option value="FF" {{ old('employer_state_wages') == 'FF' ? 'selected' : '' }}>FF: Small employer health reimbursement</option>
+                                                            <option value="GG" {{ old('employer_state_wages') == 'GG' ? 'selected' : '' }}>GG: Section 83(i) qualified equity grants income</option>
+                                                            <option value="HH" {{ old('employer_state_wages') == 'HH' ? 'selected' : '' }}>HH: End of year Section 83(i) deferral elections</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -690,7 +666,7 @@
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('employer_state_income_tax') is-invalid @enderror"
                                                             name="employer_state_income_tax" type="text"
-                                                            value="" aria-label="employer_state_income_tax"
+                                                            value="{{ old('employer_state_income_tax') }}" aria-label="employer_state_income_tax"
                                                             aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
@@ -705,7 +681,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('employer_local_wages') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('employer_local_wages') is-invalid @enderror"
-                                                            name="employer_local_wages" type="text" value=""
+                                                            name="employer_local_wages" type="text" value="{{ old('employer_local_wages') }}"
                                                             aria-label="employer_local_wages"
                                                             aria-describedby="basic-addon2">
                                                     </div>
@@ -720,7 +696,7 @@
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('employer_local_income_tax') is-invalid @enderror"
                                                             name="employer_local_income_tax" type="text"
-                                                            value="" aria-label="employer_local_income_tax"
+                                                            value="{{ old('employer_local_income_tax') }}" aria-label="employer_local_income_tax"
                                                             aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
@@ -731,7 +707,7 @@
                                                     <div class="has-danger input-group mb-3">
                                                         <input
                                                             class="form-control @error('employer_locality') is-invalid @enderror"
-                                                            name="employer_locality" type="text" value=""
+                                                            name="employer_locality" type="text" value="{{ old('employer_locality') }}"
                                                             aria-label="employer_locality"
                                                             aria-describedby="basic-addon2">
                                                     </div>

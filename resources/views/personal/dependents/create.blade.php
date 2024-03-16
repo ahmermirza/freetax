@@ -53,7 +53,7 @@
                                         <div class="has-danger input-group mb-3">
                                             <select class="form-select @error('relation') is-invalid @enderror"
                                                 name="relation" aria-label="relation" aria-describedby="basic-addon2">
-                                                <option value="" selected></option>
+                                                <option value="" {{ old('relation') == '' ? 'selected' : '' }}></option>
                                                 <option value="son" {{ old('relation') == 'son' ? 'selected' : '' }}>SON
                                                 </option>
                                                 <option value="daughter"
@@ -118,7 +118,7 @@
                                         <div class="has-danger input-group mb-3">
                                             <select class="form-select @error('suffix') is-invalid @enderror" name="suffix"
                                                 aria-label="suffix" aria-describedby="basic-addon2">
-                                                <option value="" {{ old('suffix') == null ? 'selected' : '' }}>
+                                                <option value="" {{ old('suffix') == '' ? 'selected' : '' }}>
                                                 </option>
                                                 <option value="jr" {{ old('suffix') == 'jr' ? 'selected' : '' }}>Jr.
                                                 </option>

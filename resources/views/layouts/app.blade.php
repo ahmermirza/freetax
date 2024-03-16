@@ -171,7 +171,7 @@
                                         href="{{ route('personal.create', ['info' => 'filing-status']) }}"><i
                                             class="fa fa-check text-success" aria-hidden="true"></i>&nbsp;&nbsp;Filing
                                         Status</a>
-                                    @if (auth()->user() &&
+                                    @if (auth()->user()->personals &&
                                             auth()->user()->personals->count() &&
                                             in_array(auth()->user()->personals()->first()->filing_status, [2, 3]))
                                         <a class="dropdown-item"
@@ -218,9 +218,7 @@
                                 <ul class="dropdown-menu dropdown-menu-white dropdown-menu-custom-width round-3 mt-3 shadow bg-white"
                                     aria-labelledby="navbarDarkDropdownMenuLink">
                                     <h6 class="dropdown-header">Itemized Deductions</h6>
-                                    <li><a class="dropdown-item @if(!$personal) disabled @endif" href="{{ route('itemized.deductions') }}"><i
-                                                class="fa fa-check text-success"
-                                                aria-hidden="true"></i>&nbsp;&nbsp;Itemized Deductions Selection</a></li>
+                                    <li><a class="dropdown-item @if(!$personal) disabled @endif" href="{{ route('itemized.deductions') }}">Itemized Deductions Selection</a></li>
                                     <li><a class="dropdown-item @if(!$personal) disabled @endif" href="{{ route('mortgage-interest.index') }}"><i
                                                 class="fa fa-check text-success"
                                                 aria-hidden="true"></i>&nbsp;&nbsp;Homeowner Expenses (1098)</a></li>
@@ -280,10 +278,6 @@
                                     aria-labelledby="navbarDarkDropdownMenuLink">
                                     <a class="dropdown-item" href="{{ route('state.index') }}"><i class="fa fa-check text-success"
                                             aria-hidden="true"></i>&nbsp;&nbsp;Your State Tax Returns</a>
-                                    <a class="dropdown-item" href="#"><i class="fa fa-check text-success"
-                                            aria-hidden="true"></i>&nbsp;&nbsp;Another action</a>
-                                    <a class="dropdown-item" href="#"><i class="fa fa-check text-success"
-                                            aria-hidden="true"></i>&nbsp;&nbsp;Something else here</a>
                                 </ul>
                             </li>
                         </ul>

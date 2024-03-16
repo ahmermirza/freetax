@@ -72,8 +72,8 @@
                         <div class="tile-footer d-flex justify-content-between px-lg-5 mx-lg-5 mb-lg-4">
                             <a class="btn btn-white border border-primary rounded-0" href="#"><i
                                     class="me-2 mb-5"></i><b class="text-primary">Previous Page</b></a>&nbsp;&nbsp;&nbsp;
-                            <button class="btn btn-primary rounded-0" type="submit"><i class="me-2"></i><b
-                                    class="text-light">Continue</b></button>
+                            <a class="btn btn-primary rounded-0" href="{{ route('state.completed') }}"><i class="me-2"></i><b
+                                    class="text-light">No, Continue</b></a>
                         </div>
                     </div>
                 </div>

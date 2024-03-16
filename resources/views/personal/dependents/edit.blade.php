@@ -123,7 +123,7 @@
                                             <select class="form-select @error('suffix') is-invalid @enderror" name="suffix"
                                                 aria-label="suffix" aria-describedby="basic-addon2">
                                                 <option value=""
-                                                    {{ $dependent && $dependent->suffix == null ? 'selected' : '' }}>
+                                                    {{ $dependent && $dependent->suffix == '' ? 'selected' : '' }}>
                                                 </option>
                                                 <option value="jr"
                                                     {{ $dependent && $dependent->suffix == 'jr' ? 'selected' : '' }}>Jr.

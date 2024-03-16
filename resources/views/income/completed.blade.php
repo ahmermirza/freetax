@@ -29,8 +29,8 @@
                             <a class="btn btn-white border border-primary rounded-0" href="#"><i
                                     class="me-2 mb-5"></i><b class="text-primary">Previous
                                     Page</b></a>&nbsp;&nbsp;&nbsp;
-                            <a class="btn btn-primary rounded-0"><i class="me-2"></i><b
-                                    class="text-light">Save and Continue</b></a>
+                            <a class="btn btn-primary rounded-0" href="{{ route('itemized.deductions') }}"><i class="me-2"></i><b
+                                    class="text-light">Continue to Deductions</b></a>
                         </div>
                     </div>
                 </div>

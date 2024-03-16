@@ -48,7 +48,7 @@ class User extends Authenticatable
 
     public function personals()
     {
-        return $this->hasMany(Personal::class);
+        return $this->hasOne(Personal::class);
     }
 
     // Accessor method for Username column

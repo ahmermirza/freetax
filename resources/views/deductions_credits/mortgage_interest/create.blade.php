@@ -43,7 +43,7 @@
                                             <label class="form-form-label h6 pb-2" for="lender_name">Lender Name:</label>
                                             <div class="has-danger input-group mb-3">
                                                 <input class="form-control @error('lender_name') is-invalid @enderror"
-                                                    name="lender_name" type="text" value="" aria-label="lender_name"
+                                                    name="lender_name" type="text" value="{{ old('lender_name') }}" aria-label="lender_name"
                                                     aria-describedby="basic-addon2" required>
                                             </div>
                                             <label class="form-form-label h6 pb-2 text-secondary" for="lender_name">The Lender Name is the
@@ -60,7 +60,7 @@
                                                     class="input-group-text bg-disabled text-dark @error('deductible_mortgage') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                     id="basic-addon2"><b>$</b></span><input
                                                     class="form-control @error('deductible_mortgage') is-invalid @enderror"
-                                                    name="deductible_mortgage" type="text" value="" aria-label="deductible_mortgage"
+                                                    name="deductible_mortgage" type="text" value="{{ old('deductible_mortgage') }}" aria-label="deductible_mortgage"
                                                     aria-describedby="basic-addon2">
                                             </div>
                                         </div>
@@ -74,7 +74,7 @@
                                                     class="input-group-text bg-disabled text-dark @error('outstanding_mortgage') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                     id="basic-addon2"><b>$</b></span><input
                                                     class="form-control @error('outstanding_mortgage') is-invalid @enderror"
-                                                    name="outstanding_mortgage" type="text" value="" aria-label="outstanding_mortgage"
+                                                    name="outstanding_mortgage" type="text" value="{{ old('outstanding_mortgage') }}" aria-label="outstanding_mortgage"
                                                     aria-describedby="basic-addon2" required>
                                             </div>
                                         </div>
@@ -85,7 +85,7 @@
                                                 Origination Date:</label>
                                             <div class="has-danger input-group mb-3">
                                                 <input class="form-control @error('dob') is-invalid @enderror"
-                                                    name="dob" type="date" value="" aria-label="dob"
+                                                    name="dob" type="date" value="{{ old('dob') }}" aria-label="dob"
                                                     aria-describedby="basic-addon2" required>
                                             </div>
                                         </div>
@@ -99,7 +99,7 @@
                                                     class="input-group-text bg-disabled text-dark @error('refund_overpaid') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                     id="basic-addon2"><b>$</b></span><input
                                                     class="form-control @error('refund_overpaid') is-invalid @enderror"
-                                                    name="refund_overpaid" type="text" value="" aria-label="refund_overpaid"
+                                                    name="refund_overpaid" type="text" value="{{ old('refund_overpaid') }}" aria-label="refund_overpaid"
                                                     aria-describedby="basic-addon2">
                                             </div>
                                         </div>
@@ -132,7 +132,7 @@
                                                     class="input-group-text bg-disabled text-dark @error('points_paid') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                     id="basic-addon2"><b>$</b></span><input
                                                     class="form-control @error('points_paid') is-invalid @enderror"
-                                                    name="points_paid" type="text" value=""
+                                                    name="points_paid" type="text" value="{{ old('points_paid') }}"
                                                     aria-label="points_paid" aria-describedby="basic-addon2">
                                             </div>
                                         </div>

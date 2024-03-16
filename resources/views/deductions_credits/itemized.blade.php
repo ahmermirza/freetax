@@ -14,14 +14,7 @@
                 <div class="col-lg-12">
                     <div class="tile">
                         <h2 class="tile-title d-lg-flex justify-content-center h2"><b>Let's fill out your itemized deductions</b></h2>
-                        @if (isset($deductions_credit))
-                            <form action="{{ route('medical-expenses.update', $deductions_credit) }}" method="post">
-                                @method('PUT')
-                            @else
-                                <form action="{{ route('medical-expenses.store') }}" method="post">
-                        @endif
                         <div class="tile-body">
-                            @csrf
                             <br>
                             <div class="row ps-5">
                                 <div class="col-lg-12 ps-0 h6">
@@ -39,7 +32,7 @@
                                 </div>
                                 <div class="col-lg-2 col-6">
                                     <div class="input-group mb-3">
-                                        <a class="btn btn-primary btn-sm rounded-0" href="#"><b class="text-white">Edit</b></a>
+                                        <a class="btn btn-primary btn-sm rounded-0" href="{{ route('mortgage-interest.index') }}"><b class="text-white">Edit</b></a>
                                     </div>
                                 </div>
                             </div>
@@ -57,7 +50,7 @@
                                 </div>
                                 <div class="col-lg-2 col-6">
                                     <div class="input-group mb-3">
-                                        <a class="btn btn-primary btn-sm rounded-0" href="#"><b class="text-white">Edit</b></a>
+                                        <a class="btn btn-primary btn-sm rounded-0" href="{{ route('charities-donations.create') }}"><b class="text-white">Edit</b></a>
                                     </div>
                                 </div>
                             </div>
@@ -70,7 +63,7 @@
                                 </div>
                                 <div class="col-lg-2 col-6">
                                     <div class="input-group mb-3">
-                                        <a class="btn btn-primary btn-sm rounded-0" href="#"><b class="text-white">Edit</b></a>
+                                        <a class="btn btn-primary btn-sm rounded-0" href="{{ route('medical-expenses.create') }}"><b class="text-white">Edit</b></a>
                                     </div>
                                 </div>
                             </div>
@@ -88,7 +81,7 @@
                                 </div>
                                 <div class="col-lg-2 col-6">
                                     <div class="input-group mb-3">
-                                        <a class="btn btn-primary btn-sm rounded-0" href="#"><b class="text-white">Edit</b></a>
+                                        <a class="btn btn-primary btn-sm rounded-0" href="{{ route('taxes.create') }}"><b class="text-white">Edit</b></a>
                                     </div>
                                 </div>
                             </div>
@@ -105,11 +98,10 @@
                             <a class="btn btn-white border border-primary rounded-0" href="#"><i
                                     class="me-2 mb-5"></i><b class="text-primary">Previous Page</b></a>&nbsp;&nbsp;&nbsp;
                             <div>
-                                <button class="btn btn-primary rounded-0" type="submit"><i class="me-2"></i><b
-                                        class="text-light">Save and Continue</b></button>
+                                <a class="btn btn-primary rounded-0" href="{{ route('deductions.completed') }}"><i class="me-2"></i><b
+                                        class="text-light">Save and Continue</b></a>
                             </div>
                         </div>
-                        </form>
                     </div>
                 </div>
             </div>

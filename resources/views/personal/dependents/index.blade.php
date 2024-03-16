@@ -30,8 +30,9 @@
                                 <div class="col-lg-9 ms-2">
                                     <div class="d-flex justify-content-between px-3">
                                         <b class="pt-3">Dependent Name</b>
-                                        <a href="{{ route('dependents.create') }}" class="btn btn-primary btn-sm mb-lg-0 rounded-0"><b
-                                                class="text-white"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add a
+                                        <a href="{{ route('dependents.create') }}"
+                                            class="btn btn-primary btn-sm mb-lg-0 rounded-0"><b class="text-white"><i
+                                                    class="fa fa-plus"></i>&nbsp;&nbsp;Add a
                                                 Dependent</b></a>
                                     </div>
                                 </div>
@@ -43,30 +44,37 @@
                                     <div class="px-4 pe-5 custom-index-card">
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                @foreach ($dependents as $dependent)
-                                                    <div class="d-flex justify-content-between m-4 mx-2">
-                                                        <div><span
-                                                                class="h6">{{ $dependent->first_name . ' ' . $dependent->last_name }}</span>
+                                                @if ($dependents->count())
+                                                    @foreach ($dependents as $dependent)
+                                                        <div class="d-flex justify-content-between m-4 mx-2">
+                                                            <div><span
+                                                                    class="h6">{{ $dependent->first_name . ' ' . $dependent->last_name }}</span>
+                                                            </div>
+                                                            <div>
+                                                                <a href="{{ route('dependents.edit', $dependent) }}"
+                                                                    class="h6 pe-5">Edit</a>&nbsp;&nbsp;
+                                                                <form action="{{ route('dependents.destroy', $dependent) }}"
+                                                                    method="POST" class="d-inline">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button class="btn btn-link text-dark pe-4"><i
+                                                                            class="fa fa-trash" aria-hidden="true"
+                                                                            onclick="return confirm('Are you sure you want to delete this?')"></i></button>
+                                                            </div>
+                                                            </form>
                                                         </div>
-                                                        <div>
-                                                            <a href="{{ route('dependents.edit', $dependent) }}"
-                                                                class="h6 pe-5">Edit</a>&nbsp;&nbsp;
-                                                            <form action="{{ route('dependents.destroy', $dependent) }}"
-                                                                method="POST" class="d-inline">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <button class="btn btn-link text-dark pe-4"><i
-                                                                        class="fa fa-trash" aria-hidden="true"
-                                                                        onclick="return confirm('Are you sure you want to delete this?')"></i></button>
-                                                        </div>
-                                                        </form>
+                                                    @endforeach
+                                                @else
+                                                    <div class="d-flex justify-content-center m-4 mx-2 ms-0">
+                                                        <p class="h6 small">No dependents found.</p>
                                                     </div>
-                                                @endforeach
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
                                     <br>
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#whoQualifiesModel" class="text-primary h6">Who
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#whoQualifiesModel"
+                                        class="text-primary h6">Who
                                         qualifies as a dependent?</a>
                                 </div>
                             </div>

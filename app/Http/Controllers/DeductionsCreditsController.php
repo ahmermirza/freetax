@@ -27,17 +27,19 @@ class DeductionsCreditsController extends Controller
      */
     public function charitiesDonationsStore(Request $request)
     {
-        auth()->user()->personals()->first()->deductions_credit()->create([
-            'cash_donations' => $request->cash_donations,
-            'cash_donations_amount' => $request->cash_donations_amount,
-            'non_cash_donations' => $request->non_cash_donations,
-            'non_cash_donations_amount' => $request->non_cash_donations_amount,
-            'donation_carryover' => $request->donation_carryover,
-            'standard_mileage' => $request->standard_mileage,
-            'standard_mileage_amount' => $request->standard_mileage_amount,
-            'non_pocket' => $request->non_pocket,
-        ]);
-        return redirect()->route('charities-donations.create');
+        if(auth()->user()->personals()->first()->deductions_credit()->count() == 0){
+            auth()->user()->personals()->first()->deductions_credit()->create([
+                'cash_donations' => $request->cash_donations,
+                'cash_donations_amount' => $request->cash_donations_amount,
+                'non_cash_donations' => $request->non_cash_donations,
+                'non_cash_donations_amount' => $request->non_cash_donations_amount,
+                'donation_carryover' => $request->donation_carryover,
+                'standard_mileage' => $request->standard_mileage,
+                'standard_mileage_amount' => $request->standard_mileage_amount,
+                'non_pocket' => $request->non_pocket,
+            ]);
+        }
+        return redirect()->route('medical-expenses.create');
     }
 
     /**
@@ -59,7 +61,7 @@ class DeductionsCreditsController extends Controller
             'standard_mileage_amount' => $request->standard_mileage_amount,
             'non_pocket' => $request->non_pocket,
         ]);
-        return redirect()->route('charities-donations.create');
+        return redirect()->route('medical-expenses.create');
     }
 
     public function medicalExpensesCreate()
@@ -71,17 +73,19 @@ class DeductionsCreditsController extends Controller
 
     public function medicalExpensesStore(Request $request)
     {
-        auth()->user()->personals()->first()->deductions_credit()->create([
-            'health' => $request->health,
-            'long_term' => $request->long_term,
-            'doctor' => $request->doctor,
-            'hospital' => $request->hospital,
-            'prescriptions' => $request->prescriptions,
-            'equipment' => $request->equipment,
-            'travel' => $request->travel,
-            'other' => $request->other,
-        ]);
-        return redirect()->route('medical-expenses.create');
+        if(auth()->user()->personals()->first()->deductions_credit()->count() == 0){
+            auth()->user()->personals()->first()->deductions_credit()->create([
+                'health' => $request->health,
+                'long_term' => $request->long_term,
+                'doctor' => $request->doctor,
+                'hospital' => $request->hospital,
+                'prescriptions' => $request->prescriptions,
+                'equipment' => $request->equipment,
+                'travel' => $request->travel,
+                'other' => $request->other,
+            ]);
+        }
+        return redirect()->route('taxes.create');
     }
 
     public function medicalExpensesUpdate(Request $request, DeductionsCredits $deductions_credit)
@@ -96,7 +100,7 @@ class DeductionsCreditsController extends Controller
             'travel' => $request->travel,
             'other' => $request->other,
         ]);
-        return redirect()->route('medical-expenses.create');
+        return redirect()->route('taxes.create');
     }
 
     public function taxesCreate ()
@@ -108,18 +112,20 @@ class DeductionsCreditsController extends Controller
 
     public function taxesStore(Request $request)
     {
-        auth()->user()->personals()->first()->deductions_credit()->create([
-            'sales_tax' => $request->sales_tax,
-            'own_money' => $request->own_money,
-            'pay_tax' => $request->pay_tax,
-            'other_tax' => $request->other_tax,
-            'applied_refund' => $request->applied_refund,
-            'file_extension' => $request->file_extension,
-            'personal_tax' => $request->personal_tax,
-            'other_deductible_tax' => $request->other_deductible_tax,
-            'other_deductible_tax_desc' => $request->other_deductible_tax_desc,
-        ]);
-        return redirect()->route('taxes.create');
+        if(auth()->user()->personals()->first()->deductions_credit()->count() == 0){
+            auth()->user()->personals()->first()->deductions_credit()->create([
+                'sales_tax' => $request->sales_tax,
+                'own_money' => $request->own_money,
+                'pay_tax' => $request->pay_tax,
+                'other_tax' => $request->other_tax,
+                'applied_refund' => $request->applied_refund,
+                'file_extension' => $request->file_extension,
+                'personal_tax' => $request->personal_tax,
+                'other_deductible_tax' => $request->other_deductible_tax,
+                'other_deductible_tax_desc' => $request->other_deductible_tax_desc,
+            ]);
+        }
+        return redirect()->route('deductions.completed');
     }
 
     public function taxesUpdate(Request $request, DeductionsCredits $deductions_credit)
@@ -135,14 +141,12 @@ class DeductionsCreditsController extends Controller
             'other_deductible_tax' => $request->other_deductible_tax,
             'other_deductible_tax_desc' => $request->other_deductible_tax_desc,
         ]);
-        return redirect()->route('taxes.create');
+        return redirect()->route('deductions.completed');
     }
 
     public function itemizedDeductions()
     {
-        $deductions_credit = auth()->user()->personals()->first()->deductions_credit()->first();
-
-        return view('deductions_credits.itemized', compact('deductions_credit'));
+        return view('deductions_credits.itemized');
     } 
 
     public function completed()

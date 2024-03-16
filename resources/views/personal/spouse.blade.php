@@ -104,7 +104,7 @@
                                         <select class="form-select @error('suffix') is-invalid @enderror"
                                             name="suffix" aria-label="suffix" aria-describedby="basic-addon2">
                                             <option value=""
-                                                {{ ($personal->spouse && $personal->spouse->suffix == null) ? 'selected' : '' }}>
+                                                {{ ($personal->spouse && $personal->spouse->suffix == '') ? 'selected' : '' }}>
                                             </option>
                                             <option value="jr"
                                                 {{ ($personal->spouse && $personal->spouse->suffix == 'jr') ? 'selected' : '' }}>Jr.

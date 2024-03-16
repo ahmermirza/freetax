@@ -82,18 +82,22 @@ Route::group(['middleware' => ['auth']], function () {
 
         // State Routes
         Route::get('/state', 'StateController@stateIndex')->name('state.index');
-        Route::get('/state/create', 'StateController@stateCreate')->name('state.name.create');
+        Route::get('/state/{state?}/filing-state', 'StateController@stateCreate')->name('state.name.create');
         Route::post('/state', 'StateController@stateStore')->name('state.name.store');
-        Route::put('/state/{state}', 'StateController@stateUpdate')->name('state.name.update');
+        Route::put('/state/{state}/state', 'StateController@stateUpdate')->name('state.name.update');
         Route::delete('/state/{state}', 'StateController@stateDelete')->name('state.destroy');
 
-        Route::get('/state/resident', 'StateController@stateResidentCreate')->name('state.resident.create');
+        Route::get('/state/{state?}/resident', 'StateController@stateResidentCreate')->name('state.resident.create');
         Route::post('/state/resident', 'StateController@stateResidentStore')->name('state.resident.store');
         Route::put('/state/{state}/resident', 'StateController@stateResidentUpdate')->name('state.resident.update');
 
-        Route::get('/state/state-return', 'StateController@basicInfo')->name('state.return.create');
+        Route::get('/state/{state?}/state-return', 'StateController@basicInfoCreate')->name('state.return.create');
+        Route::post('/state/state-return', 'StateController@basicInfoStore')->name('state.return.store');
+        Route::put('/state/{state}/state-return', 'StateController@basicInfoUpdate')->name('state.return.update');
 
-        Route::get('/state/use-tax', 'StateController@useTax')->name('use.tax.create');
+        Route::get('/state/{state?}/use-tax', 'StateController@useTaxCreate')->name('use.tax.create');
+        Route::post('/state/use-tax', 'StateController@useTaxStore')->name('use.tax.store');
+        Route::put('/state/{state}/use-tax', 'StateController@useTaxUpdate')->name('use.tax.update');
         Route::get('/state/completed', 'StateController@completed')->name('state.completed');
 
     });

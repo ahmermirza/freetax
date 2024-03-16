@@ -15,12 +15,12 @@
                     <div class="tile">
                         <h2 class="tile-title d-lg-flex justify-content-center h2"><b>Which state are you filing taxes
                                 for?</b></h2>
-                        {{-- @if (isset($state))
+                        @if (isset($state))
                             <form action="{{ route('state.name.update', $state) }}" method="post">
                                 @method('PUT')
-                            @else --}}
+                            @else
                                 <form action="{{ route('state.name.store') }}" method="post">
-                        {{-- @endif --}}
+                        @endif
                         <div class="tile-body">
                             @csrf
                             <div class="container">
@@ -33,61 +33,61 @@
                                     <div class="col-lg-3">
                                         <div class="has-danger input-group mb-3">
                                             <select name="name" id="name" class="form-select @error('name') is-invalid @enderror">
-                                                <option value=""></option>
-                                                <option value="AA">AA</option>
-                                                <option value="AE">AE</option>
-                                                <option value="AK">AK</option>
-                                                <option value="AL">AL</option>
-                                                <option value="AP">AP</option>
-                                                <option value="AR">AR</option>
-                                                <option value="AZ">AZ</option>
-                                                <option value="CA">CA</option>
-                                                <option value="CO">CO</option>
-                                                <option value="CT">CT</option>
-                                                <option value="DC">DC</option>
-                                                <option value="DE">DE</option>
-                                                <option value="FL">FL</option>
-                                                <option value="GA">GA</option>
-                                                <option value="HI">HI</option>
-                                                <option value="IA">IA</option>
-                                                <option value="ID">ID</option>
-                                                <option value="IL">IL</option>
-                                                <option value="IN">IN</option>
-                                                <option value="KS">KS</option>
-                                                <option value="KY">KY</option>
-                                                <option value="LA">LA</option>
-                                                <option value="MA">MA</option>
-                                                <option value="MD">MD</option>
-                                                <option value="ME">ME</option>
-                                                <option value="MI">MI</option>
-                                                <option value="MN">MN</option>
-                                                <option value="MO">MO</option>
-                                                <option value="MS">MS</option>
-                                                <option value="MT">MT</option>
-                                                <option value="NC">NC</option>
-                                                <option value="ND">ND</option>
-                                                <option value="NE">NE</option>
-                                                <option value="NH">NH</option>
-                                                <option value="NJ">NJ</option>
-                                                <option value="NM">NM</option>
-                                                <option value="NV">NV</option>
-                                                <option value="NY">NY</option>
-                                                <option value="OH">OH</option>
-                                                <option value="OK">OK</option>
-                                                <option value="OR">OR</option>
-                                                <option value="PA">PA</option>
-                                                <option value="RI">RI</option>
-                                                <option value="SC">SC</option>
-                                                <option value="SD">SD</option>
-                                                <option value="TN">TN</option>
-                                                <option value="TX">TX</option>
-                                                <option value="UT">UT</option>
-                                                <option value="VA">VA</option>
-                                                <option value="VT">VT</option>
-                                                <option value="WA">WA</option>
-                                                <option value="WI">WI</option>
-                                                <option value="WV">WV</option>
-                                                <option value="WY">WY</option>
+                                                <option value="" {{ $state && $state->name == '' ? 'selected' : '' }}></option>
+                                                <option value="AA" {{ $state && $state->name == 'AA' ? 'selected' : '' }}>AA</option>
+                                                <option value="AE" {{ $state && $state->name == 'AE' ? 'selected' : '' }}>AE</option>
+                                                <option value="AK" {{ $state && $state->name == 'AK' ? 'selected' : '' }}>AK</option>
+                                                <option value="AL" {{ $state && $state->name == 'AL' ? 'selected' : '' }}>AL</option>
+                                                <option value="AP" {{ $state && $state->name == 'AP' ? 'selected' : '' }}>AP</option>
+                                                <option value="AR" {{ $state && $state->name == 'AR' ? 'selected' : '' }}>AR</option>
+                                                <option value="AZ" {{ $state && $state->name == 'AZ' ? 'selected' : '' }}>AZ</option>
+                                                <option value="CA" {{ $state && $state->name == 'CA' ? 'selected' : '' }}>CA</option>
+                                                <option value="CO" {{ $state && $state->name == 'CO' ? 'selected' : '' }}>CO</option>
+                                                <option value="CT" {{ $state && $state->name == 'CT' ? 'selected' : '' }}>CT</option>
+                                                <option value="DC" {{ $state && $state->name == 'DC' ? 'selected' : '' }}>DC</option>
+                                                <option value="DE" {{ $state && $state->name == 'DE' ? 'selected' : '' }}>DE</option>
+                                                <option value="FL" {{ $state && $state->name == 'FL' ? 'selected' : '' }}>FL</option>
+                                                <option value="GA" {{ $state && $state->name == 'GA' ? 'selected' : '' }}>GA</option>
+                                                <option value="HI" {{ $state && $state->name == 'HI' ? 'selected' : '' }}>HI</option>
+                                                <option value="IA" {{ $state && $state->name == 'IA' ? 'selected' : '' }}>IA</option>
+                                                <option value="ID" {{ $state && $state->name == 'ID' ? 'selected' : '' }}>ID</option>
+                                                <option value="IL" {{ $state && $state->name == 'IL' ? 'selected' : '' }}>IL</option>
+                                                <option value="IN" {{ $state && $state->name == 'IN' ? 'selected' : '' }}>IN</option>
+                                                <option value="KS" {{ $state && $state->name == 'KS' ? 'selected' : '' }}>KS</option>
+                                                <option value="KY" {{ $state && $state->name == 'KY' ? 'selected' : '' }}>KY</option>
+                                                <option value="LA" {{ $state && $state->name == 'LA' ? 'selected' : '' }}>LA</option>
+                                                <option value="MA" {{ $state && $state->name == 'MA' ? 'selected' : '' }}>MA</option>
+                                                <option value="MD" {{ $state && $state->name == 'MD' ? 'selected' : '' }}>MD</option>
+                                                <option value="ME" {{ $state && $state->name == 'ME' ? 'selected' : '' }}>ME</option>
+                                                <option value="MI" {{ $state && $state->name == 'MI' ? 'selected' : '' }}>MI</option>
+                                                <option value="MN" {{ $state && $state->name == 'MN' ? 'selected' : '' }}>MN</option>
+                                                <option value="MO" {{ $state && $state->name == 'MO' ? 'selected' : '' }}>MO</option>
+                                                <option value="MS" {{ $state && $state->name == 'MS' ? 'selected' : '' }}>MS</option>
+                                                <option value="MT" {{ $state && $state->name == 'MT' ? 'selected' : '' }}>MT</option>
+                                                <option value="NC" {{ $state && $state->name == 'NC' ? 'selected' : '' }}>NC</option>
+                                                <option value="ND" {{ $state && $state->name == 'ND' ? 'selected' : '' }}>ND</option>
+                                                <option value="NE" {{ $state && $state->name == 'NE' ? 'selected' : '' }}>NE</option>
+                                                <option value="NH" {{ $state && $state->name == 'NH' ? 'selected' : '' }}>NH</option>
+                                                <option value="NJ" {{ $state && $state->name == 'NJ' ? 'selected' : '' }}>NJ</option>
+                                                <option value="NM" {{ $state && $state->name == 'NM' ? 'selected' : '' }}>NM</option>
+                                                <option value="NV" {{ $state && $state->name == 'NV' ? 'selected' : '' }}>NV</option>
+                                                <option value="NY" {{ $state && $state->name == 'NY' ? 'selected' : '' }}>NY</option>
+                                                <option value="OH" {{ $state && $state->name == 'OH' ? 'selected' : '' }}>OH</option>
+                                                <option value="OK" {{ $state && $state->name == 'OK' ? 'selected' : '' }}>OK</option>
+                                                <option value="OR" {{ $state && $state->name == 'OR' ? 'selected' : '' }}>OR</option>
+                                                <option value="PA" {{ $state && $state->name == 'PA' ? 'selected' : '' }}>PA</option>
+                                                <option value="RI" {{ $state && $state->name == 'RI' ? 'selected' : '' }}>RI</option>
+                                                <option value="SC" {{ $state && $state->name == 'SC' ? 'selected' : '' }}>SC</option>
+                                                <option value="SD" {{ $state && $state->name == 'SD' ? 'selected' : '' }}>SD</option>
+                                                <option value="TN" {{ $state && $state->name == 'TN' ? 'selected' : '' }}>TN</option>
+                                                <option value="TX" {{ $state && $state->name == 'TX' ? 'selected' : '' }}>TX</option>
+                                                <option value="UT" {{ $state && $state->name == 'UT' ? 'selected' : '' }}>UT</option>
+                                                <option value="VA" {{ $state && $state->name == 'VA' ? 'selected' : '' }}>VA</option>
+                                                <option value="VT" {{ $state && $state->name == 'VT' ? 'selected' : '' }}>VT</option>
+                                                <option value="WA" {{ $state && $state->name == 'WA' ? 'selected' : '' }}>WA</option>
+                                                <option value="WI" {{ $state && $state->name == 'WI' ? 'selected' : '' }}>WI</option>
+                                                <option value="WV" {{ $state && $state->name == 'WV' ? 'selected' : '' }}>WV</option>
+                                                <option value="WY" {{ $state && $state->name == 'WY' ? 'selected' : '' }}>WY</option>
                                             </select>
                                         </div>
                                     </div>
