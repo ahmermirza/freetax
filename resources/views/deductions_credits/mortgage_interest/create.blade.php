@@ -60,7 +60,7 @@
                                                     class="input-group-text bg-disabled text-dark @error('deductible_mortgage') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                     id="basic-addon2"><b>$</b></span><input
                                                     class="form-control @error('deductible_mortgage') is-invalid @enderror"
-                                                    name="deductible_mortgage" type="text" value="{{ old('deductible_mortgage') }}" aria-label="deductible_mortgage"
+                                                    name="deductible_mortgage" type="number" value="{{ old('deductible_mortgage') }}" aria-label="deductible_mortgage"
                                                     aria-describedby="basic-addon2">
                                             </div>
                                         </div>
@@ -74,7 +74,7 @@
                                                     class="input-group-text bg-disabled text-dark @error('outstanding_mortgage') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                     id="basic-addon2"><b>$</b></span><input
                                                     class="form-control @error('outstanding_mortgage') is-invalid @enderror"
-                                                    name="outstanding_mortgage" type="text" value="{{ old('outstanding_mortgage') }}" aria-label="outstanding_mortgage"
+                                                    name="outstanding_mortgage" type="number" value="{{ old('outstanding_mortgage') }}" aria-label="outstanding_mortgage"
                                                     aria-describedby="basic-addon2" required>
                                             </div>
                                         </div>
@@ -99,7 +99,7 @@
                                                     class="input-group-text bg-disabled text-dark @error('refund_overpaid') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                     id="basic-addon2"><b>$</b></span><input
                                                     class="form-control @error('refund_overpaid') is-invalid @enderror"
-                                                    name="refund_overpaid" type="text" value="{{ old('refund_overpaid') }}" aria-label="refund_overpaid"
+                                                    name="refund_overpaid" type="number" value="{{ old('refund_overpaid') }}" aria-label="refund_overpaid"
                                                     aria-describedby="basic-addon2">
                                             </div>
                                         </div>
@@ -132,7 +132,7 @@
                                                     class="input-group-text bg-disabled text-dark @error('points_paid') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                     id="basic-addon2"><b>$</b></span><input
                                                     class="form-control @error('points_paid') is-invalid @enderror"
-                                                    name="points_paid" type="text" value="{{ old('points_paid') }}"
+                                                    name="points_paid" type="number" value="{{ old('points_paid') }}"
                                                     aria-label="points_paid" aria-describedby="basic-addon2">
                                             </div>
                                         </div>
@@ -178,7 +178,7 @@
                                     <hr class="mb-1 mt-0 pt-0 w-100">
                                 </span><br>
                                 <div class="tile-footer d-flex justify-content-between mb-lg-4">
-                                    <a class="btn btn-white border border-primary rounded-0" href="#"><b
+                                    <a class="btn btn-white border border-primary rounded-0" href="{{ route('mortgage-interest.index') }}"><b
                                             class="text-primary">Cancel</b></a>&nbsp;&nbsp;&nbsp;
                                     <button class="btn btn-primary rounded-0" type="submit"><i class="me-2"></i><b
                                             class="text-light">Save and Continue</b></button>

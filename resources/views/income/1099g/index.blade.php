@@ -82,7 +82,7 @@
                             </span>
                         </div>
                         <div class="tile-footer d-flex justify-content-between mx-lg-5 mb-lg-4">
-                            <a class="btn btn-white border border-primary rounded-0" href="#"><i
+                            <a class="btn btn-white border border-primary rounded-0" href="{{ route('income.unemployment.create') }}"><i
                                     class="me-2 mb-5"></i><b class="text-primary">Previous Page</b></a>&nbsp;&nbsp;&nbsp;
                             <a class="btn btn-primary rounded-0" href="{{ route('income.other.unemployment.create') }}"><i class="me-2"></i><b
                                     class="text-light">No, Continue</b></a>

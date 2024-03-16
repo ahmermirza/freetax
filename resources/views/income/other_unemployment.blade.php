@@ -40,7 +40,7 @@
                                             class="input-group-text bg-disabled text-dark @error('union_unemployment') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
                                             class="form-control @error('union_unemployment') is-invalid @enderror" name="union_unemployment"
-                                            type="text" value="{{ old('union_unemployment', $unemployment ? $unemployment->union_unemployment : '') }}" aria-label="union_unemployment"
+                                            type="number" value="{{ old('union_unemployment', $unemployment ? $unemployment->union_unemployment : '') }}" aria-label="union_unemployment"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -55,7 +55,7 @@
                                             class="input-group-text bg-disabled text-dark @error('private_fund_unemployment') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
                                             class="form-control @error('private_fund_unemployment') is-invalid @enderror" name="private_fund_unemployment"
-                                            type="text" value="{{ old('private_fund_unemployment', $unemployment ? $unemployment->private_fund_unemployment : '') }}" aria-label="private_fund_unemployment"
+                                            type="number" value="{{ old('private_fund_unemployment', $unemployment ? $unemployment->private_fund_unemployment : '') }}" aria-label="private_fund_unemployment"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -70,7 +70,7 @@
                                             class="input-group-text bg-disabled text-dark @error('state_unemployment_benefit') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
                                             class="form-control @error('state_unemployment_benefit') is-invalid @enderror" name="state_unemployment_benefit"
-                                            type="text" value="{{ old('state_unemployment_benefit', $unemployment ? $unemployment->state_unemployment_benefit : '') }}" aria-label="state_unemployment_benefit"
+                                            type="number" value="{{ old('state_unemployment_benefit', $unemployment ? $unemployment->state_unemployment_benefit : '') }}" aria-label="state_unemployment_benefit"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -95,7 +95,7 @@
                                             class="input-group-text bg-disabled text-dark @error('spouse_union_unemployment') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
                                             class="form-control @error('spouse_union_unemployment') is-invalid @enderror" name="spouse_union_unemployment"
-                                            type="text" value="{{ old('spouse_union_unemployment', $unemployment ? $unemployment->spouse_union_unemployment : '') }}" aria-label="spouse_union_unemployment"
+                                            type="number" value="{{ old('spouse_union_unemployment', $unemployment ? $unemployment->spouse_union_unemployment : '') }}" aria-label="spouse_union_unemployment"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -110,7 +110,7 @@
                                             class="input-group-text bg-disabled text-dark @error('spouse_private_fund_unemployment') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
                                             class="form-control @error('spouse_private_fund_unemployment') is-invalid @enderror" name="spouse_private_fund_unemployment"
-                                            type="text" value="{{ old('spouse_private_fund_unemployment', $unemployment ? $unemployment->spouse_private_fund_unemployment : '') }}" aria-label="spouse_private_fund_unemployment"
+                                            type="number" value="{{ old('spouse_private_fund_unemployment', $unemployment ? $unemployment->spouse_private_fund_unemployment : '') }}" aria-label="spouse_private_fund_unemployment"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -125,7 +125,7 @@
                                             class="input-group-text bg-disabled text-dark @error('spouse_state_unemployment_benefit') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
                                             class="form-control @error('spouse_state_unemployment_benefit') is-invalid @enderror" name="spouse_state_unemployment_benefit"
-                                            type="text" value="{{ old('spouse_state_unemployment_benefit', $unemployment ? $unemployment->spouse_state_unemployment_benefit : '') }}" aria-label="spouse_state_unemployment_benefit"
+                                            type="number" value="{{ old('spouse_state_unemployment_benefit', $unemployment ? $unemployment->spouse_state_unemployment_benefit : '') }}" aria-label="spouse_state_unemployment_benefit"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -137,7 +137,7 @@
                         </div>
                     </div>
                     <div class="tile-footer d-flex justify-content-between mb-lg-4">
-                        <a class="btn btn-white border border-primary rounded-0" href="#"><i
+                        <a class="btn btn-white border border-primary rounded-0" href="{{ route('form1099-g.index') }}"><i
                                 class="me-2 mb-5"></i><b class="text-primary">Previous Page</b></a>&nbsp;&nbsp;&nbsp;
                         <div>
                             <a class="btn btn-white border border-primary rounded-0" href="#"><b class="text-primary">Skip</b></a>&nbsp;&nbsp;&nbsp;

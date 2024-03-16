@@ -93,7 +93,11 @@ class PersonalController extends Controller
                     'filing_status' => $request->filing_status,
                 ]);
             }
-            return redirect()->route('personal.create', ['info' => 'filing-status']);
+            if($request->filing_status == '1') {
+                return redirect()->route('dependents.index');
+            } else {
+                return redirect()->route('personal.create', ['info' => 'spouse']);
+            }
         }
 
         elseif ($request->has('info') && $request->info == 'spouse') {
@@ -174,7 +178,7 @@ class PersonalController extends Controller
                 'blind' => $request->blind,
                 'passed_away' => $request->passed_away,
             ]);
-            return redirect()->route('personal.create', ['info' => 'basic']);
+            return redirect()->route('personal.create', ['info' => 'filing-status']);
         }
         elseif ($request->has('info') && $request->info == 'filing-status') {
             $this->validate($request, [
@@ -184,7 +188,11 @@ class PersonalController extends Controller
             $personal->update([
                 'filing_status' => $request->filing_status,
             ]);
-            return redirect()->route('personal.create', ['info' => 'filing-status']);
+            if($request->filing_status == '1') {
+                return redirect()->route('dependents.index');
+            } else {
+                return redirect()->route('personal.create', ['info' => 'spouse']);
+            }
         }
         elseif ($request->has('info') && $request->info == 'spouse') {
             
@@ -215,7 +223,12 @@ class PersonalController extends Controller
                 'blind' => $request->blind,
                 'passed_away' => $request->passed_away,
             ]);
-            return redirect()->route('personal.create', ['info' => 'spouse']);
+            return redirect()->route('dependents.index');
         }
+    }
+
+    public function completed()
+    {
+        return view('personal.completed');
     }
 }

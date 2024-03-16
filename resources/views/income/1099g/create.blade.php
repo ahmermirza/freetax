@@ -60,7 +60,7 @@
                                                     class="input-group-text bg-disabled text-dark @error('unemployment_compensation') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                     id="basic-addon2"><b>$</b></span><input
                                                     class="form-control @error('unemployment_compensation') is-invalid @enderror"
-                                                    name="unemployment_compensation" type="text"
+                                                    name="unemployment_compensation" type="number"
                                                     value="{{ old('unemployment_compensation') }}"
                                                     aria-label="unemployment_compensation" aria-describedby="basic-addon2">
                                             </div>
@@ -73,7 +73,7 @@
                                                     class="input-group-text bg-disabled text-dark @error('federal_income_tax') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                     id="basic-addon2"><b>$</b></span><input
                                                     class="form-control @error('federal_income_tax') is-invalid @enderror"
-                                                    name="federal_income_tax" type="text"
+                                                    name="federal_income_tax" type="number"
                                                     value="{{ old('federal_income_tax') }}" aria-label="federal_income_tax"
                                                     aria-describedby="basic-addon2">
                                             </div>
@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                             <div class="tile-footer d-flex justify-content-between mb-lg-4">
-                                <a class="btn btn-white border border-primary rounded-0" href="#"><b
+                                <a class="btn btn-white border border-primary rounded-0" href="{{ route('form1099-g.index') }}"><b
                                         class="text-primary">Cancel</b></a>&nbsp;&nbsp;&nbsp;
                                 <button class="btn btn-primary rounded-0" type="submit"><i class="me-2"></i><b
                                         class="text-light">Save and Continue</b></button>

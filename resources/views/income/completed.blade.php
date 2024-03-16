@@ -26,7 +26,7 @@
                             </span><br>
                         </div>
                         <div class="tile-footer d-flex justify-content-between mb-lg-4">
-                            <a class="btn btn-white border border-primary rounded-0" href="#"><i
+                            <a class="btn btn-white border border-primary rounded-0" href="{{ route('income.crypto.create') }}"><i
                                     class="me-2 mb-5"></i><b class="text-primary">Previous
                                     Page</b></a>&nbsp;&nbsp;&nbsp;
                             <a class="btn btn-primary rounded-0" href="{{ route('itemized.deductions') }}"><i class="me-2"></i><b

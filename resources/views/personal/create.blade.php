@@ -124,7 +124,7 @@
                                             class="fa-regular fa-circle-question text-primary"></i></label>
                                     <div class="has-danger input-group mb-3">
                                         <input class="form-control @error('ssn') is-invalid @enderror" name="ssn"
-                                            type="text" value="{{ old('ssn', $personal ? $personal->ssn : '') }}"
+                                            type="number" value="{{ old('ssn', $personal ? $personal->ssn : '') }}"
                                             aria-label="ssn" aria-describedby="basic-addon2">
                                     </div>
                                     @error('ssn')

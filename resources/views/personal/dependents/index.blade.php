@@ -31,7 +31,7 @@
                                     <div class="d-flex justify-content-between px-3">
                                         <b class="pt-3">Dependent Name</b>
                                         <a href="{{ route('dependents.create') }}"
-                                            class="btn btn-primary btn-sm mb-lg-0 rounded-0"><b class="text-white"><i
+                                            class="btn btn-primary mb-lg-0 rounded-0"><b class="text-white"><i
                                                     class="fa fa-plus"></i>&nbsp;&nbsp;Add a
                                                 Dependent</b></a>
                                     </div>
@@ -83,10 +83,10 @@
                             </span>
                         </div>
                         <div class="tile-footer d-flex justify-content-between px-lg-5 mx-lg-5 mb-lg-4">
-                            <a class="btn btn-white border border-primary rounded-0" href="#"><i
+                            <a class="btn btn-white border border-primary rounded-0" href="{{ route('personal.create', ['info' => 'spouse']) }}"><i
                                     class="me-2 mb-5"></i><b class="text-primary">Previous Page</b></a>&nbsp;&nbsp;&nbsp;
-                            <button class="btn btn-primary rounded-0" type="submit"><i class="me-2"></i><b
-                                    class="text-light">No, Continue</b></button>
+                            <a class="btn btn-primary rounded-0" href="{{ route('personal.completed') }}"><i class="me-2"></i><b
+                                    class="text-light">No, Continue</b></a>
                         </div>
                     </div>
                 </div>

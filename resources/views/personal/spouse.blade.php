@@ -136,7 +136,7 @@
                                             class="fa-regular fa-circle-question text-primary"></i></label>
                                     <div class="has-danger input-group mb-3">
                                         <input class="form-control @error('ssn') is-invalid @enderror"
-                                            name="ssn" type="text"
+                                            name="ssn" type="number"
                                             value="{{ old('ssn', ($personal && $personal->spouse) ? $personal->spouse->ssn : '') }}"
                                             aria-label="ssn" aria-describedby="basic-addon2">
                                     </div>
@@ -257,7 +257,7 @@
                             </span><br>
                         </div>
                         <div class="tile-footer d-flex justify-content-between px-lg-5 mx-lg-5 mb-lg-4">
-                            <a class="btn btn-white border border-primary rounded-0" href="#"><i
+                            <a class="btn btn-white border border-primary rounded-0" href="{{ route('personal.create', ['info' => 'filing-status']) }}"><i
                                     class="me-2 mb-5"></i><b class="text-primary">Previous Page</b></a>&nbsp;&nbsp;&nbsp;
                             <button class="btn btn-primary" type="submit"><i class="me-2"></i><b
                                     class="text-light">Save and Continue</b></button>

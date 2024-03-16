@@ -79,7 +79,7 @@
                                                 class="input-group-text bg-disabled text-dark @error('purchase_total') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                 id="basic-addon2"><b>$</b></span><input
                                                 class="form-control @error('purchase_total') is-invalid @enderror" name="purchase_total"
-                                                type="text" value="{{ old('purchase_total', $state ? $state->purchase_total : '') }}" aria-label="purchase_total"
+                                                type="number" value="{{ old('purchase_total', $state ? $state->purchase_total : '') }}" aria-label="purchase_total"
                                                 aria-describedby="basic-addon2">
                                         </div>
                                     </div>
@@ -94,7 +94,7 @@
                                                 class="input-group-text bg-disabled text-dark @error('purchase_sale_tax') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                 id="basic-addon2"><b>$</b></span><input
                                                 class="form-control @error('purchase_sale_tax') is-invalid @enderror" name="purchase_sale_tax"
-                                                type="text" value="{{ old('purchase_sale_tax', $state ? $state->purchase_sale_tax : '') }}" aria-label="purchase_sale_tax"
+                                                type="number" value="{{ old('purchase_sale_tax', $state ? $state->purchase_sale_tax : '') }}" aria-label="purchase_sale_tax"
                                                 aria-describedby="basic-addon2">
                                         </div>
                                     </div>

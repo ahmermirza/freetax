@@ -38,7 +38,7 @@
                                                     @foreach ($states as $state)
                                                     <div class="d-flex justify-content-between m-4 mx-2 ms-0">
                                                         <div class="d-flex justify-content-between w-50">
-                                                            <span class="h6">{{ "Full-Year Resident" }}</span>
+                                                            <span class="h6">@if($state->resident_type == 'full'){{ 'Full-year resident' }}@elseif($state->resident_type == 'part'){{ 'Part-year resident' }}@else{{ 'Nonresident' }}@endif</span>
                                                         </div>
                                                         <div>
                                                             <a href="{{ route('state.name.create', $state) }}"
@@ -70,7 +70,7 @@
                             </span>
                         </div>
                         <div class="tile-footer d-flex justify-content-between px-lg-5 mx-lg-5 mb-lg-4">
-                            <a class="btn btn-white border border-primary rounded-0" href="#"><i
+                            <a class="btn btn-white border border-primary rounded-0" href="{{ route('deductions.completed') }}"><i
                                     class="me-2 mb-5"></i><b class="text-primary">Previous Page</b></a>&nbsp;&nbsp;&nbsp;
                             <a class="btn btn-primary rounded-0" href="{{ route('state.completed') }}"><i class="me-2"></i><b
                                     class="text-light">No, Continue</b></a>

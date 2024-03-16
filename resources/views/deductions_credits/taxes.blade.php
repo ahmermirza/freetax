@@ -87,7 +87,7 @@
                                             class="input-group-text bg-disabled text-dark @error('sales_tax') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
                                             class="form-control @error('sales_tax') is-invalid @enderror" name="sales_tax"
-                                            type="text" value="{{ old('sales_tax', $deductions_credit ? $deductions_credit->sales_tax : '') }}" aria-label="sales_tax"
+                                            type="number" value="{{ old('sales_tax', $deductions_credit ? $deductions_credit->sales_tax : '') }}" aria-label="sales_tax"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -213,7 +213,7 @@
                                             class="input-group-text bg-disabled text-dark @error('personal_tax') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
                                             class="form-control @error('personal_tax') is-invalid @enderror" name="personal_tax"
-                                            type="text" value="{{ old('personal_tax', $deductions_credit ? $deductions_credit->personal_tax : '') }}" aria-label="personal_tax"
+                                            type="number" value="{{ old('personal_tax', $deductions_credit ? $deductions_credit->personal_tax : '') }}" aria-label="personal_tax"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -237,7 +237,7 @@
                                             class="input-group-text bg-disabled text-dark @error('other_deductible_tax') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
                                             class="form-control @error('other_deductible_tax') is-invalid @enderror" name="other_deductible_tax"
-                                            type="text" value="{{ old('other_deductible_tax', $deductions_credit ? $deductions_credit->other_deductible_tax : '') }}" aria-label="other_deductible_tax"
+                                            type="number" value="{{ old('other_deductible_tax', $deductions_credit ? $deductions_credit->other_deductible_tax : '') }}" aria-label="other_deductible_tax"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -257,7 +257,7 @@
                             </span>
                         </div>
                         <div class="tile-footer d-flex justify-content-between mb-lg-4">
-                            <a class="btn btn-white border border-primary rounded-0" href="#"><i
+                            <a class="btn btn-white border border-primary rounded-0" href="{{ route('medical-expenses.create') }}"><i
                                     class="me-2 mb-5"></i><b class="text-primary">Previous Page</b></a>&nbsp;&nbsp;&nbsp;
                             <div>
                                 <button class="btn btn-primary rounded-0" type="submit"><i class="me-2"></i><b

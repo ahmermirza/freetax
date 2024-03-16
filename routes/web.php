@@ -32,6 +32,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/personal', 'PersonalController@create')->name('personal.create');
     Route::post('/personal', 'PersonalController@store')->name('personal.store');
     Route::put('/personal/{personal}', 'PersonalController@update')->name('personal.update');
+    Route::get('/personal/completed', 'PersonalController@completed')->name('personal.completed');
     
     Route::group(['middleware' => ['personal.exists']], function () {
         Route::resource('/personal/dependents', 'DependentController');
@@ -82,7 +83,7 @@ Route::group(['middleware' => ['auth']], function () {
 
         // State Routes
         Route::get('/state', 'StateController@stateIndex')->name('state.index');
-        Route::get('/state/{state?}/filing-state', 'StateController@stateCreate')->name('state.name.create');
+        Route::get('/state/filing-state', 'StateController@stateCreate')->name('state.name.create');
         Route::post('/state', 'StateController@stateStore')->name('state.name.store');
         Route::put('/state/{state}/state', 'StateController@stateUpdate')->name('state.name.update');
         Route::delete('/state/{state}', 'StateController@stateDelete')->name('state.destroy');

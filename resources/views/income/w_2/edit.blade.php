@@ -191,7 +191,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('federal_wages') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('federal_wages') is-invalid @enderror"
-                                                            name="federal_wages" type="text" value="{{ ($w_2 && $w_2->federal_wages != null) ? $w_2->federal_wages : '' }}"
+                                                            name="federal_wages" type="number" value="{{ ($w_2 && $w_2->federal_wages != null) ? $w_2->federal_wages : '' }}"
                                                             aria-label="federal_wages" aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
@@ -204,7 +204,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('federal_income_tax') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('federal_income_tax') is-invalid @enderror"
-                                                            name="federal_income_tax" type="text" value="{{ ($w_2 && $w_2->federal_income_tax != null) ? $w_2->federal_income_tax : '' }}"
+                                                            name="federal_income_tax" type="number" value="{{ ($w_2 && $w_2->federal_income_tax != null) ? $w_2->federal_income_tax : '' }}"
                                                             aria-label="federal_income_tax"
                                                             aria-describedby="basic-addon2">
                                                     </div>
@@ -220,7 +220,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('federal_ss_wages') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('federal_ss_wages') is-invalid @enderror"
-                                                            name="federal_ss_wages" type="text" value="{{ ($w_2 && $w_2->federal_ss_wages != null) ? $w_2->federal_ss_wages : '' }}"
+                                                            name="federal_ss_wages" type="number" value="{{ ($w_2 && $w_2->federal_ss_wages != null) ? $w_2->federal_ss_wages : '' }}"
                                                             aria-label="federal_ss_wages" aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
@@ -233,7 +233,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('federal_ss_tax') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('federal_ss_tax') is-invalid @enderror"
-                                                            name="federal_ss_tax" type="text" value="{{ ($w_2 && $w_2->federal_ss_tax != null) ? $w_2->federal_ss_tax : '' }}"
+                                                            name="federal_ss_tax" type="number" value="{{ ($w_2 && $w_2->federal_ss_tax != null) ? $w_2->federal_ss_tax : '' }}"
                                                             aria-label="federal_ss_tax" aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
@@ -248,7 +248,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('federal_medicare_wages') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('federal_medicare_wages') is-invalid @enderror"
-                                                            name="federal_medicare_wages" type="text" value="{{ ($w_2 && $w_2->federal_medicare_wages != null) ? $w_2->federal_medicare_wages : '' }}"
+                                                            name="federal_medicare_wages" type="number" value="{{ ($w_2 && $w_2->federal_medicare_wages != null) ? $w_2->federal_medicare_wages : '' }}"
                                                             aria-label="federal_medicare_wages"
                                                             aria-describedby="basic-addon2">
                                                     </div>
@@ -262,7 +262,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('federal_medicare_tax') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('federal_medicare_tax') is-invalid @enderror"
-                                                            name="federal_medicare_tax" type="text" value="{{ ($w_2 && $w_2->federal_medicare_tax != null) ? $w_2->federal_medicare_tax : '' }}"
+                                                            name="federal_medicare_tax" type="number" value="{{ ($w_2 && $w_2->federal_medicare_tax != null) ? $w_2->federal_medicare_tax : '' }}"
                                                             aria-label="federal_medicare_tax"
                                                             aria-describedby="basic-addon2">
                                                     </div>
@@ -278,7 +278,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('federal_ss_tips') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('federal_ss_tips') is-invalid @enderror"
-                                                            name="federal_ss_tips" type="text" value="{{ ($w_2 && $w_2->federal_ss_tips != null) ? $w_2->federal_ss_tips : '' }}"
+                                                            name="federal_ss_tips" type="number" value="{{ ($w_2 && $w_2->federal_ss_tips != null) ? $w_2->federal_ss_tips : '' }}"
                                                             aria-label="federal_ss_tips" aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
@@ -291,7 +291,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('federal_allocated_tips') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('federal_allocated_tips') is-invalid @enderror"
-                                                            name="federal_allocated_tips" type="text" value="{{ ($w_2 && $w_2->federal_allocated_tips != null) ? $w_2->federal_allocated_tips : '' }}"
+                                                            name="federal_allocated_tips" type="number" value="{{ ($w_2 && $w_2->federal_allocated_tips != null) ? $w_2->federal_allocated_tips : '' }}"
                                                             aria-label="federal_allocated_tips"
                                                             aria-describedby="basic-addon2">
                                                     </div>
@@ -318,7 +318,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('federal_dependent') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('federal_dependent') is-invalid @enderror"
-                                                            name="federal_dependent" type="text" value="{{ ($w_2 && $w_2->federal_dependent != null) ? $w_2->federal_dependent : '' }}"
+                                                            name="federal_dependent" type="number" value="{{ ($w_2 && $w_2->federal_dependent != null) ? $w_2->federal_dependent : '' }}"
                                                             aria-label="federal_dependent"
                                                             aria-describedby="basic-addon2">
                                                     </div>
@@ -334,7 +334,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('federal_nonqualified') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('federal_nonqualified') is-invalid @enderror"
-                                                            name="federal_nonqualified" type="text" value="{{ ($w_2 && $w_2->federal_nonqualified != null) ? $w_2->federal_nonqualified : '' }}"
+                                                            name="federal_nonqualified" type="number" value="{{ ($w_2 && $w_2->federal_nonqualified != null) ? $w_2->federal_nonqualified : '' }}"
                                                             aria-label="federal_nonqualified"
                                                             aria-describedby="basic-addon2">
                                                     </div>
@@ -389,7 +389,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('amount_1') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('amount_1') is-invalid @enderror"
-                                                            name="amount_1" type="text" value="{{ ($w_2 && $w_2->amount_1 != null) ? $w_2->amount_1 : '' }}"
+                                                            name="amount_1" type="number" value="{{ ($w_2 && $w_2->amount_1 != null) ? $w_2->amount_1 : '' }}"
                                                             aria-label="amount_1" aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
@@ -439,7 +439,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('amount_2') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('amount_2') is-invalid @enderror"
-                                                            name="amount_2" type="text" value="{{ ($w_2 && $w_2->amount_2 != null) ? $w_2->amount_2 : '' }}"
+                                                            name="amount_2" type="number" value="{{ ($w_2 && $w_2->amount_2 != null) ? $w_2->amount_2 : '' }}"
                                                             aria-label="amount_2" aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
@@ -508,7 +508,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('other_amount') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('other_amount') is-invalid @enderror"
-                                                            name="other_amount" type="text" value="{{ ($w_2 && $w_2->other_amount != null) ? $w_2->other_amount : '' }}"
+                                                            name="other_amount" type="number" value="{{ ($w_2 && $w_2->other_amount != null) ? $w_2->other_amount : '' }}"
                                                             aria-label="other_amount" aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
@@ -592,7 +592,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('employer_sin') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('employer_sin') is-invalid @enderror"
-                                                            name="employer_sin" type="text" value="{{ ($w_2 && $w_2->employer_sin != null) ? $w_2->employer_sin : '' }}"
+                                                            name="employer_sin" type="number" value="{{ ($w_2 && $w_2->employer_sin != null) ? $w_2->employer_sin : '' }}"
                                                             aria-label="employer_sin" aria-describedby="basic-addon2">
                                                     </div>
                                                 </div>
@@ -646,7 +646,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('employer_state_income_tax') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('employer_state_income_tax') is-invalid @enderror"
-                                                            name="employer_state_income_tax" type="text"
+                                                            name="employer_state_income_tax" type="number"
                                                             value="{{ ($w_2 && $w_2->employer_state_income_tax != null) ? $w_2->employer_state_income_tax : '' }}" aria-label="employer_state_income_tax"
                                                             aria-describedby="basic-addon2">
                                                     </div>
@@ -676,7 +676,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('employer_local_wages') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('employer_local_wages') is-invalid @enderror"
-                                                            name="employer_local_wages" type="text" value="{{ ($w_2 && $w_2->employer_local_wages != null) ? $w_2->employer_local_wages : '' }}"
+                                                            name="employer_local_wages" type="number" value="{{ ($w_2 && $w_2->employer_local_wages != null) ? $w_2->employer_local_wages : '' }}"
                                                             aria-label="employer_local_wages"
                                                             aria-describedby="basic-addon2">
                                                     </div>
@@ -687,7 +687,7 @@
                                                             class="input-group-text bg-disabled text-dark @error('employer_local_income_tax') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
                                                             class="form-control @error('employer_local_income_tax') is-invalid @enderror"
-                                                            name="employer_local_income_tax" type="text"
+                                                            name="employer_local_income_tax" type="number"
                                                             value="{{ ($w_2 && $w_2->employer_local_income_tax != null) ? $w_2->employer_local_income_tax : '' }}" aria-label="employer_local_income_tax"
                                                             aria-describedby="basic-addon2">
                                                     </div>
@@ -755,7 +755,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tile-footer d-flex justify-content-end mx-lg-5 mb-lg-4">
+                                <div class="tile-footer d-flex justify-content-between mx-lg-5 mb-lg-4">
+                                    <a class="btn btn-white border border-primary rounded-0" href="{{ route('w-2.index') }}"><b
+                                        class="text-primary">Cancel</b></a>&nbsp;&nbsp;&nbsp;
                                     <button class="btn btn-primary rounded-0" type="submit"><i class="me-2"></i><b
                                             class="text-light">Save and Continue</b></button>
                                 </div>

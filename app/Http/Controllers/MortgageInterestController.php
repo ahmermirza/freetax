@@ -99,7 +99,7 @@ class MortgageInterestController extends Controller
             'money_used' => $request->money_used,
             'main_home' => $request->main_home,
         ]);
-        return redirect()->route('mortgage-interest.index');
+        return redirect()->route('mortgage-interest.estate.edit', $mortgage_interest);
     }
 
     /**

@@ -30,7 +30,7 @@
                                                     class="input-group-text bg-disabled text-dark @error('estate_tax') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                     id="basic-addon2"><b>$</b></span><input
                                                     class="form-control @error('estate_tax') is-invalid @enderror" name="estate_tax"
-                                                    type="text" value="{{ old('estate_tax', $mortgage_interest ? $mortgage_interest->estate_tax : '') }}" aria-label="estate_tax"
+                                                    type="number" value="{{ old('estate_tax', $mortgage_interest ? $mortgage_interest->estate_tax : '') }}" aria-label="estate_tax"
                                                     aria-describedby="basic-addon2">
                                             </div>
                                         </div>
@@ -41,7 +41,7 @@
                                 </span><br>
                             </div>
                             <div class="tile-footer d-flex justify-content-between mb-lg-4">
-                                <a class="btn btn-white border border-primary rounded-0" href="#"><i
+                                <a class="btn btn-white border border-primary rounded-0" href="{{ route('mortgage-interest.edit', $mortgage_interest) }}"><i
                                         class="me-2 mb-5"></i><b class="text-primary">Previous
                                         Page</b></a>&nbsp;&nbsp;&nbsp;
                                 <button class="btn btn-primary rounded-0" type="submit"><i class="me-2"></i><b

@@ -15,10 +15,10 @@
                     <div class="tile">
                         <div class="tile-body">
                             <div class="container-fluid">
-                                <h2 class="tile-title d-flex justify-content-center h2"><b>We're making great progress</b></h2><br>
-                                <h6 class="tile-title d-flex justify-content-center text-primary h6">Let's finish up your federal return.</h6><br>
+                                <h2 class="tile-title d-flex justify-content-center h2"><b>We're off to a good start</b></h2><br>
+                                <h6 class="tile-title d-flex justify-content-center text-primary h6">Now let's work on your 2023 income.</h6><br>
                                 <div class="d-flex justify-content-center">
-                                    <img src="{{ asset('images/deductions.gif') }}" alt="">
+                                    <img src="{{ asset('images/personal.gif') }}" alt="">
                                 </div>
                             </div><br>
                             <span class="d-flex justify-content-center">
@@ -26,11 +26,11 @@
                             </span><br>
                         </div>
                         <div class="tile-footer d-flex justify-content-between mb-lg-4">
-                            <a class="btn btn-white border border-primary rounded-0" href="{{ route('itemized.deductions') }}"><i
+                            <a class="btn btn-white border border-primary rounded-0" href="{{ route('dependents.index') }}"><i
                                     class="me-2 mb-5"></i><b class="text-primary">Previous
                                     Page</b></a>&nbsp;&nbsp;&nbsp;
-                            <a class="btn btn-primary rounded-0" href="{{ route('state.index') }}"><i class="me-2"></i><b
-                                    class="text-light">Save and Continue</b></a>
+                            <a class="btn btn-primary rounded-0" href="{{ route('w-2.index') }}"><i class="me-2"></i><b
+                                    class="text-light">Continue to Deductions</b></a>
                         </div>
                     </div>
                 </div>

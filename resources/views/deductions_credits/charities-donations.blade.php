@@ -64,7 +64,7 @@
                                                 class="input-group-text bg-disabled text-dark @error('cash_donations_amount') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                 id="basic-addon2"><b>$</b></span><input
                                                 class="form-control @error('cash_donations_amount') is-invalid @enderror" name="cash_donations_amount"
-                                                type="text" value="{{ old('cash_donations_amount', $deductions_credit ? $deductions_credit->cash_donations_amount : '') }}" aria-label="cash_donations_amount"
+                                                type="number" value="{{ old('cash_donations_amount', $deductions_credit ? $deductions_credit->cash_donations_amount : '') }}" aria-label="cash_donations_amount"
                                                 aria-describedby="basic-addon2">
                                         </div>
                                     </div>
@@ -105,7 +105,7 @@
                                                 class="input-group-text bg-disabled text-dark @error('non_cash_donations_amount') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                 id="basic-addon2"><b>$</b></span><input
                                                 class="form-control @error('non_cash_donations_amount') is-invalid @enderror" name="non_cash_donations_amount"
-                                                type="text" value="{{ old('non_cash_donations_amount', $deductions_credit ? $deductions_credit->non_cash_donations_amount : '') }}" aria-label="non_cash_donations_amount"
+                                                type="number" value="{{ old('non_cash_donations_amount', $deductions_credit ? $deductions_credit->non_cash_donations_amount : '') }}" aria-label="non_cash_donations_amount"
                                                 aria-describedby="basic-addon2">
                                         </div>
                                     </div>
@@ -205,7 +205,7 @@
                                 </span>
                             </div>
                             <div class="tile-footer d-flex justify-content-between mb-lg-4">
-                                <a class="btn btn-white border border-primary rounded-0" href="#"><i
+                                <a class="btn btn-white border border-primary rounded-0" href="{{ route('mortgage-interest.index') }}"><i
                                         class="me-2 mb-5"></i><b class="text-primary">Previous Page</b></a>&nbsp;&nbsp;&nbsp;
                                 <div>
                                     <button class="btn btn-primary rounded-0" type="submit"><i class="me-2"></i><b

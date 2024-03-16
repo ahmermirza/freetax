@@ -67,7 +67,7 @@
                                             class="input-group-text bg-disabled text-dark @error('health') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
                                             class="form-control @error('health') is-invalid @enderror" name="health"
-                                            type="text" value="{{ old('health', $deductions_credit ? $deductions_credit->health : '') }}" aria-label="health"
+                                            type="number" value="{{ old('health', $deductions_credit ? $deductions_credit->health : '') }}" aria-label="health"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -91,7 +91,7 @@
                                             class="input-group-text bg-disabled text-dark @error('long_term') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
                                             class="form-control @error('long_term') is-invalid @enderror" name="long_term"
-                                            type="text" value="{{ old('long_term', $deductions_credit ? $deductions_credit->long_term : '') }}" aria-label="long_term"
+                                            type="number" value="{{ old('long_term', $deductions_credit ? $deductions_credit->long_term : '') }}" aria-label="long_term"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -115,7 +115,7 @@
                                             class="input-group-text bg-disabled text-dark @error('doctor') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
                                             class="form-control @error('doctor') is-invalid @enderror" name="doctor"
-                                            type="text" value="{{ old('doctor', $deductions_credit ? $deductions_credit->doctor : '') }}" aria-label="doctor"
+                                            type="number" value="{{ old('doctor', $deductions_credit ? $deductions_credit->doctor : '') }}" aria-label="doctor"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -139,7 +139,7 @@
                                             class="input-group-text bg-disabled text-dark @error('hospital') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
                                             class="form-control @error('hospital') is-invalid @enderror" name="hospital"
-                                            type="text" value="{{ old('hospital', $deductions_credit ? $deductions_credit->hospital : '') }}" aria-label="hospital"
+                                            type="number" value="{{ old('hospital', $deductions_credit ? $deductions_credit->hospital : '') }}" aria-label="hospital"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -163,7 +163,7 @@
                                             class="input-group-text bg-disabled text-dark @error('prescriptions') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
                                             class="form-control @error('prescriptions') is-invalid @enderror" name="prescriptions"
-                                            type="text" value="{{ old('prescriptions', $deductions_credit ? $deductions_credit->prescriptions : '') }}" aria-label="prescriptions"
+                                            type="number" value="{{ old('prescriptions', $deductions_credit ? $deductions_credit->prescriptions : '') }}" aria-label="prescriptions"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -187,7 +187,7 @@
                                             class="input-group-text bg-disabled text-dark @error('equipment') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
                                             class="form-control @error('equipment') is-invalid @enderror" name="equipment"
-                                            type="text" value="{{ old('equipment', $deductions_credit ? $deductions_credit->equipment : '') }}" aria-label="equipment"
+                                            type="number" value="{{ old('equipment', $deductions_credit ? $deductions_credit->equipment : '') }}" aria-label="equipment"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -216,7 +216,7 @@
                                             class="input-group-text bg-disabled text-dark @error('travel') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
                                             class="form-control @error('travel') is-invalid @enderror" name="travel"
-                                            type="text" value="{{ old('travel', $deductions_credit ? $deductions_credit->travel : '') }}" aria-label="travel"
+                                            type="number" value="{{ old('travel', $deductions_credit ? $deductions_credit->travel : '') }}" aria-label="travel"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -245,7 +245,7 @@
                                             class="input-group-text bg-disabled text-dark @error('other') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                             id="basic-addon2"><b>$</b></span><input
                                             class="form-control @error('other') is-invalid @enderror" name="other"
-                                            type="text" value="{{ old('other', $deductions_credit ? $deductions_credit->other : '') }}" aria-label="other"
+                                            type="number" value="{{ old('other', $deductions_credit ? $deductions_credit->other : '') }}" aria-label="other"
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -261,7 +261,7 @@
                             </span>
                         </div>
                         <div class="tile-footer d-flex justify-content-between mb-lg-4">
-                            <a class="btn btn-white border border-primary rounded-0" href="#"><i
+                            <a class="btn btn-white border border-primary rounded-0" href="{{ route('charities-donations.create') }}"><i
                                     class="me-2 mb-5"></i><b class="text-primary">Previous Page</b></a>&nbsp;&nbsp;&nbsp;
                             <div>
                                 <button class="btn btn-primary rounded-0" type="submit"><i class="me-2"></i><b
