@@ -3,17 +3,17 @@
 @section('title', 'Income')
 
 @section('content')
-    <div class="d-flex justify-content-center p-4">
-        <div class="col-lg-9 shadow rounded-3">
-            <div class="row p-4 pt-5">
+    <div class="d-flex justify-content-center p-lg-4 p-3">
+        <div class="col-lg-9 content-shadow shadow-none rounded-3">
+            <div class="row p-1 pt-5">
                 <div class="d-lg-flex justify-content-between">
                     <i class="fa fa-arrow-left text-primary" aria-hidden="true"></i>
                 </div>
             </div>
-            <div class="row p-4 pt-0 mx-lg-5 px-lg-5">
+            <div class="row p-1 pt-0 mx-lg-5 px-lg-5">
                 <div class="col-lg-12">
                     <div class="tile">
-                        <h2 class="tile-title d-lg-flex justify-content-center h2"><b>Wages (Form W-2)</b></h2>
+                        <h2 class="tile-title d-flex justify-content-center text-center h2"><b>Wages (Form W-2)</b></h2>
                         <form action="{{ route('w-2.store') }}" method="post">
                             <div class="tile-body">
                                 @csrf
@@ -165,10 +165,11 @@
                                                     @enderror
                                                 </div>
                                                 <div class="col-lg-4">
+                                                    <br>
                                                     <label class="form-form-label h6" for="employer-city">Employer's Zip
                                                         Code:</label>
                                                     <div class="row">
-                                                        <div class="col-lg-4">
+                                                        <div class="col-lg-4 col-4">
                                                             <div class="has-danger input-group">
                                                                 <input
                                                                     class="form-control @error('emp_zip1') is-invalid @enderror"
@@ -180,7 +181,7 @@
                                                             </div>
                                                         </div>
                                                         &lowbar;
-                                                        <div class="col-lg-4">
+                                                        <div class="col-lg-4 col-4">
                                                             <div class="has-danger input-group">
                                                                 <input
                                                                     class="form-control @error('emp_zip2') is-invalid @enderror"
@@ -416,6 +417,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-lg-6">
+                                                    <label class="form-form-label d-lg-none h6 pb-2" for="code_1">Code:</label>
                                                     <div class="has-danger input-group mb-3">
                                                         <select class="form-select @error('code_2') is-invalid @enderror"
                                                             name="code_2" aria-label="code_2"
@@ -454,6 +456,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
+                                                    <label class="form-form-label d-lg-none h6 pb-2" for="amount_1">Amount:</label>
                                                     <div class="has-danger input-group mb-3">
                                                         <span
                                                             class="input-group-text bg-disabled text-dark @error('amount_2') is-invalid border border-danger text-danger @enderror border-0 px-3"
@@ -719,44 +722,56 @@
                                                 <hr class="mb-1 w-100">
                                             </span><br>
                                             <div class="row ms-1">
-                                                <div class="col-lg-8 pb-5">
-                                                    <div class="has-danger form-check form-check-inline mb-3">
+                                                <div class="col-lg-1 col-6 pe-0">
+                                                    <div class="has-danger form-check form-check-inline mb-3 pe-3">
                                                         <input class="form-check-input me-3 h4" name="w2_standard"
                                                             type="radio" value="1" aria-label="w2_standard"
                                                             aria-describedby="basic-addon2" checked>
-                                                        <label class="form-check-label h6 pt-2" for="w2_standard">Standard
-                                                            W-2
-                                                            (most common)
-                                                        </label>
-                                                    </div>
-                                                    <div class="has-danger form-check form-check-inline mb-3">
+                                                        </div>
+                                                </div>
+                                                <div class="col-lg-7 col-6 ps-lg-0 radio-label-custom-width ps-0">
+                                                    <label class="form-check-label h6 pt-2" for="w2_standard">Standard
+                                                        W-2
+                                                        (most common)
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="row ms-1">
+                                                <div class="col-lg-1 col-6 pe-0">
+                                                    <div class="has-danger form-check form-check-inline mb-3 pe-3">
                                                         <input class="form-check-input me-3 h4" name="w2_standard"
                                                             type="radio" value="0" aria-label="w2_standard"
                                                             aria-describedby="basic-addon2">
-                                                        <label class="form-check-label h6 pt-2"
-                                                            for="w2_standard">Nonstandard
-                                                            W-2 (handwritten, altered, or hand-typed)
-                                                        </label>&nbsp;&nbsp;&nbsp;
+                                                        </div>
                                                     </div>
-                                                    <br>
-                                                    <div class="form-check form-check-inline">
+                                                <div class="col-lg-7 col-6 ps-lg-0 radio-label-custom-width ps-0">
+                                                    <label class="form-check-label h6 pt-2"
+                                                        for="w2_standard">Nonstandard
+                                                        W-2 (handwritten, altered, or hand-typed)
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="row ms-1">
+                                                <div class="col-lg-3 col-6 pe-0">
+                                                    <div class="has-danger form-check form-check-inline mb-3 pe-3">
                                                         <input class="form-check-input h4" type="radio"
                                                             name="w2_corrected" id="w2_corrected" value="yes">
                                                         <label class="form-check-label h6 pt-2"
                                                             for="w2_corrected"><b>Yes</b></label>
                                                     </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input h4" type="radio"
+                                                    <div class="has-danger form-check form-check-inline mb-3">
+                                                        <input class="form-check-input me-3 h4" type="radio"
                                                             name="w2_corrected" id="w2_corrected" value="no" checked>
                                                         <label class="form-check-label h6 pt-2"
                                                             for="w2_corrected"><b>No</b></label>
                                                     </div>
-                                                    <label class="form-form-label h6" for="employer-address">Is this a
+                                                </div>
+                                                <div class="col-lg-7 col-2 ps-lg-0 radio-label-custom-width ps-0">
+                                                    <label class="form-form-label h6 pt-2" for="employer-address">Is this a
                                                         corrected W-2 from your employer? <span class="text-secondary">(not
                                                             common)</span></label>
                                                 </div>
-                                                <div class="col-lg-1">
-                                                </div>
+                                            </div>
                                                 <span class="d-flex justify-content-center">
                                                     <hr class="mb-1 mt-0 pt-0 w-100">
                                                 </span><br>
