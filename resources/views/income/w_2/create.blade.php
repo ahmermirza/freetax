@@ -722,7 +722,7 @@
                                                 <hr class="mb-1 w-100">
                                             </span><br>
                                             <div class="row ms-1">
-                                                <div class="col-lg-1 col-6 pe-0">
+                                                <div class="col-lg-1 col-6 pe-2 pe-lg-2 d-flex justify-content-end">
                                                     <div class="has-danger form-check form-check-inline mb-3 pe-3">
                                                         <input class="form-check-input me-3 h4" name="w2_standard"
                                                             type="radio" value="1" aria-label="w2_standard"
@@ -737,7 +737,7 @@
                                                 </div>
                                             </div>
                                             <div class="row ms-1">
-                                                <div class="col-lg-1 col-6 pe-0">
+                                                <div class="col-lg-1 col-6 pe-2 pe-lg-2 d-flex justify-content-end">
                                                     <div class="has-danger form-check form-check-inline mb-3 pe-3">
                                                         <input class="form-check-input me-3 h4" name="w2_standard"
                                                             type="radio" value="0" aria-label="w2_standard"
@@ -752,7 +752,7 @@
                                                 </div>
                                             </div>
                                             <div class="row ms-1">
-                                                <div class="col-lg-3 col-6 pe-0">
+                                                <div class="col-xl-2 col-lg-3 col-6 pe-1 d-flex justify-content-end">
                                                     <div class="has-danger form-check form-check-inline mb-3 pe-3">
                                                         <input class="form-check-input h4" type="radio"
                                                             name="w2_corrected" id="w2_corrected" value="yes">
@@ -766,7 +766,7 @@
                                                             for="w2_corrected"><b>No</b></label>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-7 col-2 ps-lg-0 radio-label-custom-width ps-0">
+                                                <div class="col-lg-7 col-6 ps-lg-0 radio-label-custom-width ps-0">
                                                     <label class="form-form-label h6 pt-2" for="employer-address">Is this a
                                                         corrected W-2 from your employer? <span class="text-secondary">(not
                                                             common)</span></label>
