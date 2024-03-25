@@ -255,7 +255,7 @@
                                     <label class="form-form-label h6" for="zip">Zip Code:</label>
                                     <div class="row">
                                         @php
-                                            $zip_arr = json_decode($personal->zip, true)
+                                            $zip_arr = $personal ? json_decode($personal->zip, true) : null;
                                         @endphp
                                         <div class="col-lg-4 col-4">
                                             <div class="has-danger input-group mb-3">
