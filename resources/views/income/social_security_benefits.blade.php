@@ -3,17 +3,17 @@
 @section('title', 'Income')
 
 @section('content')
-    <div class="d-flex justify-content-center p-4">
-        <div class="col-lg-9 shadow rounded-3">
+    <div class="d-flex justify-content-center p-lg-4 p-3">
+        <div class="col-lg-9 content-shadow shadow-none rounded-3">
             <div class="row p-4 pt-5">
                 <div class="d-lg-flex justify-content-between">
                     <i class="fa fa-arrow-left text-primary" aria-hidden="true"></i>
                 </div>
             </div>
-            <div class="row p-4 pt-0 mx-lg-5 px-lg-5">
+            <div class="row p-1 pt-0 mx-lg-5 px-lg-5">
                 <div class="col-lg-12">
                     <div class="tile">
-                        <h2 class="tile-title d-lg-flex justify-content-center h2"><b>Social Security Benefits (Form
+                        <h2 class="tile-title d-flex justify-content-center text-center h2"><b>Social Security Benefits (Form
                                 SSA-1099)</b></h2>
                             @if (isset($unemployment))
                             <form action="{{ route('income.ssb.update', $unemployment) }}" method="post">
@@ -47,7 +47,7 @@
                                                             Security Benefits:<span class="text-secondary">( Box 3
                                                                 )</span></label>
                                                     </div>
-                                                    <div class="col-lg-3 d-flex justify-content-start">
+                                                    <div class="col-lg-3 col-12 d-flex justify-content-start">
                                                         <span
                                                             class="input-group-text bg-disabled text-dark @error('ssb') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
@@ -65,7 +65,7 @@
                                                             Security Benefits Repaid: <span class="text-secondary"> ( Box 4
                                                                 )</span></label>
                                                     </div>
-                                                    <div class="col-lg-3 d-flex justify-content-start">
+                                                    <div class="col-lg-3 col-12 d-flex justify-content-start">
                                                         <span
                                                             class="input-group-text bg-disabled text-dark @error('ssb_repaid') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
@@ -83,7 +83,7 @@
                                                             Social Security Benefits <span class="text-secondary"> ( Box 5
                                                                 )</span></label>
                                                     </div>
-                                                    <div class="col-lg-3 d-flex justify-content-start">
+                                                    <div class="col-lg-3 col-12 d-flex justify-content-start">
                                                         <span
                                                             class="input-group-text bg-disabled text-dark @error('ssb_net') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
@@ -102,7 +102,7 @@
                                                             Tax Withheld: <span class="text-secondary"> ( Box 6
                                                                 )</span></label>
                                                     </div>
-                                                    <div class="col-lg-3 d-flex justify-content-start">
+                                                    <div class="col-lg-3 col-12 d-flex justify-content-start">
                                                         <span
                                                             class="input-group-text bg-disabled text-dark @error('ssb_federal') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
@@ -119,7 +119,7 @@
                                                         <label class="input-group-label h6 mt-2 pe-4"
                                                             for="ssn">Medicare Premiums Deducted:</label>
                                                     </div>
-                                                    <div class="col-lg-3 d-flex justify-content-start">
+                                                    <div class="col-lg-3 col-12 d-flex justify-content-start">
                                                         <span
                                                             class="input-group-text bg-disabled text-dark @error('ssb_medi') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
@@ -133,23 +133,25 @@
                                             <span class="d-flex justify-content-center">
                                                 <hr class="mb-1 w-100">
                                             </span><br>
-                                            <div class="row">
-                                                <div class="col-lg-12 ms-3">
-                                                    <div class="form-check form-check-inline">
+                                            <div class="row ms-1 pt-3 pt-lg-0">
+                                                <div class="col-xl-2 col-lg-3 col-5 pe-1 d-flex justify-content-center">
+                                                    <div class="has-danger form-check form-check-inline mb-3 pe-3">
                                                         <input class="form-check-input h4" type="radio"
                                                             name="ssb_received_ss" id="ssb_received_ss_yes" value="yes"
                                                             {{ $unemployment && $unemployment->ssb_received_ss == 'yes' ? 'checked' : '' }}>
                                                         <label class="form-check-label h6 pt-2"
                                                             for="ssb_received_ss_yes"><b>Yes</b></label>
                                                     </div>
-                                                    <div class="form-check form-check-inline">
+                                                    <div class="has-danger form-check form-check-inline mb-3">
                                                         <input class="form-check-input h4" type="radio"
                                                             name="ssb_received_ss" id="ssb_received_ss_no" value="no"
                                                             {{ isset($unemployment) ? ((isset($unemployment) && $unemployment->ssb_received_ss == 'no') ? 'checked' : '') : 'checked' }}>
                                                         <label class="form-check-label h6 pt-2"
                                                             for="ssb_received_ss_no"><b>No</b></label>
                                                     </div>
-                                                    <label class="form-form-label h6 form-check-inline"
+                                                </div>
+                                                <div class="col-lg-7 col-7 radio-label-custom-width px-0">
+                                                    <label class="form-form-label h6 pt-2"
                                                         for="label-ssb-received-ss">Did you
                                                         receive a lump-sum Social Security payment in 2023 for 2022 or prior
                                                         years?</label>
@@ -158,29 +160,31 @@
                                             <span class="d-flex justify-content-center">
                                                 <hr class="mb-1 mt-0 pt-0 w-100">
                                             </span><br>
-                                            <div class="row">
-                                                <label class="form-form-label h6" for="ein"><b>Form
-                                                        RRB-1099</b></label>
-                                                <div class="col-lg-12 ms-3">
-                                                    <div class="form-check form-check-inline">
+                                            <label class="form-form-label h6" for="ein"><b>Form
+                                                    RRB-1099</b></label>
+                                            <div class="row ms-1 pt-3 pt-lg-0">
+                                                <div class="col-xl-2 col-lg-3 col-5 pe-1 d-flex justify-content-center">
+                                                    <div class="has-danger form-check form-check-inline mb-3 pe-3">
                                                         <input class="form-check-input h4" type="radio"
                                                             name="ssb_received_benefits" id="foreign-yes" value="yes"
                                                             {{ $unemployment && $unemployment->ssb_received_benefits == 'yes' ? 'checked' : '' }}>
                                                         <label class="form-check-label h6 pt-2"
                                                             for="foreign-yes"><b>Yes</b></label>
                                                     </div>
-                                                    <div class="form-check form-check-inline">
+                                                    <div class="has-danger form-check form-check-inline mb-3">
                                                         <input class="form-check-input h4" type="radio"
                                                             name="ssb_received_benefits" id="foreign-no" value="no"
                                                             {{ isset($unemployment) ? ((isset($unemployment) && $unemployment->ssb_received_benefits == 'no') ? 'checked' : '') : 'checked' }}>
                                                         <label class="form-check-label h6 pt-2"
                                                             for="foreign-no"><b>No</b></label>
                                                     </div>
-                                                    <label class="form-form-label h6 form-check-inline"
+                                                </div>
+                                                    <div class="col-lg-7 col-7 radio-label-custom-width px-0">
+                                                    <label class="form-form-label h6 pt-2 w-100"
                                                         for="employer-address">Did you receive any benefits on RRB-1099
                                                         forms?</label>
+                                                    </div>
                                                 </div>
-                                            </div>
                                             <br>
                                         </div>
                                     </div>
@@ -208,7 +212,7 @@
                                                             Security Benefits:<span class="text-secondary">( Box 3
                                                                 )</span></label>
                                                     </div>
-                                                    <div class="col-lg-3 d-flex justify-content-start">
+                                                    <div class="col-lg-3 col-12 d-flex justify-content-start">
                                                         <span
                                                             class="input-group-text bg-disabled text-dark @error('spouse_ssb') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
@@ -226,7 +230,7 @@
                                                             Security Benefits Repaid: <span class="text-secondary"> ( Box 4
                                                                 )</span></label>
                                                     </div>
-                                                    <div class="col-lg-3 d-flex justify-content-start">
+                                                    <div class="col-lg-3 col-12 d-flex justify-content-start">
                                                         <span
                                                             class="input-group-text bg-disabled text-dark @error('spouse_ssb_repaid') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
@@ -244,7 +248,7 @@
                                                             Social Security Benefits <span class="text-secondary"> ( Box 5
                                                                 )</span></label>
                                                     </div>
-                                                    <div class="col-lg-3 d-flex justify-content-start">
+                                                    <div class="col-lg-3 col-12 d-flex justify-content-start">
                                                         <span
                                                             class="input-group-text bg-disabled text-dark @error('spouse_ssb_net') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
@@ -263,7 +267,7 @@
                                                             Tax Withheld: <span class="text-secondary"> ( Box 6
                                                                 )</span></label>
                                                     </div>
-                                                    <div class="col-lg-3 d-flex justify-content-start">
+                                                    <div class="col-lg-3 col-12 d-flex justify-content-start">
                                                         <span
                                                             class="input-group-text bg-disabled text-dark @error('spouse_ssb_federal') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
@@ -280,7 +284,7 @@
                                                         <label class="input-group-label h6 mt-2 pe-4"
                                                             for="ssn">Medicare Premiums Deducted:</label>
                                                     </div>
-                                                    <div class="col-lg-3 d-flex justify-content-start">
+                                                    <div class="col-lg-3 col-12 d-flex justify-content-start">
                                                         <span
                                                             class="input-group-text bg-disabled text-dark @error('spouse_ssb_medi') is-invalid border border-danger text-danger @enderror border-0 px-3"
                                                             id="basic-addon2"><b>$</b></span><input
@@ -294,23 +298,25 @@
                                             <span class="d-flex justify-content-center">
                                                 <hr class="mb-1 w-100">
                                             </span><br>
-                                            <div class="row">
-                                                <div class="col-lg-12 ms-3">
-                                                    <div class="form-check form-check-inline">
+                                            <div class="row ms-1 pt-3 pt-lg-0">
+                                                <div class="col-xl-2 col-lg-3 col-5 pe-1 d-flex justify-content-center">
+                                                    <div class="has-danger form-check form-check-inline mb-3 pe-3">
                                                         <input class="form-check-input h4" type="radio"
                                                             name="spouse_ssb_received_ss" id="spouse_ssb_received_ss_yes" value="yes"
                                                             {{ $unemployment && $unemployment->spouse_ssb_received_ss == 'yes' ? 'checked' : '' }}>
                                                         <label class="form-check-label h6 pt-2"
                                                             for="spouse_ssb_received_ss_yes"><b>Yes</b></label>
                                                     </div>
-                                                    <div class="form-check form-check-inline">
+                                                    <div class="has-danger form-check form-check-inline mb-3">
                                                         <input class="form-check-input h4" type="radio"
                                                             name="spouse_ssb_received_ss" id="spouse_ssb_received_ss_no" value="no"
                                                             {{ isset($unemployment) ? ((isset($unemployment) && $unemployment->spouse_ssb_received_ss == 'no') ? 'checked' : '') : 'checked' }}>
                                                         <label class="form-check-label h6 pt-2"
                                                             for="spouse_ssb_received_ss_no"><b>No</b></label>
                                                     </div>
-                                                    <label class="form-form-label h6 form-check-inline"
+                                                </div>
+                                                <div class="col-lg-7 col-7 radio-label-custom-width px-0">
+                                                    <label class="form-form-label h6 pt-2"
                                                         for="employer-address">Did your spouse
                                                         receive a lump-sum Social Security payment in 2023 for 2022 or prior
                                                         years?</label>
@@ -319,25 +325,27 @@
                                             <span class="d-flex justify-content-center">
                                                 <hr class="mb-1 mt-0 pt-0 w-100">
                                             </span><br>
-                                            <div class="row">
-                                                <label class="form-form-label h6" for="ein"><b>Form
-                                                        RRB-1099</b></label>
-                                                <div class="col-lg-12 ms-3">
-                                                    <div class="form-check form-check-inline">
+                                            <label class="form-form-label h6" for="ein"><b>Form
+                                                    RRB-1099</b></label>
+                                            <div class="row ms-1 pt-3 pt-lg-0">
+                                                <div class="col-xl-2 col-lg-3 col-5 pe-1 d-flex justify-content-center">
+                                                    <div class="has-danger form-check form-check-inline mb-3 pe-3">
                                                         <input class="form-check-input h4" type="radio"
                                                             name="spouse_ssb_received_benefits" id="spouse_ssb_received_benefits_yes" value="yes"
                                                             {{ $unemployment && $unemployment->spouse_ssb_received_benefits == 'yes' ? 'checked' : '' }}>
                                                         <label class="form-check-label h6 pt-2"
                                                             for="spouse_ssb_received_benefits_yes"><b>Yes</b></label>
                                                     </div>
-                                                    <div class="form-check form-check-inline">
+                                                    <div class="has-danger form-check form-check-inline mb-3">
                                                         <input class="form-check-input h4" type="radio"
                                                             name="spouse_ssb_received_benefits" id="spouse_ssb_received_benefits_no" value="no"
                                                             {{ isset($unemployment) ? ((isset($unemployment) && $unemployment->spouse_ssb_received_benefits == 'no') ? 'checked' : '') : 'checked' }}>
                                                         <label class="form-check-label h6 pt-2"
                                                             for="spouse_ssb_received_benefits_no"><b>No</b></label>
                                                     </div>
-                                                    <label class="form-form-label h6 form-check-inline"
+                                                </div>
+                                                <div class="col-lg-7 col-7 radio-label-custom-width px-0">
+                                                    <label class="form-form-label h6 pt-2"
                                                         for="employer-address">Did your spouse receive any benefits on RRB-1099
                                                         forms?</label>
                                                 </div>
@@ -347,15 +355,28 @@
                                     </div>
                                 </div>
                                 <span class="d-flex justify-content-center">
-                                    <hr class="mb-1 mt-0 pt-0 w-100">
+                                    <hr class="mb-1 mt-0 pt-0 mx-4 w-100">
                                 </span><br>
                             </div>
-                            <div class="tile-footer d-flex justify-content-between mb-lg-4">
-                                <a class="btn btn-white border border-primary rounded-0" href="{{ route('income.other.unemployment.create') }}"><i
-                                        class="me-2 mb-5"></i><b class="text-primary">Previous
-                                        Page</b></a>&nbsp;&nbsp;&nbsp;
-                                <button class="btn btn-primary rounded-0" type="submit"><i class="me-2"></i><b
-                                        class="text-light">Save and Continue</b></button>
+                            <div class="tile-footer d-lg-flex justify-content-between mx-lg-0 mx-4 mb-lg-4">
+                                <div class="row">
+                                    <div class="col-lg-8 w-100">
+                                        <button class="btn btn-primary rounded-0 d-block d-lg-none mb-2 button-custom-width" type="submit">
+                                            <b class="text-light">Save and Continue</b>
+                                        </button>
+                                        <a class="btn btn-white border border-primary rounded-0 button-custom-width"
+                                            href="{{ route('income.other.unemployment.create') }}">
+                                            <b class="text-primary">Previous Page</b>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-8 w-100">
+                                        <button class="btn btn-primary rounded-0 d-none d-lg-block button-custom-width" type="submit">
+                                            <b class="text-light">Save and Continue</b>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </form>
                     </div>

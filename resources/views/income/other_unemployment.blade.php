@@ -3,8 +3,8 @@
 @section('title', 'Income')
 
 @section('content')
-    <div class="d-flex justify-content-center p-4">
-        <div class="col-lg-9 shadow rounded-3">
+    <div class="d-flex justify-content-center p-lg-4 p-3">
+        <div class="col-lg-9 content-shadow shadow-none rounded-3">
             <div class="row p-4 pt-5">
                 <div class="d-lg-flex justify-content-between">
                     <i class="fa fa-arrow-left text-primary" aria-hidden="true"></i>
@@ -13,7 +13,7 @@
             <div class="row p-4 pt-0 mx-lg-5 px-lg-5">
                 <div class="col-lg-12">
                     <div class="tile">
-                        <h2 class="tile-title d-lg-flex justify-content-center h2"><b>Other Unemployment Compensation
+                        <h2 class="tile-title d-flex justify-content-center text-center h2"><b>Other Unemployment Compensation
                                 Income</b></h2>
                         @if (isset($unemployment))
                             <form action="{{ route('income.other.unemployment.update', $unemployment) }}" method="post">
@@ -29,8 +29,8 @@
                                     <b>Your Other Unemployment</b>
                                 </div>
                             </div><br>
-                            <div class="row ps-5">
-                                <div class="col-lg-8 ps-0">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-lg-8">
                                     <label class="form-input-label h6 pt-2" for="union_unemployment">Enter any union
                                         unemployment benefits you received:</label>
                                 </div>
@@ -45,8 +45,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row ps-5">
-                                <div class="col-lg-8 ps-0">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-lg-8">
                                     <label class="form-input-label h6 pt-2" for="private_fund_unemployment">Enter any private fund unemployment benefits you received:</label>
                                 </div>
                                 <div class="col-lg-3">
@@ -60,8 +60,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row ps-5">
-                                <div class="col-lg-8 ps-0">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-lg-8">
                                     <label class="form-input-label h6 pt-2" for="state_unemployment_benefit">Enter any unemployment benefits that you received as a state employee when not covered by regular state unemployment benefits:</label>
                                 </div>
                                 <div class="col-lg-3">
@@ -84,8 +84,8 @@
                                     <b>Your Spouse's Other Unemployment</b>
                                 </div>
                             </div><br>
-                            <div class="row ps-5">
-                                <div class="col-lg-8 ps-0">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-lg-8">
                                     <label class="form-input-label h6 pt-2" for="spouse_union_unemployment">Enter any union
                                         unemployment benefits you received:</label>
                                 </div>
@@ -100,8 +100,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row ps-5">
-                                <div class="col-lg-8 ps-0">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-lg-8">
                                     <label class="form-input-label h6 pt-2" for="spouse_private_fund_unemployment">Enter any private fund unemployment benefits you received:</label>
                                 </div>
                                 <div class="col-lg-3">
@@ -115,8 +115,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row ps-5">
-                                <div class="col-lg-8 ps-0">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-lg-8">
                                     <label class="form-input-label h6 pt-2" for="spouse_state_unemployment_benefit">Enter any unemployment benefits that your spouse received as a state employee when not covered by regular state unemployment benefits:</label>
                                 </div>
                                 <div class="col-lg-3">
@@ -129,22 +129,34 @@
                                             aria-describedby="basic-addon2">
                                     </div>
                                 </div>
+                                <br><br>
+                                <span class="d-flex justify-content-center">
+                                    <hr class="mb-3 mt-0 w-100">
+                                </span>
                             </div>
-                            <br><br>
-                            <span class="d-flex justify-content-center">
-                                <hr class="mb-3 mt-0 w-100">
-                            </span>
                         </div>
                     </div>
-                    <div class="tile-footer d-flex justify-content-between mb-lg-4">
-                        <a class="btn btn-white border border-primary rounded-0" href="{{ route('form1099-g.index') }}"><i
-                                class="me-2 mb-5"></i><b class="text-primary">Previous Page</b></a>&nbsp;&nbsp;&nbsp;
-                        <div>
-                            <a class="btn btn-white border border-primary rounded-0" href="#"><b class="text-primary">Skip</b></a>&nbsp;&nbsp;&nbsp;
-                            <button class="btn btn-primary rounded-0" type="submit"><i class="me-2"></i><b
-                                    class="text-light">Save and Continue</b></button>
-                        </div>
-                    </div>
+                            {{-- <a class="btn btn-white border border-primary rounded-0" href="#"><b class="text-primary">Skip</b></a>&nbsp;&nbsp;&nbsp; --}}
+                            <div class="tile-footer d-lg-flex justify-content-between mb-lg-4">
+                                <div class="row">
+                                    <div class="col-lg-8 w-100">
+                                        <button class="btn btn-primary rounded-0 d-block d-lg-none mb-2 button-custom-width" type="submit">
+                                            <b class="text-light">Save and Continue</b>
+                                        </button>
+                                        <a class="btn btn-white border border-primary rounded-0 button-custom-width"
+                                            href="{{ route('form1099-g.index') }}">
+                                            <b class="text-primary">Previous Page</b>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-8 w-100">
+                                        <button class="btn btn-primary rounded-0 d-none d-lg-block button-custom-width" type="submit">
+                                            <b class="text-light">Save and Continue</b>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                     </form>
                 </div>
             </div>

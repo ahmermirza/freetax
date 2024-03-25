@@ -3,8 +3,8 @@
 @section('title', 'Income')
 
 @section('content')
-    <div class="d-flex justify-content-center p-4">
-        <div class="col-lg-9 shadow rounded-3">
+    <div class="d-flex justify-content-center p-lg-4 p-3">
+        <div class="col-lg-9 content-shadow shadow-none rounded-3">
             <div class="row p-4 pt-5">
                 <div class="d-lg-flex justify-content-between">
                     <i class="fa fa-arrow-left text-primary" aria-hidden="true"></i>
@@ -13,7 +13,7 @@
             <div class="row p-4 pt-0 mx-lg-5 px-lg-5">
                 <div class="col-lg-12">
                     <div class="tile">
-                        <h2 class="tile-title d-lg-flex justify-content-center h2"><b>Minister or Clergy Wages</b></h2>
+                        <h2 class="tile-title d-flex justify-content-center text-center h2"><b>Minister or Clergy Wages</b></h2>
                         <form action="{{ route('w-2.mcw.update', $w_2) }}" method="post">
                             <div class="tile-body">
                                 @csrf
@@ -61,7 +61,7 @@
                                         </div>
                                     </div><br><br>
                                     <span class="d-flex justify-content-center">
-                                        <hr class="mb-3 mt-0 w-100">
+                                        <hr class="mb-3 mt-0 w-75 hr-custom-width">
                                     </span>
                                 </div>
                             </div>

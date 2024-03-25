@@ -3,8 +3,8 @@
 @section('title', 'Personal')
 
 @section('content')
-    <div class="d-flex justify-content-center p-4">
-        <div class="col-lg-9 shadow rounded-3">
+    <div class="d-flex justify-content-center p-lg-4 p-3">
+        <div class="col-lg-9 content-shadow shadow-none rounded-3">
             <div class="row p-4 pt-5">
                 <div class="d-lg-flex justify-content-between">
                     <i class="fa fa-arrow-left text-primary" aria-hidden="true"></i>
@@ -13,7 +13,7 @@
             <div class="row p-4 pt-0">
                 <div class="col-lg-12">
                     <div class="tile">
-                        <h2 class="tile-title d-lg-flex justify-content-center h2"><b>Tell us about your spouse</b></h2>
+                        <h2 class="tile-title d-flex justify-content-center h2"><b>Tell us about your spouse</b></h2>
                         @if (isset($personal->spouse))
                             <form action="{{ route('personal.update', $personal) }}" method="post">
                                 @method('PUT')
@@ -44,12 +44,10 @@
                                             class="fa-regular fa-circle-question text-primary"></i></label>
                                     <div class="has-danger input-group mb-3">
                                         <input
-                                            class="form-control @error('first_name') is-invalid @enderror border-end-0"
-                                            name="first_name" type="text"
+                                            class="form-control @error('first_name') is-invalid @enderror"
+                                            name="first_name" type="text" id="first_name"
                                             value="{{ old('first_name', ($personal && $personal->spouse) ? $personal->spouse->first_name : '') }}"
-                                            aria-label="first_name" aria-describedby="basic-addon2"><span
-                                            class="input-group-text bg-transparent text-secondary @error('first_name') is-invalid border border-danger text-danger @enderror border-start-0"
-                                            id="basic-addon2"><i class="fa-solid fa-address-card"></i></span>
+                                            aria-label="first_name" aria-describedby="basic-addon2">
                                     </div>
                                     @error('first_name')
                                         <div class="form-control-feedback text-danger pb-2">{{ $message }}</div>
@@ -58,7 +56,7 @@
                                             class="fa-regular fa-circle-question text-primary"></i></label>
                                     <div class="has-danger input-group mb-3">
                                         <input class="form-control @error('last_name') is-invalid @enderror"
-                                            name="last_name" type="text"
+                                            name="last_name" type="text" id="last_name"
                                             value="{{ old('last_name', ($personal && $personal->spouse) ? $personal->spouse->last_name : '') }}"
                                             aria-label="last_name" aria-describedby="basic-addon2">
                                     </div>
@@ -136,7 +134,7 @@
                                             class="fa-regular fa-circle-question text-primary"></i></label>
                                     <div class="has-danger input-group mb-3">
                                         <input class="form-control @error('ssn') is-invalid @enderror"
-                                            name="ssn" type="number"
+                                            name="ssn" type="number" id="ssn"
                                             value="{{ old('ssn', ($personal && $personal->spouse) ? $personal->spouse->ssn : '') }}"
                                             aria-label="ssn" aria-describedby="basic-addon2">
                                     </div>
@@ -146,13 +144,11 @@
                                 </div>
                             </div>
                             <span class="d-flex justify-content-center">
-                                <hr class="mb-3 w-75">
+                                <hr class="mb-3 w-75 hr-custom-width">
                             </span>
                             <div class="row d-lg-flex justify-content-center">
-                                <div class="col-lg-1">
-                                </div>
-                                <div class="col-lg-10">
-                                    <div class="has-danger form-check form-check-inline mb-3">
+                                <div class="col-xl-2 col-lg-3 col-6 pe-0">
+                                    <div class="has-danger form-check form-check-inline mb-3 pe-3">
                                         <input class="form-check-input me-3 h4" name="parent_claim" type="radio"
                                             value="1" aria-label="parent_claim"
                                             aria-describedby="basic-addon2"
@@ -166,20 +162,20 @@
                                             aria-describedby="basic-addon2"
                                             {{ isset($personal->spouse) ? ((isset($personal->spouse) && $personal->spouse->parent_claim == 0) ? 'checked' : '') : 'checked' }}>
                                         <label class="form-check-label h6 pt-2"
-                                            for="parent_claim"><b>No</b></label>&nbsp;&nbsp;&nbsp;
-                                        <label class="h6 pt-2">Can a parent (or somebody else) claim your spouse as a
-                                            dependent on their return?</label>
+                                            for="parent_claim"><b>No</b></label>
+                                        </div>
                                     </div>
+                                    <div class="col-lg-7 col-2 ps-lg-0 radio-label-custom-width ps-0">
+                                    <label class="h6 pt-2">Can a parent (or somebody else) claim your spouse as a
+                                        dependent on their return?</label>
                                 </div>
                             </div>
                             <span class="d-flex justify-content-center">
-                                <hr class="mb-3 mt-0 w-75">
+                                <hr class="mb-3 mt-0 w-75 hr-custom-width">
                             </span>
                             <div class="row d-lg-flex justify-content-center">
-                                <div class="col-lg-1">
-                                </div>
-                                <div class="col-lg-10">
-                                    <div class="has-danger form-check form-check-inline mb-3">
+                                <div class="col-xl-2 col-lg-3 col-6 pe-0">
+                                    <div class="has-danger form-check form-check-inline mb-3 pe-3">
                                         <input class="form-check-input me-3 h4" name="campaign_contribution"
                                             type="radio" value="1" aria-label="campaign_contribution"
                                             aria-describedby="basic-addon2"
@@ -193,19 +189,21 @@
                                             aria-describedby="basic-addon2"
                                             {{ isset($personal->spouse) ? ((isset($personal->spouse) && $personal->spouse->campaign_contribution == 0) ? 'checked' : '') : 'checked' }}>
                                         <label class="form-check-label h6 pt-2"
-                                            for="campaign_contribution"><b>No</b></label>&nbsp;&nbsp;&nbsp;
-                                        <label class="h6 pt-2">Does your spouse want to contribute $3 to the
-                                            Presidential Eelection Campaign Fund? <i
-                                                class="fa-regular fa-circle-question text-primary"></i></label>
+                                            for="campaign_contribution"><b>No</b></label>
+                                        </div>
                                     </div>
+                                    <div class="col-lg-7 col-2 ps-lg-0 radio-label-custom-width ps-0">
+                                    <label class="h6 pt-2">Does your spouse want to contribute $3 to the
+                                        Presidential Eelection Campaign Fund? <i
+                                            class="fa-regular fa-circle-question text-primary"></i></label>
                                 </div>
                             </div>
                             <span class="d-flex justify-content-center">
-                                <hr class="mb-3 mt-0 w-75">
+                                <hr class="mb-3 mt-0 w-75 hr-custom-width">
                             </span>
                             <div class="row d-lg-flex justify-content-center">
-                                <div class="col-lg-8">
-                                    <div class="has-danger form-check form-check-inline mb-3">
+                                <div class="col-xl-2 col-lg-3 col-6 pe-0">
+                                    <div class="has-danger form-check form-check-inline mb-3 pe-3">
                                         <input class="form-check-input me-3 h4" name="blind" type="radio"
                                             value="1" aria-label="blind" aria-describedby="basic-addon2"
                                             {{ ($personal->spouse && $personal->spouse->blind == 1) ? 'checked' : '' }}>
@@ -216,20 +214,20 @@
                                             value="0" aria-label="blind" aria-describedby="basic-addon2"
                                             {{ isset($personal->spouse) ? ((isset($personal->spouse) && $personal->spouse->blind == 0) ? 'checked' : '') : 'checked' }}>
                                         <label class="form-check-label h6 pt-2"
-                                            for="blind"><b>No</b></label>&nbsp;&nbsp;&nbsp;
-                                        <label class="h6 pt-2">Is your spouse legally blind? <i
-                                                class="fa-regular fa-circle-question text-primary"></i></label>
+                                            for="blind"><b>No</b></label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-1">
+                                    <div class="col-lg-7 col-2 ps-lg-0 radio-label-custom-width ps-0">
+                                    <label class="h6 pt-2">Is your spouse legally blind? <i
+                                            class="fa-regular fa-circle-question text-primary"></i></label>
                                 </div>
                             </div>
                             <span class="d-flex justify-content-center">
-                                <hr class="mb-0 mt-0 pt-0 w-75">
+                                <hr class="mb-0 mt-0 pt-0 w-75 hr-custom-width">
                             </span><br>
                             <div class="row d-lg-flex justify-content-center">
-                                <div class="col-lg-8">
-                                    <div class="has-danger form-check form-check-inline mb-3">
+                                <div class="col-xl-2 col-lg-3 col-6 pe-0">
+                                    <div class="has-danger form-check form-check-inline mb-3 pe-3">
                                         <input class="form-check-input me-3 h4" name="passed_away" type="radio"
                                             value="1" aria-label="passed_away"
                                             aria-describedby="basic-addon2"
@@ -243,24 +241,37 @@
                                             aria-describedby="basic-addon2"
                                             {{ isset($personal->spouse) ? ((isset($personal->spouse) && $personal->spouse->passed_away == 0) ? 'checked' : '') : 'checked' }}>
                                         <label class="form-check-label h6 pt-2"
-                                            for="passed_away"><b>No</b></label>&nbsp;&nbsp;&nbsp;
-                                        <label class="h6 pt-2">Has your spouse passed away before the
-                                            filing of this tax return? <i
-                                                class="fa-regular fa-circle-question text-primary"></i></label>
+                                            for="passed_away"><b>No</b></label>
+                                        </div>
                                     </div>
+                                    <div class="col-lg-7 col-2 ps-lg-0 radio-label-custom-width ps-0">
+                                    <label class="h6 pt-2">Has your spouse passed away before the
+                                        filing of this tax return? <i
+                                            class="fa-regular fa-circle-question text-primary"></i></label>
                                 </div>
-                                <div class="col-lg-1">
-                                </div>
-                            </div><br>
+                            </div><br><br>
                             <span class="d-flex justify-content-center">
-                                <hr class="mb-1 mt-0 pt-0 w-75">
+                                <hr class="mb-1 mt-0 pt-0 w-75 hr-custom-width">
                             </span><br>
                         </div>
-                        <div class="tile-footer d-flex justify-content-between px-lg-5 mx-lg-5 mb-lg-4">
-                            <a class="btn btn-white border border-primary rounded-0" href="{{ route('personal.create', ['info' => 'filing-status']) }}"><i
-                                    class="me-2 mb-5"></i><b class="text-primary">Previous Page</b></a>&nbsp;&nbsp;&nbsp;
-                            <button class="btn btn-primary" type="submit"><i class="me-2"></i><b
-                                    class="text-light">Save and Continue</b></button>
+                        <div class="tile-footer d-lg-flex justify-content-between px-lg-5 mx-lg-5 mb-lg-4">
+                            <div class="row">
+                                <div class="col-lg-8 w-100">
+                                    <button class="btn btn-primary rounded-0 d-block d-lg-none mb-2 button-custom-width" type="submit">
+                                        <b class="text-light">Save and Continue</b>
+                                    </button>
+                                    <a class="btn btn-white border border-primary rounded-0 button-custom-width" href="{{ route('personal.create', ['info' => 'filing-status']) }}">
+                                        <b class="text-primary">Previous Page</b>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-8 w-100">
+                                    <button class="btn btn-primary rounded-0 d-none d-lg-block button-custom-width" type="submit">
+                                        <b class="text-light">Save and Continue</b>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                         </form>
                     </div>
@@ -269,3 +280,41 @@
         </div>
     </div>
 @endsection
+
+@push('custom-scripts')
+    <script>
+        const ssn = document.getElementById('ssn');
+        ssn.addEventListener('input', function(event) {
+            // Get the current value of the input
+            const value = event.target.value;
+
+            // Check if the value exceeds the limit of 9 characters
+            if (value.length > 9) {
+                // If it exceeds, truncate the input value to 9 characters
+                event.target.value = value.slice(0, 9);
+            }
+        });
+
+        const last_name = document.getElementById('last_name');
+        last_name.addEventListener('input', function(event) {
+            const inputValue = event.target.value;
+
+            // Remove non-alphabetic characters and hyphens from the input value
+            const sanitizedValue = inputValue.replace(/[^A-Za-z\- .]/g, '');
+
+            // Update the input field value with the sanitized value
+            event.target.value = sanitizedValue;
+        });
+
+        const first_name = document.getElementById('first_name');
+        first_name.addEventListener('input', function(event) {
+            const inputValue = event.target.value;
+
+            // Remove non-alphabetic characters and hyphens from the input value
+            const sanitizedValue = inputValue.replace(/[^A-Za-z\- .]/g, '');
+
+            // Update the input field value with the sanitized value
+            event.target.value = sanitizedValue;
+        });
+    </script>
+@endpush

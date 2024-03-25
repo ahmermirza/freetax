@@ -3,8 +3,8 @@
 @section('title', 'Personal')
 
 @section('content')
-    <div class="d-flex justify-content-center p-4">
-        <div class="col-lg-9 shadow rounded-3">
+    <div class="d-flex justify-content-center p-lg-4 p-3">
+        <div class="col-lg-9 col-12 content-shadow shadow-none rounded-3">
             <div class="row p-4 pt-5">
                 <div class="d-lg-flex justify-content-between">
                     <i class="fa fa-arrow-left text-primary" aria-hidden="true"></i>
@@ -13,7 +13,7 @@
             <div class="row p-4 pt-0">
                 <div class="col-lg-12">
                     <div class="tile">
-                        <h2 class="tile-title d-lg-flex justify-content-center h2"><b>What's your filing status?</b></h2>
+                        <h2 class="tile-title d-flex justify-content-center text-center h2"><b>What's your filing status?</b></h2>
                         @if (isset($personal))
                             <form action="{{ route('personal.update', $personal) }}" method="post">
                                 @method('PUT')
@@ -23,6 +23,7 @@
                         <div class="tile-body">
                             @csrf
                             <input type="hidden" name="info" value="filing-status">
+                            <br>
                             <div class="row d-lg-flex justify-content-center">
                                 <div class="col-lg-8">
                                     <div class="has-danger form-check form-check-inline mb-3">
@@ -61,15 +62,29 @@
                                 </div>
                             </div>
                             <br>
+                            <span class="d-flex justify-content-center">
+                                <hr class="mb-3 mt-0 w-75 hr-custom-width">
+                            </span>
                         </div>
-                        <div class="tile-footer d-flex justify-content-between px-lg-5 mx-lg-5 mb-lg-4">
-                            <a class="btn btn-white border border-primary rounded-0" href="{{ route('personal.create', ['info' => 'basic']) }}"><i
-                                    class="me-2 mb-5"></i><b class="text-primary">Previous Page</b></a>&nbsp;&nbsp;&nbsp;
-                            <button class="btn btn-primary rounded-0" type="submit"><i class="me-2"></i><b
-                                    class="text-light">Save
-                                    and
-                                    Continue</b></button>
-                        </div>
+                        <div class="tile-footer d-lg-flex justify-content-between px-lg-5 mx-lg-5 mb-lg-4">
+                            <div class="row">
+                                <div class="col-lg-8 w-100">
+                                    <button class="btn btn-primary rounded-0 d-block d-lg-none mb-2 button-custom-width" type="submit">
+                                        <b class="text-light">Save and Continue</b>
+                                    </button>
+                                    <a class="btn btn-white border border-primary rounded-0 button-custom-width" href="{{ route('personal.create', ['info' => 'basic']) }}">
+                                        <b class="text-primary">Previous Page</b>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-8 w-100">
+                                    <button class="btn btn-primary rounded-0 d-none d-lg-block button-custom-width" type="submit">
+                                        <b class="text-light">Save and Continue</b>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>                        
                         </form>
                     </div>
                 </div>

@@ -3,8 +3,8 @@
 @section('title', 'Personal')
 
 @section('content')
-    <div class="d-flex justify-content-center p-4">
-        <div class="col-lg-9 shadow rounded-3">
+    <div class="d-flex justify-content-center p-lg-4 p-3">
+        <div class="col-lg-9 content-shadow shadow-none rounded-3">
             <div class="row p-4 pt-5">
                 <div class="d-lg-flex justify-content-between">
                     <i class="fa fa-arrow-left text-primary" aria-hidden="true"></i>
@@ -13,7 +13,7 @@
             <div class="row p-4 pt-0">
                 <div class="col-lg-12">
                     <div class="tile">
-                        <h2 class="tile-title d-lg-flex justify-content-center h2"><b>Tell us about yourself</b></h2>
+                        <h2 class="tile-title d-flex justify-content-center text-center h2"><b>Tell us about yourself</b></h2>
                         @if (isset($personal))
                             <form action="{{ route('personal.update', $personal) }}" method="post">
                                 @method('PUT')
@@ -133,7 +133,7 @@
                                 </div>
                             </div>
                             <span class="d-flex justify-content-center">
-                                <hr class="mb-1 w-75">
+                                <hr class="mb-1 w-75 hr-custom-width">
                             </span>
                             <div class="row ps-5">
                                 <div class="col-lg-1">
@@ -201,10 +201,13 @@
                                 <div class="col-lg-4">
                                     <label class="form-form-label h6" for="zip">Zip Code:</label>
                                     <div class="row">
+                                        @php
+                                            $zip_arr = json_decode($personal->zip, true)
+                                        @endphp
                                         <div class="col-lg-4">
                                             <div class="has-danger input-group mb-3">
                                                 <input class="form-control @error('zip1') is-invalid @enderror"
-                                                    name="zip1" type="text" value="" aria-label="zip1"
+                                                    name="zip1" type="text" value="{{ isset($zip_arr) ? $zip_arr['zip1'] : '' }}" aria-label="zip1"
                                                     aria-describedby="basic-addon2">
                                             </div>
                                         </div>
@@ -212,7 +215,7 @@
                                         <div class="col-lg-4">
                                             <div class="has-danger input-group mb-3">
                                                 <input class="form-control @error('zip2') is-invalid @enderror"
-                                                    name="zip2" type="text" value="" aria-label="zip2"
+                                                    name="zip2" type="text" value="{{ isset($zip_arr) ? $zip_arr['zip2'] : '' }}" aria-label="zip2"
                                                     aria-describedby="basic-addon2">
                                             </div>
                                         </div>

@@ -28,6 +28,49 @@
             box-shadow: 1px 2px 3px -2px rgba(33, 47, 69, .25);
         }
 
+        .content-shadow {
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+        }
+
+        .state-img {
+            width: 50%;
+        }
+
+        .index-custom-table-width {
+            width: 70%;
+        }
+
+        @media (max-width: 1000px) {
+            .radio-label-custom-width {
+                width: 50%;
+            }
+
+            .hr-custom-width {
+                width: 100% !important;
+            }
+
+            .justify-content-start-mobile {
+                display: flex;
+                justify-content: start !important;
+            }
+
+            .button-custom-width {
+                width: 100% !important;
+            }
+
+            .shadow-none {
+                box-shadow: none !important;
+            }
+
+            .state-img {
+                width: 100%;
+            }
+
+            .index-custom-table-width {
+                width: 100%;
+            }
+        }
+
         @media (max-width: 1200px) {
             .bg-light-custom {
                 background-color: rgba(248, 249, 250, 1)
@@ -93,7 +136,7 @@
 <body>
     <nav class="navbar navbar-expand-xl navbar-light bg-white">
         <div class="container-fluid">
-            <a class="navbar-brand font-weight-bold text-dark h1 ps-5 pe-3" href="{{ route('home') }}">FreeTax</a>
+            <a class="navbar-brand font-weight-bold text-dark h1 ps-5 pe-3" href="{{ route('home') }}"><b>FreeTax</b></a>
 
             <div class="collapse show navbar-collapse d-xl-flex justify-content-end" id="navbar_main">
                 {{-- <ul class="navbar-nav">
@@ -122,7 +165,7 @@
                             </ul>
                         </li>
                     @endauth
-                    @guest
+                    {{-- @guest
                         <li class="nav-item">
                             <a class="nav-link text-dark font-weight-bold p-3 pe-1" href="{{ route('login') }}">Login</a>
                         </li>
@@ -130,7 +173,7 @@
                             <a class="nav-link text-dark font-weight-bold p-3 pe-5"
                                 href="{{ route('register') }}">Register</a>
                         </li>
-                    @endguest
+                    @endguest --}}
                 </ul>
             </div>
         </div>
@@ -233,7 +276,7 @@
                                             Paid</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item dropdown nav-custom-item px-lg-1 px-xl-1" role="button">
+                            {{-- <li class="nav-item dropdown nav-custom-item px-lg-1 px-xl-1" role="button">
                                 <a class="nav-link text-dark h6 py-1 my-0 ps-2" href="#"
                                     id="navbarDarkDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa fa-check text-success"
@@ -249,8 +292,8 @@
                                     <li><a class="dropdown-item" href="#"><i class="fa fa-check text-success"
                                                 aria-hidden="true"></i>&nbsp;&nbsp;Something else here</a></li>
                                 </ul>
-                            </li>
-                            <li class="nav-item dropdown nav-custom-item px-lg-1 px-xl-1" role="button">
+                            </li> --}}
+                            {{-- <li class="nav-item dropdown nav-custom-item px-lg-1 px-xl-1" role="button">
                                 <a class="nav-link text-dark h6 py-1 my-0 ps-2" href="#"
                                     id="navbarDarkDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa fa-check text-success"
@@ -266,7 +309,7 @@
                                     <li><a class="dropdown-item" href="#"><i class="fa fa-check text-success"
                                                 aria-hidden="true"></i>&nbsp;&nbsp;Something else here</a></li>
                                 </ul>
-                            </li>
+                            </li> --}}
                             <li class="nav-item dropdown nav-custom-item px-lg-1 px-xl-1" role="button">
                                 <a class="nav-link text-dark h6 py-1 my-0 ps-2" href="#"
                                     id="navbarDarkDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
@@ -289,13 +332,13 @@
 
     <main class="app-content">
         @yield('content')
-        <!-- Modal -->
+        <!-- privacy Modal -->
         <div class="modal fade" id="privacy_modal" tabindex="-1" aria-labelledby="privacy_modal_label"
             aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="privacy_modal_label">Privacy</h5>
+                        <h5 class="modal-title" id="privacy_modal_label">Privacy Statement</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                     </div>
@@ -641,7 +684,7 @@
                                 please send your question to <a
                                     href="mailto:webmaster@FreeTaxUSA.com">webmaster@FreeTaxUSA.com</a>.</p>
                             <p>Or, address your written question to:</p>
-                            <p><span class="fw-bold">FreeTaxUSA - Privacy</span><br> 1366 East 1120 South<br> Provo, UT
+                            <p><span class=">FreeTaxUSA - Privacy</span><br> 1366 East 1120 South<br> Provo, UT
                                 84606 </p>
                             <p>If you have an unresolved privacy or data use concern that we have not addressed
                                 satisfactorily, please contact our U.S.-based third-party dispute resolution provider
@@ -658,16 +701,136 @@
             </div>
         </div>
 
+        <!-- security Modal -->
+        <div class="modal fade" id="security_modal" tabindex="-1" aria-labelledby="security_modal_label" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" style="font-size: 24px;" id="security_modal_label"><b>Your Information is Safe</b></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row text-center text-sm-start pb-4" data-v-9558f88c="">
+                            <div class="col-12 col-sm-4 order-1 order-sm-2 text-center" data-v-9558f88c=""><img
+                                    style="max-width:152px;" src="/img/authorized-efile-provider-trans.e5fcf769.png" alt=""
+                                    data-v-9558f88c=""></div>
+                            <div class="col-12 col-sm-8 order-2 order-sm-1" data-v-9558f88c="">
+                                <h2 class="tp" style="font-size: 16px;" data-v-9558f88c=""><b>Trusted Company</b></h2>
+                                <p data-v-9558f88c="">As an authorized IRS e-file provider, we meet or exceed the security
+                                    requirements outlined by the IRS.</p>
+                            </div>
+                        </div>
+                        <div class="row text-center text-sm-start pb-4" data-v-9558f88c="">
+                            <div class="col-12 col-sm-4 order-1 order-sm-2 text-center" data-v-9558f88c="">
+                                <div data-v-9558f88c="">
+                                    <div id="DigiCertClickID_7EPyCYl-" data-language="en" data-v-9558f88c="">
+                                        <div id="DigiCertClickID_7EPyCYl-Seal"
+                                            style="text-decoration: none; text-align: center; display: block; vertical-align: baseline; font-size: 100%; font-style: normal; text-indent: 0px; line-height: 1; width: auto; margin: 0px auto; padding: 0px; border: 0px; background: transparent; position: relative; inset: 0px; clear: both; float: none; cursor: default;">
+                                            <img src="//seal.digicert.com/seals/cascade/?tag=7EPyCYl-&amp;referer=auth.freetaxusa.com&amp;format=png&amp;lang=en&amp;an=min"
+                                                alt="DigiCert Secured Site Seal" tabindex="0" role="link"
+                                                style="text-decoration: none; text-align: center; display: block; vertical-align: baseline; font-size: 100%; font-style: normal; text-indent: 0px; line-height: 1; width: auto; margin: 0px auto; padding: 0px; border: 0px; background: transparent; position: relative; inset: 0px; clear: both; float: none; cursor: pointer;">
+                                        </div>
+                                    </div>
+                                    <script
+                                        data-v-9558f88c=""> var __dcid = __dcid || []; __dcid.push({ "cid": "DigiCertClickID_7EPyCYl-", "tag": "7EPyCYl-" }); (function () { var cid = document.createElement("script"); cid.async = true; cid.src = "//seal.digicert.com/seals/cascade/seal.min.js"; var s = document.getElementsByTagName("script"); var ls = s[(s.length - 1)]; ls.parentNode.insertBefore(cid, ls.nextSibling); }()); </script>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-8 order-2 order-sm-1" data-v-9558f88c="">
+                                <h2 class="tp" style="font-size: 16px;" data-v-9558f88c=""><b>We Keep Your Information Private</b></h2>
+                                <p data-v-9558f88c="">Since we use SSL certificates, your connection is encrypted and sensitive
+                                    information is safe with us.</p>
+                            </div>
+                        </div>
+                        <div class="row text-center text-sm-start pb-4" data-v-9558f88c="">
+                            <div class="col-12 col-sm-4 order-1 order-sm-2 text-center" data-v-9558f88c=""><img
+                                    src="data:image/gif;base64,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"
+                                    alt="" data-v-9558f88c=""></div>
+                            <div class="col-12 col-sm-8 order-2 order-sm-1" data-v-9558f88c="">
+                                <h2 class="tp" style="font-size: 16px;" data-v-9558f88c=""><b>Your Payment Cards are Secure</b></h2>
+                                <p data-v-9558f88c="">We comply with rigorous data security standards to protect against theft
+                                    of your payment information.</p>
+                            </div>
+                        </div>
+                        <div class="row text-center text-sm-start pb-4" data-v-9558f88c="">
+                            <div class="col-12 col-sm-4 order-1 order-sm-2 text-center" data-v-9558f88c=""><a
+                                    href="//privacy.truste.com/privacy-seal/validation?rid=c42c3969-4ba9-45a8-a024-d06b6af0032e"
+                                    title="TRUSTe Privacy Certification" target="_blank" data-v-9558f88c=""><img
+                                        src="//privacy-policy.truste.com/privacy-seal/seal?rid=c42c3969-4ba9-45a8-a024-d06b6af0032e"
+                                        alt="TRUSTe Privacy Certification" data-v-9558f88c="" style="border: none;"></a></div>
+                            <div class="col-12 col-sm-8 order-2 order-sm-1" data-v-9558f88c="">
+                                <h2 class="tp" style="font-size: 16px;" data-v-9558f88c="">Privacy is Our Priority</h2>
+                                <p data-v-9558f88c="">Compliance to industry standards ensures adherence to privacy best
+                                    practices. <button type="button" data-v-9558f88c="">Read privacy policy</button></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- accessibility Modal -->
+        <div class="modal fade" id="accessibility_modal" tabindex="-1" aria-labelledby="accessibility_modal_label"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" style="font-size: 24px;" id="accessibility_modal_label"><b>Accessibility</b>
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="d-flex flex-column flex-md-row" data-v-7ca7878e="">
+                            <div class="order-2 order-md-1" data-v-7ca7878e="">
+                                <p data-v-7ca7878e="">TaxHawk, Inc. is committed to ensuring digital accessibility for people
+                                    with disabilities. We are continually improving the user experience for everyone and
+                                    applying the relevant accessibility standards. We engage in efforts necessary to meet online
+                                    usability and web page design requirements recommended by the World Wide Web Consortium
+                                    (W3C) in its Web Content Accessibility Guidelines 2.1.</p>
+                            </div>
+                            <div class="order-1 order-md-1 text-center" data-v-7ca7878e=""><img class="p-2" style="width:7rem;"
+                                    src="/img/ncg-logo.afca3ea5.png" alt="Accessibility" data-v-7ca7878e=""></div>
+                        </div>
+                        <h2 class="tp fw-bold" style="font-size: 16px;" data-v-7ca7878e="">Accessibility Standards</h2>
+                        <p data-v-7ca7878e="">For the purposes of this policy, TaxHawk, Inc. conforms the Worldwide Web
+                            Consortium's Web Content Accessibility Guidelines version 2.1, Level AA Conformance (WCAG 2.1 Level
+                            AA). We use software tools to regularly test and evaluate the accessibility of our website and to
+                            make improvements by partnering with National Compliance Group.</p>
+                        <p data-v-7ca7878e="">Recognizing the ongoing evolution of current web content and technologies,
+                            National Compliance Group will continue to test TaxHawk, Inc. on an ongoing basis for accessibility
+                            and report accessibility issues for this website. Any features found to be inaccessible will be
+                            addressed in a timely manner.</p>
+                        <h2 class="tp fw-bold" style="font-size: 16px;" data-v-7ca7878e="">Third Party Sites</h2>
+                        <p data-v-7ca7878e="">Throughout this website, we make use of different third-party applications and
+                            websites. These applications and websites, which are not controlled by TaxHawk, Inc., may present
+                            challenges for individuals with disabilities that we are not able to control or remedy.</p>
+                        <h2 class="tp fw-bold" style="font-size: 16px;" data-v-7ca7878e="">Accommodation</h2>
+                        <p data-v-7ca7878e="">If you encounter any page on our site that presents a challenge for individuals
+                            with disabilities, please submit your feedback. TaxHawk, Inc. accepts calls from relay services. You
+                            may also request any modifications to our policies, practices and procedures. Please contact us at
+                            <a href="mailto:support@support.freetaxusa.com"
+                                data-v-7ca7878e="">support@support.freetaxusa.com</a>.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
-    <div id="footer" class="d-flex box mb-4 position-relative">
+    <div id="footer" class="d-flex box mb-5 position-relative">
         <div class="box flex-fill page-footer">
             <div class="box d-flex flex-column justify-content-center align-items-center">
                 <div id="privacy" class="mt-5" style="font-size: 12px;">
                     <a class="mx-4" href="#" style="text-decoration: none;" data-bs-toggle="modal"
                         data-bs-target="#privacy_modal"><b>Privacy</b></a>
-                    <a class="mx-4" href="#" style="text-decoration: none;"><b>Security</b></a>
-                    <a class="mx-4" href="#" style="text-decoration: none;"
-                        aria-label="Click here to open accessibility options"><b>Accessibility</b></a>
+                    <a class="mx-4" href="#" style="text-decoration: none;" data-bs-toggle="modal"
+                    data-bs-target="#security_modal"><b>Security</b></a>
+                    <a class="mx-4" href="#" style="text-decoration: none;" data-bs-toggle="modal"
+                    data-bs-target="#accessibility_modal" aria-label="Click here to open accessibility options"><b>Accessibility</b></a>
                 </div>
                 <div id="copywrite" style="font-size: small;">© 2002-2024 FreeTax - All Rights Reserved
                 </div>
@@ -680,6 +843,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
+    @stack('custom-scripts')
 </body>
 
 </html>

@@ -3,8 +3,8 @@
 @section('title', 'Personal')
 
 @section('content')
-    <div class="d-flex justify-content-center p-4">
-        <div class="col-lg-9 shadow rounded-3">
+    <div class="d-flex justify-content-center p-lg-4 p-3">
+        <div class="col-lg-9 content-shadow shadow-none rounded-3">
             <div class="row p-4 pt-5">
                 <div class="d-lg-flex justify-content-between">
                     <i class="fa fa-arrow-left text-primary" aria-hidden="true"></i>
@@ -13,7 +13,7 @@
             <div class="row p-4 pt-0">
                 <div class="col-lg-12">
                     <div class="tile">
-                        <h2 class="tile-title d-lg-flex justify-content-center h2"><b>Tell us about your dependent</b></h2>
+                        <h2 class="tile-title d-flex justify-content-center text-center h2"><b>Tell us about your dependent</b></h2>
                         <br>
                         <form action="{{ route('dependents.update', $dependent) }}" method="post">
                             @method('PUT')
@@ -24,7 +24,7 @@
                                         <label class="form-form-label h6" for="first_name">First Name:</label>
                                         <div class="has-danger input-group mb-3">
                                             <input class="form-control @error('first_name') is-invalid @enderror"
-                                                name="first_name" type="text"
+                                                name="first_name" type="text" id="first_name"
                                                 value="{{ old('first_name', $dependent ? $dependent->first_name : '') }}"
                                                 aria-label="first_name" aria-describedby="basic-addon2">
                                         </div>
@@ -34,7 +34,7 @@
                                         <label class="form-form-label h6" for="last_name">Last Name:</label>
                                         <div class="has-danger input-group mb-3">
                                             <input class="form-control @error('last_name') is-invalid @enderror"
-                                                name="last_name" type="text"
+                                                name="last_name" type="text" id="last_name"
                                                 value="{{ old('last_name', $dependent ? $dependent->last_name : '') }}"
                                                 aria-label="last_name" aria-describedby="basic-addon2">
                                         </div>
@@ -45,7 +45,7 @@
                                                 class="fa-regular fa-circle-question text-primary"></i></label>
                                         <div class="has-danger input-group mb-3">
                                             <input class="form-control @error('ssn') is-invalid @enderror" name="ssn"
-                                                type="number" value="{{ old('ssn', $dependent ? $dependent->ssn : '') }}"
+                                                type="number" value="{{ old('ssn', $dependent ? $dependent->ssn : '') }}" id="ssn"
                                                 aria-label="ssn" aria-describedby="basic-addon2">
                                         </div>
                                         @error('ssn')
@@ -166,7 +166,7 @@
                                 </div>
                                 <br><br>
                                 <span class="d-flex justify-content-center">
-                                    <hr class="mb-1 w-75">
+                                    <hr class="mb-1 w-75 hr-custom-width">
                                 </span>
                                 <br>
                             </div>
@@ -181,3 +181,41 @@
         </div>
     </div>
 @endsection
+
+@push('custom-scripts')
+    <script>
+        const ssn = document.getElementById('ssn');
+        ssn.addEventListener('input', function(event) {
+            // Get the current value of the input
+            const value = event.target.value;
+
+            // Check if the value exceeds the limit of 9 characters
+            if (value.length > 9) {
+                // If it exceeds, truncate the input value to 9 characters
+                event.target.value = value.slice(0, 9);
+            }
+        });
+
+        const last_name = document.getElementById('last_name');
+        last_name.addEventListener('input', function(event) {
+            const inputValue = event.target.value;
+
+            // Remove non-alphabetic characters and hyphens from the input value
+            const sanitizedValue = inputValue.replace(/[^A-Za-z\- .]/g, '');
+
+            // Update the input field value with the sanitized value
+            event.target.value = sanitizedValue;
+        });
+
+        const first_name = document.getElementById('first_name');
+        first_name.addEventListener('input', function(event) {
+            const inputValue = event.target.value;
+
+            // Remove non-alphabetic characters and hyphens from the input value
+            const sanitizedValue = inputValue.replace(/[^A-Za-z\- .]/g, '');
+
+            // Update the input field value with the sanitized value
+            event.target.value = sanitizedValue;
+        });
+    </script>
+@endpush

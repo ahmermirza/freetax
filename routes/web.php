@@ -83,7 +83,7 @@ Route::group(['middleware' => ['auth']], function () {
 
         // State Routes
         Route::get('/state', 'StateController@stateIndex')->name('state.index');
-        Route::get('/state/filing-state', 'StateController@stateCreate')->name('state.name.create');
+        Route::get('/state/filing-state/{state?}', 'StateController@stateCreate')->name('state.name.create');
         Route::post('/state', 'StateController@stateStore')->name('state.name.store');
         Route::put('/state/{state}/state', 'StateController@stateUpdate')->name('state.name.update');
         Route::delete('/state/{state}', 'StateController@stateDelete')->name('state.destroy');

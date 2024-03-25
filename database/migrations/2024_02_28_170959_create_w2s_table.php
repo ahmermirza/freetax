@@ -17,7 +17,7 @@ class CreateW2sTable extends Migration
             $table->id();
             $table->foreignId('personal_id')->nullable()->constrained()->onDelete('cascade');
             $table->foreignId('spouse_id')->nullable()->constrained()->onDelete('cascade');
-            $table->integer('ein')->nullable();
+            $table->string('ein')->nullable();
             $table->string('emp_name')->nullable();
             $table->string('emp_foreign_address')->nullable();
             $table->string('emp_address')->nullable();

@@ -5,7 +5,7 @@
 @section('content')
     <div class="d-flex justify-content-center p-lg-4 p-3">
         <div class="col-lg-9 content-shadow shadow-none rounded-3">
-            <div class="row p-1 pt-5">
+            <div class="row p-4 pt-5">
                 <div class="d-lg-flex justify-content-between">
                     <i class="fa fa-arrow-left text-primary" aria-hidden="true"></i>
                 </div>
@@ -46,7 +46,7 @@
                                                 <div class="col-lg-6">
                                                     <label class="form-form-label h6" for="ein"><b>Box B</b> - Employer
                                                         Identification Number (EIN):</label>
-                                                    <input type="text" id="ein" class="form-control mb-3 @error('ein') is-invalid @enderror"
+                                                    <input type="number" id="ein" class="form-control mb-3 @error('ein') is-invalid @enderror"
                                                         name="ein">
                                                     @error('ein')
                                                         <div class="form-control-feedback text-danger pb-2">{{ $message }}</div>
@@ -721,38 +721,34 @@
                                             <span class="d-flex justify-content-center">
                                                 <hr class="mb-1 w-100">
                                             </span><br>
-                                            <div class="row ms-1">
-                                                <div class="col-lg-1 col-6 pe-2 pe-lg-2 d-flex justify-content-end">
-                                                    <div class="has-danger form-check form-check-inline mb-3 pe-3">
+                                            <div class="row ms-0 ms-lg-2">
+                                                <div class="col-lg-8 col-12 ms-3 ms-lg-0 ps-lg-0 d-flex justify-content-start">
+                                                    <div class="has-danger form-check form-check-inline mb-3 pe-0">
                                                         <input class="form-check-input me-3 h4" name="w2_standard"
                                                             type="radio" value="1" aria-label="w2_standard"
                                                             aria-describedby="basic-addon2" checked>
+                                                            <label class="form-check-label h6 pt-2" for="w2_standard">Standard
+                                                                W-2
+                                                                (most common)
+                                                            </label>
                                                         </div>
                                                 </div>
-                                                <div class="col-lg-7 col-6 ps-lg-0 radio-label-custom-width ps-0">
-                                                    <label class="form-check-label h6 pt-2" for="w2_standard">Standard
-                                                        W-2
-                                                        (most common)
-                                                    </label>
-                                                </div>
                                             </div>
-                                            <div class="row ms-1">
-                                                <div class="col-lg-1 col-6 pe-2 pe-lg-2 d-flex justify-content-end">
-                                                    <div class="has-danger form-check form-check-inline mb-3 pe-3">
+                                            <div class="row ms-0 ms-lg-2">
+                                                <div class="col-lg-8 col-12 ms-3 ms-lg-0 ps-lg-0 d-flex justify-content-start">
+                                                    <div class="has-danger form-check form-check-inline mb-3 pe-0">
                                                         <input class="form-check-input me-3 h4" name="w2_standard"
                                                             type="radio" value="0" aria-label="w2_standard"
                                                             aria-describedby="basic-addon2">
+                                                            <label class="form-check-label h6 pt-2"
+                                                                for="w2_standard">Nonstandard
+                                                                W-2 (handwritten, altered, or hand-typed)
+                                                            </label>
                                                         </div>
                                                     </div>
-                                                <div class="col-lg-7 col-6 ps-lg-0 radio-label-custom-width ps-0">
-                                                    <label class="form-check-label h6 pt-2"
-                                                        for="w2_standard">Nonstandard
-                                                        W-2 (handwritten, altered, or hand-typed)
-                                                    </label>
-                                                </div>
                                             </div>
-                                            <div class="row ms-1">
-                                                <div class="col-xl-2 col-lg-3 col-6 pe-1 d-flex justify-content-end">
+                                            <div class="row ms-1 pt-3 pt-lg-0">
+                                                <div class="col-xl-2 col-lg-3 col-6 pe-1 d-flex justify-content-center">
                                                     <div class="has-danger form-check form-check-inline mb-3 pe-3">
                                                         <input class="form-check-input h4" type="radio"
                                                             name="w2_corrected" id="w2_corrected" value="yes">
@@ -760,30 +756,44 @@
                                                             for="w2_corrected"><b>Yes</b></label>
                                                     </div>
                                                     <div class="has-danger form-check form-check-inline mb-3">
-                                                        <input class="form-check-input me-3 h4" type="radio"
+                                                        <input class="form-check-input h4" type="radio"
                                                             name="w2_corrected" id="w2_corrected" value="no" checked>
                                                         <label class="form-check-label h6 pt-2"
                                                             for="w2_corrected"><b>No</b></label>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-7 col-6 ps-lg-0 radio-label-custom-width ps-0">
+                                                <div class="col-lg-7 col-6 radio-label-custom-width px-0">
                                                     <label class="form-form-label h6 pt-2" for="employer-address">Is this a
                                                         corrected W-2 from your employer? <span class="text-secondary">(not
                                                             common)</span></label>
                                                 </div>
                                             </div>
-                                                <span class="d-flex justify-content-center">
-                                                    <hr class="mb-1 mt-0 pt-0 w-100">
-                                                </span><br>
-                                            </div>
                                         </div>
                                     </div>
+                                </div><br><br>
+                                    <span class="d-flex justify-content-center">
+                                        <hr class="mb-1 mt-0 pt-0 w-100">
+                                    </span><br>
                                 </div>
-                                <div class="tile-footer d-flex justify-content-between mx-lg-5 mb-lg-4">
-                                    <a class="btn btn-white border border-primary rounded-0" href="{{ route('w-2.index') }}"><b
-                                        class="text-primary">Cancel</b></a>&nbsp;&nbsp;&nbsp;
-                                    <button class="btn btn-primary rounded-0" type="submit"><i class="me-2"></i><b
-                                            class="text-light">Save and Continue</b></button>
+                                <div class="tile-footer d-lg-flex justify-content-between mb-lg-4">
+                                    <div class="row">
+                                        <div class="col-lg-8 w-100">
+                                            <button class="btn btn-primary rounded-0 d-block d-lg-none mb-2 button-custom-width" type="submit">
+                                                <b class="text-light">Save and Continue</b>
+                                            </button>
+                                            <a class="btn btn-white border border-primary rounded-0 button-custom-width"
+                                                href="{{ route('w-2.index') }}">
+                                                <b class="text-primary">Cancel</b>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-8 w-100">
+                                            <button class="btn btn-primary rounded-0 d-none d-lg-block button-custom-width" type="submit">
+                                                <b class="text-light">Save and Continue</b>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                         </form>
                     </div>
@@ -792,3 +802,18 @@
         </div>
     </div>
 @endsection
+
+@push('custom-scripts')
+    <script>
+        const employer_name = document.getElementById('employer-name');
+        employer_name.addEventListener('input', function(event) {
+            const inputValue = event.target.value;
+
+            // Remove non-alphabetic characters and hyphens from the input value
+            const sanitizedValue = inputValue.replace(/[^A-Za-z\- .]/g, '');
+
+            // Update the input field value with the sanitized value
+            event.target.value = sanitizedValue;
+        });
+    </script>
+@endpush

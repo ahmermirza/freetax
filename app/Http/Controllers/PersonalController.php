@@ -45,11 +45,11 @@ class PersonalController extends Controller
     {
         if ($request->has('info') && $request->info == 'basic') {
             $this->validate($request, [
-                'first_name' => 'required',
-                'last_name' => 'required',
+                'first_name' => 'required|alpha',
+                'last_name' => 'required|alpha',
                 'occupation' => 'required',
                 'dob' => 'required',
-                'ssn' => 'required',
+                'ssn' => 'required|digits:9',
                 'street_address' => 'required',
                 'city' => 'required',
                 'state' => 'required',
@@ -102,11 +102,11 @@ class PersonalController extends Controller
 
         elseif ($request->has('info') && $request->info == 'spouse') {
             $this->validate($request, [
-                'first_name' => 'required',
-                'last_name' => 'required',
+                'first_name' => 'required|alpha',
+                'last_name' => 'required|alpha',
                 'occupation' => 'required',
                 'dob' => 'required',
-                'ssn' => 'required',
+                'ssn' => 'required|digits:9',
             ]);
 
             if(auth()->user()->personals()->first()->spouse()->count() == 0){
@@ -139,13 +139,13 @@ class PersonalController extends Controller
     {
         if ($request->has('info') && $request->info == 'basic') {
             $this->validate($request, [
-                'first_name' => 'required',
-                'last_name' => 'required',
+                'first_name' => 'required|alpha',
+                'last_name' => 'required|alpha',
                 'occupation' => 'required',
                 'dob' => 'required',
                 'middle_initial' => 'required',
                 'suffix' => 'required',
-                'ssn' => 'required',
+                'ssn' => 'required|digits:9',
                 'street_address' => 'required',
                 'apt_no' => 'required',
                 'city' => 'required',
@@ -197,13 +197,13 @@ class PersonalController extends Controller
         elseif ($request->has('info') && $request->info == 'spouse') {
             
             $this->validate($request, [
-                'first_name' => 'required',
-                'last_name' => 'required',
+                'first_name' => 'required|alpha',
+                'last_name' => 'required|alpha',
                 'occupation' => 'required',
                 'dob' => 'required',
                 'middle_initial' => 'required',
                 'suffix' => 'required',
-                'ssn' => 'required',
+                'ssn' => 'required|digits:9',
                 'parent_claim' => 'required',
                 'campaign_contribution' => 'required',
                 'blind' => 'required',

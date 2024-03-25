@@ -3,8 +3,8 @@
 @section('title', 'Personal')
 
 @section('content')
-    <div class="d-flex justify-content-center p-4">
-        <div class="col-lg-9 shadow rounded-3">
+    <div class="d-flex justify-content-center p-lg-4 p-3">
+        <div class="col-lg-9 content-shadow shadow-none rounded-3">
             <div class="row p-4 pt-5">
                 <div class="d-lg-flex justify-content-between">
                     <i class="fa fa-arrow-left text-primary" aria-hidden="true"></i>
@@ -13,7 +13,7 @@
             <div class="row p-4 pt-0">
                 <div class="col-lg-12">
                     <div class="tile">
-                        <h2 class="tile-title d-lg-flex justify-content-center h2"><b>Tell us about yourself</b></h2>
+                        <h2 class="tile-title d-flex justify-content-center text-center h2"><b>Tell us about yourself</b></h2>
                         @if (isset($personal))
                             <form action="{{ route('personal.update', $personal) }}" method="post">
                                 @method('PUT')
@@ -35,12 +35,10 @@
                                     <label class="form-form-label h6" for="first_name">First Name: <i
                                             class="fa-regular fa-circle-question text-primary"></i></label>
                                     <div class="has-danger input-group mb-3">
-                                        <input class="form-control @error('first_name') is-invalid @enderror border-end-0"
-                                            name="first_name" type="text"
+                                        <input class="form-control @error('first_name') is-invalid @enderror"
+                                            name="first_name" type="text" id="first_name"
                                             value="{{ old('first_name', $personal ? $personal->first_name : '') }}"
-                                            aria-label="first_name" aria-describedby="basic-addon2"><span
-                                            class="input-group-text bg-transparent text-secondary @error('first_name') is-invalid border border-danger text-danger @enderror border-start-0"
-                                            id="basic-addon2"><i class="fa-solid fa-address-card"></i></span>
+                                            aria-label="first_name" aria-describedby="basic-addon2">
                                     </div>
                                     @error('first_name')
                                         <div class="form-control-feedback text-danger pb-2">{{ $message }}</div>
@@ -49,7 +47,7 @@
                                             class="fa-regular fa-circle-question text-primary"></i></label>
                                     <div class="has-danger input-group mb-3">
                                         <input class="form-control @error('last_name') is-invalid @enderror"
-                                            name="last_name" type="text"
+                                            name="last_name" type="text" id="last_name"
                                             value="{{ old('last_name', $personal ? $personal->last_name : '') }}"
                                             aria-label="last_name" aria-describedby="basic-addon2">
                                     </div>
@@ -125,7 +123,7 @@
                                     <div class="has-danger input-group mb-3">
                                         <input class="form-control @error('ssn') is-invalid @enderror" name="ssn"
                                             type="number" value="{{ old('ssn', $personal ? $personal->ssn : '') }}"
-                                            aria-label="ssn" aria-describedby="basic-addon2">
+                                            aria-label="ssn" aria-describedby="basic-addon2" id="ssn">
                                     </div>
                                     @error('ssn')
                                         <div class="form-control-feedback text-danger pb-2">{{ $message }}</div>
@@ -133,7 +131,7 @@
                                 </div>
                             </div>
                             <span class="d-flex justify-content-center">
-                                <hr class="mb-1 w-75">
+                                <hr class="mb-1 w-75 hr-custom-width">
                             </span>
                             <div class="row ps-5">
                                 <div class="col-lg-1">
@@ -256,18 +254,21 @@
                                 <div class="col-lg-4">
                                     <label class="form-form-label h6" for="zip">Zip Code:</label>
                                     <div class="row">
-                                        <div class="col-lg-4">
+                                        @php
+                                            $zip_arr = json_decode($personal->zip, true)
+                                        @endphp
+                                        <div class="col-lg-4 col-4">
                                             <div class="has-danger input-group mb-3">
                                                 <input class="form-control @error('zip1') is-invalid @enderror"
-                                                    name="zip1" type="text" value="" aria-label="zip1"
+                                                    name="zip1" type="text" value="{{ isset($zip_arr) ? $zip_arr['zip1'] : '' }}" aria-label="zip1"
                                                     aria-describedby="basic-addon2">
                                             </div>
                                         </div>
                                         &lowbar;
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-4 col-4">
                                             <div class="has-danger input-group mb-3">
                                                 <input class="form-control @error('zip2') is-invalid @enderror"
-                                                    name="zip2" type="text" value="" aria-label="zip2"
+                                                    name="zip2" type="text" value="{{ isset($zip_arr) ? $zip_arr['zip2'] : '' }}" aria-label="zip2"
                                                     aria-describedby="basic-addon2">
                                             </div>
                                         </div>
@@ -278,29 +279,29 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="row d-lg-flex justify-content-center">
-                                <div class="col-lg-5">
-                                    <div class="has-danger input-group mb-3">
+                            <div class="row d-lg-flex justify-content-center ps-2 justify-content-start-mobile">
+                                <div class="col-xl-1 col-lg-3 col-2 px-0">
+                                    <div class="has-danger input-group mb-3 ms-lg-4">
                                         <input
                                             class="form-check-input @error('address_changed') is-invalid @enderror me-3 h4"
                                             name="address_changed" type="checkbox"
                                             value="{{ $personal && $personal->address_changed == 1 ? $personal->address_changed : '1' }}"
                                             aria-label="address_changed" aria-describedby="basic-addon2"
                                             {{ $personal && $personal->address_changed == 1 ? 'checked' : '' }}>
-                                        <label class="form-check-label h6 pt-2" for="address_changed">Address
-                                            changed from previously filed return <i
-                                                class="fa-regular fa-circle-question text-primary"></i></label>
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
+                                <div class="col-lg-7 col-9 ps-lg-0 ps-0 me-lg-5 px-lg-5">
+                                    <label class="form-check-label h6 pt-lg-2" for="address_changed">Address
+                                        changed from previously filed return <i
+                                            class="fa-regular fa-circle-question text-primary"></i></label>
                                 </div>
                             </div>
                             <span class="d-flex justify-content-center">
-                                <hr class="mb-3 mt-0 w-75">
+                                <hr class="mb-3 mt-0 w-75 hr-custom-width">
                             </span>
                             <div class="row d-lg-flex justify-content-center">
-                                <div class="col-lg-8">
-                                    <div class="has-danger form-check form-check-inline mb-3">
+                                <div class="col-xl-2 col-lg-3 col-6 pe-0">
+                                    <div class="has-danger form-check form-check-inline mb-3 pe-3">
                                         <input class="form-check-input me-3 h4" name="parent_claim" type="radio"
                                             value="1" aria-label="parent_claim" aria-describedby="basic-addon2"
                                             {{ $personal && $personal->parent_claim == 1 ? 'checked' : '' }}>
@@ -311,20 +312,20 @@
                                             value="0" aria-label="parent_claim" aria-describedby="basic-addon2"
                                             {{ isset($personal) ? ((isset($personal) && $personal->parent_claim == 0) ? 'checked' : '') : 'checked' }}>
                                         <label class="form-check-label h6 pt-2"
-                                            for="parent_claim"><b>No</b></label>&nbsp;&nbsp;&nbsp;
-                                        <label class="h6 pt-2">Can a parent (or somebody else) claim
-                                            you as a dependent on their tax return?</label>
-                                    </div>
+                                            for="parent_claim"><b>No</b></label>
+                                        </div>
                                 </div>
-                                <div class="col-lg-1">
+                                <div class="col-lg-7 col-2 ps-lg-0 radio-label-custom-width ps-0">
+                                    <label class="h6 pt-2">Can a parent (or somebody else) claim
+                                        you as a dependent on their tax return?</label>
                                 </div>
                             </div>
                             <span class="d-flex justify-content-center">
-                                <hr class="mb-3 mt-0 w-75">
+                                <hr class="mb-3 mt-0 w-75 hr-custom-width">
                             </span>
                             <div class="row d-lg-flex justify-content-center">
-                                <div class="col-lg-8">
-                                    <div class="has-danger form-check form-check-inline mb-3">
+                                <div class="col-xl-2 col-lg-3 col-6 pe-0">
+                                    <div class="has-danger form-check form-check-inline mb-3 pe-3">
                                         <input class="form-check-input me-3 h4" name="campaign_contribution"
                                             type="radio" value="1" aria-label="campaign_contribution"
                                             aria-describedby="basic-addon2"
@@ -338,21 +339,21 @@
                                             aria-describedby="basic-addon2"
                                             {{ isset($personal) ? ((isset($personal) && $personal->campaign_contribution == 0) ? 'checked' : '') : 'checked' }}>
                                         <label class="form-check-label h6 pt-2"
-                                            for="campaign_contribution"><b>No</b></label>&nbsp;&nbsp;&nbsp;
-                                        <label class="h6 pt-2">Do you want to contribute $3 to the
-                                            Presidential Eelection Campaign Fund? <i
-                                                class="fa-regular fa-circle-question text-primary"></i></label>
+                                            for="campaign_contribution"><b>No</b></label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-1">
+                                    <div class="col-lg-7 col-2 ps-lg-0 radio-label-custom-width ps-0">
+                                    <label class="h6 pt-2">Do you want to contribute $3 to the
+                                        Presidential Eelection Campaign Fund? <i
+                                            class="fa-regular fa-circle-question text-primary"></i></label>
                                 </div>
                             </div>
                             <span class="d-flex justify-content-center">
-                                <hr class="mb-3 mt-0 w-75">
+                                <hr class="mb-3 mt-0 w-75 hr-custom-width">
                             </span>
                             <div class="row d-lg-flex justify-content-center">
-                                <div class="col-lg-8">
-                                    <div class="has-danger form-check form-check-inline mb-3">
+                                <div class="col-xl-2 col-lg-3 col-6 pe-0">
+                                    <div class="has-danger form-check form-check-inline mb-3 pe-3">
                                         <input class="form-check-input me-3 h4" name="blind" type="radio"
                                             value="1" aria-label="blind" aria-describedby="basic-addon2"
                                             {{ $personal && $personal->blind == 1 ? 'checked' : '' }}>
@@ -363,20 +364,20 @@
                                             value="0" aria-label="blind" aria-describedby="basic-addon2"
                                             {{ isset($personal) ? ((isset($personal) && $personal->blind == 0) ? 'checked' : '') : 'checked' }}>
                                         <label class="form-check-label h6 pt-2"
-                                            for="blind"><b>No</b></label>&nbsp;&nbsp;&nbsp;
-                                        <label class="h6 pt-2">Are you legally blind? <i
-                                                class="fa-regular fa-circle-question text-primary"></i></label>
+                                            for="blind"><b>No</b></label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-1">
+                                    <div class="col-lg-7 col-2 ps-lg-0 radio-label-custom-width ps-0">
+                                    <label class="h6 pt-2">Are you legally blind? <i
+                                            class="fa-regular fa-circle-question text-primary"></i></label>
                                 </div>
                             </div>
                             <span class="d-flex justify-content-center">
-                                <hr class="mb-0 mt-0 pt-0 w-75">
+                                <hr class="mb-0 mt-0 pt-0 w-75 hr-custom-width">
                             </span><br>
                             <div class="row d-lg-flex justify-content-center">
-                                <div class="col-lg-8">
-                                    <div class="has-danger form-check form-check-inline mb-3">
+                                <div class="col-xl-2 col-lg-3 col-6 pe-0">
+                                    <div class="has-danger form-check form-check-inline mb-3 pe-3">
                                         <input class="form-check-input me-3 h4" name="passed_away" type="radio"
                                             value="1" aria-label="passed_away" aria-describedby="basic-addon2"
                                             {{ $personal && $personal->passed_away == 1 ? 'checked' : '' }}>
@@ -387,17 +388,17 @@
                                             value="0" aria-label="passed_away" aria-describedby="basic-addon2"
                                             {{ isset($personal) ? ((isset($personal) && $personal->passed_away == 0) ? 'checked' : '') : 'checked' }}>
                                         <label class="form-check-label h6 pt-2"
-                                            for="passed_away"><b>No</b></label>&nbsp;&nbsp;&nbsp;
-                                        <label class="h6 pt-2">Has this person passed away before the
-                                            filing of this tax return? <i
-                                                class="fa-regular fa-circle-question text-primary"></i></label>
+                                            for="passed_away"><b>No</b></label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-1">
+                                    <div class="col-lg-7 col-2 ps-lg-0 radio-label-custom-width ps-0">
+                                    <label class="h6 pt-2">Has this person passed away before the
+                                        filing of this tax return? <i
+                                            class="fa-regular fa-circle-question text-primary"></i></label>
                                 </div>
                             </div><br>
                             <span class="d-flex justify-content-center">
-                                <hr class="mb-1 mt-0 pt-0 w-75">
+                                <hr class="mb-1 mt-0 pt-0 w-75 hr-custom-width">
                             </span><br>
                         </div>
                         <div class="tile-footer d-flex justify-content-end px-lg-5 mx-lg-5 mb-lg-4">
@@ -430,3 +431,41 @@
         </div>
     </div>
 @endsection
+
+@push('custom-scripts')
+    <script>
+        const ssn = document.getElementById('ssn');
+        ssn.addEventListener('input', function(event) {
+            // Get the current value of the input
+            const value = event.target.value;
+
+            // Check if the value exceeds the limit of 9 characters
+            if (value.length > 9) {
+                // If it exceeds, truncate the input value to 9 characters
+                event.target.value = value.slice(0, 9);
+            }
+        });
+
+        const last_name = document.getElementById('last_name');
+        last_name.addEventListener('input', function(event) {
+            const inputValue = event.target.value;
+
+            // Remove non-alphabetic characters and hyphens from the input value
+            const sanitizedValue = inputValue.replace(/[^A-Za-z\- .]/g, '');
+
+            // Update the input field value with the sanitized value
+            event.target.value = sanitizedValue;
+        });
+
+        const first_name = document.getElementById('first_name');
+        first_name.addEventListener('input', function(event) {
+            const inputValue = event.target.value;
+
+            // Remove non-alphabetic characters and hyphens from the input value
+            const sanitizedValue = inputValue.replace(/[^A-Za-z\- .]/g, '');
+
+            // Update the input field value with the sanitized value
+            event.target.value = sanitizedValue;
+        });
+    </script>
+@endpush

@@ -3,17 +3,17 @@
 @section('title', 'Income')
 
 @section('content')
-    <div class="d-flex justify-content-center p-4">
-        <div class="col-lg-9 shadow rounded-3">
+    <div class="d-flex justify-content-center p-lg-4 p-3">
+        <div class="col-lg-9 content-shadow shadow-none rounded-3">
             <div class="row p-4 pt-5">
                 <div class="d-lg-flex justify-content-between">
                     <i class="fa fa-arrow-left text-primary" aria-hidden="true"></i>
                 </div>
             </div>
-            <div class="row p-4 pt-0 mx-lg-5 px-lg-5">
+            <div class="row p-1 pt-0 mx-lg-5 px-lg-5">
                 <div class="col-lg-12">
                     <div class="tile">
-                        <h2 class="tile-title d-lg-flex justify-content-center h2"><b>Wages (Form W-2)</b></h2>
+                        <h2 class="tile-title d-flex justify-content-center text-center h2"><b>Wages (Form W-2)</b></h2>
                         <form action="{{ route('w-2.update', $w_2) }}" method="post">
                             <div class="tile-body">
                                 @method('PUT')
@@ -44,7 +44,7 @@
                                                 <div class="col-lg-6">
                                                     <label class="form-form-label h6" for="ein"><b>Box B</b> - Employer
                                                         Identification Number (EIN):</label>
-                                                    <input type="text" id="ein" class="form-control mb-3" value="{{ ($w_2 && $w_2->ein != null) ? $w_2->ein : '' }}"
+                                                    <input type="number" id="ein" class="form-control mb-3" value="{{ ($w_2 && $w_2->ein != null) ? $w_2->ein : '' }}"
                                                         name="ein">
                                                     <label class="form-form-label h6 pb-3" for="employer-name"><b>Box C</b>
                                                         -
@@ -148,13 +148,14 @@
                                                     </select>
                                                 </div>
                                                 <div class="col-lg-4">
+                                                    <br>
                                                     <label class="form-form-label h6" for="employer-city">Employer's Zip
                                                         Code:</label>
                                                     <div class="row">
                                                         @php
                                                             $zip_arr = json_decode($w_2->emp_zip, true)
                                                         @endphp
-                                                        <div class="col-lg-4">
+                                                        <div class="col-lg-4 col-4">
                                                             <div class="has-danger input-group">
                                                                 <input
                                                                     class="form-control @error('emp_zip1') is-invalid @enderror"
@@ -163,7 +164,7 @@
                                                             </div>
                                                         </div>
                                                         &lowbar;
-                                                        <div class="col-lg-4">
+                                                        <div class="col-lg-4 col-4">
                                                             <div class="has-danger input-group">
                                                                 <input
                                                                     class="form-control @error('emp_zip2') is-invalid @enderror"
@@ -396,6 +397,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-lg-6">
+                                                    <label class="form-form-label d-lg-none h6 pb-2" for="code_1">Code:</label>
                                                     <div class="has-danger input-group mb-3">
                                                         <select class="form-select @error('code_2') is-invalid @enderror"
                                                             name="code_2" aria-label="code_2"
@@ -434,6 +436,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
+                                                    <label class="form-form-label d-lg-none h6 pb-2" for="amount_1">Amount:</label>
                                                     <div class="has-danger input-group mb-3">
                                                         <span
                                                             class="input-group-text bg-disabled text-dark @error('amount_2') is-invalid border border-danger text-danger @enderror border-0 px-3"
@@ -447,22 +450,22 @@
                                             <div class="row">
                                                 <label class="form-form-label h6 pb-2" for="first_name"><b>Box
                                                         13</b></label>
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-4 col-4">
                                                     <label class="form-form-label h6 pb-2" for="first_name">Statutory
                                                         Employee</label>
                                                 </div>
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-4 col-4">
                                                     <label class="form-form-label h6 pb-2" for="first_name">Retirement
                                                         Plan</label>
                                                 </div>
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-4 col-4">
                                                     <label class="form-form-label h6 pb-2" for="first_name">Third-Party
                                                         Sick
                                                         Pay</label>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-4 col-4">
                                                     <input
                                                         class="form-check-input @error('statutory_employee') is-invalid @enderror h4 ms-1"
                                                         name="statutory_employee" type="checkbox"
@@ -470,7 +473,7 @@
                                                         aria-label="statutory_employee" aria-describedby="basic-addon2"
                                                         {{ $w_2 && $w_2->statutory_employee == 1 ? 'checked' : '' }}>
                                                 </div>
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-4 col-4">
                                                     <input
                                                         class="form-check-input @error('eetirement_plan') is-invalid @enderror h4 ms-1"
                                                         name="eetirement_plan" type="checkbox"
@@ -478,7 +481,7 @@
                                                         aria-label="eetirement_plan" aria-describedby="basic-addon2"
                                                         {{ $w_2 && $w_2->eetirement_plan == 1 ? 'checked' : '' }}>
                                                 </div>
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-4 col-4">
                                                     <input
                                                         class="form-check-input @error('third_party_pay') is-invalid @enderror h4 ms-1"
                                                         name="third_party_pay" type="checkbox"
@@ -654,52 +657,44 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-lg-4">
-                                                    <label class="form-form-label h6 pb-2"
+                                                    <label class="form-form-label h6 pb-3"
                                                         for="employer_local_wages"><b>Box
                                                             18</b> - Local Wages, Tips, Etc.:</label>
+                                                            <div class="has-danger input-group mb-3">
+                                                                <span
+                                                                    class="input-group-text bg-disabled text-dark @error('employer_local_wages') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                                                    id="basic-addon2"><b>$</b></span><input
+                                                                    class="form-control @error('employer_local_wages') is-invalid @enderror"
+                                                                    name="employer_local_wages" type="number" value="{{ ($w_2 && $w_2->employer_local_wages != null) ? $w_2->employer_local_wages : '' }}"
+                                                                    aria-label="employer_local_wages"
+                                                                    aria-describedby="basic-addon2">
+                                                            </div>
                                                 </div>
                                                 <div class="col-lg-4">
-                                                    <label class="form-form-label h6 pb-2"
+                                                    <label class="form-form-label h6 pb-3"
                                                         for="employer_local_income_tax"><b>Box 19</b>
                                                         - Local Income Tax:</label>
+                                                        <div class="has-danger input-group mb-3">
+                                                            <span
+                                                                class="input-group-text bg-disabled text-dark @error('employer_local_income_tax') is-invalid border border-danger text-danger @enderror border-0 px-3"
+                                                                id="basic-addon2"><b>$</b></span><input
+                                                                class="form-control @error('employer_local_income_tax') is-invalid @enderror"
+                                                                name="employer_local_income_tax" type="number"
+                                                                value="{{ ($w_2 && $w_2->employer_local_income_tax != null) ? $w_2->employer_local_income_tax : '' }}" aria-label="employer_local_income_tax"
+                                                                aria-describedby="basic-addon2">
+                                                        </div>
                                                 </div>
                                                 <div class="col-lg-4">
-                                                    <label class="form-form-label h6 pb-2" for="employer_locality"><b>Box
+                                                    <label class="form-form-label h6 pb-3" for="employer_locality"><b>Box
                                                             20</b> -
                                                         Locality Name:</label>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-lg-4">
-                                                    <div class="has-danger input-group mb-3">
-                                                        <span
-                                                            class="input-group-text bg-disabled text-dark @error('employer_local_wages') is-invalid border border-danger text-danger @enderror border-0 px-3"
-                                                            id="basic-addon2"><b>$</b></span><input
-                                                            class="form-control @error('employer_local_wages') is-invalid @enderror"
-                                                            name="employer_local_wages" type="number" value="{{ ($w_2 && $w_2->employer_local_wages != null) ? $w_2->employer_local_wages : '' }}"
-                                                            aria-label="employer_local_wages"
-                                                            aria-describedby="basic-addon2">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <div class="has-danger input-group mb-3">
-                                                        <span
-                                                            class="input-group-text bg-disabled text-dark @error('employer_local_income_tax') is-invalid border border-danger text-danger @enderror border-0 px-3"
-                                                            id="basic-addon2"><b>$</b></span><input
-                                                            class="form-control @error('employer_local_income_tax') is-invalid @enderror"
-                                                            name="employer_local_income_tax" type="number"
-                                                            value="{{ ($w_2 && $w_2->employer_local_income_tax != null) ? $w_2->employer_local_income_tax : '' }}" aria-label="employer_local_income_tax"
-                                                            aria-describedby="basic-addon2">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <div class="has-danger input-group mb-3">
-                                                        <input
-                                                            class="form-control @error('employer_locality') is-invalid @enderror"
-                                                            name="employer_locality" type="text" value="{{ ($w_2 && $w_2->employer_locality != null) ? $w_2->employer_locality : '' }}"
-                                                            aria-label="employer_locality"
-                                                            aria-describedby="basic-addon2">
-                                                    </div>
+                                                        <div class="has-danger input-group mb-3">
+                                                            <input
+                                                                class="form-control @error('employer_locality') is-invalid @enderror"
+                                                                name="employer_locality" type="text" value="{{ ($w_2 && $w_2->employer_locality != null) ? $w_2->employer_locality : '' }}"
+                                                                aria-label="employer_locality"
+                                                                aria-describedby="basic-addon2">
+                                                        </div>
                                                 </div>
                                             </div>
                                             <br><br><br>
@@ -708,63 +703,98 @@
                                                 <hr class="mb-1 w-100">
                                             </span><br>
                                             <div class="row ms-1">
-                                                <div class="col-lg-8 pb-5">
-                                                    <div class="has-danger form-check form-check-inline mb-3">
-                                                        <input class="form-check-input me-3 h4" name="w2_standard"
+                                                <div class="col-lg-8 col-12 ms-3 ms-lg-0 ps-lg-0 d-flex justify-content-start">
+                                                    <div class="has-danger form-check form-check-inline mb-3 pe-0">
+                                                        <input class="form-check-input h4" name="w2_standard"
                                                             type="radio" value="1" aria-label="w2_standard"
-                                                            aria-describedby="basic-addon2"
-                                                            {{ isset($w_2) && $w_2->w2_standard == 1 ? 'checked' : '' }}>
-                                                        <label class="form-check-label h6 pt-2" for="w2_standard">Standard
-                                                            W-2
-                                                            (most common)
-                                                        </label>
-                                                    </div>
-                                                    <div class="has-danger form-check form-check-inline mb-3">
-                                                        <input class="form-check-input me-3 h4" name="w2_standard"
+                                                            aria-describedby="basic-addon2" {{ isset($w_2) && $w_2->w2_standard == 1 ? 'checked' : '' }}>
+                                                            <label class="form-check-label h6 pt-2" for="w2_standard">Standard
+                                                                W-2
+                                                                (most common)
+                                                            </label>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                            <div class="row ms-1">
+                                                <div class="col-lg-8 col-12 ms-3 ms-lg-0 ps-lg-0 d-flex justify-content-start">
+                                                    <div class="has-danger form-check form-check-inline mb-3 pe-0">
+                                                        <input class="form-check-input h4" name="w2_standard"
                                                             type="radio" value="0" aria-label="w2_standard"
-                                                            aria-describedby="basic-addon2"
-                                                            {{ isset($w_2) && $w_2->w2_standard == 0 ? 'checked' : '' }}>
-                                                        <label class="form-check-label h6 pt-2"
-                                                            for="w2_standard">Nonstandard
-                                                            W-2 (handwritten, altered, or hand-typed)
-                                                        </label>&nbsp;&nbsp;&nbsp;
+                                                            aria-describedby="basic-addon2" {{ isset($w_2) && $w_2->w2_standard == 0 ? 'checked' : '' }}>
+                                                            <label class="form-check-label h6 pt-2"
+                                                                for="w2_standard">Nonstandard
+                                                                W-2 (handwritten, altered, or hand-typed)
+                                                            </label>
+                                                        </div>
                                                     </div>
-                                                    <br>
-                                                    <div class="form-check form-check-inline">
+                                            </div>
+                                            <div class="row ms-1 pt-3 pt-lg-0">
+                                                <div class="col-xl-2 col-lg-3 col-6 pe-1 d-flex justify-content-center">
+                                                    <div class="has-danger form-check form-check-inline mb-3 pe-3">
                                                         <input class="form-check-input h4" type="radio"
                                                             name="w2_corrected" id="w2_corrected" value="yes" {{ isset($w_2) && $w_2->w2_corrected == 'yes' ? 'checked' : '' }}>
                                                         <label class="form-check-label h6 pt-2"
                                                             for="w2_corrected"><b>Yes</b></label>
                                                     </div>
-                                                    <div class="form-check form-check-inline">
+                                                    <div class="has-danger form-check form-check-inline mb-3">
                                                         <input class="form-check-input h4" type="radio"
                                                             name="w2_corrected" id="w2_corrected" value="no" {{ isset($w_2) && $w_2->w2_corrected == 'no' ? 'checked' : '' }}>
                                                         <label class="form-check-label h6 pt-2"
                                                             for="w2_corrected"><b>No</b></label>
                                                     </div>
-                                                    <label class="form-form-label h6" for="employer-address">Is this a
+                                                </div>
+                                                <div class="col-lg-7 col-6 ps-lg-0 radio-label-custom-width ps-0">
+                                                    <label class="form-form-label h6 pt-2" for="employer-address">Is this a
                                                         corrected W-2 from your employer? <span class="text-secondary">(not
                                                             common)</span></label>
                                                 </div>
-                                                <div class="col-lg-1">
-                                                </div>
-                                                <span class="d-flex justify-content-center">
-                                                    <hr class="mb-1 mt-0 pt-0 w-100">
-                                                </span><br>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tile-footer d-flex justify-content-between mx-lg-5 mb-lg-4">
-                                    <a class="btn btn-white border border-primary rounded-0" href="{{ route('w-2.index') }}"><b
-                                        class="text-primary">Cancel</b></a>&nbsp;&nbsp;&nbsp;
-                                    <button class="btn btn-primary rounded-0" type="submit"><i class="me-2"></i><b
-                                            class="text-light">Save and Continue</b></button>
+                                <br><br><span class="d-flex justify-content-center">
+                                    <hr class="mb-1 mt-0 pt-0 w-100">
+                                </span><br>
+                            </div>
+                            <div class="tile-footer d-lg-flex justify-content-between mb-lg-4">
+                                <div class="row">
+                                    <div class="col-lg-8 w-100">
+                                        <button class="btn btn-primary rounded-0 d-block d-lg-none mb-2 button-custom-width" type="submit">
+                                            <b class="text-light">Save and Continue</b>
+                                        </button>
+                                        <a class="btn btn-white border border-primary rounded-0 button-custom-width"
+                                            href="{{ route('w-2.index') }}">
+                                            <b class="text-primary">Cancel</b>
+                                        </a>
+                                    </div>
                                 </div>
-                        </form>
+                                <div class="row">
+                                    <div class="col-lg-8 w-100">
+                                        <button class="btn btn-primary rounded-0 d-none d-lg-block button-custom-width" type="submit">
+                                            <b class="text-light">Save and Continue</b>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 @endsection
+
+@push('custom-scripts')
+    <script>
+        const employer_name = document.getElementById('employer-name');
+        employer_name.addEventListener('input', function(event) {
+            const inputValue = event.target.value;
+
+            // Remove non-alphabetic characters and hyphens from the input value
+            const sanitizedValue = inputValue.replace(/[^A-Za-z\- .]/g, '');
+
+            // Update the input field value with the sanitized value
+            event.target.value = sanitizedValue;
+        });
+    </script>
+@endpush
